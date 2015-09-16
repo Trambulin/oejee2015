@@ -1,0 +1,37 @@
+{
+	"period": "2015-2016/1"
+	"projects": [
+		{
+			"name": "Arrakis",
+			"description": "lorem ipsum dolor sit amet",
+			"members": [
+				{
+					"name": "Dávid Bedők",
+					"neptun": "Q59R7A",
+					"github": "davidbedok"
+				},
+				{
+					"name": "Nemecsek Erno",
+					"neptun": "NEMERNO",
+					"github": "nemerno"
+				}
+			]
+		},
+		{
+			"name": "MuadDib",
+			"description": "lorem ipsum dolor sit amet",
+			"members": [
+				{
+					"name": "Dávid Bedők",
+					"neptun": "Q59R7A",
+					"github": "davidbedok"
+				},
+				{
+					"name": "Nemecsek Erno",
+					"neptun": "NEMERNO",
+					"github": "nemerno"
+				}
+			]
+		}		
+	]
+}
