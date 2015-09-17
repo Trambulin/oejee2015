@@ -22,14 +22,14 @@
 			"description": "lorem ipsum dolor sit amet",
 			"members": [
 				{
-					"name": "Dávid Bedők",
-					"neptun": "Q59R7A",
-					"github": "davidbedok"
+					"name": "Teszt Elek",
+					"neptun": "TESELE",
+					"github": "testelek"
 				},
 				{
-					"name": "Nemecsek Erno",
-					"neptun": "NEMERNO",
-					"github": "nemerno"
+					"name": "Robot Robert",
+					"neptun": "ROBRBI",
+					"github": "robrobi"
 				}
 			]
 		}		
