@@ -1,4 +1,4 @@
-{
+﻿{
 	"period": "2015-2016/1"
 	"projects": [
 		{
@@ -30,6 +30,22 @@
 					"name": "Robot Robert",
 					"neptun": "ROBRBI",
 					"github": "robrobi"
+				}
+			]
+		},
+		{
+			"name": "ItsDummy",
+			"description": "It is related to web",
+			"members": [
+				{
+					"name": "Rábai Gábor",
+					"neptun": "T10JCO",
+					"github": "Trambulin"
+				},
+				{
+					"name": "Végvári Zoltán",
+					"neptun": "BRSEMF",
+					"github": "vegvarizoltan"
 				}
 			]
 		}		
