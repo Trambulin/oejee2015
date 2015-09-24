@@ -101,6 +101,22 @@
 					"github": "Tsunderino"
 				}
 			]
+		},
+		{
+			"name": "Our application",
+			"description": "Description of our application",
+			"members": [
+				{
+					"name": "Hídvégi Péter",
+					"neptun": "PYKLD9",
+					"github": "peterhidvegi"
+				},
+				{
+					"name": "Flaska Viktor",
+					"neptun": "G9I7GF",
+					"github": "fviktor93"
+				}
+			]
 		}
 	]
 }
