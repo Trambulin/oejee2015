@@ -85,6 +85,22 @@
 					"github": "ditrichb"
 				}
 			]
+		},
+		{
+			"name": "SleepTracker",
+			"description": "Application for monitoring sleep quality.",
+			"members": [
+				{
+					"name": "Zelenka Gabor",
+					"neptun": "BFQH15",
+					"github": "kicsiZii"
+				},
+				{
+					"name": "Tonte Gergely",
+					"neptun": "T66OH6",
+					"github": "Tsunderino"
+				}
+			]
 		}
 	]
 }
