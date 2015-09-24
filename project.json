@@ -48,8 +48,7 @@
 					"github": "vegvarizoltan"
 				}
 			]
-		}	
-		,
+		},
 		{
 			"name": "SomenewProject",
 			"description": "We will pass!",
@@ -63,14 +62,29 @@
 					"name": "Vizdák Milán",
 					"neptun": "G3YN4X",
 					"github": "Milthir"
-				}
-				,
+				},
 				{
 					"name": "Vecsey Balázs",
 					"neptun": "GFMFNN",
 					"github": "xxxx"
 				}
 			]
-		}		
+		},
+		{
+			"name": "JEEzusom",
+			"description": "Under dev",
+			"members": [
+				{
+					"name": "Bognár Márton",
+					"neptun": "ZPOIFS",
+					"github": "Marcibbx"
+				},
+				{
+					"name": "Ditrich Bence",
+					"neptun": "DLXMHC",
+					"github": "ditrichb"
+				}
+			]
+		}
 	]
 }
