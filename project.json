@@ -117,6 +117,22 @@
 					"github": "fviktor93"
 				}
 			]
+		},
+		{
+			"name": "Javacsinta",
+			"description": "Under dev",
+			"members": [
+				{
+					"name": "Czaholi Szabolcs",
+					"neptun": "OQGQU2",
+					"github": "czaholi"
+				},
+				{
+					"name": "Esse Zsolt",
+					"neptun": "E2WLSU",
+					"github": "geff10"
+				}
+			]
 		}
 	]
 }
