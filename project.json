@@ -48,6 +48,29 @@
 					"github": "vegvarizoltan"
 				}
 			]
+		}	
+		,
+		{
+			"name": "SomenewProject",
+			"description": "We will pass!",
+			"members": [
+				{
+					"name": "Takács Dániel",
+					"neptun": "MB6CVN",
+					"github": "shruikan2569"
+				},
+				{
+					"name": "Vizdák Milán",
+					"neptun": "G3YN4X",
+					"github": "Milthir"
+				}
+				,
+				{
+					"name": "Vecsey Balázs",
+					"neptun": "GFMFNN",
+					"github": "xxxx"
+				}
+			]
 		}		
 	]
 }
