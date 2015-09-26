@@ -133,6 +133,17 @@
 					"github": "geff10"
 				}
 			]
+		},
+		{
+			"name": "new JavaProject();",
+			"description": "new Desc();",
+			"members": [
+				{
+					"name": "Kalla Mór",
+					"neptun": "OT3WDH",
+					"github": "kallamor"
+				}
+			]
 		}
 	]
 }
