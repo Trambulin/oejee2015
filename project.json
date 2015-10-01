@@ -62,11 +62,6 @@
 					"name": "Vizdák Milán",
 					"neptun": "G3YN4X",
 					"github": "Milthir"
-				},
-				{
-					"name": "Vecsey Balázs",
-					"neptun": "GFMFNN",
-					"github": "xxxx"
 				}
 			]
 		},
@@ -142,6 +137,17 @@
 					"name": "Kalla Mór",
 					"neptun": "OT3WDH",
 					"github": "kallamor"
+				}
+			]
+		},
+		{
+			"name": "Team Awesome FTW",
+			"description": "pending...",
+			"members": [
+				{
+					"name": "Vecsey Balázs",
+					"neptun": "GFMFNN",
+					"github": "Balage"
 				}
 			]
 		}
