@@ -2,38 +2,6 @@
 	"period": "2015-2016/1"
 	"projects": [
 		{
-			"name": "Arrakis",
-			"description": "lorem ipsum dolor sit amet",
-			"members": [
-				{
-					"name": "Dávid Bedők",
-					"neptun": "Q59R7A",
-					"github": "davidbedok"
-				},
-				{
-					"name": "Nemecsek Erno",
-					"neptun": "NEMERNO",
-					"github": "nemerno"
-				}
-			]
-		},
-		{
-			"name": "MuadDib",
-			"description": "lorem ipsum dolor sit amet",
-			"members": [
-				{
-					"name": "Teszt Elek",
-					"neptun": "TESELE",
-					"github": "testelek"
-				},
-				{
-					"name": "Robot Robert",
-					"neptun": "ROBRBI",
-					"github": "robrobi"
-				}
-			]
-		},
-		{
 			"name": "ItsDummy",
 			"description": "It is related to web",
 			"members": [
@@ -98,7 +66,7 @@
 			]
 		},
 		{
-			"name": "Our application",
+			"name": "Ourapplication",
 			"description": "Description of our application",
 			"members": [
 				{
@@ -130,7 +98,7 @@
 			]
 		},
 		{
-			"name": "new JavaProject();",
+			"name": "newJavaProject",
 			"description": "new Desc();",
 			"members": [
 				{
@@ -141,7 +109,7 @@
 			]
 		},
 		{
-			"name": "Team Awesome FTW",
+			"name": "TeamAwesomeFTW",
 			"description": "pending...",
 			"members": [
 				{
