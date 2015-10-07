@@ -45,27 +45,27 @@ INSERT INTO workout (workout_name,workout_hardness,workout_number_of_people,work
 
 
 
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(1,'erőemelés');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(2,'erőemelés');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(3,'crossfit');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(4,'küzdősport/önvédelem');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(5,'box');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(6,'állóképesség');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(7,'súlyemelés');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(8,'erőemelés');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(9,'crossfit');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(10,'saját testsúlyos');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(11,'saját testsúlyos');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(12,'saját testsúlyos');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(13,'nyújtás');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(14,'jóga');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(15,'saját testsúlyos');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(16,'állóképesség');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(17,'tánc');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(18,'küzdősport/önvédelem');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(19,'alakformáló');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(20,'alakformáló');
-INSERT INTO workout_type (workout_type_name,workout_id) VALUES(21,'állóképesség');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(1,'erőemelés');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(2,'erőemelés');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(3,'crossfit');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(4,'küzdősport/önvédelem');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(5,'box');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(6,'állóképesség');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(7,'súlyemelés');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(8,'erőemelés');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(9,'crossfit');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(10,'saját testsúlyos');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(11,'saját testsúlyos');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(12,'saját testsúlyos');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(13,'nyújtás');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(14,'jóga');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(15,'saját testsúlyos');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(16,'állóképesség');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(17,'tánc');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(18,'küzdősport/önvédelem');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(19,'alakformáló');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(20,'alakformáló');
+INSERT INTO workout_type (workout_id,workout_type_name) VALUES(21,'állóképesség');
 
 
 INSERT INTO trainer_contact (trainer_id,trainer_contact_type,trainer_contact_value) VALUES(2,'telefon','+36304223670');
