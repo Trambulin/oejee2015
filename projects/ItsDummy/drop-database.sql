@@ -1,1 +1,1 @@
-﻿DROP DATABASE ItsDummydb;
+DROP DATABASE itsdummydb;

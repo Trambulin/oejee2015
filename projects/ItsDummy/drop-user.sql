@@ -1,1 +1,1 @@
-﻿DROP ROLE istdummy_user;
+DROP ROLE itsdummy_user;

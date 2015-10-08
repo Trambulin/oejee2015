@@ -1,1 +1,1 @@
-﻿CREATE DATABASE ItsDummydb;
+CREATE DATABASE itsdummydb;

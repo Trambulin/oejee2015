@@ -1,1 +1,1 @@
-﻿GRANT SELECT, INSERT, UPDATE, DELETE ON brand, cartype, car, customer, rent TO itsdummy_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON brand, cartype, car, customer, rent TO itsdummy_role;
