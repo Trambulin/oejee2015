@@ -1,0 +1,1 @@
+GRANT SELECT, INSERT, UPDATE, DELETE ON trainer,workout,workout_type,trainer_qualification,trainer_contact,timetable TO gymowner_role;

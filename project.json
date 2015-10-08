@@ -2,38 +2,6 @@
 	"period": "2015-2016/1"
 	"projects": [
 		{
-			"name": "Arrakis",
-			"description": "lorem ipsum dolor sit amet",
-			"members": [
-				{
-					"name": "Dávid Bedők",
-					"neptun": "Q59R7A",
-					"github": "davidbedok"
-				},
-				{
-					"name": "Nemecsek Erno",
-					"neptun": "NEMERNO",
-					"github": "nemerno"
-				}
-			]
-		},
-		{
-			"name": "MuadDib",
-			"description": "lorem ipsum dolor sit amet",
-			"members": [
-				{
-					"name": "Teszt Elek",
-					"neptun": "TESELE",
-					"github": "testelek"
-				},
-				{
-					"name": "Robot Robert",
-					"neptun": "ROBRBI",
-					"github": "robrobi"
-				}
-			]
-		},
-		{
 			"name": "ItsDummy",
 			"description": "It is related to web",
 			"members": [
@@ -62,11 +30,6 @@
 					"name": "Vizdák Milán",
 					"neptun": "G3YN4X",
 					"github": "Milthir"
-				},
-				{
-					"name": "Vecsey Balázs",
-					"neptun": "GFMFNN",
-					"github": "xxxx"
 				}
 			]
 		},
@@ -99,6 +62,60 @@
 					"name": "Tonte Gergely",
 					"neptun": "T66OH6",
 					"github": "Tsunderino"
+				}
+			]
+		},
+		{
+			"name": "Ourapplication",
+			"description": "Description of our application",
+			"members": [
+				{
+					"name": "Hídvégi Péter",
+					"neptun": "PYKLD9",
+					"github": "peterhidvegi"
+				},
+				{
+					"name": "Flaska Viktor",
+					"neptun": "G9I7GF",
+					"github": "fviktor93"
+				}
+			]
+		},
+		{
+			"name": "Javacsinta",
+			"description": "Under dev",
+			"members": [
+				{
+					"name": "Czaholi Szabolcs",
+					"neptun": "OQGQU2",
+					"github": "czaholi"
+				},
+				{
+					"name": "Esse Zsolt",
+					"neptun": "E2WLSU",
+					"github": "geff10"
+				}
+			]
+		},
+		{
+			"name": "newJavaProject",
+			"description": "new Desc();",
+			"members": [
+				{
+					"name": "Kalla Mór",
+					"neptun": "OT3WDH",
+					"github": "kallamor"
+				}
+			]
+		},
+		{
+			"name": "TeamAwesomeFTW",
+			"description": "pending...",
+			"members": [
+				{
+					"name": "Vecsey Balázs",
+					"neptun": "GFMFNN",
+					"github": "Balage"
 				}
 			]
 		}

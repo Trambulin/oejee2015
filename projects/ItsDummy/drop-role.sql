@@ -1,0 +1,1 @@
+﻿DROP ROLE itsdummy_role;

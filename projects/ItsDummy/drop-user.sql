@@ -1,0 +1,1 @@
+﻿DROP ROLE istdummy_user;
