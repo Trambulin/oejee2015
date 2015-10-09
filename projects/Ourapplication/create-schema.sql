@@ -49,3 +49,38 @@ CREATE TABLE c_user(
 		CONSTRAINT PK_C_USER_ID PRIMARY KEY(c_user_login)
 );
 ALTER TABLE c_user OWNER TO postgres;
+
+CREATE TABLE condominium_owner(
+		condominium_owner_id INTEGER NOT NULL,
+		owner_id INTEGER NOT NULL,
+		condominium_id INTEGER NOT NULL, 
+		stair INTEGER NOT NULL,
+		door INTEGER NOT NULL,
+		CONSTRAINT PK_CONDOMINIUM_OWNER_ID PRIMARY KEY(condominium_owner_id)
+);
+ALTER TABLE condominium_owner OWNER TO postgres;
+
+CREATE TABLE notification(
+		notification_id INTEGER NOT NULL,
+		condominium_owner_id INTEGER NOT NULL, --fk_condominium_owner
+		notification_message CHARACTER VARYING(200) NOT NULL,
+		notification_date DATE NOT NULL,
+		notification_answer CHARACTER VARYING(150) NOT NULL,
+		notification_completed INTEGER NOT NULL,
+		CONSTRAINT PK_NOTIFICATION_ID PRIMARY KEY(notification_id),
+		CONSTRAINT FK_NOTIFICATION FOREIGN KEY (condominium_owner_id)
+		REFERENCES condominium_owner (condominium_owner_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
+);
+ALTER TABLE notification OWNER TO postgres;
+
+CREATE TABLE repair_notification(
+		repair_notification_id INTEGER NOT NULL,
+		repair_id INTEGER NOT NULL,
+		notification_id INTEGER NOT NULL,
+		CONSTRAINT PK_REPAIR_NOTIFICATION_ID PRIMARY KEY (repair_notification_id),
+		CONSTRAINT FK_NOTIFICATION FOREIGN KEY (repair_id)
+		REFERENCES repair (repair_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT,
+		CONSTRAINT FK_REPAIR FOREIGN KEY (notification_id)
+		REFERENCES notification (notification_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
+);
+ALTER TABLE repair_notification OWNER TO postgres;
