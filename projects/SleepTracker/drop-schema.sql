@@ -1,0 +1,8 @@
+DROP TABLE Sleep;
+DROP TABLE Day;
+DROP TABLE Rating;
+DROP TABLE Feel;
+DROP TABLE Sport;
+DROP TABLE Type;
+DROP TABLE Meal;
+DROP TABLE User_account;
