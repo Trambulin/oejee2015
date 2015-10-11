@@ -1,5 +1,5 @@
 CREATE TABLE c_type(
-	c_type_id INTEGER NOT NULL,
+	c_type_id SERIAL NOT NULL,
 	c_type_name CHARACTER VARYING(40) NOT NULL,
 	CONSTRAINT PK_C_TYPE_ID PRIMARY KEY (c_type_id)
 );
@@ -7,7 +7,7 @@ CREATE TABLE c_type(
 ALTER TABLE c_type OWNER TO postgres;
 
 CREATE TABLE condominium(
-	condominium_id INTEGER NOT NULL,
+	condominium_id SERIAL NOT NULL,
 	condominium_loc CHARACTER VARYING(100) NOT NULL,	--location
 	condominium_floors INTEGER NOT NULL,
 	condominium_build_year DATE NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE condominium(
 ALTER TABLE condominium OWNER TO postgres;
 
 CREATE TABLE c_owner(
-	c_owner_id INTEGER NOT NULL,
+	c_owner_id SERIAL NOT NULL,
 	c_owner_name CHARACTER VARYING(120) NOT NULL,
 	c_owner_birt_date DATE,
 	c_owner_gender CHARACTER VARYING(1) NOT NULL,-- m: male, f:female
@@ -30,7 +30,7 @@ CREATE TABLE c_owner(
 ALTER TABLE c_owner OWNER TO postgres;
 
 CREATE TABLE repair(
-	repair_id INTEGER NOT NULL,
+	repair_id SERIAL NOT NULL,
 	repair_con_id INTEGER NOT NULL,	--condominium_id
 	repair_description TEXT,
 	repair_price REAL NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE condominium_owner(
 ALTER TABLE condominium_owner OWNER TO postgres;
 
 CREATE TABLE notification(
-		notification_id INTEGER NOT NULL,
+		notification_id SERIAL NOT NULL,
 		condominium_owner_id INTEGER NOT NULL, --fk_condominium_owner
 		notification_message CHARACTER VARYING(200) NOT NULL,
 		notification_date DATE NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE notification(
 ALTER TABLE notification OWNER TO postgres;
 
 CREATE TABLE repair_notification(
-		repair_notification_id INTEGER NOT NULL,
+		repair_notification_id SERIAL NOT NULL,
 		repair_id INTEGER NOT NULL,
 		notification_id INTEGER NOT NULL,
 		CONSTRAINT PK_REPAIR_NOTIFICATION_ID PRIMARY KEY (repair_notification_id),
