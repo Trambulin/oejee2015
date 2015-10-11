@@ -90,6 +90,8 @@ CREATE TABLE order_master (
 	  REFERENCES delivery_status (delivery_status_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
+CREATE  SEQUENCE SQ_ORDER_MASTER_ID  NO MAXVALUE  START WITH  1;
+
 ALTER TABLE order_master OWNER TO postgres;
 
 CREATE TABLE order_detail (
