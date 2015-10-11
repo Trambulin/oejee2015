@@ -6,6 +6,9 @@ CREATE TABLE pancake (
 	CONSTRAINT PK_PANCAKE_ID PRIMARY KEY (pancake_id)
 );
 
+CREATE UNIQUE INDEX UQI_PANCAKE_NAME ON pancake (pancake_name);
+CREATE INDEX IX_PANCAKE_PRICE ON pancake (pancake_price);
+	
 ALTER TABLE pancake OWNER TO postgres;
 
 CREATE TABLE address (
@@ -16,6 +19,7 @@ CREATE TABLE address (
 	CONSTRAINT PK_ADDRESS_ID PRIMARY KEY (address_id)
 	
 );
+CREATE INDEX IX_POSTCODE ON address (address_postcode);
 
 ALTER TABLE address OWNER TO postgres;
 
@@ -42,6 +46,8 @@ CREATE TABLE customer (
 	CONSTRAINT FK_CUSTOMER_PAYMENT_METHOD FOREIGN KEY (customer_payment_method_id)
 	  REFERENCES payment_method (payment_method_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
 );
+
+CREATE UNIQUE INDEX UQI_CUSTOMER_EMAIL ON customer (customer_email);
 
 ALTER TABLE customer OWNER TO postgres;
 
