@@ -1,0 +1,1 @@
+DROP ROLE somenewprojectdb_role;
