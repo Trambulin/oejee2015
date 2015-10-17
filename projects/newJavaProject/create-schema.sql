@@ -22,7 +22,7 @@ ALTER TABLE workout OWNER TO postgres;
 
 CREATE TABLE workout_type(
 workout_id INTEGER NOT NULL,
-workout_type_name CHARACTER VARYING(20),
+workout_type_name CHARACTER VARYING(25),
 FOREIGN KEY(workout_id) REFERENCES workout(workout_id));
 
 ALTER TABLE workout_type OWNER TO postgres;
@@ -52,7 +52,7 @@ ALTER TABLE trainer_contact OWNER TO postgres;
 CREATE TABLE timetable(
 timetable_id SERIAL NOT NULL,
 timetable_room CHARACTER VARYING(15) NOT NULL,
-timetable_day CHARACTER VARYING(10) NOT NULL,
+timetable_day CHARACTER VARYING(15) NOT NULL,
 timetable_time CHARACTER VARYING(5) NOT NULL,
 workout_id INTEGER NOT NULL,
 PRIMARY KEY (timetable_id),
@@ -60,5 +60,5 @@ FOREIGN KEY (workout_id) REFERENCES workout(workout_id));
 
 ALTER TABLE timetable OWNER TO postgres;
 
-CREATE UNIQUE INDEX WORKOUT_NAME ON workout USING btree (workout_name);
+CREATE UNIQUE INDEX WORKOUT_NAME ON workout USING btree (workout_name, workout_hardness);
 CREATE UNIQUE INDEX TRAINER_NAME ON trainer USING btree (trainer_name);
