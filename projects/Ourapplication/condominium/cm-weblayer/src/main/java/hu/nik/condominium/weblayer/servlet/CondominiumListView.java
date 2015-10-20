@@ -20,7 +20,6 @@ import hu.nik.condominium.ejbservice.facade.CondominiumFacade;
 
 @WebServlet("/CondominiumList")
 public class CondominiumListView extends HttpServlet {
-
 	private static final long serialVersionUID = 666L;
 	private static final Logger LOGGER = Logger.getLogger(CondominiumListView.class);
 
@@ -32,9 +31,13 @@ public class CondominiumListView extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		LOGGER.info("Get All Condominiums");
 		try {
 			final List<CondominiumStub> coundominiums = this.facade.getCondominiums(new CondominiumCriteria());
+			if (coundominiums.size() == 0) {
+				LOGGER.error("----------SHIT HAPPEND---------");
+			}
 			request.setAttribute(ATTRIBUTE_CONDOMINIUMS, coundominiums);
 		} catch (final FacadeException e) {
 			LOGGER.error(e, e);

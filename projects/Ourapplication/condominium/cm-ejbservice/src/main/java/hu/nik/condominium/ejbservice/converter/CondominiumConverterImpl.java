@@ -13,7 +13,8 @@ public class CondominiumConverterImpl implements CondominiumConverter {
 
 	@Override
 	public CondominiumStub to(Condominium condominium) {
-		return new CondominiumStub(condominium.getId(), condominium.getBuildYear(), condominium.getFloors());
+		return new CondominiumStub(condominium.getId(), condominium.getBuildYear(), condominium.getFloors(), condominium.getType().getName(),
+				condominium.getLocation());
 	}
 
 	@Override

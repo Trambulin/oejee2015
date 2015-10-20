@@ -1,11 +1,15 @@
 package hu.nik.condominium.persistence.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "c_type")
 public class CondominiumType {
 
 	@Id
@@ -17,6 +21,9 @@ public class CondominiumType {
 	@Column(name = "c_type_name", nullable = false)
 	private String name;
 
+	/*
+	 * @OneToMany(fetch = FetchType.LAZY, mappedBy = "c_type_id") public List<Condominium> condominiums;
+	 */
 	public Long getId() {
 		return this.id;
 	}

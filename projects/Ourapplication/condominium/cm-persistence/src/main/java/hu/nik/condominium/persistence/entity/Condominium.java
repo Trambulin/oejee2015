@@ -1,12 +1,15 @@
 package hu.nik.condominium.persistence.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
@@ -43,7 +46,19 @@ public class Condominium implements Serializable {
 	private Integer floors;
 
 	@Column(name = "condominium_build_year", nullable = false)
-	private Integer buildYear;
+	private Date buildYear;
+
+	@ManyToOne(targetEntity = CondominiumType.class)
+	@JoinColumn(/* referencedColumnName = "c_type_id", */ name = "condominium_type", nullable = false)
+	private CondominiumType type;
+
+	public CondominiumType getType() {
+		return this.type;
+	}
+
+	public void setType(CondominiumType type) {
+		this.type = type;
+	}
 
 	public String getLoc() {
 		return this.location;
@@ -82,11 +97,11 @@ public class Condominium implements Serializable {
 		this.floors = floors;
 	}
 
-	public Integer getBuildYear() {
+	public Date getBuildYear() {
 		return this.buildYear;
 	}
 
-	public void setBuildYear(Integer buildYear) {
+	public void setBuildYear(Date buildYear) {
 		this.buildYear = buildYear;
 	}
 }
