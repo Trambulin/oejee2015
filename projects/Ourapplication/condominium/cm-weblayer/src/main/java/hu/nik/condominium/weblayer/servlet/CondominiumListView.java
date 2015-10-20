@@ -35,9 +35,6 @@ public class CondominiumListView extends HttpServlet {
 		LOGGER.info("Get All Condominiums");
 		try {
 			final List<CondominiumStub> coundominiums = this.facade.getCondominiums(new CondominiumCriteria());
-			if (coundominiums.size() == 0) {
-				LOGGER.error("----------SHIT HAPPEND---------");
-			}
 			request.setAttribute(ATTRIBUTE_CONDOMINIUMS, coundominiums);
 		} catch (final FacadeException e) {
 			LOGGER.error(e, e);
