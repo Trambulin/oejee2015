@@ -4,7 +4,7 @@ body {
 	background-color: #ffffff;
 }
 
-.bookstable {
+.carstable {
 	color: black;
 	font-weight: normal;
 	padding: 0px;
@@ -17,12 +17,12 @@ body {
 	width: 600px;
 }
 
-.bookstable thead {
+.carstable thead {
 	text-align: center;
 	font-weight: bold;
 }
 
-.bookstable td, .bookstable th {
+.carstable td, .carstable th {
 	border: 1px solid;
 	padding: 2px;
 }

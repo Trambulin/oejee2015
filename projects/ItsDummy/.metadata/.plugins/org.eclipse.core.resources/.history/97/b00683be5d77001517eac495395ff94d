@@ -1,0 +1,5 @@
+package hu.servlet;
+
+public class CarListView {
+
+}

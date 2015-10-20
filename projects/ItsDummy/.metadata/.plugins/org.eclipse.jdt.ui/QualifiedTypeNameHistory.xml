@@ -26,8 +26,17 @@
 <fullyQualifiedTypeName name="hu.service.RentService"/>
 <fullyQualifiedTypeName name="hu.entity.Rent"/>
 <fullyQualifiedTypeName name="hu.domain.CustomerStub"/>
+<fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="javax.ejb.EJB"/>
 <fullyQualifiedTypeName name="hu.facade.CarFacade"/>
-<fullyQualifiedTypeName name="hu.exception.FacadeException"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletException"/>
 <fullyQualifiedTypeName name="hu.domain.CarStub"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="hu.exception.FacadeException"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 </qualifiedTypeNameHistroy>
