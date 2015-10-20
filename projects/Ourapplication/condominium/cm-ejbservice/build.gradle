@@ -1,0 +1,5 @@
+jar { archiveName 'cm-ejbservice.jar' }
+
+dependencies {
+	compile project(':cm-persistence')
+}

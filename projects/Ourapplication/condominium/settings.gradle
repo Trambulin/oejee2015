@@ -1,0 +1,3 @@
+include 'cm-ejbservice'
+include 'cm-weblayer'
+include 'cm-persistence'
