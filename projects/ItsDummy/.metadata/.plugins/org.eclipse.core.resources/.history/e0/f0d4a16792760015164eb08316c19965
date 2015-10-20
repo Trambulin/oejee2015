@@ -1,7 +1,0 @@
-package hu.entity;
-
-import java.io.Serializable;
-
-public class Rent implements Serializable {
-
-}

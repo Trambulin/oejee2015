@@ -1,8 +1,0 @@
-package hu.query;
-
-public class RentQuery {
-
-	public static final String GET_ALL_EXPIRATED = "Rent.getAllExpired";
-	public static final String GET_ALL_ACTUAL = "Rent.getAllActual";
-	public static final String GET_ALL = "Rent.getAll";
-}
