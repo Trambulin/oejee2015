@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="hu.parameter.CartypeParameter"/>
+<fullyQualifiedTypeName name="hu.query.CartypeQuery"/>
+<fullyQualifiedTypeName name="hu.service.CartypeServiceImpl"/>
+<fullyQualifiedTypeName name="hu.query.CarQuery"/>
+<fullyQualifiedTypeName name="javax.ejb.Local"/>
+<fullyQualifiedTypeName name="hu.parameter.CarParameter"/>
+<fullyQualifiedTypeName name="hu.query.CustomerQuery"/>
+<fullyQualifiedTypeName name="hu.parameter.CustomerParameter"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="hu.service.CarServiceImpl"/>
+<fullyQualifiedTypeName name="hu.service.CustomerServiceImpl"/>
+<fullyQualifiedTypeName name="hu.query.RentQuery"/>
+<fullyQualifiedTypeName name="hu.service.CarService"/>
+<fullyQualifiedTypeName name="hu.exception.PersistenceServiceException"/>
+<fullyQualifiedTypeName name="hu.service.CartypeService"/>
+<fullyQualifiedTypeName name="hu.entity.Car"/>
+<fullyQualifiedTypeName name="hu.entity.trunk.Cartype"/>
+<fullyQualifiedTypeName name="hu.domain.BrandStub"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="hu.service.CustomerService"/>
+<fullyQualifiedTypeName name="hu.entity.Customer"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="hu.domain.RentStub"/>
+<fullyQualifiedTypeName name="hu.service.RentService"/>
+<fullyQualifiedTypeName name="hu.entity.Rent"/>
+<fullyQualifiedTypeName name="hu.domain.CustomerStub"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="hu.facade.CarFacade"/>
+<fullyQualifiedTypeName name="hu.exception.FacadeException"/>
+<fullyQualifiedTypeName name="hu.domain.CarStub"/>
+</qualifiedTypeNameHistroy>

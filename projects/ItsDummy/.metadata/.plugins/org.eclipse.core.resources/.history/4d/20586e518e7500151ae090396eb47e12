@@ -1,0 +1,5 @@
+package hu.entity;
+
+public class Car {
+
+}

@@ -1,0 +1,18 @@
+1445166196469	Delete element
+1445167863662	Encapsulate field 'id'
+1445167884859	Encapsulate field 'model'
+1445167902075	Encapsulate field 'brand'
+1445169731790	Encapsulate field 'id'
+1445169739719	Encapsulate field 'cartype_id'
+1445169749290	Encapsulate field 'date'
+1445169757577	Encapsulate field 'fuel'
+1445169765434	Encapsulate field 'color'
+1445169774413	Encapsulate field 'price'
+1445171012021	Delete element
+1445172559091	Delete element
+1445172563573	Delete element
+1445174780960	Delete element
+1445175446763	Encapsulate field 'id'
+1445175456756	Encapsulate field 'name'
+1445175465524	Encapsulate field 'login_name'
+1445175477587	Encapsulate field 'passwd'

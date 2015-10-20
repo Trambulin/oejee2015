@@ -1,0 +1,5 @@
+package hu.converter;
+
+public interface CarConverter {
+
+}
