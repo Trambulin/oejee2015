@@ -1,5 +1,5 @@
 package hu.sas.persistance.entity;
 
-public class asd {
+public class UserAccount {
 
 }
