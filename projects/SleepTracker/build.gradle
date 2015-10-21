@@ -1,2 +1,9 @@
 apply plugin: 'eclipse'
 apply plugin: 'ear'
+
+
+dependencies {
+	deploy project('sas-ejbservice')
+	deploy project(path: 'sas-weblayer',
+	configuration: 'archives')
+}
