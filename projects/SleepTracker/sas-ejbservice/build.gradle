@@ -1,0 +1,5 @@
+jar { archiveName 'sas-ejbservice.jar' }
+
+dependencies {
+	compile project(':sas-persistence')
+}
