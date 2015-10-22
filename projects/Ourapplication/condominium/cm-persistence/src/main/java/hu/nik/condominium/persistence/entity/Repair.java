@@ -1,10 +1,13 @@
 package hu.nik.condominium.persistence.entity;
 
+import hu.nik.condominium.persistence.query.RepairQuery;
+
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
 @Table(name = "repair")
+@NamedQuery(name = RepairQuery.GET_ALL, query = "SELECT r FROM Repair r ORDER BY r.id")
 public class Repair {
 
     @Id

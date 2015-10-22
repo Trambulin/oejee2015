@@ -10,8 +10,9 @@ import hu.nik.condominium.persistence.service.ReparService;
 import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import java.util.List;
-
+@Stateless(mappedName = "ejb/repairFacade")
 public class RepairFacadeImpl implements RepairFacade {
 
     private static final Logger LOGGER = Logger.getLogger(RepairFacadeImpl.class);
