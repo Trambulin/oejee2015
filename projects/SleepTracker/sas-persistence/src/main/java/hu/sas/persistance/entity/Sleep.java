@@ -2,6 +2,7 @@ package hu.sas.persistance.entity;
 
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,10 +41,10 @@ public class Sleep implements Serializable {
 	private User user;
 
 	@Column(name = "StartTime", nullable = false)
-	private String starttime;
+	private Date starttime;
 
 	@Column(name = "EndTime", nullable = false)
-	private String endtime;
+	private Date endtime;
 
 	@Column(name = "RatingID", nullable = false)
 	private Rating rating;
@@ -77,19 +78,19 @@ public class Sleep implements Serializable {
 		this.user = user;
 	}
 
-	public String getStartTime() {
+	public Date getStartTime() {
 		return this.starttime;
 	}
 
-	public void setStartTime(String starttime) {
+	public void setStartTime(Date starttime) {
 		this.starttime = starttime;
 	}
 
-	public String getEndTime() {
+	public Date getEndTime() {
 		return this.endtime;
 	}
 
-	public void setEndTime(String endtime) {
+	public void setEndTime(Date endtime) {
 		this.endtime = endtime;
 	}
 
@@ -109,18 +110,26 @@ public class Sleep implements Serializable {
 		this.meal = meal;
 	}
 
-	public Meal getMeal() {
-		return this.meal;
+	public Sport getSport() {
+		return this.sport;
 	}
 
-	public void setMeal(Meal meal) {
-		this.meal = meal;
+	public void setSport(Sport sport) {
+		this.sport = sport;
+	}
+	
+	public DateOfDay getDateOfDay() {
+		return this.dateofday;
 	}
 
+	public void setDateOfDay(DateOfDay dateofday) {
+		this.dateofday = dateofday;
+	}
+	
 	@Override
 	public String toString() {
-		return "Book [id=" + this.id + ", isbn=" + this.isbn + ", author=" + this.author + ", title=" + this.title + ", category=" + this.category + ", price="
-				+ this.price + ", numberOfPages=" + this.numberOfPages + "]";
+		return "Sleep [id=" + this.sleep + ", user=" + this.user + ", start time=" + this.starttime + ", end time=" + this.endtime + ", rating=" + this.rating + ", meal="
+				+ this.meal + ", sport=" + this.sport + "date of day:" + this.dateofday +"]";
 	}
 	
 }
