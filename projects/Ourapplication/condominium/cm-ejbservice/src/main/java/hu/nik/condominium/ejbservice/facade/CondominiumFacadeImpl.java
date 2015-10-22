@@ -1,19 +1,16 @@
 package hu.nik.condominium.ejbservice.facade;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
-
-import org.apache.log4j.Logger;
-
 import hu.nik.condominium.ejbservice.converter.CondominiumConverter;
 import hu.nik.condominium.ejbservice.domain.CondominiumCriteria;
 import hu.nik.condominium.ejbservice.domain.CondominiumStub;
 import hu.nik.condominium.ejbservice.exception.FacadeException;
 import hu.nik.condominium.persistence.exception.PersistenceServiceException;
 import hu.nik.condominium.persistence.service.CondominiumService;
+import org.apache.log4j.Logger;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import java.util.List;
 
 @Stateless(mappedName = "ejb/condominiumFacade")
 public class CondominiumFacadeImpl implements CondominiumFacade {
@@ -43,7 +40,7 @@ public class CondominiumFacadeImpl implements CondominiumFacade {
 
 	@Override
 	public List<CondominiumStub> getCondominiums(CondominiumCriteria criteria) throws FacadeException {
-		List<CondominiumStub> stubs = new ArrayList<>();
+		List<CondominiumStub> stubs;
 		try {
 			stubs = this.converter.to(this.service.readAll());
 			if (LOGGER.isDebugEnabled()) {
