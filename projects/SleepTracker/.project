@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SleepTracker</name>
-	<comment></comment>
-	<projects>
-	</projects>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-	</buildSpec>
-	<natures>
-		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
-	</natures>
 	<filteredResources>
 		<filter>
 			<id>1445486305794</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -26,7 +12,7 @@
 		</filter>
 		<filter>
 			<id>1445486305808</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -35,7 +21,7 @@
 		</filter>
 		<filter>
 			<id>1445486305819</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -44,7 +30,7 @@
 		</filter>
 		<filter>
 			<id>1445486305830</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -53,7 +39,7 @@
 		</filter>
 		<filter>
 			<id>1445486305842</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -61,4 +47,17 @@
 			</matcher>
 		</filter>
 	</filteredResources>
+	<name>SleepTracker</name>
+	<comment/>
+	<projects/>
+	<natures>
+		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
+	</natures>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<linkedResources/>
 </projectDescription>
