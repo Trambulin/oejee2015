@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.Set" %>  
-<%@ page import="hu.morkalla.gymproject.ejbservice.domain.trainerStub" %> 
+<%@ page import="hu.morkalla.gymproject.ejbservice.domain.TrainerStub" %> 
 <% TrainerStub trainer = (TrainerStub) request.getAttribute("trainer"); %>
 <!DOCTYPE html>
 <html>

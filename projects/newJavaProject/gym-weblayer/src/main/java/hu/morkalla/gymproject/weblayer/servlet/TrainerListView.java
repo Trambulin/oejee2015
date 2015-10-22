@@ -24,7 +24,7 @@ public class TrainerListView extends HttpServlet {
 
 	private static final Logger LOGGER = Logger.getLogger(TrainerListView.class);
 
-	private static final String ATTRIBUTE_BOOKS = "trainers";
+	private static final String ATTRIBUTE_TRAINERS = "trainers";
 	private static final String PAGE = "list.jsp";
 
 	@EJB
@@ -32,10 +32,10 @@ public class TrainerListView extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LOGGER.info("Get All Books");
+		LOGGER.info("Get All Trainers");
 		try {
-			final List<TrainerStub> books = this.facade.getTrainers();
-			request.setAttribute(ATTRIBUTE_BOOKS, books);
+			final List<TrainerStub> trainers = this.facade.getTrainers();
+			request.setAttribute(ATTRIBUTE_TRAINERS, trainers);
 		} catch (final FacadeException e) {
 			LOGGER.error(e, e);
 		}

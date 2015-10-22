@@ -18,9 +18,9 @@ import hu.morkalla.gymproject.persistence.query.TrainerQuery;
 @Entity
 @Table(name = "trainer")
 @NamedQueries(value = { //
-		@NamedQuery(name = TrainerQuery.GET_BY_NAME, query = "SELECT t FROM trainer t WHERE t.name=:" + TrainerParameter.NAME),
-		@NamedQuery(name = TrainerQuery.GET_BY_ID, query = "SELECT t FROM trainer t WHERE t.id=:" + TrainerParameter.ID),
-		@NamedQuery(name = TrainerQuery.GET_ALL, query = "SELECT t FROM trainer t ORDER BY t.name")
+		@NamedQuery(name = TrainerQuery.GET_BY_NAME, query = "SELECT t FROM Trainer t WHERE t.name=:" + TrainerParameter.NAME),
+		@NamedQuery(name = TrainerQuery.GET_BY_ID, query = "SELECT t FROM Trainer t WHERE t.id=:" + TrainerParameter.ID),
+		@NamedQuery(name = TrainerQuery.GET_ALL, query = "SELECT t FROM Trainer t ORDER BY t.name")
 		//
 })
 public class Trainer implements Serializable {

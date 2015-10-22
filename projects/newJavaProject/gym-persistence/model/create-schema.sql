@@ -1,13 +1,13 @@
-CREATE TABLE trainer(
+CREATE TABLE Trainer(
 trainer_id SERIAL NOT NULL,
 trainer_name CHARACTER VARYING(20) NOT NULL,
 trainer_height INTEGER,
 trainer_weight INTEGER,
 PRIMARY KEY(trainer_id));
 
-ALTER TABLE trainer OWNER TO postgres;
+ALTER TABLE Trainer OWNER TO postgres;
 
-CREATE TABLE workout(
+CREATE TABLE Workout(
 workout_id SERIAL NOT NULL,
 workout_name CHARACTER VARYING(20) NOT NULL,
 workout_hardness CHARACTER VARYING(10) NOT NULL,
@@ -18,16 +18,16 @@ PRIMARY KEY(workout_id),
 FOREIGN KEY(trainer_id) REFERENCES trainer(trainer_id),
 CONSTRAINT people CHECK (workout_number_of_people>1 AND workout_number_of_people<35));
 
-ALTER TABLE workout OWNER TO postgres;
+ALTER TABLE Workout OWNER TO postgres;
 
-CREATE TABLE workout_type(
+CREATE TABLE Workout_type(
 workout_id INTEGER NOT NULL,
 workout_type_name CHARACTER VARYING(25),
 FOREIGN KEY(workout_id) REFERENCES workout(workout_id));
 
-ALTER TABLE workout_type OWNER TO postgres;
+ALTER TABLE Workout_type OWNER TO postgres;
 
-CREATE TABLE trainer_qualification(
+CREATE TABLE Trainer_qualification(
 trainer_qualification_id SERIAL NOT NULL,
 trainer_id INTEGER NOT NULL,
 trainer_qualification_name CHARACTER VARYING(30) NOT NULL,
@@ -36,9 +36,9 @@ trainer_qualification_year INTEGER,
 PRIMARY KEY(trainer_qualification_id),
 FOREIGN KEY(trainer_id) REFERENCES trainer(trainer_id));
 
-ALTER TABLE trainer_qualification OWNER TO postgres;
+ALTER TABLE Trainer_qualification OWNER TO postgres;
 
-CREATE TABLE trainer_contact(
+CREATE TABLE Trainer_contact(
 trainer_contact_id SERIAL NOT NULL,
 trainer_id INTEGER NOT NULL,
 trainer_contact_type CHARACTER VARYING(10) NOT NULL,
@@ -47,9 +47,9 @@ PRIMARY KEY (trainer_contact_id),
 FOREIGN KEY(trainer_id) REFERENCES trainer(trainer_id),
 CONSTRAINT constract1 UNIQUE(trainer_contact_value));
 
-ALTER TABLE trainer_contact OWNER TO postgres;
+ALTER TABLE Trainer_contact OWNER TO postgres;
 
-CREATE TABLE timetable(
+CREATE TABLE Timetable(
 timetable_id SERIAL NOT NULL,
 timetable_room CHARACTER VARYING(15) NOT NULL,
 timetable_day CHARACTER VARYING(15) NOT NULL,
@@ -58,7 +58,7 @@ workout_id INTEGER NOT NULL,
 PRIMARY KEY (timetable_id),
 FOREIGN KEY (workout_id) REFERENCES workout(workout_id));
 
-ALTER TABLE timetable OWNER TO postgres;
+ALTER TABLE Timetable OWNER TO postgres;
 
-CREATE UNIQUE INDEX WORKOUT_NAME ON workout USING btree (workout_name, workout_hardness);
-CREATE UNIQUE INDEX TRAINER_NAME ON trainer USING btree (trainer_name);
+CREATE UNIQUE INDEX WORKOUT_NAME ON Workout USING btree (workout_name, workout_hardness);
+CREATE UNIQUE INDEX TRAINER_NAME ON Trainer USING btree (trainer_name);

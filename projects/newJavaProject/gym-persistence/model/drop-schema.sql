@@ -1,6 +1,6 @@
-DROP TABLE timetable;
-DROP TABLE trainer_contact;
-DROP TABLE trainer_qualification;
-DROP TABLE workout_type;
-DROP TABLE workout;
-DROP TABLE trainer;
+DROP TABLE Timetable;
+DROP TABLE Trainer_contact;
+DROP TABLE Trainer_qualification;
+DROP TABLE Workout_type;
+DROP TABLE Workout;
+DROP TABLE Trainer;
