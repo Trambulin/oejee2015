@@ -1,0 +1,3 @@
+include 'gym-ejbservice'
+include 'gym-weblayer'
+include 'gym-persistence'

@@ -1,0 +1,5 @@
+jar { archiveName 'gym-ejbservice.jar' }
+
+dependencies {
+	compile project(':gym-persistence')
+}

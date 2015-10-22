@@ -1,0 +1,8 @@
+apply plugin: 'war'
+
+war { archiveName 'gym-weblayer.war' }
+
+dependencies {
+	providedCompile project(':gym-ejbservice')
+	providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: servletapiVersion
+}
