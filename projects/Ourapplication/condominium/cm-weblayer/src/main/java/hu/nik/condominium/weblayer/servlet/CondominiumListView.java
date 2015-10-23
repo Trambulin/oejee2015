@@ -1,7 +1,10 @@
 package hu.nik.condominium.weblayer.servlet;
 
-import java.io.IOException;
-import java.util.List;
+import hu.nik.condominium.ejbservice.domain.CondominiumCriteria;
+import hu.nik.condominium.ejbservice.domain.CondominiumStub;
+import hu.nik.condominium.ejbservice.exception.FacadeException;
+import hu.nik.condominium.ejbservice.facade.CondominiumFacade;
+import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -10,13 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.log4j.Logger;
-
-import hu.nik.condominium.ejbservice.domain.CondominiumCriteria;
-import hu.nik.condominium.ejbservice.domain.CondominiumStub;
-import hu.nik.condominium.ejbservice.exception.FacadeException;
-import hu.nik.condominium.ejbservice.facade.CondominiumFacade;
+import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/CondominiumList")
 public class CondominiumListView extends HttpServlet {
@@ -33,6 +31,8 @@ public class CondominiumListView extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		LOGGER.info("Get All Condominiums");
+		response.setCharacterEncoding("UTF-8");
+
 		try {
 			final List<CondominiumStub> coundominiums = this.facade.getCondominiums(new CondominiumCriteria());
 			request.setAttribute(ATTRIBUTE_CONDOMINIUMS, coundominiums);
