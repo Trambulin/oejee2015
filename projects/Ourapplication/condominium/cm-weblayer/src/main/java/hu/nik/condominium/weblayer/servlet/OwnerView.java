@@ -2,7 +2,7 @@ package hu.nik.condominium.weblayer.servlet;
 
 
 import hu.nik.condominium.ejbservice.exception.FacadeException;
-import hu.nik.condominium.ejbservice.facade.CondominiumFacade;
+import hu.nik.condominium.ejbservice.facade.OwnerFacade;
 import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
@@ -13,11 +13,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-@WebServlet(name = "/OwnerView")
+
+@WebServlet("/OwnerView")//@WebServlet(name = "/OwnerView") !!!
 public class OwnerView extends HttpServlet {
 
     @EJB
-    private CondominiumFacade facade;
+    private OwnerFacade facade;
 
     private static final Logger logger=Logger.getLogger(CondominiumView.class);
 
@@ -30,7 +31,7 @@ public class OwnerView extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             final String id=request.getParameter(ATTRIBUTE_ID);
         try {
-            request.setAttribute(ATTRIBURE_OWNER, facade.getCondonimium(Long.parseLong(id)));
+            request.setAttribute(ATTRIBURE_OWNER, facade.getOwner(Long.parseLong(id)));
         } catch (FacadeException e) {
             e.printStackTrace();
             logger.error(e, e);

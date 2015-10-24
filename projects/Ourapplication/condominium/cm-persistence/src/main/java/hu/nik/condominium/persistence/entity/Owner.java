@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "c_owner")
-@NamedQuery(name = OwnerQuery.GET_BY_ID,query = "SELECT o FROM owner o where o.id=:"+ OwnerParameter.ID)
+@NamedQuery(name = OwnerQuery.GET_BY_ID,query = "SELECT o FROM Owner o where o.id=:"+ OwnerParameter.ID)
 public class Owner {
 
     @Id
@@ -33,7 +33,7 @@ public class Owner {
     @Column(name = "c_owner_e_mail", nullable = false)
     private String email;
 
-    @OneToMany(targetEntity = CondominiumOwner.class, fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = CondominiumOwner.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "c_owner_id", referencedColumnName = "condominium_owner_id")
     private List<CondominiumOwner> condominiums;
 
