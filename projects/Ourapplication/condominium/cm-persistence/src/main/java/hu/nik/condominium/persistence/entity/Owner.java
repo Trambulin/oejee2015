@@ -1,10 +1,15 @@
 package hu.nik.condominium.persistence.entity;
 
+import hu.nik.condominium.persistence.parameter.OwnerParameter;
+import hu.nik.condominium.persistence.query.OwnerQuery;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "c_owner")
+@NamedQuery(name = OwnerQuery.GET_BY_ID,query = "SELECT o FROM owner o where o.id=:"+ OwnerParameter.ID)
 public class Owner {
 
     @Id
@@ -27,6 +32,18 @@ public class Owner {
 
     @Column(name = "c_owner_e_mail", nullable = false)
     private String email;
+
+    @OneToMany(targetEntity = CondominiumOwner.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "c_owner_id", referencedColumnName = "condominium_owner_id")
+    private List<CondominiumOwner> condominiums;
+
+    public List<CondominiumOwner> getCondominiums() {
+        return condominiums;
+    }
+
+    public void setCondominiums(List<CondominiumOwner> condominiums) {
+        this.condominiums = condominiums;
+    }
 
     public String getPhone() {
         return phone;

@@ -1,22 +1,11 @@
 package hu.nik.condominium.persistence.entity;
 
-import java.io.Serializable;
-import java.sql.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
 import hu.nik.condominium.persistence.parameter.CondominiumParameter;
 import hu.nik.condominium.persistence.query.CondominiumQuery;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table(name = "condominium")
@@ -48,8 +37,8 @@ public class Condominium implements Serializable {
 	@Column(name = "condominium_build_year", nullable = false)
 	private Date buildYear;
 
-	@ManyToOne(targetEntity = CondominiumType.class)
-	@JoinColumn(/* referencedColumnName = "c_type_id", */ name = "condominium_type", nullable = false)
+	@ManyToOne(targetEntity = CondominiumType.class/*,fetch = FetchType.LAZY*/)
+	@JoinColumn(referencedColumnName = "c_type_id", name = "condominium_type", nullable = false)
 	private CondominiumType type;
 
 	public CondominiumType getType() {
