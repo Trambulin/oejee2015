@@ -9,7 +9,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "c_owner")
-@NamedQuery(name = OwnerQuery.GET_BY_ID,query = "SELECT o FROM Owner o where o.id=:"+ OwnerParameter.ID)
+@NamedQueries(value = {
+        @NamedQuery(name = OwnerQuery.GET_BY_ID, query = "SELECT o FROM Owner o where o.id=:" + OwnerParameter.ID),
+        @NamedQuery(name = OwnerQuery.GET_ALL, query = "SELECT o FROM Owner o ORDER BY o.id")})
 public class Owner {
 
     @Id
@@ -33,15 +35,20 @@ public class Owner {
     @Column(name = "c_owner_e_mail", nullable = false)
     private String email;
 
-    @ManyToMany(targetEntity = CondominiumOwner.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "c_owner_id", referencedColumnName = "condominium_owner_id")
-    private List<CondominiumOwner> condominiums;
+    //javax.ejb.EJBTransactionRolledbackException: failed to lazily initialize a collection
+    // of role: hu.nik.condominium.persistence.entity.Owner.condominiums, could not initialize proxy - no Session
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "condominium_owner",
+            joinColumns = {@JoinColumn(name = "owner_id", referencedColumnName = "c_owner_id")},
+            inverseJoinColumns = {@JoinColumn(name = "condominium_id", referencedColumnName = "condominium_id")})
+    private List<Condominium> condominiums;
 
-    public List<CondominiumOwner> getCondominiums() {
+    public List<Condominium> getCondominiums() {
         return condominiums;
     }
 
-    public void setCondominiums(List<CondominiumOwner> condominiums) {
+    public void setCondominiums(List<Condominium> condominiums) {
         this.condominiums = condominiums;
     }
 

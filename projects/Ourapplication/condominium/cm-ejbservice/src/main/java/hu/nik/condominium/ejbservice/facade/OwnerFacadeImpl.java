@@ -9,9 +9,10 @@ import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import java.util.List;
 
 @Stateless(mappedName = "ejb/ownerFacade")
-public class OwnerFacadeImpl implements  OwnerFacade{
+public class OwnerFacadeImpl implements OwnerFacade {
 
 
     private static final Logger LOGGER = Logger.getLogger(OwnerFacadeImpl.class);
@@ -24,9 +25,22 @@ public class OwnerFacadeImpl implements  OwnerFacade{
     @Override
     public OwnerStub getOwner(Long id) throws FacadeException {
         try {
-            final OwnerStub result= converter.to(service.read(id));
-            if(LOGGER.isDebugEnabled())
+            final OwnerStub result = converter.to(service.read(id));
+            if (LOGGER.isDebugEnabled())
                 LOGGER.debug("Get Owner by id (" + id + ") --> " + result);
+            return result;
+        } catch (PersistenceServiceException e) {
+            LOGGER.error(e, e);
+            throw new FacadeException(e.getLocalizedMessage());
+        }
+    }
+
+    @Override
+    public List<OwnerStub> getOwners() throws FacadeException {
+        try {
+            final List<OwnerStub> result = converter.to(service.readAll());
+            if (LOGGER.isDebugEnabled())
+                LOGGER.debug("Get Owners " + result);
             return result;
         } catch (PersistenceServiceException e) {
             LOGGER.error(e, e);

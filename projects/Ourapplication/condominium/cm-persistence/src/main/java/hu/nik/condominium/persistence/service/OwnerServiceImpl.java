@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import javax.ejb.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Stateless(mappedName = "ejb/groupService")
 @TransactionManagement(TransactionManagementType.CONTAINER)
@@ -25,12 +26,26 @@ public class OwnerServiceImpl implements OwnerService {
         if(LOGGER.isDebugEnabled()){
             LOGGER.debug("Get Owner by id (" + id + ")");
         }
-        Owner result = null;
+        Owner result;
         try {
             result = this.entityManager.createNamedQuery(OwnerQuery.GET_BY_ID, Owner.class).setParameter(OwnerParameter.ID, id)
                     .getSingleResult();
         } catch (final Exception e) {
             throw new PersistenceServiceException("Unknown error when fetching Owner by id (" + id + ")! " + e.getLocalizedMessage(), e);
+        }
+        return result;
+    }
+
+    @Override
+    public List<Owner> readAll() throws PersistenceServiceException {
+        if(LOGGER.isDebugEnabled()){
+            LOGGER.debug("Get Owners");
+        }
+        List<Owner> result = null;
+        try {
+            result = this.entityManager.createNamedQuery(OwnerQuery.GET_ALL, Owner.class).getResultList();
+        } catch (final Exception e) {
+            throw new PersistenceServiceException("Unknown error when fetching OWNERS" + e.getLocalizedMessage(), e);
         }
         return result;
     }

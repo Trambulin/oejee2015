@@ -3,6 +3,7 @@ package hu.nik.condominium.ejbservice.converter;
 import hu.nik.condominium.ejbservice.domain.OwnerStub;
 import hu.nik.condominium.persistence.entity.Owner;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +11,12 @@ import java.util.List;
 @Stateless
 public class OwnerConverterImpl implements OwnerConverter {
 
+    @EJB
+    private CondominiumConverter condominiumOwnerConverter;
+
     @Override
     public OwnerStub to(Owner owner) {
-        return new OwnerStub(owner.getName(), owner.getGender(), owner.getPhone(), owner.getEmail());
+        return new OwnerStub(owner.getId(),owner.getName(), owner.getGender(), owner.getPhone(), owner.getEmail(),condominiumOwnerConverter.to(owner.getCondominiums()));
     }
 
     @Override
