@@ -33,7 +33,7 @@ CREATE TABLE payment_method (
 ALTER TABLE payment_method OWNER TO postgres;
 
 CREATE TABLE customer (
-	customer_id INTEGER NOT NULL,
+	customer_id SERIAL NOT NULL,
 	customer_address_id INTEGER NOT NULL,
 	customer_payment_method_id INTEGER NOT NULL,
 	customer_name CHARACTER VARYING(100) NOT NULL,
