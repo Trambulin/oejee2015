@@ -1,15 +1,24 @@
--- Helyi raktárkészlet
-CREATE TABLE storage (
-	stg_id INTEGER NOT NULL, --ugyanaz az id mint a beszállítónál, mivel úgyis egyedi
-	stg_price INTEGER NOT NULL, --kisker ár
-	stg_quantity SMALLINT NOT NULL, --teljes készlet
-	stg_quantity_reserved SMALLINT NOT NULL, --rendelésre lefoglalt készlet
+-- Enum tábla a gyártókra
+CREATE TABLE manufacturer (
+	mf_id INTEGER NOT NULL,
+	mf_name CHARACTER VARYING(64) NOT NULL,
+	/*mf_address CHARACTER VARYING(128) NOT NULL,*/
+	mf_telephone CHARACTER VARYING(16) NOT NULL,
 	
-	CONSTRAINT PK_STG_ID PRIMARY KEY (stg_id),
-	CONSTRAINT FK_STG_ID FOREIGN KEY (stg_id)
-		REFERENCES supplier (sup_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
+	CONSTRAINT PK_MF_ID PRIMARY KEY (mf_id)
 );
-ALTER TABLE storage OWNER TO postgres;
+ALTER TABLE manufacturer OWNER TO postgres;
+
+
+-- Enum tábla a termék kategórákra
+CREATE TABLE product_type (
+	pdt_id INTEGER NOT NULL,
+	pdt_name CHARACTER VARYING(64) NOT NULL,
+	
+	CONSTRAINT PK_PDT_ID PRIMARY KEY (pdt_id)
+);
+ALTER TABLE product_type OWNER TO postgres;
+CREATE UNIQUE INDEX UI_PDT_NAME ON product_type USING btree (pdt_name);
 
 
 -- Beszállító készlete
@@ -32,27 +41,18 @@ CREATE TABLE supplier (
 ALTER TABLE supplier OWNER TO postgres;
 
 
--- Enum tábla a gyártókra
-CREATE TABLE manufacturer (
-	mf_id INTEGER NOT NULL,
-	mf_name CHARACTER VARYING(64) NOT NULL,
-	/*mf_address CHARACTER VARYING(128) NOT NULL,*/
-	mf_telephone CHARACTER VARYING(16) NOT NULL,
+-- Helyi raktárkészlet
+CREATE TABLE storage (
+	stg_id INTEGER NOT NULL, --ugyanaz az id mint a beszállítónál, mivel úgyis egyedi
+	stg_price INTEGER NOT NULL, --kisker ár
+	stg_quantity SMALLINT NOT NULL, --teljes készlet
+	stg_quantity_reserved SMALLINT NOT NULL DEFAULT 0, --rendelésre lefoglalt készlet
 	
-	CONSTRAINT PK_MF_ID PRIMARY KEY (mf_id)
+	CONSTRAINT PK_STG_ID PRIMARY KEY (stg_id),
+	CONSTRAINT FK_STG_ID FOREIGN KEY (stg_id)
+		REFERENCES supplier (sup_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
 );
-ALTER TABLE manufacturer OWNER TO postgres;
-
-
--- Enum tábla a termék kategórákra
-CREATE TABLE product_type (
-	pdt_id INTEGER NOT NULL,
-	pdt_name CHARACTER VARYING(64) NOT NULL,
-	
-	CONSTRAINT PK_PDT_ID PRIMARY KEY (pdt_id)
-);
-ALTER TABLE product_type OWNER TO postgres;
-CREATE UNIQUE INDEX UI_PDT_NAME ON product_type USING btree (pdt_name);
+ALTER TABLE storage OWNER TO postgres;
 
 
 -- Vásárlók

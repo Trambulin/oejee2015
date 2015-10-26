@@ -10,20 +10,22 @@ INSERT INTO product_type (pdt_id, pdt_name) VALUES (7, 'Memória kártya, pendri
 --INSERT INTO product_type (pdt_id, pdt_name) VALUES (9, 'Processzor');
 INSERT INTO product_type (pdt_id, pdt_name) VALUES (10, 'Videókártya');
 
+
 -- Gyártók (minden kategóriára legalább kettő)
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (1, 'Gigabyte', "555-8080-321"); --alaplap, bill., egér
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (2, 'MSI', "555-8080-321"); --alaplap, videókártya
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (3, 'Logitech Inc.', "555-8080-321"); --bill, egér, joystick
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (4, 'Genius', "555-8080-321"); --bill, egér, joystick
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (5, 'Microsoft Corporation', "555-8080-321"); --joystick, bill, egér
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (6, 'Canyon', "555-8080-321"); --hangsz.
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (7, 'Sennheiser', "555-8080-321"); --hangsz.
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (8, 'Corsair', "555-8080-321"); --mem., bill, egér, SSD
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (9, 'OCZ', "555-8080-321"); --mem, SSD
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (10, 'Kingston', "555-8080-321"); --memóriák
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (11, 'Intel Corporation', "555-8080-321"); --cpu
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (12, 'AMD, Inc.', "555-8080-321"); -- cpu
-INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (13, 'ASUSTec Computer Inc.', "555-8080-321"); -- videókártya
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (1, 'Gigabyte', '555-8080-321'); --alaplap, bill., egér
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (2, 'MSI', '555-4463-111'); --alaplap, videókártya
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (3, 'Logitech Inc.', '555-2245-556'); --bill, egér, joystick
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (4, 'Genius', '555-8641-473'); --bill, egér, joystick
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (5, 'Microsoft Corporation', '555-9974-446'); --joystick, bill, egér
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (6, 'Canyon', '555-2135-231'); --hangsz.
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (7, 'Sennheiser', '555-2323-249'); --hangsz.
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (8, 'Corsair', '555-7755-135'); --mem., bill, egér, SSD
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (9, 'OCZ', '555-6454-554'); --mem, SSD
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (10, 'Kingston', '555-4486-886'); --memóriák
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (11, 'Intel Corporation', '555-2213-112'); --cpu
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (12, 'AMD, Inc.', '555-2334-331'); -- cpu
+INSERT INTO manufacturer (mf_id, mf_name, mf_telephone) VALUES (13, 'ASUSTec Computer Inc.', '555-3377-543'); -- videókártya
+
 
 -- Bolti áruk
 INSERT INTO supplier (sup_product_type, sup_name, sup_description, sup_warranty, sup_price, spr_manufacturer_id, spr_shipping_days)
@@ -66,22 +68,17 @@ INSERT INTO supplier (sup_product_type, sup_name, sup_description, sup_warranty,
 	VALUES(10, 'GIGABYTE GeForce GTX960 2048MB D5 GV-N960WF2OC-2GD PCI-E3.0 videokártya', '', 36, 62306, 1, 1);
 INSERT INTO supplier (sup_product_type, sup_name, sup_description, sup_warranty, sup_price, spr_manufacturer_id, spr_shipping_days)
 	VALUES(10, 'MSI GeForce GT730 2048MB D3 N730K-2GD3/OC PCI-E3.0 videokártya', '', 36, 20980, 2, 1);
+-- Ezek valós árak, gyoran írjuk át egy olcsóbb nagykerárra
+UPDATE supplier SET sup_price = sup_price / 1.25;
+
 
 -- Vásárlók (jelszó: password)
 INSERT INTO customer (ctm_email, ctm_password, ctm_joined, ctm_lastname, ctm_firstname, ctm_address, ctm_telephone)
-	VALUES ("admin@vbstudio.hu", "5f4dcc3b5aa765d61d8327deb882cf99", "2015-10-13", "Vecsey", "Balázs", "1234 Budapest, Balage u. 8", "0630-123-4567");
+	VALUES ('admin@vbstudio.hu', '5f4dcc3b5aa765d61d8327deb882cf99', '2015-10-13', 'Vecsey', 'Balázs', '1234 Budapest, Balage u. 8', '0630-123-4567');
 
+	
 -- Beszállító termékei
---INSERT INTO storage (stg_id, stg_price, stg_quantity, stg_quantity_reserved)
-
-
---insert into items_ver(item_id, item_group, name)
---select * from items where item_id=2;
-
-	
-	
-	
-	
-
-
+-- Az ID ugyanaz, az árat átszámolja kisekerárba, a lokális példányszám pedig ötletszerűen
+INSERT INTO storage (stg_id, stg_price, stg_quantity)
+SELECT sup_id as stg_id, (sup_price * 1.25) as stg_price, (random() * 4) as stg_quantity FROM supplier;
 
