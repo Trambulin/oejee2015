@@ -22,17 +22,19 @@
 				<th>Color</th>
 				<th>Price</th>
 				<th>Production Date</th>
+				<th>Reference link</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% for ( CarStub car : cars) { %>
 				<tr>
 					<td><% out.print(car.getBrand()); %></td>
-					<td><% out.print(car.getModel()); %></a></td>
+					<td><% out.print(car.getModel()); %></td>
 					<td><% out.print(car.getFuel()); %></td>
 					<td><% out.print(car.getColor()); %></td>
 					<td><% out.print(car.getPrice()); %> Ft</td>
 					<td><% out.print(car.getProduction()); %></td>
+					<td><a href="Car?brand_model=<% out.print(car.getBrand().toString()+";"+car.getModel()); %>">link</a></td>
 				</tr>
 			<% } %>
 		</tbody>

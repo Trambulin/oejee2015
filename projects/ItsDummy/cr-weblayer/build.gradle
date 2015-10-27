@@ -1,8 +1,8 @@
 apply plugin: 'war'
 
-war { archiveName 'weblayer.war' }
+war { archiveName 'cr-weblayer.war' }
 
 dependencies {
-	providedCompile project(':ejbservice')
+	providedCompile project(':cr-ejbservice')
 	providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: servletapiVersion
 }

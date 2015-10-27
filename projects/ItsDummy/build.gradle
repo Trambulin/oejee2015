@@ -26,7 +26,7 @@ subprojects {
 }
 
 dependencies {
-	deploy project('ejbservice')
-	deploy project('persistence')
-	deploy project(path: 'weblayer', configuration: 'archives')
+	deploy project('cr-ejbservice')
+	deploy project('cr-persistence')
+	deploy project(path: 'cr-weblayer', configuration: 'archives')
 }

@@ -1,5 +1,0 @@
-jar { archiveName 'ejbservice.jar' }
-
-dependencies {
-	compile project(':persistence')
-}

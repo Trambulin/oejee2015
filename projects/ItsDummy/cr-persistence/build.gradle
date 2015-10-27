@@ -1,4 +1,4 @@
-jar { archiveName 'persistence.jar' }
+jar { archiveName 'cr-persistence.jar' }
 
 dependencies {
 	compile group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion
