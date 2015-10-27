@@ -65,10 +65,6 @@ public class Meal implements Serializable{
 		this.fullness = fullness;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	public Long getId() {
 		return id;
 	}

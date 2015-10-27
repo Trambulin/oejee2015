@@ -6,8 +6,6 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -56,7 +54,7 @@ public class Sleep implements Serializable {
 	private Sport sport;
 	
 	@Column(name = "DateOfDay", nullable = false)
-	private DateOfDay dateofday;
+	private Day dateofday;
 
 	public Sleep() {
 
@@ -118,11 +116,11 @@ public class Sleep implements Serializable {
 		this.sport = sport;
 	}
 	
-	public DateOfDay getDateOfDay() {
+	public Day getDateOfDay() {
 		return this.dateofday;
 	}
 
-	public void setDateOfDay(DateOfDay dateofday) {
+	public void setDateOfDay(Day dateofday) {
 		this.dateofday = dateofday;
 	}
 	

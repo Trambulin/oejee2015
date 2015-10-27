@@ -10,3 +10,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+projects/SleepTracker/.gradle/2.6/taskArtifacts/cache.properties.lock
+projects/SleepTracker/.gradle/2.6/taskArtifacts/fileHashes.bin
+projects/SleepTracker/.gradle/2.6/taskArtifacts/fileSnapshots.bin
+projects/SleepTracker/.gradle/2.6/taskArtifacts/taskArtifacts.bin
