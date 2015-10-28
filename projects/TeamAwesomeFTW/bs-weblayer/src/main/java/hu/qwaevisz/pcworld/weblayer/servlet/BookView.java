@@ -1,4 +1,4 @@
-package hu.qwaevisz.bookstore.weblayer.servlet;
+package hu.qwaevisz.pcworld.weblayer.servlet;
 
 import java.io.IOException;
 
@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import hu.qwaevisz.bookstore.ejbservice.domain.BookStub;
-import hu.qwaevisz.bookstore.ejbservice.exception.FacadeException;
-import hu.qwaevisz.bookstore.ejbservice.facade.BookFacade;
+import hu.qwaevisz.pcworld.ejbservice.domain.BookStub;
+import hu.qwaevisz.pcworld.ejbservice.exception.FacadeException;
+import hu.qwaevisz.pcworld.ejbservice.facade.BookFacade;
 
 @WebServlet("/Book")
 public class BookView extends HttpServlet {
