@@ -1,0 +1,12 @@
+package hu.qwaevisz.bookstore.persistence.query;
+
+public class EmployeeQuery {
+
+	public static final String GET_BY_ID = "Customer.getById";
+	public static final String GET_BY_NAME = "Customer.getByName";
+	public static final String GET_BY_ADDRESS = "Customer.getByAddress";
+	public static final String GET_BY_PHONE = "Customer.getByPhone";
+	public static final String GET_BY_OTHER = "Customer.getByOther";
+	public static final String GET_ALL = "Customer.getAll";
+
+}

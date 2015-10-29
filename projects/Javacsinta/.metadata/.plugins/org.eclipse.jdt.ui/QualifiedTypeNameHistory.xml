@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="hu.qwaevisz.bookstore.persistence.query.EmployeeQuery"/>
+<fullyQualifiedTypeName name="hu.qwaevisz.bookstore.persistence.parameter.EmployeeParameter"/>
+<fullyQualifiedTypeName name="hu.qwaevisz.bookstore.persistence.parameter.OrderMasterParameter"/>
+</qualifiedTypeNameHistroy>
