@@ -20,7 +20,7 @@ import hu.sas.persistance.parameter.*;
 @Table(name="Sleep")
 @NamedQueries(value = {//
 		@NamedQuery(name = SleepQuery.GET_BY_UserID, query = "SELECT b FROM Sleep b WHERE b.userid=:" + SleepParameter.UserID),
-		@NamedQuery(name = SleepQuery.GET_BY_Date, query = "SELECT b FROM Sleep b WHERE b.date=:" + SleepParameter.Date),
+		@NamedQuery(name = SleepQuery.GET_BY_Day, query = "SELECT b FROM Sleep b WHERE b.date=:" + SleepParameter.Day),
 		@NamedQuery(name = SleepQuery.GET_BY_SleepID, query = "SELECT b FROM Sleep b WHERE b.sleepid=:" + SleepParameter.SleepID),
 		@NamedQuery(name = SleepQuery.GET_ALL, query = "SELECT b FROM Sleep b Order by b.sleepid")
 })

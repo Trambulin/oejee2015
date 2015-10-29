@@ -22,8 +22,6 @@ public class Day implements Serializable {
 	private static final long serialVersionUID = -8617046600321992119L;
 	
 	@Id
-	@SequenceGenerator(name = "generatorDay", sequenceName = "day_day_id_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorDay")
 	@Column(name = "DateID", nullable = false, updatable = false, insertable = false)
 	private Date id;
 	
