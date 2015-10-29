@@ -11,7 +11,6 @@ public class UserConverterImpl implements UserConverter {
 
 	@Override
 	public UserStub to(User user) {
-		// TODO Auto-generated method stub
 		return new UserStub(user.getLoginName(),user.getPassword(),user.getEmail(),user.getFullName());
 	}
 
