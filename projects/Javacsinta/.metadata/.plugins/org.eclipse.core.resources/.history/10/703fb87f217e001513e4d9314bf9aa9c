@@ -1,0 +1,8 @@
+package hu.qwaevisz.bookstore.persistence.parameter;
+
+public class OrderMasterParameter {
+
+	public static final Long ID = "id";
+	public static final String NAME = "name";
+	public static final String PRICE = "price";
+}
