@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import hu.qwaevisz.bookstore.ejbservice.domain.BookStub;
+
 import hu.qwaevisz.bookstore.ejbservice.domain.CustomerStub;
 import hu.qwaevisz.bookstore.ejbservice.exception.FacadeException;
 
@@ -24,7 +24,7 @@ public class CustomerView extends HttpServlet {
 	private static final long serialVersionUID = -4068275526750462197L;
 	private static final String PARAM_NAME = "name";
 	private static final String ATTRIBUTE_CUSTOMER = "customer";
-	private static final String PAGE = "book.jsp";
+	private static final String PAGE = "customer.jsp";
 
 	private static final Logger LOGGER = Logger.getLogger(CustomerView.class);
 

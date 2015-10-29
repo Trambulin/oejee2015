@@ -57,5 +57,21 @@ public class CustomerFacadeImpl implements CustomerFacade {
 //		}
 //		return stubs;
 //	}
-
+	
+	@Override
+	public List<CustomerStub> getCustomers() throws FacadeException {
+		
+		List<CustomerStub> stubs = new ArrayList<>();
+		try {
+		stubs = this.converter.to(this.service.readAll());
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Get Customers:  "  + stubs.size());
+		}
+	} catch (final PersistenceServiceException e) {
+		LOGGER.error(e, e);
+		throw new FacadeException(e.getLocalizedMessage());
+	}
+		return stubs;
+		
+	}
 }

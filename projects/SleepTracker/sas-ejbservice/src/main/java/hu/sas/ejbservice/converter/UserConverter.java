@@ -2,9 +2,9 @@ package hu.sas.ejbservice.converter;
 
 import java.util.List;
 
-import javax.xml.registry.infomodel.User;
 
 import hu.sas.ejbservice.domain.UserStub;
+import hu.sas.persistance.entity.User;
 
 public interface UserConverter {
 	UserStub to(User user);

@@ -1,6 +1,6 @@
 package hu.sas.ejbservice.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class UserStub {
 	private String firstName;
@@ -21,51 +21,51 @@ public class UserStub {
 		this.setSex(sex);
 	}
 
-	private String getFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
-	private void setFirstName(String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-	private String getLastName() {
+	public String getLastName() {
 		return lastName;
 	}
 
-	private void setLastName(String lastName) {
+	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
-	private Date getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	private void setBirthDate(Date birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
-	private int getHeight() {
+	public int getHeight() {
 		return height;
 	}
 
-	private void setHeight(int height) {
+	public void setHeight(int height) {
 		this.height = height;
 	}
 
-	private int getWeight() {
+	public int getWeight() {
 		return weight;
 	}
 
-	private void setWeight(int weight) {
+	public void setWeight(int weight) {
 		this.weight = weight;
 	}
 
-	private boolean isSex() {
+	public boolean isSex() {
 		return sex;
 	}
 
-	private void setSex(boolean sex) {
+	public void setSex(boolean sex) {
 		this.sex = sex;
 	}
 	
