@@ -29,7 +29,7 @@ public class Rating implements Serializable{
 	private int relaxed;
 	
 	@Column(name = "Feel", nullable = false)
-	private int feel;
+	private Feel feel;
 	
 	public Rating(){}
 
@@ -37,8 +37,13 @@ public class Rating implements Serializable{
 		return id;
 	}
 
-	public int getFeel() {
+	public Feel getFeel() {
 		return feel;
+	}
+	
+	public void setFeel(Feel feel)
+	{
+		this.feel=feel;
 	}
 
 	public int getRelaxed() {
