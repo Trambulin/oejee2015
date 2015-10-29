@@ -10,7 +10,7 @@ public class SleepConverterImpl implements SleepConverter {
 
 	@Override
 	public SleepStub to(Sleep sleep) {
-		return new SleepStub(sleep.getUser(),sleep.getStartTime(),sleep.getEndTime(),sleep.getRating(),sleep.getMeal(),sleep.getSport(),sleep.getDateOfDay());
+		return new SleepStub(sleep.getSleepId(),sleep.getUser(),sleep.getStartTime(),sleep.getEndTime(),sleep.getRating(),sleep.getMeal(),sleep.getSport(),sleep.getDateOfDay());
 	}
 
 	@Override

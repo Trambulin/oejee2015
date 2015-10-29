@@ -9,6 +9,7 @@ import hu.sas.persistance.entity.Sport;
 import hu.sas.persistance.entity.User;
 
 public class SleepStub {
+	private long sleepID;
 	private User userAcc;
 	private Date startDate;
 	private Date endDate;
@@ -17,7 +18,7 @@ public class SleepStub {
 	private Sport sport;
 	private Day day;
 	
-	public SleepStub(User userAcc,Date startDate,Date endDate,Rating rating,Meal meal,Sport sport,Day day)
+	public SleepStub(long sleepID,User userAcc,Date startDate,Date endDate,Rating rating,Meal meal,Sport sport,Day day)
 	{
 		this.userAcc=userAcc;
 		this.startDate=startDate;
@@ -75,5 +76,13 @@ public class SleepStub {
 	public String toString()
 	{
 		return "User: "+userAcc+"start:"+startDate+"end: "+endDate+" Rating: "+rating+" Meal: "+meal+" Sport: "+sport+" Day: "+day;
+	}
+
+	public long getSleepID() {
+		return sleepID;
+	}
+
+	public void setSleepID(long sleepID) {
+		this.sleepID = sleepID;
 	}
 }
