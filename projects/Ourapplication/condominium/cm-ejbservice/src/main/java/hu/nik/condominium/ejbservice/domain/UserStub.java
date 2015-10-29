@@ -7,6 +7,13 @@ public class UserStub {
 	private String email;
 	private String fullName;
 	
+	public UserStub(String login,String pass,String email,String fullName)
+	{
+		this.login = login;
+		this.pass = pass;
+		this.email = email;
+		this.fullName = fullName;
+	}
 	public String getLogin() {
 		return login;
 	}
