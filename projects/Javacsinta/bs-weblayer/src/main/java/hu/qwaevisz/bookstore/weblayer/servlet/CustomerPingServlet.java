@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import hu.qwaevisz.bookstore.ejbservice.domain.BookStub;
+
 import hu.qwaevisz.bookstore.ejbservice.domain.CustomerStub;
 import hu.qwaevisz.bookstore.ejbservice.exception.FacadeException;
 
