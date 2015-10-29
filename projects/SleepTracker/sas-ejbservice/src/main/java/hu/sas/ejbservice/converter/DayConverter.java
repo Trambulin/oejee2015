@@ -3,7 +3,7 @@ package hu.sas.ejbservice.converter;
 import java.util.List;
 
 import hu.sas.ejbservice.domain.DayStub;
-import hu.sas.persistance.enity.Day;
+import hu.sas.persistance.entity.Day;
 
 public interface DayConverter {
 	DayStub to(Day day);

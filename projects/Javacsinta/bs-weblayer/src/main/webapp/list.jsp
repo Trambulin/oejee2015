@@ -2,35 +2,35 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.Set" %>  
 <%@ page import="java.util.List" %>
-<%@ page import="hu.qwaevisz.bookstore.ejbservice.domain.BookStub" %> 
-<% List<BookStub> books = (List<BookStub>) request.getAttribute("books"); %>
+<%@ page import="hu.qwaevisz.bookstore.ejbservice.domain.CustomerStub" %> 
+<% List<CustomerStub> customers = (List<CustomerStub>) request.getAttribute("customers"); %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="style/page.css" />
-<title>:: Books ::</title>
+<title>:: Customers ::</title>
 </head>
 <body>
-	<h1>List of Books</h1>
-	<table class="bookstable">
+	<h1>List of Customers</h1>
+	<table class="customerstable">
 		<thead>
 			<tr>
-				<th>Author</th>
-				<th>Title</th>
-				<th>Category</th>
-				<th>Price</th>
-				<th>Number of pages</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Payment Method</th>
+				<th>Email</th>
+				<th>Details</th>
 			</tr>
 		</thead>
 		<tbody>
-			<% for ( BookStub book : books) { %>
+			<% for ( CustomerStub customer : customers) { %>
 				<tr>
-					<td><% out.print(book.getAuthor()); %></td>
-					<td><a href="Book?isbn=<% out.print(book.getIsbn()); %>"><% out.print(book.getTitle()); %></a></td>
-					<td><% out.print(book.getCategory()); %></td>
-					<td><% out.print(book.getPrice()); %> Ft</td>
-					<td><% out.print(book.getNumberOfPages()); %></td>
+					<td><a href="Customer?name=<% out.print(customer.getName()); %>"><% out.print(customer.getName()); %></td>
+					<td><% out.print(customer.getPhone()); %></a></td>
+					<td><% out.print(customer.getPaymentmethod()); %></td>
+					<td><% out.print(customer.getEmail()); %> Ft</td>
+					<td><% out.print(customer.getDetails()); %></td>
 				</tr>
 			<% } %>
 		</tbody>

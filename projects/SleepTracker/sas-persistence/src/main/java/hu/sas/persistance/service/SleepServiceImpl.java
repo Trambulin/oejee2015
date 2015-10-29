@@ -1,5 +1,6 @@
 package hu.sas.persistance.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -27,37 +28,6 @@ public class SleepServiceImpl implements SleepService{
 	
 	@PersistenceContext(unitName = "sas-persistence-unit")
 	private EntityManager entityManager;
-	
-	
-	@Override
-	public List<Sleep> getSleeps(User userID) throws PersistenceServiceException {
-		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Sleep by userID (" + userID + ")");
-		}
-		
-		List<Sleep> result = null;
-		try {
-			result = this.entityManager.createNamedQuery(SleepQuery.GET_BY_UserID, Sleep.class).setParameter(SleepParameter.UserID, userID).getResultList();
-		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching Sleep by userID (" + userID + ")! " + e.getLocalizedMessage(), e);
-		}
-		return result;
-	}
-
-	@Override
-	public List<Sleep> getSleeps(Day date) throws PersistenceServiceException {
-		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Sleep by Day (" + date + ")");
-		}
-		
-		List<Sleep> result = null;
-		try {
-			result = this.entityManager.createNamedQuery(SleepQuery.GET_BY_Day, Sleep.class).setParameter(SleepParameter.Day, date).getResultList();
-		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching Sleep by Day (" + date + ")! " + e.getLocalizedMessage(), e);
-		}
-		return result;
-	}
 
 	@Override
 	public Sleep getSleep(Long sleepID) throws PersistenceServiceException {
@@ -85,6 +55,36 @@ public class SleepServiceImpl implements SleepService{
 			result = this.entityManager.createNamedQuery(SleepQuery.GET_ALL, Sleep.class).getResultList();
 		} catch (final Exception e) {
 			throw new PersistenceServiceException("Unknown error when fetching all Sleep! " + e.getLocalizedMessage(), e);
+		}
+		return result;
+	}
+
+	@Override
+	public List<Sleep> getSleeps(int userID) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Get Sleep by userID (" + userID + ")");
+		}
+		
+		List<Sleep> result = null;
+		try {
+			result = this.entityManager.createNamedQuery(SleepQuery.GET_BY_UserID, Sleep.class).setParameter(SleepParameter.UserID, userID).getResultList();
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error when fetching Sleep by userID (" + userID + ")! " + e.getLocalizedMessage(), e);
+		}
+		return result;
+	}
+
+	@Override
+	public List<Sleep> getSleeps(Date day) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Get Sleep by Day (" + day + ")");
+		}
+		
+		List<Sleep> result = null;
+		try {
+			result = this.entityManager.createNamedQuery(SleepQuery.GET_BY_Day, Sleep.class).setParameter(SleepParameter.Day, day).getResultList();
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error when fetching Sleep by Day (" + day + ")! " + e.getLocalizedMessage(), e);
 		}
 		return result;
 	}
