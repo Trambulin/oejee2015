@@ -33,3 +33,10 @@ projects/Ourapplication/condominium/cm-persistence/.classpath
 projects/Ourapplication/condominium/cm-persistence/.project
 projects/Ourapplication/condominium/cm-persistence/.settings/gradle.prefs
 projects/Ourapplication/condominium/cm-persistence/.settings/org.eclipse.jdt.core.prefs
+projects/Javacsinta/.gradle/2.6/taskArtifacts/cache.properties.lock
+projects/Javacsinta/.gradle/2.6/taskArtifacts/fileHashes.bin
+projects/Javacsinta/.gradle/2.6/taskArtifacts/fileSnapshots.bin
+projects/Javacsinta/.gradle/2.6/taskArtifacts/taskArtifacts.bin
+projects/Javacsinta/bs-ejbservice/.classpath
+projects/Javacsinta/bs-persistence/.classpath
+projects/Javacsinta/bs-weblayer/.classpath
