@@ -20,7 +20,7 @@ import hu.qwaevisz.bookstore.persistence.query.OrderDetailQuery;
 		@NamedQuery(name = OrderDetailQuery.GET_BY_ORDER_MASTER_ID, query = "SELECT b FROM OrderDetail b WHERE b.order_master_id=:" + OrderDetailParameter.ORDER_MASTER_ID),
 		@NamedQuery(name = OrderDetailQuery.GET_BY_AMOUNT, query = "SELECT b FROM OrderDetail b WHERE b.amount=:" + OrderDetailParameter.AMOUNT),
 		@NamedQuery(name = OrderDetailQuery.GET_BY_TOTAL_PRICE, query = "SELECT b FROM OrderDetail b WHERE b.total_price=:" + OrderDetailParameter.TOTAL_PRICE),
-		@NamedQuery(name = OrderDetailQuery.GET_ALL, query = "SELECT b FROM OrderDetail b ORDER BY b.name")
+		@NamedQuery(name = OrderDetailQuery.GET_ALL, query = "SELECT b FROM OrderDetail b ORDER BY b.id")
 		//
 })
 public class OrderDetail implements Serializable {
@@ -28,22 +28,22 @@ public class OrderDetail implements Serializable {
 	private static final long serialVersionUID = 1525352421414297015L;
 
 	@Id
-	@Column(name = "id", nullable = false, updatable = false, insertable = true)
+	@Column(name = "order_detail_id", nullable = false, updatable = false, insertable = true)
 	private Long id;
 	
-	@Id
-	@Column(name = "pancake_id", nullable = false, updatable = false, insertable = true)
+	
+	@Column(name = "order_detail_pancake_id", nullable = false, updatable = false, insertable = true)
 	private Long pancake_id;
 	
-	@Id
-	@Column(name = "order_master_id", nullable = false, updatable = false, insertable = true)
+	
+	@Column(name = "order_detail_order_master_id", nullable = false, updatable = false, insertable = true)
 	private Long order_master_id;
 
-	@Id
-	@Column(name = "amount", nullable = false, updatable = false, insertable = true)
+	
+	@Column(name = "order_detail_amount", nullable = false, updatable = false, insertable = true)
 	private Long amount;
 	
-	@Column(name = "total_price", nullable = false, updatable = true, insertable = true)
+	@Column(name = "order_detail_total_price", nullable = false, updatable = true, insertable = true)
 	private Float total_price;
 
 	@Override

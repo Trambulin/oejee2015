@@ -38,9 +38,17 @@ public class Employee implements Serializable {
 	@Id
 	@Column(name = "employee_id", nullable = false, updatable = false, insertable = true)
 	private Long id;
+	
+	@Column(name = "employee_address_id", nullable = false)
 	private Long address_id;
+	
+	@Column(name = "employee_name", nullable = false)
 	private String name;
+	
+	@Column(name = "employee_phone", nullable = false)
 	private String phone;
+	
+	@Column(name = "employee_other_details", nullable = false)
 	private String other_details;
 
 	public Long getId() {

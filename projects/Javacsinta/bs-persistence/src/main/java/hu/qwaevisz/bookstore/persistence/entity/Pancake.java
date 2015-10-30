@@ -19,7 +19,7 @@ import hu.qwaevisz.bookstore.persistence.query.PancakeQuery;
 		@NamedQuery(name = PancakeQuery.GET_BY_NAME, query = "SELECT b FROM Pancake b WHERE b.name=:" + PancakeParameter.NAME),
 		@NamedQuery(name = PancakeQuery.GET_BY_ID, query = "SELECT b FROM Pancake b WHERE b.id=:" + PancakeParameter.ID),
 		@NamedQuery(name = PancakeQuery.GET_BY_PRICE, query = "SELECT b FROM Pancake b WHERE b.price=:" + PancakeParameter.PRICE),
-		@NamedQuery(name = PancakeQuery.GET_ALL, query = "SELECT b FROM Pancake b ORDER BY b.name")
+		@NamedQuery(name = PancakeQuery.GET_ALL, query = "SELECT b FROM Pancake b ORDER BY b.id")
 		//
 })
 public class Pancake implements Serializable {
@@ -32,16 +32,16 @@ public class Pancake implements Serializable {
 	@Id
 	//@SequenceGenerator(name = "generatorPancake", sequenceName = "Pancake_Pancake_id_seq", allocationSize = 1)
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorPancake")
-	@Column(name = "Pancake_id", nullable = false, updatable = false, insertable = true)
+	@Column(name = "pancake_id", nullable = false, updatable = false, insertable = true)
 	private Long id;
 	
-	@Column(name = "Pancake_name", nullable = false)
+	@Column(name = "pancake_name", nullable = false)
 	private String name;
 
-	@Column(name = "Pancake_description", nullable = true)
+	@Column(name = "pancake_description", nullable = true)
 	private String description;
 	
-	@Column(name = "Pancake_price", nullable = false)
+	@Column(name = "pancake_price", nullable = false)
 	private Long price;
 	
 	
