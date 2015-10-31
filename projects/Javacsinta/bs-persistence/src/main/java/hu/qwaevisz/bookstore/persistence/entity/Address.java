@@ -34,7 +34,7 @@ public class Address implements Serializable {
 	private Long id;
 
 	@Column(name = "address_postcode", nullable = false)
-	private Long postcode;
+	private int postcode;
 	
 		
 	@Column(name = "address_street", nullable = false)
@@ -64,13 +64,13 @@ public class Address implements Serializable {
 
 
 
-	public Long getPostcode() {
+	public int getPostcode() {
 		return postcode;
 	}
 
 
 
-	public void setPostcode(Long postcode) {
+	public void setPostcode(int postcode) {
 		this.postcode = postcode;
 	}
 
