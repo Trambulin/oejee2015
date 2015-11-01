@@ -1,17 +1,16 @@
 package hu.nik.condominium.ejbservice.facade;
 
-import java.util.List;
-
-import javax.ejb.EJB;
-
-import org.apache.log4j.Logger;
-
 import hu.nik.condominium.ejbservice.converter.UserConverter;
 import hu.nik.condominium.ejbservice.domain.UserStub;
 import hu.nik.condominium.ejbservice.exception.FacadeException;
 import hu.nik.condominium.persistence.exception.PersistenceServiceException;
 import hu.nik.condominium.persistence.service.UserService;
+import org.apache.log4j.Logger;
 
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import java.util.List;
+@Stateless(mappedName = "ejb/userFacade")
 public class UserFacadeImpl implements UserFacade{
 	
 	private static final Logger LOGGER = Logger.getLogger(UserFacadeImpl.class);
