@@ -19,7 +19,7 @@ import hu.qwaevisz.bookstore.persistence.query.PancakeQuery;
 		@NamedQuery(name = PancakeQuery.GET_BY_NAME, query = "SELECT b FROM Pancake b WHERE b.name=:" + PancakeParameter.NAME),
 		@NamedQuery(name = PancakeQuery.GET_BY_ID, query = "SELECT b FROM Pancake b WHERE b.id=:" + PancakeParameter.ID),
 		@NamedQuery(name = PancakeQuery.GET_BY_PRICE, query = "SELECT b FROM Pancake b WHERE b.price=:" + PancakeParameter.PRICE),
-		@NamedQuery(name = PancakeQuery.GET_ALL, query = "SELECT b FROM Pancake b ORDER BY b.id")
+		@NamedQuery(name = PancakeQuery.GET_ALL, query = "SELECT b FROM Pancake b ORDER BY b.name")
 		//
 })
 public class Pancake implements Serializable {
@@ -42,7 +42,7 @@ public class Pancake implements Serializable {
 	private String description;
 	
 	@Column(name = "pancake_price", nullable = false)
-	private Long price;
+	private int price;
 	
 	
 
@@ -62,18 +62,15 @@ public class Pancake implements Serializable {
 		this.description = description;
 	}
 
-	public Long getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(Long price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
-	public Pancake() {
-
-	}
-
+	
 	public Long getId() {
 		return this.id;
 	}

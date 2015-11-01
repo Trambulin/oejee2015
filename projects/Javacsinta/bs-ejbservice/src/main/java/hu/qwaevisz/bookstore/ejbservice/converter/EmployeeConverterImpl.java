@@ -7,7 +7,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import hu.qwaevisz.bookstore.ejbservice.domain.EmployeeStub;
-import hu.qwaevisz.bookstore.ejbservice.domain.PaymentMethodStub;
+
 import hu.qwaevisz.bookstore.persistence.entity.Employee;
 
 

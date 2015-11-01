@@ -13,8 +13,8 @@ import hu.qwaevisz.bookstore.persistence.entity.Employee;
 @Local
 public interface EmployeeConverter {
 
-	EmployeeStub to(Employee customer);
+	EmployeeStub to(Employee employee);
 
-	List<EmployeeStub> to(List<Employee> customers);
+	List<EmployeeStub> to(List<Employee> employees);
 
 }

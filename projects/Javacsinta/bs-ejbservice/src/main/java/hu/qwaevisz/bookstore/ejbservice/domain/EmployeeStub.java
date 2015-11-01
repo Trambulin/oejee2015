@@ -55,7 +55,7 @@ public class EmployeeStub {
 
 	@Override
 	public String toString() {
-		return "CustomerStub [address=" + address + ", name=" + name + ", phone=" + phone + ",details=" + details + "]";
+		return "EmployeeStub [address=" + address + ", name=" + name + ", phone=" + phone + ",details=" + details + "]";
 	}
 	
 		

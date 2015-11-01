@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Employee read(Long id) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Customer by id (" + id + ")");
+			LOGGER.debug("Get Employee by id (" + id + ")");
 		}
 		Employee result = null;
 		try {
@@ -46,13 +46,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Employee read(String name) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Customer by NAME (" + name + ")");
+			LOGGER.debug("Get Employee by NAME (" + name + ")");
 		}
 		Employee result = null;
 		try {
 			result = this.entityManager.createNamedQuery(EmployeeQuery.GET_BY_NAME, Employee.class).setParameter(CustomerParameter.NAME, name).getSingleResult();
 		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching Customer by NAME (" + name + ")! " + e.getLocalizedMessage(), e);
+			throw new PersistenceServiceException("Unknown error when fetching Employee by NAME (" + name + ")! " + e.getLocalizedMessage(), e);
 		}
 		return result;
 	}
@@ -60,13 +60,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public List<Employee> readAll() throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Customers");
+			LOGGER.debug("Get Employess");
 		}
 		List<Employee> result = null;
 		try {
 			result = this.entityManager.createNamedQuery(EmployeeQuery.GET_ALL, Employee.class).getResultList();
 		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching Customers! " + e.getLocalizedMessage(), e);
+			throw new PersistenceServiceException("Unknown error when fetching Employees! " + e.getLocalizedMessage(), e);
 		}
 		return result;
 	}
