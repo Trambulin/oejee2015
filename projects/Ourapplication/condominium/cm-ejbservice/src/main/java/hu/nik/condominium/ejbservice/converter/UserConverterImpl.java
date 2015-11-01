@@ -1,12 +1,12 @@
 package hu.nik.condominium.ejbservice.converter;
 
 import hu.nik.condominium.ejbservice.domain.UserStub;
-
 import hu.nik.condominium.persistence.entity.User;
 
 import javax.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
+@Stateless
 public class UserConverterImpl implements UserConverter {
 
 	@Override
