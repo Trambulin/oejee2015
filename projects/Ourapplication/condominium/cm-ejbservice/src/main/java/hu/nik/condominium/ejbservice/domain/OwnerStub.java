@@ -28,10 +28,6 @@ public class OwnerStub {
         this.id = id;
     }
 
-    public List<CondominiumStub> getCondominiumOwnerStub() {
-        return condominiumOwnerStub;
-    }
-
     public List<CondominiumStub> getCondominiumStub() {
         return condominiumOwnerStub;
     }
