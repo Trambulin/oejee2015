@@ -31,4 +31,16 @@ public class OwnerRestServiceBean implements OwnerRestService {
         }
         return result;
     }
+
+    @Override
+    public OwnerStub getOwner(String ownerid) throws AdaptorException {
+        LOGGER.info("GET OWNER BY ID :"+ownerid);
+        try {
+            return this.facade.getOwner(Long.valueOf(ownerid));
+        } catch (FacadeException e) {
+            throw new AdaptorException(ApplicationError.NOT_EXISTS, "OWNER ID NOT EXIST");
+        }catch(NumberFormatException nfe){
+            throw new AdaptorException(ApplicationError.UNEXPECTED,"INVALID OWNERID");
+        }
+    }
 }
