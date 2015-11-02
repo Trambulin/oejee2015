@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import hu.qwaevisz.bookstore.ejbservice.domain.BookStub;
+
 import hu.qwaevisz.bookstore.ejbservice.domain.CustomerStub;
 
 import hu.qwaevisz.bookstore.persistence.entity.Customer;

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<section name="Workbench">
-	<section name="org.eclipse.buildship.ui.wizard.project.import">
-		<item value="D:\Documents\Suli\OE\09.felev\JavaEEo\szs\oejee2015\projects\Javacsinta" key="project_location"/>
-		<item value="C:\qapps\gradle-2.6" key="gradle_distribution_configuration"/>
-		<item value="LOCAL_INSTALLATION" key="gradle_distribution_type"/>
-	</section>
-</section>

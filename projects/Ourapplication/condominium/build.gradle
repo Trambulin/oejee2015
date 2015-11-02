@@ -7,6 +7,13 @@ ext {
 	jeeVersion = '6.0'  
 	servletapiVersion = '3.0.1'
 	hibernateVersion = '4.3.10.Final'
+	jaxrsVersion = '2.0.1'
+	resteasyVersion = '2.3.7.Final'
+	jbossjee6Version = '3.0.3.Final'
+	commonsloggingVersion = '1.2'
+
+	webserviceArchiveName = 'cm-webservice.war'
+	webserviceContextPath = 'condominium'
 }
 
 subprojects {
@@ -24,9 +31,15 @@ subprojects {
 		testCompile group: 'org.testng', name: 'testng', version: testngVersion
 	}
 }
-
+//!!!
+ear {
+	deploymentDescriptor {
+		webModule( webserviceArchiveName, webserviceContextPath )
+	}
+}
 dependencies {
 	deploy project('cm-ejbservice')
 	deploy project('cm-persistence')
 	deploy project(path: 'cm-weblayer', configuration: 'archives')
+	deploy project(path: 'cm-webservice', configuration: 'archives')
 }

@@ -1,0 +1,2 @@
+REQ: GET http://localhost:8080/condominium/api/owner/list
+GET http://localhost:8080/condominium/api/owner/1

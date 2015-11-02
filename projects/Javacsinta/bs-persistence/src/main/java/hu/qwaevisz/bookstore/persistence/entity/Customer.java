@@ -2,13 +2,17 @@ package hu.qwaevisz.bookstore.persistence.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
@@ -36,8 +40,10 @@ public class Customer implements Serializable {
 	@Column(name = "customer_id", nullable = false, updatable = false, insertable = false)
 	private Long id;
 
-	@Column(name = "customer_address_id", nullable = false)
-	private Long address_id;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+	@JoinColumn(name = "customer_address_id", referencedColumnName = "address_id", nullable = false)
+	private Address address;
+	
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "customer_payment_method_id", nullable = false)
@@ -61,66 +67,104 @@ public class Customer implements Serializable {
 
 	}
 
+
+
 	public Long getId() {
-		return this.id;
+		return id;
 	}
+
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Long getAddress_id() {
-		return address_id;
+
+
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddress_id(Long address_id) {
-		this.address_id = address_id;
+
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
+
+
 
 	public PaymentMethod getPaymentMethod() {
-		return this.paymentMethod;
+		return paymentMethod;
 	}
+
+
 
 	public void setPaymentMethod(PaymentMethod paymentMethod) {
 		this.paymentMethod = paymentMethod;
 	}
-	
+
+
+
 	public String getName() {
-		return this.name;
+		return name;
 	}
+
+
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+
+
 	public String getPhone() {
-		return this.phone;
+		return phone;
 	}
+
+
 
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
+
+
 	public String getEmail() {
-		return this.email;
+		return email;
 	}
+
+
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+
+
 	public String getDetails() {
 		return details;
 	}
+
+
 
 	public void setDetails(String details) {
 		this.details = details;
 	}
 
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", address_id=" + address_id + ", paymentMethod=" + paymentMethod + ", name="
-				+ name + ", phone=" + phone + ", email=" + email + ", details=" + details + "]";
+		return "Customer [id=" + id + ", address=" + address + ", paymentMethod=" + paymentMethod + ", name=" + name
+				+ ", phone=" + phone + ", email=" + email + ", details=" + details + "]";
 	}
+
+	
 
 }

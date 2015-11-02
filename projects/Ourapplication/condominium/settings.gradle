@@ -1,3 +1,5 @@
 include 'cm-ejbservice'
 include 'cm-weblayer'
 include 'cm-persistence'
+include 'cm-webservice'
+include 'cm-restclient'

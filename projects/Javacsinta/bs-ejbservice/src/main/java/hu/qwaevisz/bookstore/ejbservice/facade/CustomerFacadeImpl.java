@@ -10,15 +10,14 @@ import org.apache.log4j.Logger;
 
 
 import hu.qwaevisz.bookstore.ejbservice.converter.CustomerConverter;
-import hu.qwaevisz.bookstore.ejbservice.domain.BookCriteria;
-import hu.qwaevisz.bookstore.ejbservice.domain.BookStub;
+
 import hu.qwaevisz.bookstore.ejbservice.domain.CustomerStub;
 import hu.qwaevisz.bookstore.ejbservice.exception.FacadeException;
 import hu.qwaevisz.bookstore.persistence.exception.PersistenceServiceException;
 
 import hu.qwaevisz.bookstore.persistence.service.CustomerService;
 
-@Stateless(mappedName = "ejb/bookFacade")
+@Stateless(mappedName = "ejb/customerFacade")
 public class CustomerFacadeImpl implements CustomerFacade {
 
 	private static final Logger LOGGER = Logger.getLogger(CustomerFacadeImpl.class);
@@ -29,12 +28,14 @@ public class CustomerFacadeImpl implements CustomerFacade {
 	@EJB
 	private CustomerConverter converter;
 
+	
+	
 	@Override
 	public CustomerStub getCustomer(String name) throws FacadeException {
 		try {
 			final CustomerStub stub = this.converter.to(this.service.read(name));
 			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug("Get Book by isbn (" + name + ") --> " + stub);
+				LOGGER.debug("Get Customer by name (" + name + ") --> " + stub);
 			}
 			return stub;
 		} catch (final PersistenceServiceException e) {

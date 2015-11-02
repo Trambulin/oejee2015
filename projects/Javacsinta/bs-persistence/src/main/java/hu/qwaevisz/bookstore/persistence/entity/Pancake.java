@@ -32,17 +32,17 @@ public class Pancake implements Serializable {
 	@Id
 	//@SequenceGenerator(name = "generatorPancake", sequenceName = "Pancake_Pancake_id_seq", allocationSize = 1)
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorPancake")
-	@Column(name = "Pancake_id", nullable = false, updatable = false, insertable = true)
+	@Column(name = "pancake_id", nullable = false, updatable = false, insertable = true)
 	private Long id;
 	
-	@Column(name = "Pancake_name", nullable = false)
+	@Column(name = "pancake_name", nullable = false)
 	private String name;
 
-	@Column(name = "Pancake_description", nullable = true)
+	@Column(name = "pancake_description", nullable = true)
 	private String description;
 	
-	@Column(name = "Pancake_price", nullable = false)
-	private Long price;
+	@Column(name = "pancake_price", nullable = false)
+	private int price;
 	
 	
 
@@ -62,18 +62,15 @@ public class Pancake implements Serializable {
 		this.description = description;
 	}
 
-	public Long getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(Long price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
-	public Pancake() {
-
-	}
-
+	
 	public Long getId() {
 		return this.id;
 	}

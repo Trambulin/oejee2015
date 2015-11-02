@@ -2,7 +2,7 @@ package hu.qwaevisz.bookstore.ejbservice.domain;
 
 public class CustomerStub {
 
-    private long address_id;
+    private AddressStub address;
     private String name;
     private String phone;
     private PaymentMethodStub paymentmethod;
@@ -10,13 +10,13 @@ public class CustomerStub {
     private String details;
 
     public CustomerStub() {
-        this(0, null, null, null, null, null);
+        this(null, null, null, null, null, null);
     }
 
-	public CustomerStub(long address_id, String name, String phone, PaymentMethodStub paymentmethod, String email,
+	public CustomerStub(AddressStub address, String name, String phone, PaymentMethodStub paymentmethod, String email,
 			String details) {
 		super();
-		this.address_id = address_id;
+		this.address = address;
 		this.name = name;
 		this.phone = phone;
 		this.paymentmethod = paymentmethod;
@@ -24,12 +24,12 @@ public class CustomerStub {
 		this.details = details;
 	}
 
-	public long getAddress_id() {
-		return address_id;
+	public AddressStub getAddress() {
+		return address;
 	}
 
-	public void setAddress_id(int address_id) {
-		this.address_id = address_id;
+	public void setAddress(AddressStub address) {
+		this.address = address;
 	}
 
 	public String getName() {
@@ -74,12 +74,9 @@ public class CustomerStub {
 
 	@Override
 	public String toString() {
-		return "CustomerStub [address_id=" + address_id + ", name=" + name + ", phone=" + phone + ", paymentmethod="
+		return "CustomerStub [address=" + address + ", name=" + name + ", phone=" + phone + ", paymentmethod="
 				+ paymentmethod + ", email=" + email + ", details=" + details + "]";
 	}
-
-    
-
-   
-
+	
+		
 }

@@ -28,10 +28,6 @@ public class OwnerStub {
         this.id = id;
     }
 
-    public List<CondominiumStub> getCondominiumOwnerStub() {
-        return condominiumOwnerStub;
-    }
-
     public List<CondominiumStub> getCondominiumStub() {
         return condominiumOwnerStub;
     }
@@ -67,4 +63,8 @@ public class OwnerStub {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "Name: "+this.name+",id: "+this.id+",email: "+this.getEmail();
+    }
 }
