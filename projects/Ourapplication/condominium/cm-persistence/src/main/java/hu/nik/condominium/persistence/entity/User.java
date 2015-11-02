@@ -2,11 +2,22 @@ package hu.nik.condominium.persistence.entity;
 
 import javax.persistence.*;
 
+import hu.nik.condominium.persistence.parameter.OwnerParameter;
+import hu.nik.condominium.persistence.parameter.UserParameter;
+import hu.nik.condominium.persistence.query.OwnerQuery;
+import hu.nik.condominium.persistence.query.UserQuery;
+
 @Entity
 @Table(name = "c_user")
+@NamedQueries(value = {
+        @NamedQuery(name = UserQuery.GET_BY_LOGIN, query = "SELECT u FROM User u where u.login=:" + UserParameter.LOGIN),
+        @NamedQuery(name = UserQuery.GET_ALL, query = "SELECT u FROM User u User BY u.login")})
 public class User {
 
-    @Id
+	@id
+    @SequenceGenerator(name = "generatorUser", sequenceName = "c_user_c_user_login_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorUser")
+	
     @Column(name = "c_user_login",nullable = false)
     private String loginName;
 
