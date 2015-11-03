@@ -1,0 +1,5 @@
+jar { archiveName 'pcw-ejbservice.jar' }
+
+dependencies {
+	compile project(':pcw-persistence')
+}

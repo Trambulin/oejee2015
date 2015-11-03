@@ -26,7 +26,7 @@ subprojects {
 }
 
 dependencies {
-	deploy project('bs-ejbservice')
-	deploy project('bs-persistence')
-	deploy project(path: 'bs-weblayer', configuration: 'archives')
+	deploy project('pcw-ejbservice')
+	deploy project('pcw-persistence')
+	deploy project(path: 'pcw-weblayer', configuration: 'archives')
 }

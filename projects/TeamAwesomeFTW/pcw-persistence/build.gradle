@@ -1,0 +1,5 @@
+jar { archiveName 'pcw-persistence.jar' }
+
+dependencies {
+	compile group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion
+}
