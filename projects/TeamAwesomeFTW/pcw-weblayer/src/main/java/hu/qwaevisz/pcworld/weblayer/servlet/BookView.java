@@ -31,6 +31,9 @@ public class BookView extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// Comment
+		
 		String isbn = request.getParameter(PARAM_ISBN);
 		LOGGER.info("Get Book by ISBN ("+isbn+")");
 		try {
