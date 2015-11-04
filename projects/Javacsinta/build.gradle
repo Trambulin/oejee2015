@@ -1,12 +1,19 @@
 apply plugin: 'eclipse'
 apply plugin: 'ear'
 
+version = '1.0'
+
 ext {
 	log4jVersion = '1.2.17'
 	testngVersion = '6.9.+'
 	jeeVersion = '6.0'  
 	servletapiVersion = '3.0.1'
 	hibernateVersion = '4.3.10.Final'
+	jaxrsVersion = '2.0.1'	
+
+	webserviceArchiveName = 'bs-webservice.war'
+	webserviceContextPath = 'pancake'
+
 }
 
 subprojects {
@@ -29,4 +36,5 @@ dependencies {
 	deploy project('bs-ejbservice')
 	deploy project('bs-persistence')
 	deploy project(path: 'bs-weblayer', configuration: 'archives')
+	deploy project(path: 'bs-webservice', configuration: 'archives')
 }
