@@ -11,7 +11,7 @@ ext {
 	hibernateVersion = '4.3.10.Final'
 	jaxrsVersion = '2.0.1'	
 
-	webserviceArchiveName = 'bs-webservice.war'
+	webserviceArchiveName = 'jcs-webservice.war'
 	webserviceContextPath = 'pancake'
 
 }
@@ -33,8 +33,8 @@ subprojects {
 }
 
 dependencies {
-	deploy project('bs-ejbservice')
-	deploy project('bs-persistence')
-	deploy project(path: 'bs-weblayer', configuration: 'archives')
-	deploy project(path: 'bs-webservice', configuration: 'archives')
+	deploy project('jcs-ejbservice')
+	deploy project('jcs-persistence')
+	deploy project(path: 'jcs-weblayer', configuration: 'archives')
+	deploy project(path: 'jcs-webservice', configuration: 'archives')
 }
