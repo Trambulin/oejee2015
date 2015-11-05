@@ -1,7 +1,7 @@
 {
   "1.0": {
-    "project_path": ":bs-ejbservice",
-    "project_dir": "C:\\Users\\Szabi\\szs\\oejee2015\\projects\\Javacsinta\\bs-ejbservice",
+    "project_path": ":jcs-ejbservice",
+    "project_dir": "C:\\Users\\Szabi\\szs\\oejee2015\\projects\\Javacsinta\\jcs-ejbservice",
     "connection_project_dir": "C:\\Users\\Szabi\\szs\\oejee2015\\projects\\Javacsinta",
     "connection_gradle_user_home": null,
     "connection_gradle_distribution": "GRADLE_DISTRIBUTION(WRAPPER)",

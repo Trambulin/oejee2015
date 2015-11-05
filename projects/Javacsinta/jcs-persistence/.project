@@ -20,7 +20,7 @@
 			</matcher>
 		</filter>
 	</filteredResources>
-	<name>bs-persistence</name>
+	<name>jcs-persistence</name>
 	<comment/>
 	<projects/>
 	<natures>
