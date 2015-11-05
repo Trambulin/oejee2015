@@ -1,4 +1,4 @@
-/*package hu.qwaevisz.pcworld.weblayer.servlet;
+package hu.qwaevisz.pcworld.weblayer.servlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,30 +13,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import hu.qwaevisz.pcworld.ejbservice.domain.BookCriteria;
-import hu.qwaevisz.pcworld.ejbservice.domain.BookStub;
+//import hu.qwaevisz.pcworld.ejbservice.domain.ProductCriteria;
+import hu.qwaevisz.pcworld.ejbservice.domain.ProductStub;
 import hu.qwaevisz.pcworld.ejbservice.exception.FacadeException;
-import hu.qwaevisz.pcworld.ejbservice.facade.BookFacade;
+import hu.qwaevisz.pcworld.ejbservice.facade.ProductFacade;
 
-@WebServlet("/BookList")
-public class BookListView extends HttpServlet {
+@WebServlet("/ProductList")
+public class ProductListView extends HttpServlet {
 
 	private static final long serialVersionUID = -1977646750178615187L;
 
-	private static final Logger LOGGER = Logger.getLogger(BookListView.class);
+	private static final Logger LOGGER = Logger.getLogger(ProductListView.class);
 
-	private static final String ATTRIBUTE_BOOKS = "books";
+	private static final String ATTRIBUTE_PRODUCTS = "products";
 	private static final String PAGE = "list.jsp";
 
 	@EJB
-	private BookFacade facade;
+	private ProductFacade facade;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LOGGER.info("Get All Books");
+		LOGGER.info("Get All Products");
 		try {
-			final List<BookStub> books = this.facade.getBooks(new BookCriteria());
-			request.setAttribute(ATTRIBUTE_BOOKS, books);
+			final List<ProductStub> products = this.facade.getProducts(); //new ProductCriteria());
+			request.setAttribute(ATTRIBUTE_PRODUCTS, products);
 		} catch (final FacadeException e) {
 			LOGGER.error(e, e);
 		}
@@ -44,4 +44,4 @@ public class BookListView extends HttpServlet {
 		view.forward(request, response);
 	}
 
-}*/
+}

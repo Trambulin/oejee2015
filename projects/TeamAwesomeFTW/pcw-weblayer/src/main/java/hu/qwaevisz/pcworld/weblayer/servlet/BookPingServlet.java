@@ -1,4 +1,4 @@
-package hu.qwaevisz.pcworld.weblayer.servlet;
+/*package hu.qwaevisz.pcworld.weblayer.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,4 +41,4 @@ public class BookPingServlet extends HttpServlet {
         out.close();
     }
 
-}
+}*/

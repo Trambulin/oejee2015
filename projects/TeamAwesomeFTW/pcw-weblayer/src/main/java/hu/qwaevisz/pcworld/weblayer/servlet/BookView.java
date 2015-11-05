@@ -1,4 +1,4 @@
-package hu.qwaevisz.pcworld.weblayer.servlet;
+/*package hu.qwaevisz.pcworld.weblayer.servlet;
 
 import java.io.IOException;
 
@@ -46,4 +46,4 @@ public class BookView extends HttpServlet {
 	    view.forward(request, response); 
 	}
 
-}
+}*/

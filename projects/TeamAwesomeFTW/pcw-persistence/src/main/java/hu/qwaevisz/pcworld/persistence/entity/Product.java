@@ -18,15 +18,14 @@ import javax.persistence.Table;
 import hu.qwaevisz.pcworld.persistence.query.ProductQuery;
 
 @Entity
-@Table(name = "book")
+@Table(name = "supplier")
 @NamedQueries(value = { //
 		//@NamedQuery(name = BookQuery.GET_BY_ISBN, query = "SELECT b FROM Book b WHERE b.isbn=:" + BookParameter.ISBN),
 		//@NamedQuery(name = BookQuery.GET_BY_ID, query = "SELECT b FROM Book b WHERE b.id=:" + BookParameter.ID),
 		//@NamedQuery(name = BookQuery.GET_ALL, query = "SELECT b FROM Book b ORDER BY b.title")
 		
-		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE productType=:" + "1"),
-		@NamedQuery(name = ProductQuery.GET_BY_NAME, query = "SELECT s FROM Product s WHERE productType=:" + "1"),
-		@NamedQuery(name = ProductQuery.GET_BY_MANUFACTURER, query = "SELECT s FROM Product s WHERE productType=:" + "1"),
+		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE productType=:" + "MOUSE"),
+		@NamedQuery(name = ProductQuery.GET_BY_MANUFACTURER, query = "SELECT s FROM Product s WHERE productType=:" + "MOUSE"),
 		@NamedQuery(name = ProductQuery.GET_ALL, query = "SELECT s FROM Product s ORDER BY name")
 		//
 })
@@ -42,7 +41,7 @@ public class Product implements Serializable {
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "sup_product_type", nullable = false)
-	private Integer productType; //BookCategory int helyett
+	private ProductType productType;
 	
 	@Column(name = "sup_name", nullable = false)
 	private String name;
@@ -58,7 +57,7 @@ public class Product implements Serializable {
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "spr_manufacturer_id", nullable = false)
-	private Integer manufacturer; //MANUFACTURER KELL IDE
+	private ProductManufacturer manufacturer;
 	
 	@Column(name = "spr_shipping_days", nullable = false)
 	private Integer shippingDays;
@@ -76,11 +75,11 @@ public class Product implements Serializable {
 		this.id = id;
 	}
 	
-	public Integer getProductType() // ENUM CLASS !!
+	public ProductType getProductType()
 	{
 		return this.productType;
 	}
-	public void setProductType(Integer productType)
+	public void setProductType(ProductType productType)
 	{
 		this.productType = productType;
 	}
@@ -121,11 +120,11 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 	
-	public Integer getManufacturer() // ENUM CLASS !!
+	public ProductManufacturer getManufacturer()
 	{
 		return this.manufacturer;
 	}
-	public void setManufacturer(Integer manufacturer)
+	public void setManufacturer(ProductManufacturer manufacturer)
 	{
 		this.manufacturer = manufacturer;
 	}

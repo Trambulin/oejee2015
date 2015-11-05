@@ -1,36 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.Set" %>  
 <%@ page import="java.util.List" %>
-<%@ page import="hu.qwaevisz.pcworld.ejbservice.domain.BookStub" %> 
-<% List<BookStub> books = (List<BookStub>) request.getAttribute("books"); %>
+<%@ page import="hu.qwaevisz.pcworld.ejbservice.domain.ProductStub" %>
+<% List<ProductStub> products = (List<ProductStub>) request.getAttribute("products"); %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="style/page.css" />
 <title>:: Books ::</title>
 </head>
 <body>
-	<h1>List of Books</h1>
+	<h1>List of products</h1>
 	<table class="bookstable">
-		<thead>
-			<tr>
-				<th>Author</th>
-				<th>Title</th>
-				<th>Category</th>
-				<th>Price</th>
-				<th>Number of pages</th>
-			</tr>
-		</thead>
 		<tbody>
-			<% for ( BookStub book : books) { %>
+			<% for ( ProductStub product : products) { %>
 				<tr>
-					<td><% out.print(book.getAuthor()); %></td>
-					<td><a href="Book?isbn=<% out.print(book.getIsbn()); %>"><% out.print(book.getTitle()); %></a></td>
-					<td><% out.print(book.getCategory()); %></td>
-					<td><% out.print(book.getPrice()); %> Ft</td>
-					<td><% out.print(book.getNumberOfPages()); %></td>
+					<td><% out.print(product.getId()); %></td>
+					<td><% out.print(product.getProductType()); %></td>
+					<td><% out.print(product.getName()); %></td>
+					<td><% out.print(product.getDescription()); %></td>
+					<td><% out.print(product.getWarranty()); %></td>
+					<td><% out.print(product.getPrice()); %></td>
+					<td><% out.print(product.getManufacturer()); %></td>
+					<td><% out.print(product.getShippingDays()); %></td>
 				</tr>
 			<% } %>
 		</tbody>

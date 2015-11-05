@@ -1,8 +1,8 @@
 package hu.qwaevisz.pcworld.persistence.parameter;
 
-public class BookParameter {
+public class ProductParameter {
 
 	public static final String ID = "id";
-	public static final String ISBN = "isbn";
+	public static final String Type = "type";
 
 }
