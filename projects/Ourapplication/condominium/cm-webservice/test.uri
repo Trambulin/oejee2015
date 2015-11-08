@@ -1,3 +1,13 @@
 REQ: GET http://localhost:8080/condominium/api/owner/list
 GET http://localhost:8080/condominium/api/owner/1
 GET: http://localhost:8080/condominium/api/repair/avg
+
+
+PUT: http://localhost:8080/condominium/api/condominium/add
+PAYLOAD:
+{
+	"location": "Budapest 13. kerület Kossuth utca 15.",
+	"floors": "8",
+	"type": "flat",
+	"buildYear": "2000-10-11"
+}

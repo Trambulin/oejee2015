@@ -21,7 +21,12 @@ public class Condominium implements Serializable {
 	public Condominium() {
 		// TODO Auto-generated constructor stub
 	}
-
+	public Condominium(String location, int floors, Date date, CondominiumType condominiumType){
+		this.location=location;
+		this.floors=floors;
+		this.buildYear=date;
+		this.type=condominiumType;
+	}
 	@Id
 	@SequenceGenerator(name = "generatorCondominium", sequenceName = "condominium_condominium_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorCondominium")

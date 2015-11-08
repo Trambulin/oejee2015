@@ -1,21 +1,17 @@
 package hu.nik.condominium.persistence.service;
 
-import java.util.List;
-
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
-import org.apache.log4j.Logger;
-
 import hu.nik.condominium.persistence.entity.Condominium;
+import hu.nik.condominium.persistence.entity.CondominiumType;
 import hu.nik.condominium.persistence.exception.PersistenceServiceException;
 import hu.nik.condominium.persistence.parameter.CondominiumParameter;
 import hu.nik.condominium.persistence.query.CondominiumQuery;
+import org.apache.log4j.Logger;
+
+import javax.ejb.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.sql.Date;
+import java.util.List;
 
 @Stateless(mappedName = "ejb/groupService")
 @TransactionManagement(TransactionManagementType.CONTAINER)
@@ -26,6 +22,9 @@ public class CondominiumServiceImpl implements CondominiumService {
 
 	@PersistenceContext(unitName = "cm-persistence-unit")
 	private EntityManager entityManager;
+
+	@EJB
+	CondominiumTypeService condominiumTypeService;
 
 	@Override
 	public Condominium read(Long id) throws PersistenceServiceException {
@@ -71,4 +70,22 @@ public class CondominiumServiceImpl implements CondominiumService {
 		}
 		return result;
 	}
+
+	@Override
+	public Condominium create(String location, int floors, Date date, Long condominiumType) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Add Condominium (location: " + location + ", floors: " + floors + ", date: " + date.toString() + ", typeID: " + condominiumType + ")");
+		}
+		try {
+			final CondominiumType cType=this.condominiumTypeService.read(condominiumType);
+			Condominium condominium = new Condominium(location, floors, date, cType);
+			condominium = this.entityManager.merge(condominium);
+			this.entityManager.flush();
+			return condominium;
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error during merging Condominium (location: " + location + ", floors: " + floors
+					+ ", date: " + date.toString() + ", condominiumTypeId: " + condominiumType + ")! " + e.getLocalizedMessage(), e);
+		}
+	}
+
 }

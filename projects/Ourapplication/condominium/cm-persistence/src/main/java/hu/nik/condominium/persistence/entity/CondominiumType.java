@@ -1,15 +1,17 @@
 package hu.nik.condominium.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import hu.nik.condominium.persistence.parameter.CondominiumTypeParameter;
+import hu.nik.condominium.persistence.query.TypeQuery;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "c_type")
+@NamedQueries(value = {
+		@NamedQuery(name = TypeQuery.GET_BY_NAME, query = "SELECT c FROM CondominiumType c where c.name=:" + CondominiumTypeParameter.NAME),
+		@NamedQuery(name = TypeQuery.GET_BY_ID, query = "SELECT c FROM CondominiumType c where c.id=:" + CondominiumTypeParameter.ID)
+})
+
 public class CondominiumType {
 
 	@Id
