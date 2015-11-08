@@ -7,7 +7,11 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "repair")
-@NamedQuery(name = RepairQuery.GET_ALL, query = "SELECT r FROM Repair r ORDER BY r.id")
+@NamedQueries({
+        @NamedQuery(name = RepairQuery.GET_ALL, query = "SELECT r FROM Repair r ORDER BY r.id"),
+       // @NamedQuery(name=RepairQuery.GET_AVG_PRICE_CONDOMINIUM_REPAIR, query="select new hu.nik.condominium.persistence.result.RepairCondominiumResult(c.name, avg(r.price)) from Repair r join r.condominium c")
+        @NamedQuery(name=RepairQuery.GET_AVG_PRICE_CONDOMINIUM_REPAIR, query="select new hu.nik.condominium.persistence.result.RepairCondominiumResult(r.condominium.id,avg(r.price)) from Repair r group by r.condominium")
+})
 public class Repair {
 
     @Id
