@@ -1,0 +1,81 @@
+!SESSION 2015-11-11 23:44:23.170 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-11-11 23:45:08.597
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Zsolt'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.buildship.core 2 0 2015-11-11 23:57:28.879
+!MESSAGE Loading Gradle project preview failed due to an error connecting to the Gradle build.
+!STACK 0
+org.gradle.tooling.GradleConnectionException: Could not fetch model of type 'BuildEnvironment' using Gradle installation 'C:\qapps\gradle-2.6\bin'.
+	at org.gradle.tooling.internal.consumer.ResultHandlerAdapter.onFailure(ResultHandlerAdapter.java:63)
+	at org.gradle.tooling.internal.consumer.async.DefaultAsyncConsumerActionExecutor$1$1.run(DefaultAsyncConsumerActionExecutor.java:57)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54)
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+	at org.gradle.tooling.internal.consumer.BlockingResultHandler.getResult(BlockingResultHandler.java:46)
+	at org.gradle.tooling.internal.consumer.DefaultModelBuilder.get(DefaultModelBuilder.java:49)
+	at com.gradleware.tooling.toolingclient.internal.DefaultToolingClient.executeAndWait(DefaultToolingClient.java:95)
+	at com.gradleware.tooling.toolingclient.internal.DefaultModelRequest.executeAndWait(DefaultModelRequest.java:79)
+	at com.gradleware.tooling.toolingmodel.repository.internal.DefaultModelRepository$13.get(DefaultModelRepository.java:331)
+	at com.gradleware.tooling.toolingmodel.repository.internal.DefaultModelRepository.executeAndWait(DefaultModelRepository.java:420)
+	at com.gradleware.tooling.toolingmodel.repository.internal.DefaultModelRepository.access$200(DefaultModelRepository.java:67)
+	at com.gradleware.tooling.toolingmodel.repository.internal.DefaultModelRepository$14.call(DefaultModelRepository.java:353)
+	at com.google.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4724)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3522)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2315)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2278)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2193)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:3932)
+	at com.google.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4721)
+	at com.gradleware.tooling.toolingmodel.repository.internal.DefaultModelRepository.getFromCache(DefaultModelRepository.java:369)
+	at com.gradleware.tooling.toolingmodel.repository.internal.DefaultModelRepository.executeRequest(DefaultModelRepository.java:350)
+	at com.gradleware.tooling.toolingmodel.repository.internal.DefaultModelRepository.executeRequest(DefaultModelRepository.java:326)
+	at com.gradleware.tooling.toolingmodel.repository.internal.DefaultModelRepository.fetchBuildEnvironment(DefaultModelRepository.java:138)
+	at org.eclipse.buildship.core.projectimport.ProjectPreviewJob.fetchBuildEnvironment(ProjectPreviewJob.java:89)
+	at org.eclipse.buildship.core.projectimport.ProjectPreviewJob.runToolingApiJobInWorkspace(ProjectPreviewJob.java:78)
+	at org.eclipse.buildship.core.util.progress.ToolingApiWorkspaceJob$1.run(ToolingApiWorkspaceJob.java:74)
+	at org.eclipse.buildship.core.util.progress.ToolingApiInvoker.invoke(ToolingApiInvoker.java:61)
+	at org.eclipse.buildship.core.util.progress.ToolingApiWorkspaceJob.runInWorkspace(ToolingApiWorkspaceJob.java:71)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.IllegalArgumentException: The specified Gradle installation directory 'C:\qapps\gradle-2.6\bin' does not appear to contain a Gradle distribution.
+	at org.gradle.tooling.internal.consumer.DistributionFactory$InstalledDistribution.getToolingImpl(DistributionFactory.java:219)
+	at org.gradle.tooling.internal.consumer.DistributionFactory$InstalledDistribution.getToolingImplementationClasspath(DistributionFactory.java:204)
+	at org.gradle.tooling.internal.consumer.loader.CachingToolingImplementationLoader.create(CachingToolingImplementationLoader.java:39)
+	at org.gradle.tooling.internal.consumer.loader.SynchronizedToolingImplementationLoader.create(SynchronizedToolingImplementationLoader.java:42)
+	at org.gradle.tooling.internal.consumer.connection.LazyConsumerActionExecutor.onStartAction(LazyConsumerActionExecutor.java:99)
+	at org.gradle.tooling.internal.consumer.connection.LazyConsumerActionExecutor.run(LazyConsumerActionExecutor.java:82)
+	at org.gradle.tooling.internal.consumer.connection.ProgressLoggingConsumerActionExecutor.run(ProgressLoggingConsumerActionExecutor.java:58)
+	at org.gradle.tooling.internal.consumer.connection.RethrowingErrorsConsumerActionExecutor.run(RethrowingErrorsConsumerActionExecutor.java:38)
+	at org.gradle.tooling.internal.consumer.async.DefaultAsyncConsumerActionExecutor$1$1.run(DefaultAsyncConsumerActionExecutor.java:55)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54)
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+!SESSION 2015-11-12 00:20:28.252 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-11-12 00:21:24.704
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Zsolt'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
