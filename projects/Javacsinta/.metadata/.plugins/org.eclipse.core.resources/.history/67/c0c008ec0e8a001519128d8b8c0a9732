@@ -1,0 +1,35 @@
+package hu.oe.pancakestore.ejbservice.exception;
+
+import hu.oe.pancakestore.ejbservice.domain.ErrorStub;
+import hu.oe.pancakestore.ejbservice.util.ApplicationError;
+
+public class FacadeException extends Exception {
+
+	private static final long serialVersionUID = 6791823269155412515L;
+
+	public FacadeException(String message) {
+		super(message);
+	}
+
+	public FacadeException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public FacadeException(ApplicationError error, String message, String field) {
+		this(error, message, null, field);
+	}
+
+	public FacadeException(ApplicationError error, String message, Throwable cause, String field) {
+		super(message, cause);
+		this.error = error;
+		this.field = field;
+	}
+
+	public ApplicationError getErrorCode() {
+		return this.error;
+	}
+
+	public ErrorStub build() {
+		return this.error.build(this.field);
+	}
+}

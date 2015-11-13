@@ -13,11 +13,17 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="PancakeCrossOriginRequestFilter" key="selection"/>
+		<item value="FacadeException" key="selection"/>
 		<list key="findhistory">
+			<item value="AdaptorException"/>
+			<item value="Student"/>
+			<item value="qwaevisz"/>
 			<item value="SchoolCrossOriginRequestFilter"/>
 		</list>
 		<list key="replacehistory">
+			<item value="FacadeException"/>
+			<item value="Pancake"/>
+			<item value="oe"/>
 			<item value="PancakeCrossOriginRequestFilter"/>
 		</list>
 	</section>

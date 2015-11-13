@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import hu.oe.pancakestore.ejbservice.converter.OrderMasterConverter;
 import hu.oe.pancakestore.ejbservice.domain.OrderMasterStub;
 import hu.oe.pancakestore.ejbservice.exception.FacadeException;
+import hu.oe.pancakestore.ejbservice.util.ApplicationError;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
 import hu.oe.pancakestore.persistence.service.OrderMasterService;
 
@@ -38,7 +39,7 @@ public class OrderMasterFacadeImpl implements OrderMasterFacade{
 			return stub;
 		} catch (final PersistenceServiceException e) {
 			LOGGER.error(e, e);
-			throw new FacadeException(e.getLocalizedMessage());
+			throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 		}
 	}
 
@@ -52,7 +53,7 @@ public class OrderMasterFacadeImpl implements OrderMasterFacade{
 		}
 	} catch (final PersistenceServiceException e) {
 		LOGGER.error(e, e);
-		throw new FacadeException(e.getLocalizedMessage());
+		throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 	}
 		return stubs;
 		

@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import hu.oe.pancakestore.ejbservice.converter.EmployeeConverter;
 import hu.oe.pancakestore.ejbservice.domain.EmployeeStub;
 import hu.oe.pancakestore.ejbservice.exception.FacadeException;
+import hu.oe.pancakestore.ejbservice.util.ApplicationError;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
 import hu.oe.pancakestore.persistence.service.EmployeeService;
 
@@ -57,7 +58,7 @@ public class EmployeeFacadeImpl implements EmployeeFacade {
 		}
 	} catch (final PersistenceServiceException e) {
 		LOGGER.error(e, e);
-		throw new FacadeException(e.getLocalizedMessage());
+		throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 	}
 		return stubs;
 	}
@@ -75,7 +76,7 @@ public EmployeeStub getEmployee(String name) throws FacadeException {
 		return stub;
 	} catch (final PersistenceServiceException e) {
 		LOGGER.error(e, e);
-		throw new FacadeException(e.getLocalizedMessage());
+		throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 	}
 }
 
