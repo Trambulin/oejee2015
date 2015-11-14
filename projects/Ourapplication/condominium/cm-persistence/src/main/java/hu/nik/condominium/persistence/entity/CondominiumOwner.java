@@ -6,8 +6,10 @@ import javax.persistence.*;
 @Table(name = "condominium_owner")
 public class CondominiumOwner {
 
-    @Id     //TODO: add sequence
-    @Column(name = "condominium_owner_id", nullable = false, unique = true)
+    @Id
+    @SequenceGenerator(name = "generatorCondominiumOwner", sequenceName = "condominium_owner_condominium_owner_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorCondominiumOwner")
+    @Column(name = "condominium_owner_id", nullable = false, insertable = false, updatable = false)
     private Long id;
 
     @ManyToOne(targetEntity = Owner.class)
