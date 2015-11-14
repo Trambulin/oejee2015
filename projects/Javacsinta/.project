@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Javacsinta</name>
-	<comment>Project bookstore created by Buildship.</comment>
-	<projects>
-	</projects>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-	</buildSpec>
-	<natures>
-		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
-	</natures>
 	<filteredResources>
 		<filter>
 			<id>1443104835981</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -26,7 +12,7 @@
 		</filter>
 		<filter>
 			<id>1443104835993</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -35,7 +21,7 @@
 		</filter>
 		<filter>
 			<id>1443104836000</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -44,7 +30,7 @@
 		</filter>
 		<filter>
 			<id>1443104836011</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -53,7 +39,7 @@
 		</filter>
 		<filter>
 			<id>1445259303740</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -62,7 +48,7 @@
 		</filter>
 		<filter>
 			<id>1445259303764</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -71,7 +57,7 @@
 		</filter>
 		<filter>
 			<id>1445259303775</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -80,7 +66,7 @@
 		</filter>
 		<filter>
 			<id>1446666115741</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -89,7 +75,7 @@
 		</filter>
 		<filter>
 			<id>1446727683457</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -98,7 +84,7 @@
 		</filter>
 		<filter>
 			<id>1446727683480</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -107,7 +93,7 @@
 		</filter>
 		<filter>
 			<id>1446727683491</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -116,7 +102,7 @@
 		</filter>
 		<filter>
 			<id>1446727683506</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -124,4 +110,17 @@
 			</matcher>
 		</filter>
 	</filteredResources>
+	<name>Javacsinta</name>
+	<comment>Project bookstore created by Buildship.</comment>
+	<projects/>
+	<natures>
+		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
+	</natures>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<linkedResources/>
 </projectDescription>

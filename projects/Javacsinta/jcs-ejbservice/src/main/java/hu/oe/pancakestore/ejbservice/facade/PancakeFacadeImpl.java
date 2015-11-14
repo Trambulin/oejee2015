@@ -12,6 +12,7 @@ import hu.oe.pancakestore.ejbservice.converter.PancakeConverter;
 
 import hu.oe.pancakestore.ejbservice.domain.PancakeStub;
 import hu.oe.pancakestore.ejbservice.exception.FacadeException;
+import hu.oe.pancakestore.ejbservice.util.ApplicationError;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
 import hu.oe.pancakestore.persistence.service.PancakeService;
 
@@ -38,7 +39,7 @@ public class PancakeFacadeImpl implements PancakeFacade{
 		return stub;
 	} catch (final PersistenceServiceException e) {
 		LOGGER.error(e, e);
-		throw new FacadeException(e.getLocalizedMessage());
+		throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 	}
 	}
 
@@ -52,7 +53,7 @@ public class PancakeFacadeImpl implements PancakeFacade{
 		}
 	} catch (final PersistenceServiceException e) {
 		LOGGER.error(e, e);
-		throw new FacadeException(e.getLocalizedMessage());
+		throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 	}
 		return stubs;
 	}

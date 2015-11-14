@@ -1,23 +1,23 @@
-package hu.qwaevisz.school.webservice.filter;
+package hu.oe.pancakestore.webservice.filter;
 
-import java.io.IOException;
+ import java.io.IOException;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+ import javax.servlet.Filter;
+ import javax.servlet.FilterChain;
+ import javax.servlet.FilterConfig;
+ import javax.servlet.ServletException;
+ import javax.servlet.ServletRequest;
+ import javax.servlet.ServletResponse;
+ import javax.servlet.annotation.WebFilter;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
+ import org.apache.log4j.Logger;
 
-@WebFilter(filterName = "SchoolCrossOriginRequestFilter", urlPatterns = { "/*" })
-public class SchoolCrossOriginRequestFilter implements Filter {
+@WebFilter(filterName = "PancakeCrossOriginRequestFilter", urlPatterns = { "/*" })
+public class PancakeCrossOriginRequestFilter implements Filter {
 
-	private static final Logger LOGGER = Logger.getLogger(SchoolCrossOriginRequestFilter.class);
+	private static final Logger LOGGER = Logger.getLogger(PancakeCrossOriginRequestFilter.class);
 
 	public static final String ALLOW_ORIGIN = "Access-Control-Allow-Origin";
 	public static final String ALLOW_CREDENTIALS = "Access-Control-Allow-Credentials";
