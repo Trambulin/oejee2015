@@ -4,3 +4,5 @@ GRANT USAGE, SELECT, UPDATE ON c_type_c_type_id_seq TO condominium_role;
 GRANT USAGE, SELECT, UPDATE ON condominium_condominium_id_seq TO condominium_role;
 GRANT USAGE, SELECT, UPDATE ON c_owner_c_owner_id_seq TO condominium_role;
 GRANT USAGE, SELECT, UPDATE ON repair_repair_id_seq TO condominium_role;
+GRANT USAGE, SELECT, UPDATE ON repair_repair_id_seq TO condominium_role;
+GRANT USAGE, SELECT, UPDATE ON notification_notification_id_seq TO condominium_role;

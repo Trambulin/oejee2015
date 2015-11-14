@@ -6,6 +6,7 @@ import hu.nik.condominium.persistence.query.OwnerQuery;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "c_owner")
@@ -34,7 +35,7 @@ public class Owner {
 
     @Column(name = "c_owner_e_mail", nullable = false)
     private String email;
-
+    //TODO: fetch kell a join
     //javax.ejb.EJBTransactionRolledbackException: failed to lazily initialize a collection
     // of role: hu.nik.condominium.persistence.entity.Owner.condominiums, could not initialize proxy - no Session
     @ManyToMany(fetch = FetchType.EAGER)
