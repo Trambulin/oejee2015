@@ -11,3 +11,4 @@ PAYLOAD:
 	"type": "flat",
 	"buildYear": "2000-10-11"
 }
+GET: http://localhost:8080/condominium/api/notification/1

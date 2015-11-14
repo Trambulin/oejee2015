@@ -10,7 +10,8 @@ import java.sql.Date;
 @Table(name = "notification")
 @NamedQueries(value = {
         @NamedQuery(name = NotificationQuery.GET_BY_ID, query = "SELECT n FROM Notification n where n.id=:" + NotificationParameter.ID),
-        @NamedQuery(name = NotificationQuery.GET_ALL, query = "SELECT n FROM Notification n ORDER BY n.id")})
+        @NamedQuery(name = NotificationQuery.GET_ALL, query = "SELECT n FROM Notification n ORDER BY n.id"),
+        @NamedQuery(name = NotificationQuery.GET_BY_OWNER_ID, query = "SELECT n FROM Notification n where n.condominiumOwner.owner.id=:"+ NotificationParameter.OWNERID+" ORDER BY n.id")})
 public class Notification {
 
 
@@ -37,7 +38,19 @@ public class Notification {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "condominium_owner_id", referencedColumnName = "condominium_owner_id")
-    private  CondominiumOwner condominiumOwners;
+    private  CondominiumOwner condominiumOwner;
+
+    public CondominiumOwner getCondominiumOwner() {
+        return condominiumOwner;
+    }
+
+    public void setCondominiumOwner(CondominiumOwner condominiumOwner) {
+        this.condominiumOwner = condominiumOwner;
+    }
+
+    public void setCompleted(Integer completed) {
+        this.completed = completed;
+    }
 
     public Long getId() {
         return id;

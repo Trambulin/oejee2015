@@ -10,4 +10,5 @@ import java.util.List;
 public interface NotificationFacade {
     List<NotificationStub> getAll() throws FacadeException;
     NotificationStub getById(Long id) throws FacadeException;
+    List<NotificationStub> getByOwnerId(Long ownerId) throws FacadeException;
 }

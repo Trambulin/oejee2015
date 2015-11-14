@@ -48,4 +48,18 @@ public class NotificationServiceImpl implements NotificationService{
         }
         return result;
     }
+
+    @Override
+    public List<Notification> readByOwner(Long ownerId) throws PersistenceServiceException {
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Get Notifications by ownerid: "+ownerId);
+        }
+        List<Notification> result = null;
+        try {
+            result = this.entityManager.createNamedQuery(NotificationQuery.GET_BY_OWNER_ID, Notification.class).setParameter(NotificationParameter.OWNERID,ownerId).getResultList();
+        } catch (final Exception e) {
+            throw new PersistenceServiceException("Unknown error when fetching Notifications! " + e.getLocalizedMessage(), e);
+        }
+        return result;
+    }
 }

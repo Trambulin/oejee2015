@@ -49,4 +49,19 @@ public class NotificationFacadeImpl implements  NotificationFacade{
             throw new FacadeException(e.getLocalizedMessage());
         }
     }
+
+    @Override
+    public List<NotificationStub> getByOwnerId(Long ownerid) throws FacadeException {
+        List<NotificationStub> stubs;
+        try {
+            stubs = this.converter.to(this.service.readByOwner(ownerid));
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Get Notifications ");
+            }
+        } catch (final PersistenceServiceException e) {
+            LOGGER.error(e, e);
+            throw new FacadeException(e.getLocalizedMessage());
+        }
+        return stubs;
+    }
 }

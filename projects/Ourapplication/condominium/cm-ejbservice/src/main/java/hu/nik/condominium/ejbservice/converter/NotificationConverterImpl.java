@@ -12,8 +12,8 @@ public class NotificationConverterImpl implements NotificationConverter{
 
     @Override
     public NotificationStub to(Notification notification) {
-       return new NotificationStub(notification.getId(),notification.getMessage(),
-               notification.getDate(),notification.getAnswer(),notification.getCompleted());
+       return new NotificationStub(notification.getId(),notification.getMessage(), notification.getDate(), notification.getAnswer(),
+               notification.getCompleted(),notification.getCondominiumOwner().getCondominium().getLocation(),notification.getCondominiumOwner().getStairs(),notification.getCondominiumOwner().getDoors());
     }
 
     @Override
