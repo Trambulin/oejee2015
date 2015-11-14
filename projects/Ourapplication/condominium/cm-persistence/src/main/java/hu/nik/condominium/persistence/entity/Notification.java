@@ -35,6 +35,9 @@ public class Notification {
     @Column(name = "notification_completed", nullable = false)
     private Integer completed;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "condominium_owner_id", referencedColumnName = "condominium_owner_id")
+    private  CondominiumOwner condominiumOwners;
 
     public Long getId() {
         return id;
