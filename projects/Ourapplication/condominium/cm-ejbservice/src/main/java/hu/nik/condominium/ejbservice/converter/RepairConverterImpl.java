@@ -11,7 +11,7 @@ import java.util.List;
 public class RepairConverterImpl implements ReairConverter {
     @Override
     public RepairStub to(Repair repair) {
-        return new RepairStub(repair.getDate(), repair.getPrice(), new CondominiumConverterImpl().to(repair.getCondominium()));
+        return new RepairStub(repair.getDate(), repair.getPrice(), new CondominiumConverterImpl().to(repair.getCondominium()),repair.getDescription());
     }
 
     @Override

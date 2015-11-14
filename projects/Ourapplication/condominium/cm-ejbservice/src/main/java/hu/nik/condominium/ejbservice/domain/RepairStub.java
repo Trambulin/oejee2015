@@ -10,12 +10,21 @@ public class RepairStub {
     private Long price;
     private CondominiumStub condominium;
 
-    public RepairStub(Date date,Long price,CondominiumStub condominium){
+    private String description;
+
+    public RepairStub(Date date,Long price,CondominiumStub condominium, String description){
         this.date=date;
         this.price=price;
         this. condominium=condominium;
+        this.description=description;
+    }
+    public String getDescription() {
+        return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
     public Date getDate() {
         return date;
     }

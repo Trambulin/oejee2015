@@ -30,10 +30,10 @@ public class RepairListView extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        LOGGER.info("Get All Condominiums");
+        LOGGER.info("Get All Repairs");
         try {
-            final List<RepairStub> coundominiums = this.facade.getRepairs(new RepairCriteria());
-            request.setAttribute(ATTRIBUTE_REPAIRS, coundominiums);
+            final List<RepairStub> repairStubs = this.facade.getRepairs(new RepairCriteria());
+            request.setAttribute(ATTRIBUTE_REPAIRS, repairStubs);
         } catch (final FacadeException e) {
             LOGGER.error(e, e);
         }

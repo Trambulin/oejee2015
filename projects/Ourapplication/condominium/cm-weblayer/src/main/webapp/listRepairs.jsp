@@ -22,6 +22,7 @@
         <tr>
             <th>Date</th>
             <th>Location</th>
+            <th>Description</th>
             <th>Price</th>
         </tr>
         </thead>
@@ -31,6 +32,7 @@
             <td><% out.print(stub.getDate()); %></td>
             <td><a href="CondominiumView?id=<%out.println(stub.getCondominiumLocation().getId());%>"><%
                 out.print(stub.getCondominiumLocation().getLocation()); %></a></td>
+            <td><% out.print(stub.getDescription());%></td>
             <td><% out.print(NumberFormat.getInstance(Locale.ENGLISH).format(stub.getPrice())); %></td>
         </tr>
         <% } %>
