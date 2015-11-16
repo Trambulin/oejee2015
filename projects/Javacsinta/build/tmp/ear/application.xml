@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <application xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd" version="6">
-  <display-name>Javacsinta</display-name>
+  <module>
+    <web>
+      <web-uri>jcs-webservice.war</web-uri>
+      <context-root>Javacsinta</context-root>
+    </web>
+  </module>
   <library-directory>lib</library-directory>
 </application>

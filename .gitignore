@@ -37,6 +37,7 @@ projects/Javacsinta/.gradle/2.6/taskArtifacts/cache.properties.lock
 projects/Javacsinta/.gradle/2.6/taskArtifacts/fileHashes.bin
 projects/Javacsinta/.gradle/2.6/taskArtifacts/fileSnapshots.bin
 projects/Javacsinta/.gradle/2.6/taskArtifacts/taskArtifacts.bin
-projects/Javacsinta/bs-ejbservice/.classpath
-projects/Javacsinta/bs-persistence/.classpath
-projects/Javacsinta/bs-weblayer/.classpath
+projects/Javacsinta/jcs-ejbservice/.classpath
+projects/Javacsinta/jcs-persistence/.classpath
+projects/Javacsinta/jcs-weblayer/.classpath
+projects/Javacsinta/jcs-webservice/.classpath

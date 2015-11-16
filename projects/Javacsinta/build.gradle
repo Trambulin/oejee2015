@@ -12,7 +12,7 @@ ext {
 	jaxrsVersion = '2.0.1'	
 
 	webserviceArchiveName = 'jcs-webservice.war'
-	webserviceContextPath = 'pancake'
+	webserviceContextPath = 'Javacsinta'
 
 }
 
@@ -30,6 +30,12 @@ subprojects {
 		compile group: 'javax', name: 'javaee-api', version: jeeVersion
 		testCompile group: 'org.testng', name: 'testng', version: testngVersion
 	}
+}
+
+ear {
+    deploymentDescriptor { 
+    	webModule( webserviceArchiveName, webserviceContextPath ) 
+    }
 }
 
 dependencies {

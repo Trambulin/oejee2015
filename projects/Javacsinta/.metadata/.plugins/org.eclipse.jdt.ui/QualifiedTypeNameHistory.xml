@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="hu.oe.pancakestore.ejbservice.domain.PancakeStub"/>
-<fullyQualifiedTypeName name="hu.oe.pancakestore.ejbservice.facade.PancakeFacade"/>
-<fullyQualifiedTypeName name="hu.oe.pancakestore.ejbservice.exception.FacadeException"/>
-<fullyQualifiedTypeName name="hu.oe.pancakestore.ejbservice.domain.ErrorStub"/>
-<fullyQualifiedTypeName name="hu.oe.pancakestore.ejbservice.util.ApplicationError"/>
-</qualifiedTypeNameHistroy>
