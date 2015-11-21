@@ -1,5 +1,6 @@
 jar { archiveName 'cm-persistence.jar' }
 
 dependencies {
+	compile group: 'javax', name: 'javaee-api', version: jeeVersion
 	compile group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion
 }
