@@ -11,16 +11,16 @@ import javax.jms.MessageListener;
 @MessageDriven(name = "CondominiumListener", activationConfig = { @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
 		@ActivationConfigProperty(propertyName = "destination", propertyValue = "condominiumqueue"),
 		@ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
-public class LotteryListener implements MessageListener {
+public class CondominiumListener implements MessageListener {
 
-	private static final Logger LOGGER = Logger.getLogger(LotteryListener.class);
+	private static final Logger LOGGER = Logger.getLogger(CondominiumListener.class);
 
 /*	@EJB
 	private LotteryFacade facade;*/
 
 	@PostConstruct
 	public void initialize() {
-		LOGGER.info("Lottery Listener created...");
+		LOGGER.info("Condominium Listener created...");
 	}
 
 	@Override
