@@ -3,7 +3,7 @@ package hu.oe.pancakestore.ejbservice.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderMasterStub {
+public class OrderHeaderStub {
 
 	private CustomerStub customer;
 	private EmployeeStub employee;
@@ -12,7 +12,7 @@ public class OrderMasterStub {
 	private Float totalPrice;
 	
 	
-	public OrderMasterStub(CustomerStub customer, EmployeeStub employee, DeliveryStatusStub deliveryStatus,
+	public OrderHeaderStub(CustomerStub customer, EmployeeStub employee, DeliveryStatusStub deliveryStatus,
 			Float totalPrice) {
 		super();
 		this.customer = customer;
@@ -22,7 +22,7 @@ public class OrderMasterStub {
 		this.totalPrice = totalPrice;
 	}
 	
-	public OrderMasterStub()	{
+	public OrderHeaderStub()	{
 		
 		this(null,null, null,null);
 	}
@@ -69,7 +69,7 @@ public class OrderMasterStub {
 
 	@Override
 	public String toString() {
-		return "OrderMasterStub [customer=" + customer + ", employee=" + employee + ", orderDetails=" + orderDetails
+		return "OrderHeaderStub [customer=" + customer + ", employee=" + employee + ", orderDetails=" + orderDetails
 				+ ", deliveryStatus=" + deliveryStatus + ", totalPrice=" + totalPrice + "]";
 	}
 	

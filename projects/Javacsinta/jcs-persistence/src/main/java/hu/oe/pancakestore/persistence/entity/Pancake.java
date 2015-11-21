@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 //import hu.oe.pancakestore.persistence.entity.trunk.PaymentMethod;
@@ -30,8 +33,8 @@ public class Pancake implements Serializable {
 	private static final long serialVersionUID = -2550410032106161290L;
 
 	@Id
-	//@SequenceGenerator(name = "generatorPancake", sequenceName = "Pancake_Pancake_id_seq", allocationSize = 1)
-	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorPancake")
+	@SequenceGenerator(name = "generatorPancake", sequenceName = "pancake_pancake_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorPancake")
 	@Column(name = "pancake_id", nullable = false, updatable = false, insertable = true)
 	private Long id;
 	

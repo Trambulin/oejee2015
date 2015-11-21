@@ -23,44 +23,46 @@ import javax.persistence.Table;
 
 import hu.oe.pancakestore.persistence.entity.trunk.DeliveryStatus;
 import hu.oe.pancakestore.persistence.entity.trunk.PaymentMethod;
-import hu.oe.pancakestore.persistence.parameter.OrderMasterParameter;
-import hu.oe.pancakestore.persistence.query.OrderMasterQuery;
+import hu.oe.pancakestore.persistence.parameter.OrderHeaderParameter;
+import hu.oe.pancakestore.persistence.query.OrderHeaderQuery;
 
 @Entity
-@Table(name = "order_master")
+@Table(name = "order_header")
 @NamedQueries(value = { //
-		@NamedQuery(name = OrderMasterQuery.GET_BY_ID, query = "SELECT b FROM OrderMaster b WHERE b.id=:" + OrderMasterParameter.ID),
-		@NamedQuery(name = OrderMasterQuery.GET_BY_TOTAL_PRICE, query = "SELECT b FROM OrderMaster b WHERE b.total_price=:" + OrderMasterParameter.TOTAL_PRICE),
-		@NamedQuery(name = OrderMasterQuery.GET_ALL, query = "SELECT b FROM OrderMaster b ORDER BY b.id")
+		@NamedQuery(name = OrderHeaderQuery.GET_BY_ID, query = "SELECT b FROM OrderHeader b WHERE b.id=:" + OrderHeaderParameter.ID),
+		@NamedQuery(name = OrderHeaderQuery.GET_BY_TOTAL_PRICE, query = "SELECT b FROM OrderHeader b WHERE b.total_price=:" + OrderHeaderParameter.TOTAL_PRICE),
+		@NamedQuery(name = OrderHeaderQuery.GET_ALL, query = "SELECT b FROM OrderHeader b ORDER BY b.id")
 		//
 })
-public class OrderMaster implements Serializable {
+public class OrderHeader implements Serializable {
 
 	private static final long serialVersionUID = 1525352421414297015L;
 
 	@Id
-	@Column(name = "order_master_id", nullable = false, updatable = false, insertable = true)
+	@SequenceGenerator(name = "generatorOrderHeader", sequenceName = "order_header_order_header_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorOrderHeader")
+	@Column(name = "order_header_id", nullable = false, updatable = false, insertable = true)
 	private Long id;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "order_master_customer_id", referencedColumnName = "customer_id", nullable = false)
+	@JoinColumn(name = "order_header_customer_id", referencedColumnName = "customer_id", nullable = false)
 	private Customer customer ;
 	
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "order_master_employee_id", referencedColumnName = "employee_id", nullable = false)
+	@JoinColumn(name = "order_header_employee_id", referencedColumnName = "employee_id", nullable = false)
 	private Employee employee ;
 
 	//Unidirectional OneToMany, No inverse ManyToOne, No Join Table
-	@JoinColumn(name="order_detail_order_master_id", referencedColumnName="order_master_id")
+	@JoinColumn(name="order_detail_order_header_id", referencedColumnName="order_header_id")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<OrderDetail> orderDetails;
 	
 	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "order_master_delivery_status_id", nullable = false)
+	@Column(name = "order_header_delivery_status_id", nullable = false)
 	private DeliveryStatus deliverytStatus;
 	
-	@Column(name = "order_master_total_price", nullable = false, updatable = true, insertable = true)
+	@Column(name = "order_header_total_price", nullable = false, updatable = true, insertable = true)
 	private Float total_price;
 
 	public Long getId() {
@@ -117,7 +119,7 @@ public class OrderMaster implements Serializable {
 
 	@Override
 	public String toString() {
-		return "OrderMaster [id=" + id + ", customer=" + customer + ", employee=" + employee + ", orderDetail="
+		return "OrderHeader [id=" + id + ", customer=" + customer + ", employee=" + employee + ", orderDetail="
 				+ orderDetails+ ", deliverytStatus=" + deliverytStatus + ", total_price=" + total_price + "]";
 	}
 	

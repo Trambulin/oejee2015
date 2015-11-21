@@ -26,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	private static final Logger LOGGER = Logger.getLogger(EmployeeServiceImpl.class);
 
-	@PersistenceContext(unitName = "bs-persistence-unit")
+	@PersistenceContext(unitName = "jcs-persistence-unit")
 	private EntityManager entityManager;
 
 	@Override

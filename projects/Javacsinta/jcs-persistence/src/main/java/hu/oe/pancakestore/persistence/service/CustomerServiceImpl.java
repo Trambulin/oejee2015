@@ -26,7 +26,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	private static final Logger LOGGER = Logger.getLogger(CustomerServiceImpl.class);
 
-	@PersistenceContext(unitName = "bs-persistence-unit")
+	@PersistenceContext(unitName = "jcs-persistence-unit")
 	private EntityManager entityManager;
 
 	@Override

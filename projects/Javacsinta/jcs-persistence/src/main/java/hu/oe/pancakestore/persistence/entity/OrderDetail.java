@@ -6,11 +6,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import hu.oe.pancakestore.persistence.parameter.OrderDetailParameter;
@@ -30,6 +33,8 @@ public class OrderDetail implements Serializable {
 	private static final long serialVersionUID = 1525352421414297015L;
 
 	@Id
+	@SequenceGenerator(name = "generatorOrderDetail", sequenceName = "order_detail_order_detail_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorOrderDetail")
 	@Column(name = "order_detail_id", nullable = false, updatable = false, insertable = true)
 	private Long id;
 	

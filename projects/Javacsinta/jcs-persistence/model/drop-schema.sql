@@ -1,5 +1,5 @@
 DROP TABLE order_detail;
-DROP TABLE order_master;
+DROP TABLE order_header;
 DROP TABLE delivery_status;
 DROP TABLE employee;
 DROP TABLE customer;

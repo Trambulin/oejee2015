@@ -39,6 +39,8 @@ public class Employee implements Serializable {
 	private static final long serialVersionUID = -6536252360314364664L;
 
 	@Id
+	@SequenceGenerator(name = "generatorEmployee", sequenceName = "employee_employee_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorEmployee")
 	@Column(name = "employee_id", nullable = false, updatable = false, insertable = true)
 	private Long id;
 	

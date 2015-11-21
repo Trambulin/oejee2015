@@ -8,33 +8,33 @@ import javax.ejb.Stateless;
 
 import org.apache.log4j.Logger;
 
-import hu.oe.pancakestore.ejbservice.converter.OrderMasterConverter;
-import hu.oe.pancakestore.ejbservice.domain.OrderMasterStub;
+import hu.oe.pancakestore.ejbservice.converter.OrderHeaderConverter;
+import hu.oe.pancakestore.ejbservice.domain.OrderHeaderStub;
 import hu.oe.pancakestore.ejbservice.exception.FacadeException;
 import hu.oe.pancakestore.ejbservice.util.ApplicationError;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
-import hu.oe.pancakestore.persistence.service.OrderMasterService;
+import hu.oe.pancakestore.persistence.service.OrderHeaderService;
 
 
-@Stateless(mappedName = "ejb/orderMasterFacade")
-public class OrderMasterFacadeImpl implements OrderMasterFacade{
+@Stateless(mappedName = "ejb/OrderHeaderFacade")
+public class OrderHeaderFacadeImpl implements OrderHeaderFacade{
 
-	private static final Logger LOGGER = Logger.getLogger(OrderMasterFacadeImpl.class);
+	private static final Logger LOGGER = Logger.getLogger(OrderHeaderFacadeImpl.class);
 	
 	
 	@EJB
-	private OrderMasterService service;
+	private OrderHeaderService service;
 
 	@EJB
-	private OrderMasterConverter converter;
+	private OrderHeaderConverter converter;
 	
 	
 	@Override
-	public OrderMasterStub getOrderMaster(Long id) throws FacadeException {
+	public OrderHeaderStub getOrderHeader(Long id) throws FacadeException {
 		try {
-			final OrderMasterStub stub = this.converter.to(this.service.read(id));
+			final OrderHeaderStub stub = this.converter.to(this.service.read(id));
 			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug("Get OrderMaster by id (" + id + ") --> " + stub);
+				LOGGER.debug("Get OrderHeader by id (" + id + ") --> " + stub);
 			}
 			return stub;
 		} catch (final PersistenceServiceException e) {
@@ -44,12 +44,12 @@ public class OrderMasterFacadeImpl implements OrderMasterFacade{
 	}
 
 	@Override
-	public List<OrderMasterStub> getOrderMasters() throws FacadeException {
-		List<OrderMasterStub> stubs = new ArrayList<>();
+	public List<OrderHeaderStub> getOrderHeaders() throws FacadeException {
+		List<OrderHeaderStub> stubs = new ArrayList<>();
 		try {
 		stubs = this.converter.to(this.service.readAll());
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get OrderMasters:  "  + stubs.size());
+			LOGGER.debug("Get OrderHeaders:  "  + stubs.size());
 		}
 	} catch (final PersistenceServiceException e) {
 		LOGGER.error(e, e);

@@ -1,5 +1,5 @@
 CREATE TABLE pancake (
-	pancake_id INTEGER NOT NULL,
+	pancake_id SERIAL NOT NULL,
 	pancake_name CHARACTER VARYING(100) NOT NULL,
 	pancake_price INTEGER NOT NULL,
 	pancake_description CHARACTER VARYING(100),
@@ -12,7 +12,7 @@ CREATE INDEX IX_PANCAKE_PRICE ON pancake (pancake_price);
 ALTER TABLE pancake OWNER TO postgres;
 
 CREATE TABLE address (
-	address_id INTEGER NOT NULL,
+	address_id SERIAL NOT NULL,
 	address_postcode INTEGER NOT NULL,
 	address_street CHARACTER VARYING(100) NOT NULL,
 	address_door CHARACTER VARYING(100) NOT NULL,
@@ -24,7 +24,7 @@ CREATE INDEX IX_POSTCODE ON address (address_postcode);
 ALTER TABLE address OWNER TO postgres;
 
 CREATE TABLE payment_method (
-	payment_method_id INTEGER NOT NULL,
+	payment_method_id SERIAL NOT NULL,
 	payment_method_description CHARACTER VARYING(100) NOT NULL,
 	CONSTRAINT PK_PAYMENT_METHOD_ID PRIMARY KEY (payment_method_id)
 	
@@ -52,7 +52,7 @@ CREATE UNIQUE INDEX UQI_CUSTOMER_EMAIL ON customer (customer_email);
 ALTER TABLE customer OWNER TO postgres;
 
 CREATE TABLE employee (
-	employee_id INTEGER NOT NULL,
+	employee_id SERIAL NOT NULL,
 	employee_address_id INTEGER NOT NULL,
 	employee_name CHARACTER VARYING(100) NOT NULL,
 	employee_phone CHARACTER VARYING(100) NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE employee (
 ALTER TABLE employee OWNER TO postgres;
 
 CREATE TABLE delivery_status (
-	delivery_status_id INTEGER NOT NULL,
+	delivery_status_id SERIAL NOT NULL,
 	delivery_status_description CHARACTER VARYING(100) NOT NULL,
 	CONSTRAINT PK_DELIVERY_STATUS_ID PRIMARY KEY (delivery_status_id)
 	
@@ -75,36 +75,34 @@ ALTER TABLE delivery_status OWNER TO postgres;
 
 
 
-CREATE TABLE order_master (
-	order_master_id INTEGER NOT NULL,
-	order_master_customer_id INTEGER NOT NULL,
-	order_master_employee_id INTEGER NOT NULL,
-	order_master_delivery_status_id INTEGER NOT NULL,
-	order_master_total_price REAL NOT NULL,
-	CONSTRAINT PK_ORDER_MASTER_ID PRIMARY KEY (order_master_id),
-	CONSTRAINT FK_ORDER_MASTER_CUSTOMER FOREIGN KEY (order_master_customer_id)
+CREATE TABLE order_header (
+	order_header_id SERIAL NOT NULL,
+	order_header_customer_id INTEGER NOT NULL,
+	order_header_employee_id INTEGER NOT NULL,
+	order_header_delivery_status_id INTEGER NOT NULL,
+	order_header_total_price REAL NOT NULL,
+	CONSTRAINT PK_order_header_ID PRIMARY KEY (order_header_id),
+	CONSTRAINT FK_order_header_CUSTOMER FOREIGN KEY (order_header_customer_id)
 	  REFERENCES customer (customer_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT,
-	CONSTRAINT FK_ORDER_MASTER_EMPLOYEE FOREIGN KEY (order_master_employee_id)
+	CONSTRAINT FK_order_header_EMPLOYEE FOREIGN KEY (order_header_employee_id)
 	  REFERENCES employee (employee_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT,
-	CONSTRAINT FK_ORDER_MASTER_DELIVERY FOREIGN KEY (order_master_delivery_status_id)
+	CONSTRAINT FK_order_header_DELIVERY FOREIGN KEY (order_header_delivery_status_id)
 	  REFERENCES delivery_status (delivery_status_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
-CREATE  SEQUENCE SQ_ORDER_MASTER_ID  NO MAXVALUE  START WITH  1;
-
-ALTER TABLE order_master OWNER TO postgres;
+ALTER TABLE order_header OWNER TO postgres;
 
 CREATE TABLE order_detail (
-	order_detail_id INTEGER NOT NULL,
+	order_detail_id SERIAL NOT NULL,
 	order_detail_pancake_id INTEGER NOT NULL,
-	order_detail_order_master_id INTEGER NOT NULL,
+	order_detail_order_header_id INTEGER NOT NULL,
 	order_detail_amount INTEGER NOT NULL,
 	order_detail_total_price REAL NOT NULL,
 	CONSTRAINT PK_ORDER_DETAIL_ID PRIMARY KEY (order_detail_id),
 	CONSTRAINT FK_ORDER_DETAIL_PANCAKE FOREIGN KEY (order_detail_pancake_id)
 	  REFERENCES pancake (pancake_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT,
-	CONSTRAINT FK_ORDER_DETAIL_MASTER FOREIGN KEY (order_detail_order_master_id)
-	  REFERENCES order_master (order_master_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
+	CONSTRAINT FK_ORDER_DETAIL_HEADER FOREIGN KEY (order_detail_order_header_id)
+	  REFERENCES order_header (order_header_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
 ALTER TABLE order_detail OWNER TO postgres;

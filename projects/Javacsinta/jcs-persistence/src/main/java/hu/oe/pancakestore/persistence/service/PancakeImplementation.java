@@ -28,7 +28,7 @@ public class PancakeImplementation implements PancakeService{
 
 	private static final Logger LOGGER = Logger.getLogger(PancakeImplementation.class);
 
-	@PersistenceContext(unitName = "bs-persistence-unit")
+	@PersistenceContext(unitName = "jcs-persistence-unit")
 	private EntityManager entityManager;
 	
 	@Override

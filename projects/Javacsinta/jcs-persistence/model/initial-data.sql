@@ -15,9 +15,9 @@ INSERT INTO delivery_status (delivery_status_id,delivery_status_description) VAL
 INSERT INTO delivery_status (delivery_status_id,delivery_status_description) VALUES (2, 'SIKERES');
 INSERT INTO delivery_status (delivery_status_id,delivery_status_description) VALUES (3, 'SIKERTELEN');
 
-INSERT INTO order_master (order_master_id,order_master_customer_id,order_master_employee_id,order_master_delivery_status_id,order_master_total_price) VALUES (1,1,1,1,3200);
+INSERT INTO order_header (order_header_id,order_header_customer_id,order_header_employee_id,order_header_delivery_status_id,order_header_total_price) VALUES (1,1,1,1,3200);
 
-INSERT INTO order_detail (order_detail_id,order_detail_pancake_id,order_detail_order_master_id,order_detail_amount,order_detail_total_price) VALUES (1, 1,1,2,2000);
-INSERT INTO order_detail (order_detail_id,order_detail_pancake_id,order_detail_order_master_id,order_detail_amount,order_detail_total_price) VALUES (2, 2,1,1,1200);
+INSERT INTO order_detail (order_detail_id,order_detail_pancake_id,order_detail_order_header_id,order_detail_amount,order_detail_total_price) VALUES (1, 1,1,2,2000);
+INSERT INTO order_detail (order_detail_id,order_detail_pancake_id,order_detail_order_header_id,order_detail_amount,order_detail_total_price) VALUES (2, 2,1,1,1200);
 
 

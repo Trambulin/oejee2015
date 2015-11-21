@@ -28,8 +28,8 @@ public class Address implements Serializable {
 	private static final long serialVersionUID = 1525352421414297016L;
 
 	@Id
-	//@SequenceGenerator(name = "generatorAddress", sequenceName = "address_address_id_seq", allocationSize = 1)
-	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorAddress")
+	@SequenceGenerator(name = "generatorAddress", sequenceName = "address_address_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorAddress")
 	@Column(name = "address_id", nullable = false, updatable = false, insertable = false)
 	private Long id;
 
