@@ -1,20 +1,25 @@
 apply plugin: 'eclipse'
 apply plugin: 'ear'
 
+version = '1.0'
+
 ext {
 	log4jVersion = '1.2.17'
 	testngVersion = '6.9.+'
 	mockitoVersion = '1.10.8'
-	jeeVersion = '6.0'  
+	jeeVersion = '6.0'
 	servletapiVersion = '3.0.1'
 	hibernateVersion = '4.3.10.Final'
 	jaxrsVersion = '2.0.1'
 	resteasyVersion = '2.3.7.Final'
 	jbossjee6Version = '3.0.3.Final'
 	commonsloggingVersion = '1.2'
+	jbossjmsclientVersion = '7.2.0.Final'
 
 	webserviceArchiveName = 'cm-webservice.war'
 	webserviceContextPath = 'condominium'
+
+	deployLocation = 'c:/users/viktor/desktop/jboss ff/standalone/deployments/'
 }
 
 subprojects {
@@ -46,4 +51,15 @@ dependencies {
 	deploy project('cm-persistence')
 	deploy project(path: 'cm-weblayer', configuration: 'archives')
 	deploy project(path: 'cm-webservice', configuration: 'archives')
+}
+
+task deployClean ( type: Delete ) {
+	delete deployLocation + "${project.name}-${version}.ear"
+	sleep(2000)
+}
+
+task deployEar ( type: Copy ) {
+	dependsOn 'deployClean'
+	from "build/libs/${project.name}-${version}.ear"
+	into deployLocation
 }
