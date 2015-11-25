@@ -35,16 +35,13 @@ ALTER TABLE payment_method OWNER TO postgres;
 CREATE TABLE customer (
 	customer_id SERIAL NOT NULL,
 	customer_address_id INTEGER NOT NULL,
-	customer_payment_method_id INTEGER NOT NULL,
 	customer_name CHARACTER VARYING(100) NOT NULL,
 	customer_phone CHARACTER VARYING(100) NOT NULL,
 	customer_email CHARACTER VARYING(100) NOT NULL,
 	customer_other_details CHARACTER VARYING(100),
 	CONSTRAINT PK_CUSTOMER_ID PRIMARY KEY (customer_id),
 	CONSTRAINT FK_CUSTOMER_ADDRESS FOREIGN KEY (customer_address_id)
-	  REFERENCES address (address_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT,
-	CONSTRAINT FK_CUSTOMER_PAYMENT_METHOD FOREIGN KEY (customer_payment_method_id)
-	  REFERENCES payment_method (payment_method_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
+	  REFERENCES address (address_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
 CREATE UNIQUE INDEX UQI_CUSTOMER_EMAIL ON customer (customer_email);
@@ -81,28 +78,45 @@ CREATE TABLE order_header (
 	order_header_employee_id INTEGER NOT NULL,
 	order_header_delivery_status_id INTEGER NOT NULL,
 	order_header_total_price REAL NOT NULL,
+	order_header_date TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+	order_header_payment_method_id INTEGER NOT NULL,
 	CONSTRAINT PK_order_header_ID PRIMARY KEY (order_header_id),
 	CONSTRAINT FK_order_header_CUSTOMER FOREIGN KEY (order_header_customer_id)
 	  REFERENCES customer (customer_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT,
 	CONSTRAINT FK_order_header_EMPLOYEE FOREIGN KEY (order_header_employee_id)
 	  REFERENCES employee (employee_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT,
 	CONSTRAINT FK_order_header_DELIVERY FOREIGN KEY (order_header_delivery_status_id)
-	  REFERENCES delivery_status (delivery_status_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
+	  REFERENCES delivery_status (delivery_status_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT,
+	CONSTRAINT FK_order_header_payment_method FOREIGN KEY (order_header_payment_method_id)
+	  REFERENCES payment_method (payment_method_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
 ALTER TABLE order_header OWNER TO postgres;
 
-CREATE TABLE order_detail (
-	order_detail_id SERIAL NOT NULL,
-	order_detail_pancake_id INTEGER NOT NULL,
-	order_detail_order_header_id INTEGER NOT NULL,
-	order_detail_amount INTEGER NOT NULL,
-	order_detail_total_price REAL NOT NULL,
-	CONSTRAINT PK_ORDER_DETAIL_ID PRIMARY KEY (order_detail_id),
-	CONSTRAINT FK_ORDER_DETAIL_PANCAKE FOREIGN KEY (order_detail_pancake_id)
+CREATE TABLE order_item (
+	order_item_id SERIAL NOT NULL,
+	order_item_pancake_id INTEGER NOT NULL,
+	order_item_order_header_id INTEGER NOT NULL,
+	order_item_amount INTEGER NOT NULL,
+	order_item_total_price REAL NOT NULL,
+	CONSTRAINT PK_order_item_ID PRIMARY KEY (order_item_id),
+	CONSTRAINT FK_order_item_PANCAKE FOREIGN KEY (order_item_pancake_id)
 	  REFERENCES pancake (pancake_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT,
-	CONSTRAINT FK_ORDER_DETAIL_HEADER FOREIGN KEY (order_detail_order_header_id)
+	CONSTRAINT FK_order_item_HEADER FOREIGN KEY (order_item_order_header_id)
 	  REFERENCES order_header (order_header_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
+ALTER TABLE order_item OWNER TO postgres;
+
+CREATE VIEW order_detail AS
+	SELECT
+		ROW_NUMBER() OVER() AS order_detail_id,
+		order_item_pancake_id AS order_detail_pancake_id,
+		order_header_customer_id AS order_detail_customer_id,
+		order_item_amount AS order_detail_amount,
+		DATE_TRUNC('month', order_header_date) AS order_detail_date     
+	FROM order_item
+		INNER JOIN order_header ON ( order_item_order_header_id = order_header_id ) 
+	WHERE ( 1 = 1 );
+	
 ALTER TABLE order_detail OWNER TO postgres;

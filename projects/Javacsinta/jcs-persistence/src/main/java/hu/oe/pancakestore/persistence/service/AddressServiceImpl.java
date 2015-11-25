@@ -13,11 +13,9 @@ import javax.persistence.PersistenceContext;
 import org.apache.log4j.Logger;
 
 import hu.oe.pancakestore.persistence.entity.Address;
-import hu.oe.pancakestore.persistence.entity.Customer;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
 import hu.oe.pancakestore.persistence.parameter.AddressParameter;
 import hu.oe.pancakestore.persistence.query.AddressQuery;
-import hu.oe.pancakestore.persistence.query.CustomerQuery;
 
 
 

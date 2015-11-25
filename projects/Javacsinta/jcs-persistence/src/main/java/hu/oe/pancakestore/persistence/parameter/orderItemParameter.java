@@ -1,6 +1,6 @@
 package hu.oe.pancakestore.persistence.parameter;
 
-public class OrderDetailParameter {
+public class orderItemParameter {
 
 	public static final String ID = "id";
 	public static final String AMOUNT = "amount";

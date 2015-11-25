@@ -1,7 +1,7 @@
 package hu.oe.pancakestore.persistence.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -20,6 +20,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import hu.oe.pancakestore.persistence.entity.trunk.DeliveryStatus;
 import hu.oe.pancakestore.persistence.entity.trunk.PaymentMethod;
@@ -54,9 +56,9 @@ public class OrderHeader implements Serializable {
 	private Employee employee ;
 
 	//Unidirectional OneToMany, No inverse ManyToOne, No Join Table
-	@JoinColumn(name="order_detail_order_header_id", referencedColumnName="order_header_id")
+	@JoinColumn(name="order_item_order_header_id", referencedColumnName="order_header_id")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Set<OrderDetail> orderDetails;
+	private Set<orderItem> orderItems;
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "order_header_delivery_status_id", nullable = false)
@@ -65,6 +67,15 @@ public class OrderHeader implements Serializable {
 	@Column(name = "order_header_total_price", nullable = false, updatable = true, insertable = true)
 	private Float total_price;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "order_header_date", nullable = false)
+	private Date date;
+	
+	
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "order_header_payment_method_id", nullable = false)
+	private PaymentMethod paymentMethod;
+	
 	public Long getId() {
 		return id;
 	}
@@ -89,12 +100,12 @@ public class OrderHeader implements Serializable {
 		this.employee = employee;
 	}
 
-	public Set<OrderDetail> getOrderDetails() {
-		return orderDetails;
+	public Set<orderItem> getorderItems() {
+		return orderItems;
 	}
 
-	public void setOrderDetail(Set<OrderDetail> orderDetails) {
-		this.orderDetails = orderDetails;
+	public void setorderItem(Set<orderItem> orderItems) {
+		this.orderItems = orderItems;
 	}
 
 	public DeliveryStatus getDeliverytStatus() {
@@ -113,14 +124,31 @@ public class OrderHeader implements Serializable {
 		this.total_price = total_price;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public PaymentMethod getPaymentMethod() {
+		return paymentMethod;
+	}
+
+	public void setPaymentMethod(PaymentMethod paymentMethod) {
+		this.paymentMethod = paymentMethod;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "OrderHeader [id=" + id + ", customer=" + customer + ", employee=" + employee + ", orderDetail="
-				+ orderDetails+ ", deliverytStatus=" + deliverytStatus + ", total_price=" + total_price + "]";
+		return "OrderHeader [id=" + id + ", customer=" + customer + ", employee=" + employee + ", orderItems="
+				+ orderItems + ", deliverytStatus=" + deliverytStatus + ", total_price=" + total_price + ", date="
+				+ date + ", paymentMethod=" + paymentMethod + "]";
 	}
 	
 	

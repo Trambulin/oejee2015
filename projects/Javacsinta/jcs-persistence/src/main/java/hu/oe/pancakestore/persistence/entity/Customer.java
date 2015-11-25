@@ -5,8 +5,6 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +16,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import hu.oe.pancakestore.persistence.entity.trunk.PaymentMethod;
 import hu.oe.pancakestore.persistence.parameter.CustomerParameter;
 import hu.oe.pancakestore.persistence.query.CustomerQuery;
 
@@ -43,11 +40,6 @@ public class Customer implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "customer_address_id", referencedColumnName = "address_id", nullable = false)
 	private Address address;
-	
-	
-	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "customer_payment_method_id", nullable = false)
-	private PaymentMethod paymentMethod;
 	
 	@Column(name = "customer_name", nullable = false)
 	private String name;
@@ -90,19 +82,6 @@ public class Customer implements Serializable {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-
-
-
-	public PaymentMethod getPaymentMethod() {
-		return paymentMethod;
-	}
-
-
-
-	public void setPaymentMethod(PaymentMethod paymentMethod) {
-		this.paymentMethod = paymentMethod;
-	}
-
 
 
 	public String getName() {
@@ -161,7 +140,7 @@ public class Customer implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", address=" + address + ", paymentMethod=" + paymentMethod + ", name=" + name
+		return "Customer [id=" + id + ", address=" + address + ", name=" + name
 				+ ", phone=" + phone + ", email=" + email + ", details=" + details + "]";
 	}
 

@@ -2,21 +2,21 @@ package hu.oe.pancakestore.ejbservice.domain;
 
 
 
-public class OrderDetailStub {
+public class orderItemStub {
 
 	private PancakeStub pancake;
 	private int amount;
 	private Float totalPrice;
 	
 	
-	public OrderDetailStub(PancakeStub pancake, int amount, Float totalPrice) {
+	public orderItemStub(PancakeStub pancake, int amount, Float totalPrice) {
 		super();
 		this.pancake = pancake;
 		this.amount = amount;
 		this.totalPrice = totalPrice;
 	}
 	
-	public OrderDetailStub() {
+	public orderItemStub() {
 		
 		this(null,0,null);
 	}
@@ -47,7 +47,7 @@ public class OrderDetailStub {
 
 	@Override
 	public String toString() {
-		return "OrderDetailStub [pancake=" + pancake +  ", amount=" + amount
+		return "orderItemStub [pancake=" + pancake +  ", amount=" + amount
 				+ ", totalPrice=" + totalPrice + "]";
 	}
 	

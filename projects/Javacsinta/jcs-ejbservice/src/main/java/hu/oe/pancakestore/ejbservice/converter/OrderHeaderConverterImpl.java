@@ -8,7 +8,8 @@ import javax.ejb.Stateless;
 
 import hu.oe.pancakestore.ejbservice.domain.DeliveryStatusStub;
 import hu.oe.pancakestore.ejbservice.domain.OrderHeaderStub;
-import hu.oe.pancakestore.persistence.entity.OrderDetail;
+import hu.oe.pancakestore.ejbservice.domain.PaymentMethodStub;
+import hu.oe.pancakestore.persistence.entity.orderItem;
 import hu.oe.pancakestore.persistence.entity.OrderHeader;
 
 
@@ -22,16 +23,17 @@ private CustomerConverter customerconverter;
 private EmployeeConverter employeeconverter;
 
 @EJB
-private OrderDetailConverter orderdetailconverter;
+private orderItemConverter orderItemconverter;
 
 	
 	@Override
 	public OrderHeaderStub to(OrderHeader OrderHeader) {
 		final DeliveryStatusStub deliverystatus = DeliveryStatusStub.valueOf(OrderHeader.getDeliverytStatus().toString());
-		final OrderHeaderStub OrderHeaderstub= new OrderHeaderStub(this.customerconverter.to(OrderHeader.getCustomer()),this.employeeconverter.to(OrderHeader.getEmployee()),deliverystatus,OrderHeader.getTotal_price());
+		final PaymentMethodStub paymentmethod = PaymentMethodStub.valueOf(OrderHeader.getPaymentMethod().toString());
+		final OrderHeaderStub OrderHeaderstub= new OrderHeaderStub(this.customerconverter.to(OrderHeader.getCustomer()),this.employeeconverter.to(OrderHeader.getEmployee()),deliverystatus,OrderHeader.getTotal_price(),OrderHeader.getDate(),paymentmethod);
 		
-		for (final OrderDetail orderDetail : OrderHeader.getOrderDetails()) {
-			OrderHeaderstub.addOrderDetails(this.orderdetailconverter.to(orderDetail));
+		for (final orderItem orderItem : OrderHeader.getorderItems()) {
+			OrderHeaderstub.addorderItems(this.orderItemconverter.to(orderItem));
 		}
 		
 		return OrderHeaderstub;

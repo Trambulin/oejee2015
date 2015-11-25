@@ -5,8 +5,6 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +16,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import hu.oe.pancakestore.persistence.entity.trunk.PaymentMethod;
 import hu.oe.pancakestore.persistence.parameter.EmployeeParameter;
 import hu.oe.pancakestore.persistence.query.EmployeeQuery;
 
