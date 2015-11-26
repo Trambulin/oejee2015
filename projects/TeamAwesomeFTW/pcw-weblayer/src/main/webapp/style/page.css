@@ -4,6 +4,48 @@ body {
 	background-color: #ffffff;
 }
 
+/* product list */
+.list_table {
+	width:990px;
+	margin:0;
+	border-collapse:collapse;
+	border:1px solid #d3d300;
+}
+.list_table th {
+	background-color:#808040;
+	color:white;
+}
+.list_table tr:nth-child(odd) {
+	background-color:#ffff80;
+}
+.list_table tr:nth-child(even) {
+	background-color:#ffffbf;
+}
+.list_table td, th {
+	padding:5px;
+}
+
+.list_table a, .list_table a:link {
+	text-decoration:none;
+	color:black;
+}
+.list_table a:visited {
+	text-decoration:none;
+	color:#666;
+}
+.list_table a:hover, .list_table a:active {
+	text-decoration:underline;
+	color:#0000bb;
+}
+
+h2 {
+	margin:12px 0px 4px 0px;
+}
+
+
+
+
+/* old */
 .bookstable {
 	color: black;
 	font-weight: normal;

@@ -101,7 +101,7 @@ public class ProductStub
 
     @Override
     public String toString() {
-        return ""; // "BookStub [isbn=" + isbn + ", author=" + author + ", title=" + title + ", category=" + category + ", price=" + price + ", numberOfPages=" + numberOfPages + "]";
+        return "{Class:ProductStub}"; // "BookStub [isbn=" + isbn + ", author=" + author + ", title=" + title + ", category=" + category + ", price=" + price + ", numberOfPages=" + numberOfPages + "]";
     }
 
 }

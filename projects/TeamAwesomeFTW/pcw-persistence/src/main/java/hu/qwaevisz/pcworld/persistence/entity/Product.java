@@ -26,7 +26,7 @@ import hu.qwaevisz.pcworld.persistence.query.ProductQuery;
 		
 		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE productType=:" + "MOUSE"),
 		@NamedQuery(name = ProductQuery.GET_BY_MANUFACTURER, query = "SELECT s FROM Product s WHERE productType=:" + "MOUSE"),
-		@NamedQuery(name = ProductQuery.GET_ALL, query = "SELECT s FROM Product s ORDER BY name")
+		@NamedQuery(name = ProductQuery.GET_ALL, query = "SELECT s FROM Product s ORDER BY productType, name")
 		//
 })
 public class Product implements Serializable {

@@ -27,9 +27,10 @@ public class ProductFacadeImpl implements ProductFacade {
 	private ProductConverter converter;
 
 	@Override
-	public ProductStub getProduct(Long id) throws FacadeException {
+	public ProductStub getProduct(String id) throws FacadeException {
 		try {
-			final ProductStub stub = this.converter.to(this.service.read(id));
+			long l_id = Long.parseLong(id);
+			final ProductStub stub = this.converter.to(this.service.read(l_id));
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug("Get Product by id (" + id + ") --> " + stub);
 			}

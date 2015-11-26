@@ -1,4 +1,4 @@
-/*package hu.qwaevisz.pcworld.weblayer.servlet;
+package hu.qwaevisz.pcworld.weblayer.servlet;
 
 import java.io.IOException;
 
@@ -12,32 +12,32 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import hu.qwaevisz.pcworld.ejbservice.domain.BookStub;
+import hu.qwaevisz.pcworld.ejbservice.domain.ProductStub;
 import hu.qwaevisz.pcworld.ejbservice.exception.FacadeException;
-import hu.qwaevisz.pcworld.ejbservice.facade.BookFacade;
+import hu.qwaevisz.pcworld.ejbservice.facade.ProductFacade;
 
-@WebServlet("/Book")
-public class BookView extends HttpServlet {
+@WebServlet("/Product")
+public class ProductView extends HttpServlet {
 
 	private static final long serialVersionUID = -4068275526750462197L;
-	private static final String PARAM_ISBN = "isbn";
+	private static final String PARAM_ID = "id";
 	private static final String ATTRIBUTE_BOOK = "book";
-	private static final String PAGE = "book.jsp";
+	private static final String PAGE = "product.jsp";
 
-	private static final Logger LOGGER = Logger.getLogger(BookView.class);
+	private static final Logger LOGGER = Logger.getLogger(ProductView.class);
 
 	@EJB
-	private BookFacade facade;
+	private ProductFacade facade;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// Comment
 		
-		String isbn = request.getParameter(PARAM_ISBN);
-		LOGGER.info("Get Book by ISBN ("+isbn+")");
+		String id = request.getParameter(PARAM_ID);
+		LOGGER.info("Get Book by ID ("+id+")");
 		try {
-			BookStub book = this.facade.getBook(isbn);
+			ProductStub book = this.facade.getProduct(id);
 			request.setAttribute(ATTRIBUTE_BOOK, book);
 		} catch (FacadeException e) {
 			LOGGER.error(e, e);
@@ -45,5 +45,4 @@ public class BookView extends HttpServlet {
 	    RequestDispatcher view = request.getRequestDispatcher(PAGE);
 	    view.forward(request, response); 
 	}
-
-}*/
+}

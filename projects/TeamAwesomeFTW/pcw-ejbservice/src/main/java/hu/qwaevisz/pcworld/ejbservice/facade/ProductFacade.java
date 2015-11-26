@@ -11,7 +11,7 @@ import hu.qwaevisz.pcworld.ejbservice.exception.FacadeException;
 @Local
 public interface ProductFacade
 {
-	ProductStub getProduct(Long id) throws FacadeException;
+	ProductStub getProduct(String id) throws FacadeException;
 	
 	//List<ProductStub> getProducts(ProductCriteria criteria) throws FacadeException;
 	
