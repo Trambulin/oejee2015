@@ -25,7 +25,13 @@ public class Notification {
     @Column(name = "notification_message", nullable = false)
     private String message;
 
-
+    public Notification(CondominiumOwner cOwner,String message,Date date){
+            this.condominiumOwner=cOwner;
+            this.message=message;
+            this.date=date;
+            this.answer="";
+            this.completed=0;
+    }
     @Column(name = "notification_date",nullable = false)
     private Date date;
 

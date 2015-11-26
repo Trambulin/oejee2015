@@ -1,9 +1,14 @@
 package hu.nik.condominium.persistence.entity;
 
+import hu.nik.condominium.persistence.parameter.CondominiumOwnerParameter;
+import hu.nik.condominium.persistence.query.CondominiumOwnerQuery;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "condominium_owner")
+@NamedQueries(value = {
+        @NamedQuery(name = CondominiumOwnerQuery.GET_BY_ID, query = "SELECT cm FROM CondominiumOwner cm where cm.id=:" + CondominiumOwnerParameter.ID),})
 public class CondominiumOwner {
 
     @Id
