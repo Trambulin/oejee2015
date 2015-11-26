@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import hu.morkalla.gymproject.ejbservice.domain.TrainerStub;
-import hu.morkalla.gymproject.ejbservice.exception.FacadeException;
+import hu.morkalla.gymproject.ejbservice.exception.AdaptorException;
 import hu.morkalla.gymproject.ejbservice.facade.TrainerFacade;
 
 @WebServlet("/TrainerPing")
@@ -32,9 +32,9 @@ public class TrainerPingServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		final PrintWriter out = response.getWriter();
 		try {
-			final TrainerStub book = facade.getTrainer("Tolnay Róbert");
-			out.println(book.toString());
-		} catch (final FacadeException e) {
+			final TrainerStub trainer = facade.getTrainer("Tolnay Róbert");
+			out.println(trainer.toString());
+		} catch (final AdaptorException e) {
 			LOGGER.error(e, e);
 			out.println(e.getLocalizedMessage());
 		}

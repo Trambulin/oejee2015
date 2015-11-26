@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>gymProject</name>
-	<comment></comment>
-	<projects>
-	</projects>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-	</buildSpec>
-	<natures>
-		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
-	</natures>
 	<filteredResources>
 		<filter>
 			<id>1443107614445</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -26,7 +12,7 @@
 		</filter>
 		<filter>
 			<id>1443107614456</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -35,7 +21,7 @@
 		</filter>
 		<filter>
 			<id>1443107614464</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -44,7 +30,7 @@
 		</filter>
 		<filter>
 			<id>1443107614471</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -53,7 +39,7 @@
 		</filter>
 		<filter>
 			<id>1445185248418</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -62,7 +48,7 @@
 		</filter>
 		<filter>
 			<id>1445185248429</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -71,7 +57,7 @@
 		</filter>
 		<filter>
 			<id>1445185248437</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -80,7 +66,7 @@
 		</filter>
 		<filter>
 			<id>1445513048360</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -89,7 +75,7 @@
 		</filter>
 		<filter>
 			<id>1445513048376</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
@@ -98,12 +84,34 @@
 		</filter>
 		<filter>
 			<id>1445513048376</id>
-			<name></name>
+			<name/>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
 				<arguments>1.0-projectRelativePath-matches-false-false-gym-weblayer</arguments>
 			</matcher>
 		</filter>
+		<filter>
+			<id>1448049419351</id>
+			<name/>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-projectRelativePath-matches-false-false-gym-webservices</arguments>
+			</matcher>
+		</filter>
 	</filteredResources>
+	<name>newJavaProject</name>
+	<comment/>
+	<projects/>
+	<natures>
+		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
+	</natures>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<linkedResources/>
 </projectDescription>

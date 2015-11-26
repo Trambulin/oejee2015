@@ -7,25 +7,27 @@ PRIMARY KEY(trainer_id));
 
 ALTER TABLE Trainer OWNER TO postgres;
 
+CREATE TABLE Workout_type(
+workout_type_id SERIAL NOT NULL,
+workout_type_name CHARACTER VARYING(25),
+PRIMARY KEY(workout_type_id));
+
+ALTER TABLE Workout_type OWNER TO postgres;
+
 CREATE TABLE Workout(
 workout_id SERIAL NOT NULL,
 workout_name CHARACTER VARYING(20) NOT NULL,
 workout_hardness CHARACTER VARYING(10) NOT NULL,
 workout_number_of_people INTEGER,
 workout_requirement CHARACTER VARYING(10),
-trainer_id INTEGER NOT NULL,
+workout_trainer_id INTEGER NOT NULL,
+workout_workout_type_id INTEGER NOT NULL,
 PRIMARY KEY(workout_id),
-FOREIGN KEY(trainer_id) REFERENCES trainer(trainer_id),
+FOREIGN KEY(workout_trainer_id) REFERENCES trainer(trainer_id),
+FOREIGN KEY(workout_workout_type_id) REFERENCES workout_type(workout_type_id),
 CONSTRAINT people CHECK (workout_number_of_people>1 AND workout_number_of_people<35));
 
 ALTER TABLE Workout OWNER TO postgres;
-
-CREATE TABLE Workout_type(
-workout_id INTEGER NOT NULL,
-workout_type_name CHARACTER VARYING(25),
-FOREIGN KEY(workout_id) REFERENCES workout(workout_id));
-
-ALTER TABLE Workout_type OWNER TO postgres;
 
 CREATE TABLE Trainer_qualification(
 trainer_qualification_id SERIAL NOT NULL,

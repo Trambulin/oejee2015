@@ -30,7 +30,7 @@ public class TrainerServiceImpl implements TrainerService {
 	@Override
 	public Trainer meet(Long id) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get trainer by id (" + id + ")");
+			LOGGER.debug("Get Trainer by id (" + id + ")");
 		}
 		Trainer result = null;
 		try {
