@@ -3,12 +3,14 @@ package hu.nik.condominium.ejbservice.facade;
 import hu.nik.condominium.ejbservice.converter.NotificationConverter;
 import hu.nik.condominium.ejbservice.domain.NotificationStub;
 import hu.nik.condominium.ejbservice.exception.FacadeException;
+import hu.nik.condominium.ejbservice.holder.CondominiumStateHolder;
 import hu.nik.condominium.persistence.exception.PersistenceServiceException;
 import hu.nik.condominium.persistence.service.NotificationService;
 import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import java.sql.Date;
 import java.util.List;
 
 @Stateless(mappedName = "ejb/notificationFacade")
@@ -21,6 +23,10 @@ public class NotificationFacadeImpl implements  NotificationFacade{
 
     @EJB
     private NotificationService service;
+
+    @EJB
+    private CondominiumStateHolder stateHolder;
+
     @Override
     public List<NotificationStub> getAll() throws FacadeException{
         List<NotificationStub> stubs;
@@ -63,5 +69,16 @@ public class NotificationFacadeImpl implements  NotificationFacade{
             throw new FacadeException(e.getLocalizedMessage());
         }
         return stubs;
+    }
+
+    @Override
+    public void createNotification(Long cOwnerId, String message,Date date) throws FacadeException {
+        try {
+            this.service.create(/*this.stateHolder.getCurrentPuller(), this.stateHolder.getCurrentPrizePool(), */
+                                cOwnerId,message,date);
+        } catch (final PersistenceServiceException e) {
+            LOGGER.error(e, e);
+            //throw new AdaptorException(e.getLocalizedMessage());
+        }
     }
 }

@@ -1,7 +1,7 @@
 package hu.nik.condominium.jmscient.generator;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -15,17 +15,31 @@ public class CondominiumMessageGenerator {
 	public CondominiumMessageGenerator(Random random) {
 		this.random = random;
 	}
+	private static List<String> messages= Arrays.asList(
+			"csõtörés ",
+			"nincs víz ",
+			"nincs gáz ",
+			"nincs áram ",
+			"kapucsengõ elromlott ",
+			"a lépcsõházban nem világít a lámpa "
+	);
+	private static List<String> prio= Arrays.asList(
+			", nagyon fontos ",
+			", azonnali javítást kérek ",
+			", halaszthatatlan",
+			", kérem javítsák meg a héten ",
+			", kérem hívjanak fel"
+	);
 
 	public String generate() {
-		final List<Integer> numbers = new ArrayList<>();
-		for (int i = 0; i < NUMBER_OF_NUMBERS; i++) {
-			int current = 0;
-			do {
-				current = this.random.nextInt(MAXIMUM_VALUE) + 1;
-			} while (numbers.contains(current));
-			numbers.add(current);
-		}
-		return Arrays.toString(numbers.toArray());
+		int min=0;
+		int max1=5;
+		int max2=4;
+		int messageNum=min + (int)(Math.random()*max1);
+		int prioNum=min + (int)(Math.random()*max2);
+
+		int condominiumOwnerId=1 + (int)(Math.random()*3);
+		return condominiumOwnerId+"|"+messages.get(messageNum)+prio.get(prioNum)+"|"+new Date().getTime();
 	}
 
 }

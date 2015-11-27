@@ -1,12 +1,15 @@
 package hu.nik.condominium.ejbservice.listener;
 
+import hu.nik.condominium.ejbservice.exception.FacadeException;
+import hu.nik.condominium.ejbservice.facade.NotificationFacade;
 import org.apache.log4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.ActivationConfigProperty;
+import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
-import javax.jms.Message;
-import javax.jms.MessageListener;
+import javax.jms.*;
+import java.sql.Date;
 
 @MessageDriven(name = "CondominiumListener", activationConfig = { @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
 		@ActivationConfigProperty(propertyName = "destination", propertyValue = "condominiumqueue"),
@@ -15,18 +18,18 @@ public class CondominiumListener implements MessageListener {
 
 	private static final Logger LOGGER = Logger.getLogger(CondominiumListener.class);
 
-/*	@EJB
-	private LotteryFacade facade;*/
+	@EJB
+	private NotificationFacade facade;
 
 	@PostConstruct
 	public void initialize() {
-		LOGGER.info("Condominium Listener created...");
+		LOGGER.info("Notification Listener created...");
 	}
 
 	@Override
 	public void onMessage(final Message message) {
-		LOGGER.info("*******CALLED******");
-/*		try {
+		LOGGER.info("onMessage Called with message: "+message);
+		try {
 			if (LOGGER.isDebugEnabled()) {
 				final Queue destination = (Queue) message.getJMSDestination();
 				final String queueName = destination.getQueueName();
@@ -39,24 +42,17 @@ public class CondominiumListener implements MessageListener {
 				if (LOGGER.isDebugEnabled()) {
 					LOGGER.debug("Received message: " + content);
 				}
-				content = content.replace("[", "");
-				content = content.replace("]", "");
-				final String[] numbersStr = content.split(",");
-				final int[] numbers = new int[numbersStr.length];
-				int i = 0;
-				for (final String numberStr : numbersStr) {
-					numbers[i++] = Integer.valueOf(numberStr.trim());
-				}
-				if (LOGGER.isDebugEnabled()) {
-					LOGGER.debug("Parsed content: " + Arrays.toString(numbers));
-				}
-				this.facade.createNewEvent(numbers);
+				String[] res=  content.split("\\|");
+				Long cOwnerId=Long.valueOf(res[0]);
+				this.facade.createNotification(cOwnerId,res[1],new Date(Long.valueOf(res[2])));
 			} else {
 				LOGGER.error("Received message is not a TextMessage (" + message + ")");
 			}
-		} catch (final JMSException | AdaptorException | NumberFormatException e) {
+		} catch (final JMSException | NumberFormatException e) {
 			LOGGER.error(e, e);
-		}*/
+		} catch (FacadeException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

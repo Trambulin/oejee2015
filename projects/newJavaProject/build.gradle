@@ -7,6 +7,11 @@ ext {
 	jeeVersion = '6.0'  
 	servletapiVersion = '3.0.1'
 	hibernateVersion = '4.3.10.Final'
+	jaxrsVersion = '2.0.1'
+	resteasyVersion = '2.3.7.Final'
+	commonsloggingVersion = '1.2'
+	
+	deployLocation = 'c:/school/java/jboss-eap-6.4/standalone/deployments/'
 }
 
 subprojects {
@@ -25,8 +30,28 @@ subprojects {
 	}
 }
 
+ear {
+    deploymentDescriptor { 
+    	webModule( 'gym-webservices.war', 'gym-webservices' ) 
+    }
+}
+
+
 dependencies {
 	deploy project('gym-ejbservice')
 	deploy project('gym-persistence')
 	deploy project(path: 'gym-weblayer', configuration: 'archives')
+	deploy project(path: 'gym-webservices', configuration: 'archives')
+}
+
+
+task deployClean ( type: Delete ) {
+	delete deployLocation + "${project.name}.ear"
+	sleep(2000)
+}
+
+task deployEar ( type: Copy ) {
+	dependsOn 'deployClean'
+	from "build/libs/${project.name}.ear"
+    into deployLocation
 }

@@ -1,14 +1,19 @@
 package hu.morkalla.gymproject.persistence.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -32,6 +37,10 @@ public class Trainer implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorTrainer")
 	@Column(name = "trainer_id", nullable = false, updatable = false, insertable = false)
 	private Long id;
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "trainer_id", referencedColumnName = "trainer_contact_trainer_id", nullable = true)
+	private List<TrainerContact> trainerContacts;
 
 	@Column(name = "trainer_name", nullable = false)
 	private String name;

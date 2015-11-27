@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import hu.morkalla.gymproject.ejbservice.domain.TrainerStub;
-import hu.morkalla.gymproject.ejbservice.exception.FacadeException;
+import hu.morkalla.gymproject.ejbservice.exception.AdaptorException;
 import hu.morkalla.gymproject.ejbservice.facade.TrainerFacade;
 
 @WebServlet("/Trainer")
@@ -36,7 +36,7 @@ public class TrainerView extends HttpServlet {
 		try {
 			TrainerStub trainer = this.facade.getTrainer(name);
 			request.setAttribute(ATTRIBUTE_TRAINER, trainer);
-		} catch (FacadeException e) {
+		} catch (AdaptorException e) {
 			LOGGER.error(e, e);
 		}
 		RequestDispatcher view = request.getRequestDispatcher(PAGE);
