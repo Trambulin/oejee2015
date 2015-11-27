@@ -131,7 +131,7 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:datasources:1.2">
             <datasources>
-                <datasource jndi-name="java:jboss/datasources/pcworld" pool-name="BookstoreDB" enabled="true" use-java-context="true">
+                <datasource jndi-name="java:jboss/datasources/pcworld" pool-name="PCWorldDB" enabled="true" use-java-context="true">
                     <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
                     <driver>h2</driver>
                     <security>
@@ -139,7 +139,7 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:jboss/datasources/bookstoreds" pool-name="BookStoreDSPool" enabled="true" use-java-context="true">
+                <datasource jndi-name="java:jboss/datasources/pcworldds" pool-name="PCWorldDSPool" enabled="true" use-java-context="true">
                     <connection-url>jdbc:postgresql://localhost:5432/pcworld</connection-url>
                     <driver>postgresql</driver>
                     <security>
@@ -361,5 +361,4 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
-
 </server>

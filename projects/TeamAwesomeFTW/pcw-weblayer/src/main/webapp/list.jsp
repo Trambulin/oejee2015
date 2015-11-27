@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.Set" %>  
 <%@ page import="java.util.List" %>
-<%@ page import="hu.qwaevisz.pcworld.ejbservice.domain.ProductStub" %>
-<%@ page import="hu.qwaevisz.pcworld.ejbservice.domain.ProductTypeStub" %>
+<%@ page import="hu.teamawesome.pcworld.ejbservice.domain.ProductStub" %>
+<%@ page import="hu.teamawesome.pcworld.ejbservice.domain.ProductTypeStub" %>
 <%
 	List<ProductStub> products = (List<ProductStub>) request.getAttribute("products");
 
@@ -58,7 +58,7 @@
 		
 		// print entry
 		out.print("<tr>");
-		out.print("<td align=\"left\"><a href='Product/" + product.getId() + "'>" + product.getName() + "</a></td>");
+		out.print("<td align=\"left\"><a href='Product?id=" + product.getId() + "'>" + product.getName() + "</a></td>");
 		out.print("<td align=\"center\">" + product.getWarranty() + " hónap</td>");
 		out.print("<td align=\"right\">" + sPrice + " Ft</td>");
 		out.print("<td align=\"center\">" + product.getShippingDays() + " nap</td>");

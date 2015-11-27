@@ -1,0 +1,1 @@
+UPDATE supplier SET sup_name = U&'LOGITECH Keyboard K120 USB HUN fekete billentyűzet' WHERE sup_id=1
