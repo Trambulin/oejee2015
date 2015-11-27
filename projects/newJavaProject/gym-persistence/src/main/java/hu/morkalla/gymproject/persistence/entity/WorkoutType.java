@@ -24,7 +24,7 @@ public class WorkoutType {
 	private Long id;
 
 	@Column(name = "workout_type_name", nullable = false)
-	String typeName;
+	private String typeName;
 
 	public String getTypeName() {
 		return typeName;

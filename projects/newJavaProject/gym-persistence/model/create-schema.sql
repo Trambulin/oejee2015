@@ -31,22 +31,22 @@ ALTER TABLE Workout OWNER TO postgres;
 
 CREATE TABLE Trainer_qualification(
 trainer_qualification_id SERIAL NOT NULL,
-trainer_id INTEGER NOT NULL,
+trainer_qualification_trainer_id INTEGER NOT NULL,
 trainer_qualification_name CHARACTER VARYING(30) NOT NULL,
 trainer_qualification_level VARCHAR(5) NOT NULL,
 trainer_qualification_year INTEGER,
 PRIMARY KEY(trainer_qualification_id),
-FOREIGN KEY(trainer_id) REFERENCES trainer(trainer_id));
+FOREIGN KEY(trainer_qualification_trainer_id) REFERENCES trainer(trainer_id));
 
 ALTER TABLE Trainer_qualification OWNER TO postgres;
 
 CREATE TABLE Trainer_contact(
 trainer_contact_id SERIAL NOT NULL,
-trainer_id INTEGER NOT NULL,
+trainer_contact_trainer_id INTEGER NOT NULL,
 trainer_contact_type CHARACTER VARYING(10) NOT NULL,
 trainer_contact_value CHARACTER VARYING(20),
 PRIMARY KEY (trainer_contact_id),
-FOREIGN KEY(trainer_id) REFERENCES trainer(trainer_id),
+FOREIGN KEY(trainer_contact_trainer_id) REFERENCES trainer(trainer_id),
 CONSTRAINT constract1 UNIQUE(trainer_contact_value));
 
 ALTER TABLE Trainer_contact OWNER TO postgres;
