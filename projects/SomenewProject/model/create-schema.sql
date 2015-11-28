@@ -1,15 +1,3 @@
-CREATE TABLE user (
-	user_id SERIAL NOT NULL,
-	user_role_id INTEGER NOT NULL,
-	user_username CHARACTER VARYING(255) NOT NULL,
-	user_password CHARACTER VARYING(32) NOT NULL,
-	user_create_date DATE NOT NULL,
-	CONSTRAINT PK_USER_ID PRIMARY KEY (user_id),
-	CONSTRAINT FK_USER_ROLE FOREIGN KEY (user_role_id) REFERENCES user_role (role_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
-);
-ALTER TABLE user OWNER TO postgres;
-
-
 CREATE TABLE user_role (
 	user_role_id SERIAL NOT NULL,
 	user_role_name CHARACTER VARYING(255) NOT NULL,
@@ -28,6 +16,17 @@ CREATE TABLE product (
 );
 ALTER TABLE product OWNER TO postgres;
 CREATE UNIQUE INDEX UI_PRODUCT_SERIAL ON product USING btree (product_serial);
+
+CREATE TABLE user (
+	user_id SERIAL NOT NULL,
+	user_role_id INTEGER NOT NULL,
+	user_username CHARACTER VARYING(255) NOT NULL,
+	user_password CHARACTER VARYING(32) NOT NULL,
+	user_create_date DATE NOT NULL,
+	CONSTRAINT PK_USER_ID PRIMARY KEY (user_id),
+	CONSTRAINT FK_USER_ROLE FOREIGN KEY (user_role_id) REFERENCES user_role (role_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
+);
+ALTER TABLE user OWNER TO postgres;
 
 CREATE TABLE attribute (
 	attribute_id SERIAL NOT NULL,
