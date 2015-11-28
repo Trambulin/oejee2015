@@ -1,1 +1,1 @@
-GRANT SELECT, INSERT, UPDATE, DELTE ON user, user_role, product, attribute, category, product_category, order TO somenewproject_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON customer, customer_role, product, attribute, category, product_category, product_order TO somenewproject_role;

@@ -1,1 +1,1 @@
-DROP ROLE somenewprojectdb_role;
+DROP ROLE somenewproject_role;
