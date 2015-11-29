@@ -42,7 +42,7 @@ public class Condominium implements Serializable {
 	@Column(name = "condominium_build_year", nullable = false)
 	private Date buildYear;
 
-	@ManyToOne(targetEntity = CondominiumType.class/*,fetch = FetchType.LAZY*/)
+	@ManyToOne(targetEntity = CondominiumType.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(referencedColumnName = "c_type_id", name = "condominium_type", nullable = false)
 	private CondominiumType type;
 
