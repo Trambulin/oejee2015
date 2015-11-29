@@ -28,7 +28,7 @@ public class CondominiumRestClient {
     }
 
     public CondominiumStub process(String condominiumLocation, CondominiumCriteria criteria) {
-        final URI serviceUri = UriBuilder.fromUri(this.getServicePath()).build();
+        final URI serviceUri = UriBuilder.fromUri("http://localhost:8080/condominium/api").build();
         final ClientRequestFactory crf = new ClientRequestFactory(serviceUri);
 
         final CondominiumRestService api = crf.createProxy(CondominiumRestService.class);
