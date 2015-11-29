@@ -9,7 +9,7 @@ public class Application {
 	private static final String PROVIDER_URL = "remote://localhost:4447";
 	private static final String USERNAME = "jmstestuser";
 	private static final String PASSWORD = "TestUser#666999";
-	private static final String DESTINATION_LOTTERY = "jms/queue/condominiumqueue";
+	private static final String DESTINATION_CONDOMINIUM = "jms/queue/condominiumqueue";
 
 	public static void main(final String[] args) {
 		 //sendSingleMessage();
@@ -22,7 +22,7 @@ public class Application {
 					Application.PROVIDER_URL,
 					Application.USERNAME,
 					Application.PASSWORD,
-					Application.DESTINATION_LOTTERY)
+					Application.DESTINATION_CONDOMINIUM)
 					.standaloneSendMessage("1, 2, 3, 4, 5");
 		} catch (final Exception e) {
 			e.printStackTrace();
@@ -35,7 +35,7 @@ public class Application {
 					Application.PROVIDER_URL,
 					Application.USERNAME,
 					Application.PASSWORD,
-					Application.DESTINATION_LOTTERY,
+					Application.DESTINATION_CONDOMINIUM,
 					random);
 			final EndlessSimulator simulator = new EndlessSimulator(producer);
 			simulator.process(delay);
