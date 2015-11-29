@@ -1,4 +1,4 @@
-package hu.ejbservice.facade;
+package hu.tram.ejbservice.facade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +8,12 @@ import javax.ejb.Stateless;
 
 import org.apache.log4j.Logger;
 
-import hu.ejbservice.domain.CustomerStub;
-import hu.ejbservice.exception.FacadeException;
-import hu.persistence.entity.Customer;
-import hu.persistence.exception.PersistenceServiceException;
-import hu.persistence.service.CustomerService;
+import hu.tram.persistence.entity.Customer;
+import hu.tram.persistence.exception.PersistenceServiceException;
+import hu.tram.persistence.service.CustomerService;
+import hu.tram.ejbservice.domain.CustomerStub;
+import hu.tram.ejbservice.exception.FacadeException;
+import hu.tram.ejbservice.util.ApplicationError;
 
 @Stateless(mappedName = "ejb/customerFacade")
 public class CustomerFacadeImpl implements CustomerFacade {
@@ -32,10 +33,24 @@ public class CustomerFacadeImpl implements CustomerFacade {
 			return new CustomerStub(tmp.getName(),tmp.getLogin_name(),tmp.getPasswd());
 		} catch (PersistenceServiceException e) {
 			LOGGER.error(e, e);
-			throw new FacadeException(e.getLocalizedMessage());
+			throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 		}
 	}
 
+	@Override
+	public CustomerStub getCustomer(String login_name) throws FacadeException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Get Customer (login_name: " + login_name + ")");
+		}
+		try {
+			Customer tmp=service.readLogin(login_name);
+			return new CustomerStub(tmp.getName(),tmp.getLogin_name(),tmp.getPasswd());
+		} catch (PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}
+	}
+	
 	@Override
 	public List<CustomerStub> getCustomers() throws FacadeException {
 		List<CustomerStub> customerStubs=new ArrayList<>();
@@ -50,8 +65,7 @@ public class CustomerFacadeImpl implements CustomerFacade {
 			return customerStubs;
 		} catch (PersistenceServiceException e) {
 			LOGGER.error(e, e);
-			throw new FacadeException(e.getLocalizedMessage());
+			throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 		}
 	}
-
 }

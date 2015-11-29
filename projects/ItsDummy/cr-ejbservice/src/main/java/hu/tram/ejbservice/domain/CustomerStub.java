@@ -1,10 +1,12 @@
-package hu.ejbservice.domain;
+package hu.tram.ejbservice.domain;
+
+import java.util.List;
 
 public class CustomerStub {
 	private String name;
 	private String login_name;
 	private String passwd;
-	//addresses, emails...
+	private List<CustomerContactStub> contacts;
 	
 	public CustomerStub() {
 		this(null, null, null);
@@ -16,29 +18,45 @@ public class CustomerStub {
 		this.setLogin_name(login_name);
 		this.setPasswd(passwd);
 	}
+	
+	public CustomerStub(String name, String login_name, String passwd, List<CustomerContactStub> contacts) {
+		super();
+		this.setName(name);
+		this.setLogin_name(login_name);
+		this.setPasswd(passwd);
+		this.setContacts(contacts);
+	}
 
-	String getName() {
+	public String getName() {
 		return name;
 	}
 
-	void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	String getLogin_name() {
+	public String getLogin_name() {
 		return login_name;
 	}
 
-	void setLogin_name(String login_name) {
+	public void setLogin_name(String login_name) {
 		this.login_name = login_name;
 	}
 
-	String getPasswd() {
+	public String getPasswd() {
 		return passwd;
 	}
 
-	void setPasswd(String passwd) {
+	public void setPasswd(String passwd) {
 		this.passwd = passwd;
+	}
+	
+	public List<CustomerContactStub> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(List<CustomerContactStub> contacts) {
+		this.contacts = contacts;
 	}
 	
 	@Override

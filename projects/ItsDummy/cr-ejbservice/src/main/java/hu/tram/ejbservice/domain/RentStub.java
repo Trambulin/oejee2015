@@ -1,7 +1,11 @@
-package hu.ejbservice.domain;
+package hu.tram.ejbservice.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "rent")
 public class RentStub {
 	private CarStub car;
 	private CustomerStub customer;
@@ -20,35 +24,39 @@ public class RentStub {
 		this.setExpiration(expiration);
 	}
 
-	CarStub getCar() {
+	@XmlElement(name = "car")
+ 	public CarStub getCar() {
 		return car;
 	}
 
-	void setCar(CarStub car) {
+	public void setCar(CarStub car) {
 		this.car = car;
 	}
 
-	CustomerStub getCustomer() {
+	@XmlElement(name = "customer")
+	public CustomerStub getCustomer() {
 		return customer;
 	}
 
-	void setCustomer(CustomerStub customer) {
+	public void setCustomer(CustomerStub customer) {
 		this.customer = customer;
 	}
 
-	Date getRentDate() {
+	@XmlElement(name = "rent_date")
+	public Date getRentDate() {
 		return rentDate;
 	}
 
-	void setRentDate(Date rentDate) {
+	public void setRentDate(Date rentDate) {
 		this.rentDate = rentDate;
 	}
 
-	Date getExpiration() {
+	@XmlElement(name = "expiration_date")
+	public Date getExpiration() {
 		return expiration;
 	}
 
-	void setExpiration(Date expiration) {
+	public void setExpiration(Date expiration) {
 		this.expiration = expiration;
 	}
 	

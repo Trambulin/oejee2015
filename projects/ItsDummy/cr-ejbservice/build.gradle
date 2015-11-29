@@ -1,5 +1,8 @@
 jar { archiveName 'cr-ejbservice.jar' }
 
 dependencies {
+	compile group: 'log4j', name: 'log4j', version: log4jVersion
+	compile group: 'javax', name: 'javaee-api', version: jeeVersion
 	compile project(':cr-persistence')
+	compile project(':cr-ejbserviceclient')
 }

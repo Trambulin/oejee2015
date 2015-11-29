@@ -1,7 +1,7 @@
 jar { archiveName 'cr-client.jar' }
 
-repositories {
-	flatDir { dirs '../lib' }
+repositories { 
+	flatDir { dirs 'lib' }
 }
 
 dependencies {

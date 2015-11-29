@@ -1,5 +1,7 @@
 include 'cr-ejbservice'
 include 'cr-weblayer'
-include 'cr-persistence'
+include 'cr-jmsclient'
 include 'cr-ejbserviceclient'
+include 'cr-persistence'
+include 'cr-webservice'
 include 'cr-client'

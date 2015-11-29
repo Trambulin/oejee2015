@@ -1,4 +1,4 @@
-package hu.persistence.parameter;
+package hu.tram.persistence.parameter;
 
 public class CartypeParameter {
 

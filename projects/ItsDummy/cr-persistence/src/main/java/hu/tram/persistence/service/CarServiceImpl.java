@@ -1,4 +1,4 @@
-package hu.persistence.service;
+package hu.tram.persistence.service;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ import javax.persistence.PersistenceContext;
 
 import org.apache.log4j.Logger;
 
-import hu.persistence.entity.Car;
-import hu.persistence.exception.PersistenceServiceException;
-import hu.persistence.parameter.CarParameter;
-import hu.persistence.query.CarQuery;
+import hu.tram.persistence.entity.Car;
+import hu.tram.persistence.exception.PersistenceServiceException;
+import hu.tram.persistence.parameter.CarParameter;
+import hu.tram.persistence.query.CarQuery;
 
 @Stateless(mappedName = "ejb/carService")
 @TransactionManagement(TransactionManagementType.CONTAINER)
@@ -42,7 +42,7 @@ public class CarServiceImpl implements CarService {
 	}
 
 	@Override
-	public List<Car> readModel(String model) throws PersistenceServiceException {
+	public List<Car> read(String model) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Get Cars by Model");
 		}
@@ -51,34 +51,6 @@ public class CarServiceImpl implements CarService {
 			result=this.entityManager.createNamedQuery(CarQuery.GET_BY_MODEL, Car.class).setParameter(CarParameter.MODEL, model).getResultList();
 		} catch (final Exception e) {
 			throw new PersistenceServiceException("Unknown error when fetching All Cars by Model! " + e.getLocalizedMessage(), e);
-		}
-		return result;
-	}
-
-	@Override
-	public List<Car> readBrand(String brand) throws PersistenceServiceException {
-		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Cars by Brand");
-		}
-		List<Car> result = null;
-		try {
-			result=this.entityManager.createNamedQuery(CarQuery.GET_BY_BRAND, Car.class).setParameter(CarParameter.BRAND, brand).getResultList();
-		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching All Cars by Brand! " + e.getLocalizedMessage(), e);
-		}
-		return result;
-	}
-
-	@Override
-	public List<Car> readFuel(String fuel) throws PersistenceServiceException {
-		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Cars by Fuel");
-		}
-		List<Car> result = null;
-		try {
-			result=this.entityManager.createNamedQuery(CarQuery.GET_BY_FUEL, Car.class).setParameter(CarParameter.FUEL, fuel).getResultList();
-		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching All Cars by Fuel! " + e.getLocalizedMessage(), e);
 		}
 		return result;
 	}
@@ -109,6 +81,31 @@ public class CarServiceImpl implements CarService {
 			throw new PersistenceServiceException("Unknown error when fetching All Cars! " + e.getLocalizedMessage(), e);
 		}
 		return result;
+	}
+
+	@Override
+	public boolean exists(Long id) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Check Car by id (" + id + ")");
+		}
+		try {
+			return this.entityManager.createNamedQuery(CarQuery.COUNT_BY_ID, Long.class).setParameter(CarParameter.ID, id)
+					.getSingleResult() == 1;
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error during counting Cars by id (" + id + ")! " + e.getLocalizedMessage(), e);
+		}
+	}
+
+	@Override
+	public void delete(Long id) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Remove Car by id (" + id + ")");
+		}
+		try {
+			this.entityManager.createNamedQuery(CarQuery.REMOVE_BY_ID).setParameter(CarParameter.ID, id).executeUpdate();
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error when removing Car by id (" + id + ")! " + e.getLocalizedMessage(), e);
+		}
 	}
 
 }

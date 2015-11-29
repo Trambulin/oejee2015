@@ -1,11 +1,11 @@
-package hu.persistence.service;
+package hu.tram.persistence.service;
 
 import java.util.List;
 
 import javax.ejb.Local;
 
-import hu.persistence.entity.Customer;
-import hu.persistence.exception.PersistenceServiceException;
+import hu.tram.persistence.entity.Customer;
+import hu.tram.persistence.exception.PersistenceServiceException;
 
 @Local
 public interface CustomerService {
