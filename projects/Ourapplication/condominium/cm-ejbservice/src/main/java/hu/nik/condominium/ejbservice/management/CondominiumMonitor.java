@@ -5,9 +5,9 @@ import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
 
-public class CondominiumMontior implements CondominiumMonitorMBean {
+public class CondominiumMonitor implements CondominiumMonitorMBean {
 
-	private static final Logger LOGGER = Logger.getLogger(CondominiumMontior.class);
+	private static final Logger LOGGER = Logger.getLogger(CondominiumMonitor.class);
 
 	@EJB
 	private CondominiumStateHolder stateHolder;
