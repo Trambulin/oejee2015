@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="hu.teamawesome.pcworld.ejbservice.domain.ProductStub" %>
 <%@ page import="hu.teamawesome.pcworld.ejbservice.domain.ProductTypeStub" %>
+<%@ page import="java.text.NumberFormat" %>
 <%
 	List<ProductStub> products = (List<ProductStub>) request.getAttribute("products");
 
@@ -44,23 +45,17 @@
 		}
 		
 		// Preformat
-		int price = product.getPrice();
-		String sPrice;
-		if (price > 1000)
-		{
-			sPrice = Integer.toString(price / 1000) + "," + Integer.toString(price % 1000);
-		}
-		else
-		{
-			sPrice = Integer.toString(price);
-		}
+		NumberFormat nf = NumberFormat.getInstance();
+	    nf.setMaximumFractionDigits(0);
+	    nf.setMinimumFractionDigits(0);
+		String sPrice = nf.format(product.getPrice());
 		
 		
 		// print entry
 		out.print("<tr>");
 		out.print("<td align=\"left\"><a href='Product?id=" + product.getId() + "'>" + product.getName() + "</a></td>");
 		out.print("<td align=\"center\">" + product.getWarranty() + " hónap</td>");
-		out.print("<td align=\"right\">" + sPrice + " Ft</td>");
+		out.print("<td align=\"right\">" + nf.format(product.getPrice()) + " Ft</td>");
 		out.print("<td align=\"center\">" + product.getShippingDays() + " nap</td>");
 		out.print("<td align=\"left\">" + product.getManufacturer() + "</td>");
 		out.print("</tr>");

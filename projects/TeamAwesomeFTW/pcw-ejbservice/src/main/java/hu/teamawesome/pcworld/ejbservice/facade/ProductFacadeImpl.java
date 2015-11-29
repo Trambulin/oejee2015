@@ -43,13 +43,13 @@ public class ProductFacadeImpl implements ProductFacade {
 
 	@Override
 	public List<ProductStub> getProducts() throws FacadeException {
-	//public List<BookStub> getBooks(BookCriteria criteria) throws FacadeException {
+	//public List<ProductStub> getProducts(ProductCriteria criteria) throws FacadeException {
 		List<ProductStub> stubs = new ArrayList<>();
 		try {
 			stubs = this.converter.to(this.service.readAll());
 			if (LOGGER.isDebugEnabled()) {
-				//LOGGER.debug("Get Books by criteria (" + criteria + ") --> " + stubs.size() + " book(s)");
-				LOGGER.debug("Get Product all  --> " + stubs.size() + " book(s)");
+				//LOGGER.debug("Get Products by criteria (" + criteria + ") --> " + stubs.size() + " products(s)");
+				LOGGER.debug("Get Product all  --> " + stubs.size() + " product(s)");
 			}
 		} catch (final PersistenceServiceException e) {
 			LOGGER.error(e, e);

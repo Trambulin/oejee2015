@@ -14,6 +14,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import hu.teamawesome.pcworld.persistence.parameter.ProductParameter;
 //import hu.teamawesome.pcworld.persistence.parameter.BookParameter;
 import hu.teamawesome.pcworld.persistence.query.ProductQuery;
 
@@ -24,8 +25,8 @@ import hu.teamawesome.pcworld.persistence.query.ProductQuery;
 		//@NamedQuery(name = BookQuery.GET_BY_ID, query = "SELECT b FROM Book b WHERE b.id=:" + BookParameter.ID),
 		//@NamedQuery(name = BookQuery.GET_ALL, query = "SELECT b FROM Book b ORDER BY b.title")
 		
-		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE productType=:" + "MOUSE"),
-		@NamedQuery(name = ProductQuery.GET_BY_MANUFACTURER, query = "SELECT s FROM Product s WHERE productType=:" + "MOUSE"),
+		@NamedQuery(name = ProductQuery.GET_BY_ID, query = "SELECT s FROM Product s WHERE id=:" + ProductParameter.ID),
+		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE productType=:" + ProductParameter.Type),
 		@NamedQuery(name = ProductQuery.GET_ALL, query = "SELECT s FROM Product s ORDER BY productType, name")
 		//
 })

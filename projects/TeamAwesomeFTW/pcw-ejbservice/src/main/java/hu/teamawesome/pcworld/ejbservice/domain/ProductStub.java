@@ -97,11 +97,18 @@ public class ProductStub
         this.shippingDays = shippingDays;
     }
 	
-
-
+    
+    
     @Override
     public String toString() {
-        return "{Class:ProductStub}"; // "BookStub [isbn=" + isbn + ", author=" + author + ", title=" + title + ", category=" + category + ", price=" + price + ", numberOfPages=" + numberOfPages + "]";
+        return "ProductStub [id=" + id +
+        		", productType=" + productType +
+        		", name=" + name +
+        		", description=" + description +
+        		", warranty=" + warranty +
+        		", price=" + price +
+        		", manufacturer=" + manufacturer +
+        		", shippingDays=" + shippingDays + "]";
     }
 
 }

@@ -21,7 +21,7 @@ public class ProductView extends HttpServlet {
 
 	private static final long serialVersionUID = -4068275526750462197L;
 	private static final String PARAM_ID = "id";
-	private static final String ATTRIBUTE_BOOK = "book";
+	private static final String ATTRIBUTE_PRODUCT = "products";
 	private static final String PAGE = "product.jsp";
 
 	private static final Logger LOGGER = Logger.getLogger(ProductView.class);
@@ -38,7 +38,7 @@ public class ProductView extends HttpServlet {
 		LOGGER.info("Get Product by ID ("+id+")");
 		try {
 			ProductStub product = this.facade.getProduct(id);
-			request.setAttribute(ATTRIBUTE_BOOK, product);
+			request.setAttribute(ATTRIBUTE_PRODUCT, product);
 		} catch (FacadeException e) {
 			LOGGER.error(e, e);
 		}
