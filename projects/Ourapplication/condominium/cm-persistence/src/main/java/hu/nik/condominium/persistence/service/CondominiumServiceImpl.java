@@ -58,6 +58,24 @@ public class CondominiumServiceImpl implements CondominiumService {
 	}
 
 	@Override
+	public Condominium read(String location, String type, Integer minimumFloors, Integer maximumFloors) throws PersistenceServiceException {
+		Condominium result = null;
+		try{
+			List<Condominium> results = this.entityManager.createNamedQuery(CondominiumQuery.READ_BY_FILTER, Condominium.class)
+					.setParameter(CondominiumParameter.TYPE_NAME, type).setParameter(CondominiumParameter.MIN_FLOOR,minimumFloors)
+					.setParameter(CondominiumParameter.MAX_FLOOR, maximumFloors).getResultList();
+			if (results.size() > 0) {
+				result = results.get(0);
+			}
+		}catch (final Exception e)
+		{
+			throw new PersistenceServiceException(e.getMessage(),e);
+		}
+
+		return result;
+	}
+
+	@Override
 	public List<Condominium> readAll() throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Get Condominiums");

@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.Set" %>  
 <%@ page import="java.util.List" %>
-<%@ page import="hu.domain.CarStub" %> 
+<%@ page import="hu.ejbservice.domain.CarStub" %> 
 <% List<CarStub> cars = (List<CarStub>) request.getAttribute("cars"); %>
 <!DOCTYPE html>
 <html>

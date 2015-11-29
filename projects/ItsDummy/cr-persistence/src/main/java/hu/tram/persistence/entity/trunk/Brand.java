@@ -1,4 +1,4 @@
-package hu.persistence.entity.trunk;
+package hu.tram.persistence.entity.trunk;
 
 public enum Brand {
 	BMW,

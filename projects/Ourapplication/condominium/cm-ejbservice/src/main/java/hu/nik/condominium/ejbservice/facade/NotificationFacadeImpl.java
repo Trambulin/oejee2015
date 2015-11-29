@@ -74,8 +74,12 @@ public class NotificationFacadeImpl implements  NotificationFacade{
     @Override
     public void createNotification(Long cOwnerId, String message,Date date) throws FacadeException {
         try {
-            this.service.create(/*this.stateHolder.getCurrentPuller(), this.stateHolder.getCurrentPrizePool(), */
-                                cOwnerId,message,date);
+            if(this.stateHolder.getEnabled()){
+                 this.service.create(cOwnerId,message,date);
+            }
+            else{
+                LOGGER.info("REJECTED NOTIFICATION! cOwnerId: "+cOwnerId+",message: "+message+", date: "+date);
+            }
         } catch (final PersistenceServiceException e) {
             LOGGER.error(e, e);
             //throw new AdaptorException(e.getLocalizedMessage());

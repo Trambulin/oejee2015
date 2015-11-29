@@ -1,4 +1,4 @@
-package hu.persistence.service;
+package hu.tram.persistence.service;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ import javax.persistence.PersistenceContext;
 
 import org.apache.log4j.Logger;
 
-import hu.persistence.entity.trunk.Cartype;
-import hu.persistence.exception.PersistenceServiceException;
-import hu.persistence.parameter.CartypeParameter;
-import hu.persistence.query.CartypeQuery;
+import hu.tram.persistence.entity.Cartype;
+import hu.tram.persistence.exception.PersistenceServiceException;
+import hu.tram.persistence.parameter.CartypeParameter;
+import hu.tram.persistence.query.CartypeQuery;
 
 @Stateless(mappedName = "ejb/cartypeService")
 @TransactionManagement(TransactionManagementType.CONTAINER)

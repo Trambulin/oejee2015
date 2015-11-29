@@ -1,4 +1,4 @@
-package hu.ejbservice.domain;
+package hu.tram.ejbservice.domain;
 
 public enum BrandStub {
 	BMW,

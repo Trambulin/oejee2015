@@ -1,7 +1,10 @@
 package hu.nik.condominium.ejbservice.domain;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Date;
 
+@XmlRootElement(name = "condominium")
 public class CondominiumStub {
 
 	private Long id;
@@ -10,21 +13,6 @@ public class CondominiumStub {
 	private String typeName;
 	private String location;
 
-	public String getLocation() {
-		return this.location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public String getTypeName() {
-		return this.typeName;
-	}
-
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
-	}
 
 	public CondominiumStub(Long id, Date buildYear, Integer floors, String typeName, String location) {
 		this.id = id;
@@ -35,6 +23,7 @@ public class CondominiumStub {
 	}
 
 	// alt+shift+s,r
+	@XmlElement(name = "id")
 	public Long getId() {
 		return this.id;
 	}
@@ -43,24 +32,30 @@ public class CondominiumStub {
 		this.id = id;
 	}
 
+	@XmlElement(name = "buildyear")
 	public Date getBuildYear() {
 		return this.buildYear;
 	}
 
-	public void setBuildYear(Date buildYear) {
-		this.buildYear = buildYear;
-	}
-
+	@XmlElement(name = "floors")
 	public Integer getFloors() {
 		return this.floors;
 	}
 
-	public void setFloors(Integer floors) {
-		this.floors = floors;
+	@XmlElement(name = "location")
+	public String getLocation() {
+		return this.location;
 	}
+
+	@XmlElement(name = "typeName")
+	public String getTypeName() {
+		return this.typeName;
+	}
+
 
 	@Override
 	public String toString() {
-		return "ID: " + this.id + " floors: " + this.floors + " build year: " + this.buildYear;
+		return "CondominiumStub [type="+this.typeName+ ", id: " + this.id + ", floors: "+ this.floors +" build year: " + this.buildYear+ " location: " + this.location +"]";
+		//return "ID: " + this.id + " floors: " + this.floors + " build year: " + this.buildYear;
 	}
 }

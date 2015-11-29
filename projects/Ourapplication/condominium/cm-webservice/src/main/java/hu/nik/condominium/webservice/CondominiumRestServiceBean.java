@@ -1,5 +1,6 @@
 package hu.nik.condominium.webservice;
 
+import hu.nik.condominium.ejbservice.domain.CondominiumCriteria;
 import hu.nik.condominium.ejbservice.domain.CondominiumInputStub;
 import hu.nik.condominium.ejbservice.domain.CondominiumStub;
 import hu.nik.condominium.ejbservice.exception.AdaptorException;
@@ -20,5 +21,12 @@ public class CondominiumRestServiceBean implements CondominiumRestService{
     public CondominiumStub addCondominium(CondominiumInputStub stub) throws AdaptorException {
         LOGGER.info("Add Condominium (" + stub + ")");
         return this.facade.addCondominium(stub.getLocation(), stub.getFloors(), stub.getBuildYear(), stub.getType());
+    }
+
+    @Override
+    public CondominiumStub getMatchingCondominium(String condominiumLocation, CondominiumCriteria criteria) throws AdaptorException {
+
+        return this.facade.getMatchingCondominium(condominiumLocation,criteria.getCondominiumTypeNameTerm(),
+                criteria.getMinimumFloors(),criteria.getMaximumFloors());
     }
 }

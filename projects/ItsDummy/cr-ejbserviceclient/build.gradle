@@ -1,4 +1,4 @@
-jar { archiveName 'cr-ejbservice-client.jar' }
+jar { archiveName 'cr-ejbserviceclient.jar' }
 
 dependencies {
 	compile group: 'org.jboss.spec', name: 'jboss-javaee-6.0', version: jbossjee6Version

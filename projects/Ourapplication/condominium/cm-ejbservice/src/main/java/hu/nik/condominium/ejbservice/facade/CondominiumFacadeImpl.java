@@ -76,4 +76,19 @@ public class CondominiumFacadeImpl implements CondominiumFacade {
 		}
 		return stubs;
 	}
+
+	@Override
+	public CondominiumStub getMatchingCondominium(String locationCondominium, String type, int minimumFloors, int maximumFloors) throws AdaptorException {
+		CondominiumStub stub = null;
+
+		try{
+			stub = this.converter.to(this.condominiumService.read(locationCondominium,type,minimumFloors,maximumFloors));
+		}catch (PersistenceServiceException e)
+		{
+			LOGGER.error(e, e);
+			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}
+
+		return	stub;
+	}
 }

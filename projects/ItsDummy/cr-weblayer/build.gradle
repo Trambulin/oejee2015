@@ -2,13 +2,7 @@ apply plugin: 'war'
 
 war { archiveName 'cr-weblayer.war' }
 
-repositories { 
-	flatDir { dirs '../lib' }
-}
-
 dependencies {
 	providedCompile project(':cr-ejbservice')
-	providedCompile project(':cr-client')
 	providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: servletapiVersion
-	providedCompile group: 'org.jboss.spec', name: 'jboss-javaee-6.0', version: jbossjee6Version
 }

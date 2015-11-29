@@ -15,6 +15,8 @@ INSERT INTO cartype (cartype_id, cartype_brand_id, cartype_model) VALUES (1, 1,'
 
 INSERT INTO car (car_id, car_cartype_id, car_production_date, car_fuel, car_color, car_price) VALUES (0, 0, '2013.06.13', 'diesel', 'Black (Matt)', 399999);
 INSERT INTO car (car_id, car_cartype_id, car_production_date, car_fuel, car_color, car_price) VALUES (1, 1, '2012.02.22', 'diesel', 'Black (Matt)', 99999);
+INSERT INTO car (car_id, car_cartype_id, car_production_date, car_fuel, car_color, car_price) VALUES (2, 1, '2012.02.22', 'diesel', 'Black (Matt)', 99999);
+INSERT INTO car (car_id, car_cartype_id, car_production_date, car_fuel, car_color, car_price) VALUES (3, 1, '2012.02.22', 'diesel', 'Black (Matt)', 99999);
 
 INSERT INTO customer (customer_id, customer_name, customer_login_name, customer_passwd) VALUES (0, 'Fontos László', 'Laceee', 'hardpasswd');
 INSERT INTO customer (customer_id, customer_name, customer_login_name, customer_passwd) VALUES (1, 'Kérdés Zoltán', 'Zoleee', 'passwd');

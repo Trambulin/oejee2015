@@ -1,4 +1,4 @@
-package hu.weblayer.servlet;
+package hu.tram.weblayer.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,32 +12,34 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import hu.ejbserviceclient.domain.CarStub;
-import hu.ejbserviceclient.exception.ServiceException;
-import hu.ejbserviceclient.CarFacadeRemote;
-import hu.client.CarClient;
+import hu.tram.ejbservice.domain.CarStub;
+import hu.tram.ejbservice.exception.FacadeException;
+import hu.tram.ejbservice.facade.CarFacade;
 
 @WebServlet("/CarPing")
 public class CarPingServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -529800462207321373L;
-
+	
 	private static final Logger LOGGER = Logger.getLogger(CarPingServlet.class);
 
     @EJB
-    private CarFacadeRemote facade;
-    
-    private CarClient client;
+    private CarFacade facade;
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         LOGGER.info("Get Car by user (Remote)");
         response.setCharacterEncoding("UTF-8");
         final PrintWriter out = response.getWriter();
-        Long lid=new Long(0);
-        client=new CarClient();
-        final CarStub car = client.invoke(lid);
-        out.println(car.toString());
+        CarStub car = null;
+		try {
+			car = facade.getCar(new Long(0));
+			LOGGER.info(car);
+			out.println(car.toString());
+		} catch (final FacadeException e) {
+			LOGGER.error(e, e);
+            out.println(e.getLocalizedMessage());
+		}
         out.close();
     }
 }

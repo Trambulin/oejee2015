@@ -1,4 +1,4 @@
-package hu.weblayer.servlet;
+package hu.tram.weblayer.servlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import hu.ejbservice.domain.CarStub;
-import hu.ejbservice.exception.FacadeException;
-import hu.ejbservice.facade.CarFacade;
+import hu.tram.ejbservice.domain.CarStub;
+import hu.tram.ejbservice.exception.FacadeException;
+import hu.tram.ejbservice.facade.CarFacade;
 
 @WebServlet("/Car")
 public class CarView extends HttpServlet {

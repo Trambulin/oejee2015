@@ -1,13 +1,25 @@
 apply plugin: 'eclipse'
 apply plugin: 'ear'
 
+version = '1.0'
+
 ext {
 	log4jVersion = '1.2.17'
 	testngVersion = '6.9.+'
 	jeeVersion = '6.0'
+	mockitoVersion = '1.10.8'
 	jbossjee6Version = '3.0.3.Final'
 	servletapiVersion = '3.0.1'
 	hibernateVersion = '4.3.10.Final'
+	jaxrsVersion = '2.0.1'
+	resteasyVersion = '2.3.7.Final'
+	jbossjmsclientVersion = '7.2.0.Final'
+	commonsloggingVersion = '1.2'
+
+	webserviceArchiveName = 'cr-webservice.war'
+	webserviceContextPath = 'carrent'
+
+	deployLocation = 'c:/qapps/jboss-eap-6.4/standalone/deployments/'
 }
 
 subprojects {
@@ -25,7 +37,14 @@ subprojects {
 		compile group: 'log4j', name: 'log4j', version: log4jVersion
 		compile group: 'javax', name: 'javaee-api', version: jeeVersion
 		testCompile group: 'org.testng', name: 'testng', version: testngVersion
+		testCompile group: 'org.mockito', name: 'mockito-core', version: mockitoVersion
 	}
+}
+
+ear {
+    deploymentDescriptor { 
+    	webModule( webserviceArchiveName, webserviceContextPath ) 
+    }
 }
 
 dependencies {
@@ -33,4 +52,16 @@ dependencies {
 	deploy project('cr-persistence')
 	deploy project('cr-ejbserviceclient')
 	deploy project(path: 'cr-weblayer', configuration: 'archives')
+	deploy project(path: 'cr-webservice', configuration: 'archives')
+}
+
+task deployClean ( type: Delete ) {
+	delete deployLocation + "${project.name}-${version}.ear"
+	sleep(2000)
+}
+
+task deployEar ( type: Copy ) {
+	dependsOn 'deployClean'
+	from "build/libs/${project.name}-${version}.ear"
+    into deployLocation
 }

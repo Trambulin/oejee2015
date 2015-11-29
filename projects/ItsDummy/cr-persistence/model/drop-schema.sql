@@ -1,3 +1,4 @@
+DROP VIEW rentdetail;
 DROP TABLE rent;
 DROP TABLE cust_contact;
 DROP TABLE customer;

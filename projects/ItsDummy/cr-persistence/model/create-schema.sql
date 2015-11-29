@@ -78,3 +78,16 @@ CREATE TABLE rent (
 ALTER TABLE rent OWNER TO postgres;
 
 CREATE INDEX I_RENT_RENT_EXPIRATION ON rent (rent_expiration NULLS FIRST);
+
+CREATE VIEW rentdetail AS
+	SELECT
+		ROW_NUMBER() OVER() AS rentdetail_id,
+		rent_customer_id AS rentdetail_customer_id,
+		car_cartype_id AS rentdetail_cartype_id,
+		car_price AS rentdetail_price,
+		DATE_TRUNC('year', car_production_date) AS rentdetail_year     
+	FROM rent
+		INNER JOIN car ON ( rent_car_id = car_id ) 
+	WHERE ( 1 = 1 );
+	
+ALTER TABLE rentdetail OWNER TO postgres;

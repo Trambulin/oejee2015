@@ -1,8 +1,13 @@
-package hu.ejbservice.domain;
+package hu.tram.ejbservice.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "car")
 public class CarStub {
+	private Long id;
 	private BrandStub brand;
 	private String model;
     private String fuel;
@@ -11,11 +16,12 @@ public class CarStub {
     private Date production;
 
     public CarStub() {
-        this(null, null, null, null, 0, null);
+        this(null, null, null, null, null, 0, null);
     }
 
-    public CarStub(BrandStub brand, String model, String fuel, String color, double price, Date production) {
+    public CarStub(Long id, BrandStub brand, String model, String fuel, String color, double price, Date production) {
         super();
+        this.setId(id);
         this.setBrand(brand);
         this.setModel(model);
         this.setFuel(fuel);
@@ -24,6 +30,7 @@ public class CarStub {
         this.setProduction(production);
     }
 
+    @XmlElement(name = "brand")
 	public BrandStub getBrand() {
 		return brand;
 	}
@@ -32,6 +39,7 @@ public class CarStub {
 		this.brand = brand;
 	}
 
+	@XmlElement(name = "model")
 	public String getModel() {
 		return model;
 	}
@@ -40,6 +48,7 @@ public class CarStub {
 		this.model = model;
 	}
 
+	@XmlElement(name = "fuel")
 	public String getFuel() {
 		return fuel;
 	}
@@ -48,6 +57,7 @@ public class CarStub {
 		this.fuel = fuel;
 	}
 
+	@XmlElement(name = "color")
 	public String getColor() {
 		return color;
 	}
@@ -56,6 +66,7 @@ public class CarStub {
 		this.color = color;
 	}
 
+	@XmlElement(name = "price")
 	public double getPrice() {
 		return price;
 	}
@@ -64,6 +75,7 @@ public class CarStub {
 		this.price = price;
 	}
 
+	@XmlElement(name = "production_date")
 	public Date getProduction() {
 		return production;
 	}
@@ -74,6 +86,15 @@ public class CarStub {
 	
     @Override
     public String toString() {
-        return "CarStub [brand=" + brand + ", model=" + model + ", fuel=" + fuel + ", color=" + color + ", price=" + price + ", production date=" + production + "]";
+        return "CarStub [id="+getId()+", brand=" + brand + ", model=" + model + ", fuel=" + fuel + ", color=" + color + ", price=" + price + ", production date=" + production + "]";
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 }

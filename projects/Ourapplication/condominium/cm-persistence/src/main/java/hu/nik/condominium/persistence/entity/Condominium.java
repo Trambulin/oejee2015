@@ -11,6 +11,8 @@ import java.sql.Date;
 @Table(name = "condominium")
 @NamedQueries(value = { //
 		@NamedQuery(name = CondominiumQuery.GET_BY_FLOORS, query = "SELECT c FROM Condominium c WHERE c.floors=:" + CondominiumParameter.FLOOR),
+		@NamedQuery(name = CondominiumQuery.READ_BY_FILTER, query = "SELECT c FROM Condominium c WHERE c.type.name=:" + CondominiumParameter.TYPE_NAME
+				+ " AND c.floors BETWEEN :" + CondominiumParameter.MIN_FLOOR + " AND :" + CondominiumParameter.MAX_FLOOR),
 		@NamedQuery(name = CondominiumQuery.GET_BY_ID, query = "SELECT c FROM Condominium c WHERE c.id=:" + CondominiumParameter.ID),
 		@NamedQuery(name = CondominiumQuery.GET_ALL, query = "SELECT c FROM Condominium c ORDER BY c.id") })
 //
@@ -42,7 +44,7 @@ public class Condominium implements Serializable {
 	@Column(name = "condominium_build_year", nullable = false)
 	private Date buildYear;
 
-	@ManyToOne(targetEntity = CondominiumType.class/*,fetch = FetchType.LAZY*/)
+	@ManyToOne(targetEntity = CondominiumType.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(referencedColumnName = "c_type_id", name = "condominium_type", nullable = false)
 	private CondominiumType type;
 
