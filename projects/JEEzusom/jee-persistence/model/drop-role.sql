@@ -1,0 +1,1 @@
+DROP ROLE jeezusom_role;
