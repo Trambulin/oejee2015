@@ -1,0 +1,5 @@
+jar { archiveName 'snp-ejbservice.jar' }
+
+dependencies {
+	compile project(':snp-persistence')
+}
