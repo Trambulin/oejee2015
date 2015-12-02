@@ -32,6 +32,8 @@ public class Notification {
             this.answer="";
             this.completed=0;
     }
+    public Notification(){
+    }
     @Column(name = "notification_date",nullable = false)
     private Date date;
 

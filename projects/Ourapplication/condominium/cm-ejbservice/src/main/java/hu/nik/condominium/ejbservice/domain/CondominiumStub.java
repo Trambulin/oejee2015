@@ -22,6 +22,9 @@ public class CondominiumStub {
 		this.location = location;
 	}
 
+	public CondominiumStub() {
+	}
+
 	// alt+shift+s,r
 	@XmlElement(name = "id")
 	public Long getId() {
