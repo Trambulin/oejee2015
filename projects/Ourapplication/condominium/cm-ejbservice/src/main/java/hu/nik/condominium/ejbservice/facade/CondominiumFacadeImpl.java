@@ -78,11 +78,11 @@ public class CondominiumFacadeImpl implements CondominiumFacade {
 	}
 
 	@Override
-	public CondominiumStub getMatchingCondominium(String locationCondominium, String type, int minimumFloors, int maximumFloors) throws AdaptorException {
+	public CondominiumStub getMatchingCondominium(String type, int minimumFloors, int maximumFloors) throws AdaptorException {
 		CondominiumStub stub = null;
 
 		try{
-			stub = this.converter.to(this.condominiumService.read(locationCondominium,type,minimumFloors,maximumFloors));
+			stub = this.converter.to(this.condominiumService.read(type,minimumFloors,maximumFloors));
 		}catch (PersistenceServiceException e)
 		{
 			LOGGER.error(e, e);

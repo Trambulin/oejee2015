@@ -24,9 +24,9 @@ public class CondominiumRestServiceBean implements CondominiumRestService{
     }
 
     @Override
-    public CondominiumStub getMatchingCondominium(String condominiumLocation, CondominiumCriteria criteria) throws AdaptorException {
+    public CondominiumStub getMatchingCondominium(CondominiumCriteria criteria) throws AdaptorException {
 
-        return this.facade.getMatchingCondominium(condominiumLocation,criteria.getCondominiumTypeNameTerm(),
+        return this.facade.getMatchingCondominium(criteria.getCondominiumTypeNameTerm(),
                 criteria.getMinimumFloors(),criteria.getMaximumFloors());
     }
 }

@@ -15,6 +15,6 @@ public interface CondominiumRestService {
     @POST
     @Consumes("application/xml")
     @Produces("application/xml")
-    @Path("/get/{condominiumlocation}")
-    ClientResponse<CondominiumStub> getMarks(@PathParam("condominiumlocation") String condominiumLocation, CondominiumCriteria criteria);
+    @Path("/get/try")
+    ClientResponse<CondominiumStub> getMarks(CondominiumCriteria criteria);
 }

@@ -13,5 +13,5 @@ public interface CondominiumFacade {
 	CondominiumStub getCondonimium(Long id) throws FacadeException;
 	CondominiumStub addCondominium(String location,int floors,String buildYear,String type)throws AdaptorException;
 	List<CondominiumStub> getCondominiums(CondominiumCriteria criteria) throws FacadeException;
-	CondominiumStub getMatchingCondominium (String locationCondominium, String type, int minimumFloors, int maximumFloors) throws AdaptorException;
+	CondominiumStub getMatchingCondominium (String type, int minimumFloors, int maximumFloors) throws AdaptorException;
 }

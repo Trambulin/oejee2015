@@ -1,4 +1,4 @@
-package hu.nik.condominium.ejbservice.domain;
+package hu.nik.condominium.restclient.domain.domain;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -6,9 +6,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "type")
 public class CondominiumTypeStub {
 
-
-	private Long id;
-	private String name;
 
 	public CondominiumTypeStub() {
 		this(null, null);
@@ -19,6 +16,11 @@ public class CondominiumTypeStub {
 		this.id = id;
 		this.name = name;
 	}
+
+
+	private Long id;
+	private String name;
+
 
 	@XmlElement(name = "id")
 	public Long getId() {
