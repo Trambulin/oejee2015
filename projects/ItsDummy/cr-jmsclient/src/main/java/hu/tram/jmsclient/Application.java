@@ -12,7 +12,7 @@ public class Application {
 	}
 
 	public static void sendSingleMessage() {
-		String msg="1;1;2015.05.05;2016.05.05";
+		String msg="1;Laceee;2015.05.05";
 		try {
 			new QueueMessageProducer(Application.PROVIDER_URL, Application.USERNAME, Application.PASSWORD, Application.DESTINATION_LOTTERY)
 					.standaloneSendMessage(msg);

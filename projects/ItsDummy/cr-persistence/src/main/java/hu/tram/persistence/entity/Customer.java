@@ -21,7 +21,7 @@ import hu.tram.persistence.query.CustomerQuery;
 @NamedQueries(value = {  //
 		@NamedQuery(name = CustomerQuery.GET_BY_ID, query = "SELECT b FROM Customer b WHERE b.id=:" + CustomerParameter.ID),
 		@NamedQuery(name = CustomerQuery.GET_BY_NAME, query = "SELECT b FROM Customer b WHERE b.name=:" + CustomerParameter.NAME),
-		@NamedQuery(name = CustomerQuery.GET_BY_LOGIN_NAME, query = "SELECT b FROM Customer b JOIN b.contacts WHERE b.login_name=:" + CustomerParameter.LOGIN_NAME),
+		@NamedQuery(name = CustomerQuery.GET_BY_LOGIN_NAME, query = "SELECT b FROM Customer b left JOIN fetch b.contacts WHERE b.login_name=:" + CustomerParameter.LOGIN_NAME),
 		@NamedQuery(name = CustomerQuery.GET_ALL, query = "SELECT b FROM Customer b ORDER BY b.name")
 		//
 })
