@@ -7,10 +7,13 @@ http://localhost:8080/condominium/api/owner/1
 REQ:  GET
 http://localhost:8080/condominium/api/repair/avg
 
+REQ: GET
+http://localhost:8080/condominium/api/notification/1
+
+
 
 REQ: PUT
 http://localhost:8080/condominium/api/condominium/add
-
 PAYLOAD:
 {
 	"location": "Budapest 13. kerület Kossuth utca 15.",
@@ -18,16 +21,13 @@ PAYLOAD:
 	"type": "flat",
 	"buildYear": "2000-10-11"
 }
-REQ: GET
-http://localhost:8080/condominium/api/notification/1
-
 
 --------------------------------------------------------------
 --------------------------------------------------------------
-SOAP:
-
-WSDL:
+SOAP: WSDL:
 http://localhost:8080/condominium/CondominiumSoapService?wsdl
+--------------------------------------------------------------
+--------------------------------------------------------------
 
 AddItemRequest test data:
 
@@ -36,7 +36,17 @@ AddItemRequest test data:
    <soapenv:Body>
       <con:AddItemRequest>
          <!--Optional:-->
-         <item id="123" buildYear="2005" floors="12" typeName="flat" location="TEST LOC"/>
+         <item id="-1" buildYear="19920512" floors="15" typeName="flat" location="LOC1"/>
+      </con:AddItemRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.nik.condominium.hu/Condominium">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:AddItemRequest>
+         <!--Optional:-->
+         <item id="-1" buildYear="19900516" floors="9" typeName="flat" location="LOC2"/>
       </con:AddItemRequest>
    </soapenv:Body>
 </soapenv:Envelope>
