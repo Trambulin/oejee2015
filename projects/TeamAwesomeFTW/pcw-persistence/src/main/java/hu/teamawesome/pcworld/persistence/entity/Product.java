@@ -15,16 +15,12 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import hu.teamawesome.pcworld.persistence.parameter.ProductParameter;
-//import hu.teamawesome.pcworld.persistence.parameter.BookParameter;
 import hu.teamawesome.pcworld.persistence.query.ProductQuery;
 
 @Entity
 @Table(name = "supplier")
-@NamedQueries(value = { //
-		//@NamedQuery(name = BookQuery.GET_BY_ISBN, query = "SELECT b FROM Book b WHERE b.isbn=:" + BookParameter.ISBN),
-		//@NamedQuery(name = BookQuery.GET_BY_ID, query = "SELECT b FROM Book b WHERE b.id=:" + BookParameter.ID),
-		//@NamedQuery(name = BookQuery.GET_ALL, query = "SELECT b FROM Book b ORDER BY b.title")
-		
+@NamedQueries(value = {
+		//
 		@NamedQuery(name = ProductQuery.GET_BY_ID, query = "SELECT s FROM Product s WHERE id=:" + ProductParameter.ID),
 		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE productType=:" + ProductParameter.Type),
 		@NamedQuery(name = ProductQuery.GET_ALL, query = "SELECT s FROM Product s ORDER BY productType, name")
@@ -140,11 +136,15 @@ public class Product implements Serializable {
 	}
 	
 	
-	
 	@Override
 	public String toString() {
-		return ""; /*"Book [id=" + this.id + ", isbn=" + this.isbn + ", author=" + this.author + ", title=" + this.title + ", category=" + this.category + ", price="
-				+ this.price + ", numberOfPages=" + this.numberOfPages + "]";*/
+		return "Product [id=" + this.id +
+			", productType=" + this.productType +
+			", name=" + this.name +
+			", description=" + this.description +
+			", warranty=" + this.warranty +
+			", price=" + this.price +
+			", manufacturer=" + this.manufacturer +
+			", shippingDays=" + this.shippingDays +
 	}
-
 }
