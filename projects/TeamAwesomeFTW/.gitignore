@@ -1,3 +1,4 @@
 .gradle/
 build/
 .0.current
+jboss_output.txt

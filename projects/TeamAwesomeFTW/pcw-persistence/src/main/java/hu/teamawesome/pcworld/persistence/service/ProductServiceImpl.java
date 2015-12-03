@@ -30,7 +30,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product read(Long id) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get product by id (" + id + ")");
+			LOGGER.debug("Get Product by id (" + id + ")");
 		}
 		Product result = null;
 		try {
@@ -58,13 +58,13 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> readAll() throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Books");
+			LOGGER.debug("Get Products");
 		}
 		List<Product> result = null;
 		try {
 			result = this.entityManager.createNamedQuery(ProductQuery.GET_ALL, Product.class).getResultList();
 		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching Books! " + e.getLocalizedMessage(), e);
+			throw new PersistenceServiceException("Unknown error when fetching Products! " + e.getLocalizedMessage(), e);
 		}
 		return result;
 	}

@@ -3,12 +3,12 @@ package hu.teamawesome.pcworld.ejbservice.domain;
 public class ProductStub
 {
     private Long id;
-	private ProductTypeStub productType;
+	private TypeStub type;
 	private String name;
 	private String description;
 	private Integer warranty;
 	private Integer price;
-	private ProductManufacturerStub manufacturer;
+	private ManufacturerStub manufacturer;
 	private Integer shippingDays;
     
     
@@ -19,11 +19,11 @@ public class ProductStub
     
     
 
-    public ProductStub(Long id, ProductTypeStub productType, String name, String description, Integer warranty, Integer price, ProductManufacturerStub manufacturer, Integer shippingDays)
+    public ProductStub(Long id, TypeStub type, String name, String description, Integer warranty, Integer price, ManufacturerStub manufacturer, Integer shippingDays)
     {
         super();
         this.id = id;
-        this.productType = productType;
+        this.type = type;
         this.name = name;
         this.description = description;
     	this.warranty = warranty;
@@ -42,11 +42,11 @@ public class ProductStub
     }
     
     // ProductType
-    public ProductTypeStub getProductType() {
-        return productType;
+    public TypeStub getProductType() {
+        return type;
     }
-    public void setProductType(ProductTypeStub productType) {
-        this.productType = productType;
+    public void setProductType(TypeStub type) {
+        this.type = type;
     }
     
     // Name
@@ -82,10 +82,10 @@ public class ProductStub
     }
     
     // Manufacturer
-    public ProductManufacturerStub getManufacturer() {
+    public ManufacturerStub getManufacturer() {
         return manufacturer;
     }
-    public void setManufacturer(ProductManufacturerStub manufacturer) {
+    public void setManufacturer(ManufacturerStub manufacturer) {
         this.manufacturer = manufacturer;
     }
     
@@ -102,7 +102,7 @@ public class ProductStub
     @Override
     public String toString() {
         return "ProductStub [id=" + id +
-        		", productType=" + productType +
+        		", productType=" + type +
         		", name=" + name +
         		", description=" + description +
         		", warranty=" + warranty +

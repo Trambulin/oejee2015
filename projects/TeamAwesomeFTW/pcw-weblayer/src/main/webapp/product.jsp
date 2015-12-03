@@ -25,10 +25,6 @@
 				<td><% out.print(nf.format(product.getPrice())); %> Ft</td>
 			</tr>
 			<tr>
-				<td>Gyártó:</td>
-				<td><% out.print(product.getManufacturer()); %></td>
-			</tr>
-			<tr>
 				<td>Beszállítás:</td>
 				<td><% out.print(product.getShippingDays()); %> nap</td>
 			</tr>
@@ -36,6 +32,15 @@
 				<td>Garancia:</td>
 				<td><% out.print(product.getWarranty()); %> hónap</td>
 			</tr>
+			<tr>
+				<td>Gyártó:</td>
+				<td><% out.print(product.getManufacturer().getName()); %></td>
+			</tr>
+			<tr>
+				<td>Gyártó tel.:</td>
+				<td><% out.print(product.getManufacturer().getTelephone()); %></td>
+			</tr>
+			
 		</table>
 	</p>
 	<p><a href="ProductList">Vissza</a></p>

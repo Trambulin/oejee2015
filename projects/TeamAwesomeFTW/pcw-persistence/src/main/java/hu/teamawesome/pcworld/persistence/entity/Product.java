@@ -4,11 +4,14 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+//import javax.persistence.EnumType;
+//import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
@@ -22,8 +25,8 @@ import hu.teamawesome.pcworld.persistence.query.ProductQuery;
 @NamedQueries(value = {
 		//
 		@NamedQuery(name = ProductQuery.GET_BY_ID, query = "SELECT s FROM Product s WHERE id=:" + ProductParameter.ID),
-		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE productType=:" + ProductParameter.Type),
-		@NamedQuery(name = ProductQuery.GET_ALL, query = "SELECT s FROM Product s ORDER BY productType, name")
+		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE type.id=:" + ProductParameter.Type),
+		@NamedQuery(name = ProductQuery.GET_ALL, query = "SELECT s FROM Product s ORDER BY type.id, name")
 		//
 })
 public class Product implements Serializable {
@@ -36,9 +39,13 @@ public class Product implements Serializable {
 	@Column(name = "sup_id", nullable = false, updatable = false, insertable = false)
 	private Long id;
 	
-	@Enumerated(EnumType.ORDINAL)
+	/*@Enumerated(EnumType.ORDINAL)
 	@Column(name = "sup_product_type", nullable = false)
-	private ProductType productType;
+	private ProductType productType;*/
+	
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "sup_product_type", referencedColumnName = "pdt_id", nullable = false)
+	private Type type;
 	
 	@Column(name = "sup_name", nullable = false)
 	private String name;
@@ -52,9 +59,13 @@ public class Product implements Serializable {
 	@Column(name = "sup_price", nullable = false)
 	private Integer price;
 	
-	@Enumerated(EnumType.ORDINAL)
+	/*@Enumerated(EnumType.ORDINAL)
 	@Column(name = "sup_manufacturer_id", nullable = false)
-	private ProductManufacturer manufacturer;
+	private ProductManufacturer manufacturer;*/
+	
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "sup_manufacturer_id", referencedColumnName = "mf_id", nullable = false)
+	private Manufacturer manufacturer;
 	
 	@Column(name = "sup_shipping_days", nullable = false)
 	private Integer shippingDays;
@@ -72,13 +83,13 @@ public class Product implements Serializable {
 		this.id = id;
 	}
 	
-	public ProductType getProductType()
+	public Type getType()
 	{
-		return this.productType;
+		return this.type;
 	}
-	public void setProductType(ProductType productType)
+	public void setType(Type type)
 	{
-		this.productType = productType;
+		this.type = type;
 	}
 	
 	public String getName()
@@ -117,11 +128,11 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 	
-	public ProductManufacturer getManufacturer()
+	public Manufacturer getManufacturer()
 	{
 		return this.manufacturer;
 	}
-	public void setManufacturer(ProductManufacturer manufacturer)
+	public void setManufacturer(Manufacturer manufacturer)
 	{
 		this.manufacturer = manufacturer;
 	}
@@ -139,7 +150,7 @@ public class Product implements Serializable {
 	@Override
 	public String toString() {
 		return "Product [id=" + this.id +
-			", productType=" + this.productType +
+			", productType=" + this.type +
 			", name=" + this.name +
 			", description=" + this.description +
 			", warranty=" + this.warranty +
