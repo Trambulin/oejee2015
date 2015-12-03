@@ -3,19 +3,19 @@ package hu.morkalla.gymproject.persistence.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import hu.morkalla.gymproject.persistence.parameter.TrainerParameter;
 import hu.morkalla.gymproject.persistence.query.TrainerQuery;
@@ -25,9 +25,7 @@ import hu.morkalla.gymproject.persistence.query.TrainerQuery;
 @NamedQueries(value = { //
 		@NamedQuery(name = TrainerQuery.GET_BY_NAME, query = "SELECT t FROM Trainer t WHERE t.name=:" + TrainerParameter.NAME),
 		@NamedQuery(name = TrainerQuery.GET_BY_ID, query = "SELECT t FROM Trainer t WHERE t.id=:" + TrainerParameter.ID),
-		@NamedQuery(name = TrainerQuery.GET_ALL, query = "SELECT t FROM Trainer t ORDER BY t.name")
-		//
-})
+		@NamedQuery(name = TrainerQuery.GET_ALL, query = "SELECT t FROM Trainer t ORDER BY t.name") })
 public class Trainer implements Serializable {
 
 	private static final long serialVersionUID = 5603805760168472535L;
@@ -38,9 +36,13 @@ public class Trainer implements Serializable {
 	@Column(name = "trainer_id", nullable = false, updatable = false, insertable = false)
 	private Long id;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "trainer_id", referencedColumnName = "trainer_contact_trainer_id", nullable = true)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "trainer")
 	private List<TrainerContact> trainerContacts;
+
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "trainerq")
+	private List<TrainerQualification> trainerQualifications;
 
 	@Column(name = "trainer_name", nullable = false)
 	private String name;
@@ -87,9 +89,26 @@ public class Trainer implements Serializable {
 		this.weight = weight;
 	}
 
+	public List<TrainerContact> getTrainerContacts() {
+		return trainerContacts;
+	}
+
+	public void setTrainerContacts(List<TrainerContact> trainerContacts) {
+		this.trainerContacts = trainerContacts;
+	}
+
+	public List<TrainerQualification> getTrainerQualifications() {
+		return trainerQualifications;
+	}
+
+	public void setTrainerQualifications(List<TrainerQualification> trainerQualifications) {
+		this.trainerQualifications = trainerQualifications;
+	}
+
 	@Override
 	public String toString() {
-		return "Trainer [id=" + id + ", name=" + name + ", trainer_height=" + height + ", weight=" + weight + "]";
+		return "Trainer [id=" + id + ", trainerContacts=" + trainerContacts + ", trainerQualifications=" + trainerQualifications + ", name=" + name
+				+ ", height=" + height + ", weight=" + weight + "]";
 	}
 
 }
