@@ -56,9 +56,9 @@ timetable_id SERIAL NOT NULL,
 timetable_room CHARACTER VARYING(15) NOT NULL,
 timetable_day CHARACTER VARYING(15) NOT NULL,
 timetable_time CHARACTER VARYING(5) NOT NULL,
-workout_id INTEGER NOT NULL,
+timetable_workout_id INTEGER NOT NULL,
 PRIMARY KEY (timetable_id),
-FOREIGN KEY (workout_id) REFERENCES workout(workout_id));
+FOREIGN KEY (timetable_workout_id) REFERENCES workout(workout_id));
 
 ALTER TABLE Timetable OWNER TO postgres;
 
