@@ -75,13 +75,13 @@ UPDATE supplier SET sup_price = sup_price / 1.25;
 
 -- Vásárlók (jelszó: password)
 INSERT INTO customer (ctm_email, ctm_password, ctm_joined, ctm_lastname, ctm_firstname, ctm_address, ctm_telephone)
-	VALUES ('balazs@vbstudio.hu', '5f4dcc3b5aa765d61d8327deb882cf99', '2015-10-13', 'Vecsey', 'Bal\00E1zs', '1234 Budapest, Balage u. 8', '0630-123-4567');
+	VALUES ('balazs@vbstudio.hu', '5f4dcc3b5aa765d61d8327deb882cf99', '2015-10-13', U&'Vecsey', U&'Bal\00E1zs', '1234 Budapest, Balage u. 8', '0630-123-4567');
 INSERT INTO customer (ctm_email, ctm_password, ctm_joined, ctm_lastname, ctm_firstname, ctm_address, ctm_telephone)
-	VALUES ('david@vbstudio.hu', '5f4dcc3b5aa765d61d8327deb882cf99', '2015-12-03', 'N\00E9meth', 'D\00E1vid', '1234 Budapest, David street 10', '0630-123-4567');
+	VALUES ('david@vbstudio.hu', '5f4dcc3b5aa765d61d8327deb882cf99', '2015-12-03', U&'N\00E9meth', U&'D\00E1vid', '1234 Budapest, David street 10', '0630-123-4567');
 INSERT INTO customer (ctm_email, ctm_password, ctm_joined, ctm_lastname, ctm_firstname, ctm_address, ctm_telephone)
-	VALUES ('randomguy@vbstudio.hu', '5f4dcc3b5aa765d61d8327deb882cf99', '2015-11-11', 'H\00E1t', 'Izs\00E1k', '1234 Budapest, Isaac street 12', '0630-123-4567');
+	VALUES ('randomguy@vbstudio.hu', '5f4dcc3b5aa765d61d8327deb882cf99', '2015-11-11', U&'H\00E1t', U&'Izs\00E1k', '1234 Budapest, Isaac street 12', '0630-123-4567');
 INSERT INTO customer (ctm_email, ctm_password, ctm_joined, ctm_lastname, ctm_firstname, ctm_address, ctm_telephone)
-	VALUES ('dr.isex@vbstudio.hu', '5f4dcc3b5aa765d61d8327deb882cf99', '2015-09-20', 'Dr', 'Isaacs', '1234 Budapest, Red street 14', '0630-123-4567');
+	VALUES ('dr.isex@vbstudio.hu', '5f4dcc3b5aa765d61d8327deb882cf99', '2015-09-20', U&'Dr', U&'Isaacs', '1234 Budapest, Red street 14', '0630-123-4567');
 
 	
 -- Beszállító termékei

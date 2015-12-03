@@ -53,10 +53,10 @@ public class Product implements Serializable {
 	private Integer price;
 	
 	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "spr_manufacturer_id", nullable = false)
+	@Column(name = "sup_manufacturer_id", nullable = false)
 	private ProductManufacturer manufacturer;
 	
-	@Column(name = "spr_shipping_days", nullable = false)
+	@Column(name = "sup_shipping_days", nullable = false)
 	private Integer shippingDays;
 	
 	
@@ -145,6 +145,6 @@ public class Product implements Serializable {
 			", warranty=" + this.warranty +
 			", price=" + this.price +
 			", manufacturer=" + this.manufacturer +
-			", shippingDays=" + this.shippingDays +
+			", shippingDays=" + this.shippingDays + "]";
 	}
 }
