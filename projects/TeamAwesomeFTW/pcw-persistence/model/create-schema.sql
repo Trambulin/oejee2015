@@ -29,13 +29,13 @@ CREATE TABLE supplier (
 	sup_description TEXT, --szabadon bármilyen szöveg, akár html formázással
 	sup_warranty SMALLINT NOT NULL DEFAULT 0, --hónapban
 	sup_price INTEGER NOT NULL, --nagyker ár
-	spr_manufacturer_id INTEGER NOT NULL,
-	spr_shipping_days SMALLINT NOT NULL DEFAULT 2, --mennyi naptári nap alatt szállítják be
+	sup_manufacturer_id INTEGER NOT NULL,
+	sup_shipping_days SMALLINT NOT NULL DEFAULT 2, --mennyi naptári nap alatt szállítják be
 	
 	CONSTRAINT PK_SUP_ID PRIMARY KEY (sup_id),
 	CONSTRAINT FK_SUP_TYPE FOREIGN KEY (sup_product_type)
 		REFERENCES product_type (pdt_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT,
-	CONSTRAINT FK_SUP_MANUFACTURER FOREIGN KEY (spr_manufacturer_id)
+	CONSTRAINT FK_SUP_MANUFACTURER FOREIGN KEY (sup_manufacturer_id)
 		REFERENCES manufacturer (mf_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 ALTER TABLE supplier OWNER TO postgres;
