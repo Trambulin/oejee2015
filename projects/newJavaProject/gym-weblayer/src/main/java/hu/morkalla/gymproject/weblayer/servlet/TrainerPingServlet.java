@@ -32,7 +32,7 @@ public class TrainerPingServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		final PrintWriter out = response.getWriter();
 		try {
-			final TrainerStub trainer = facade.getTrainer("Tolnay Róbert");
+			final TrainerStub trainer = facade.getTrainer("Tolnay Robert");
 			out.println(trainer.toString());
 		} catch (final AdaptorException e) {
 			LOGGER.error(e, e);

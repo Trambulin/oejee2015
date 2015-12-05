@@ -4,30 +4,29 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+//import javax.persistence.EnumType;
+//import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import hu.teamawesome.pcworld.persistence.parameter.ProductParameter;
-//import hu.teamawesome.pcworld.persistence.parameter.BookParameter;
 import hu.teamawesome.pcworld.persistence.query.ProductQuery;
 
 @Entity
 @Table(name = "supplier")
-@NamedQueries(value = { //
-		//@NamedQuery(name = BookQuery.GET_BY_ISBN, query = "SELECT b FROM Book b WHERE b.isbn=:" + BookParameter.ISBN),
-		//@NamedQuery(name = BookQuery.GET_BY_ID, query = "SELECT b FROM Book b WHERE b.id=:" + BookParameter.ID),
-		//@NamedQuery(name = BookQuery.GET_ALL, query = "SELECT b FROM Book b ORDER BY b.title")
-		
+@NamedQueries(value = {
+		//
 		@NamedQuery(name = ProductQuery.GET_BY_ID, query = "SELECT s FROM Product s WHERE id=:" + ProductParameter.ID),
-		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE productType=:" + ProductParameter.Type),
-		@NamedQuery(name = ProductQuery.GET_ALL, query = "SELECT s FROM Product s ORDER BY productType, name")
+		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE type.id=:" + ProductParameter.Type),
+		@NamedQuery(name = ProductQuery.GET_ALL, query = "SELECT s FROM Product s ORDER BY type.id, name")
 		//
 })
 public class Product implements Serializable {
@@ -40,9 +39,13 @@ public class Product implements Serializable {
 	@Column(name = "sup_id", nullable = false, updatable = false, insertable = false)
 	private Long id;
 	
-	@Enumerated(EnumType.ORDINAL)
+	/*@Enumerated(EnumType.ORDINAL)
 	@Column(name = "sup_product_type", nullable = false)
-	private ProductType productType;
+	private ProductType productType;*/
+	
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "sup_product_type", referencedColumnName = "pdt_id", nullable = false)
+	private Type type;
 	
 	@Column(name = "sup_name", nullable = false)
 	private String name;
@@ -56,11 +59,15 @@ public class Product implements Serializable {
 	@Column(name = "sup_price", nullable = false)
 	private Integer price;
 	
-	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "spr_manufacturer_id", nullable = false)
-	private ProductManufacturer manufacturer;
+	/*@Enumerated(EnumType.ORDINAL)
+	@Column(name = "sup_manufacturer_id", nullable = false)
+	private ProductManufacturer manufacturer;*/
 	
-	@Column(name = "spr_shipping_days", nullable = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "sup_manufacturer_id", referencedColumnName = "mf_id", nullable = false)
+	private Manufacturer manufacturer;
+	
+	@Column(name = "sup_shipping_days", nullable = false)
 	private Integer shippingDays;
 	
 	
@@ -76,13 +83,13 @@ public class Product implements Serializable {
 		this.id = id;
 	}
 	
-	public ProductType getProductType()
+	public Type getType()
 	{
-		return this.productType;
+		return this.type;
 	}
-	public void setProductType(ProductType productType)
+	public void setType(Type type)
 	{
-		this.productType = productType;
+		this.type = type;
 	}
 	
 	public String getName()
@@ -121,11 +128,11 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 	
-	public ProductManufacturer getManufacturer()
+	public Manufacturer getManufacturer()
 	{
 		return this.manufacturer;
 	}
-	public void setManufacturer(ProductManufacturer manufacturer)
+	public void setManufacturer(Manufacturer manufacturer)
 	{
 		this.manufacturer = manufacturer;
 	}
@@ -140,11 +147,15 @@ public class Product implements Serializable {
 	}
 	
 	
-	
 	@Override
 	public String toString() {
-		return ""; /*"Book [id=" + this.id + ", isbn=" + this.isbn + ", author=" + this.author + ", title=" + this.title + ", category=" + this.category + ", price="
-				+ this.price + ", numberOfPages=" + this.numberOfPages + "]";*/
+		return "Product [id=" + this.id +
+			", productType=" + this.type +
+			", name=" + this.name +
+			", description=" + this.description +
+			", warranty=" + this.warranty +
+			", price=" + this.price +
+			", manufacturer=" + this.manufacturer +
+			", shippingDays=" + this.shippingDays + "]";
 	}
-
 }

@@ -10,8 +10,8 @@ import hu.teamawesome.pcworld.persistence.entity.Product;
 @Local
 public interface ProductConverter {
 
-	ProductStub to(Product book);
+	ProductStub to(Product product);
 
-	List<ProductStub> to(List<Product> books);
+	List<ProductStub> to(List<Product> products);
 
 }

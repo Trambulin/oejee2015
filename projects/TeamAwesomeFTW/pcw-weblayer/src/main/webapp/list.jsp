@@ -2,10 +2,10 @@
 <%@ page import="java.util.Set" %>  
 <%@ page import="java.util.List" %>
 <%@ page import="hu.teamawesome.pcworld.ejbservice.domain.ProductStub" %>
-<%@ page import="hu.teamawesome.pcworld.ejbservice.domain.ProductTypeStub" %>
+<%@ page import="hu.teamawesome.pcworld.ejbservice.domain.TypeStub" %>
 <%@ page import="java.text.NumberFormat" %>
 <%
-	List<ProductStub> products = (List<ProductStub>) request.getAttribute("products");
+	List<ProductStub> products = (List<ProductStub>)request.getAttribute("products");
 
 %><!DOCTYPE html>
 <html>
@@ -17,21 +17,21 @@
 <body>
 	<h1>PC World webshop kínálata</h1>
 	<%
-	ProductTypeStub lastType = ProductTypeStub.MOUSE;
+	long lastType = -1;
 	int i = 0;
 	
 	for ( ProductStub product : products) {
-		ProductTypeStub type = product.getProductType();
+		TypeStub type = product.getProductType();
 		
 		// put header
-		if (type != lastType)
+		if (type.getId() != lastType)
 		{
 			if (i > 0)
 			{
 				out.print("</tbody></table>");
 			}
-			out.print("<h2>" + type + "</h2>");
-			lastType = type;
+			out.print("<h2>" + type.getName() + "</h2>");
+			lastType = type.getId();
 			
 			out.print("<table class='list_table'></tbody>");
 			
@@ -40,7 +40,7 @@
 			out.print("<th align=\"center\" width=\"90px\">Garancia</th>");
 			out.print("<th align=\"right\" width=\"90px\">Ár</th>");
 			out.print("<th align=\"center\" width=\"100px\">Beszállítás</th>");
-			out.print("<th align=\"left\" width=\"150px\">Gyártó</th>");
+			out.print("<th align=\"left\" width=\"180px\">Gyártó</th>");
 			out.print("</tr>");
 		}
 		
@@ -57,7 +57,7 @@
 		out.print("<td align=\"center\">" + product.getWarranty() + " hónap</td>");
 		out.print("<td align=\"right\">" + nf.format(product.getPrice()) + " Ft</td>");
 		out.print("<td align=\"center\">" + product.getShippingDays() + " nap</td>");
-		out.print("<td align=\"left\">" + product.getManufacturer() + "</td>");
+		out.print("<td align=\"left\">" + product.getManufacturer().getName() + "</td>");
 		out.print("</tr>");
 		
 		i++;
