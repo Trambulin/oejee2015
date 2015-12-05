@@ -3,8 +3,8 @@ package hu.nik.condominium.persistence.service;
 import hu.nik.condominium.persistence.entity.Condominium;
 import hu.nik.condominium.persistence.exception.PersistenceServiceException;
 
-//import java.sql.Date;
-import java.util.Date;
+import java.sql.Date;
+//import java.util.Date;
 import java.util.List;
 
 public interface CondominiumService {
