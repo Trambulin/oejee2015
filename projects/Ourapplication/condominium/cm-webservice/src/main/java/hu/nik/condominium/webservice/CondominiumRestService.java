@@ -18,7 +18,7 @@ public interface CondominiumRestService {
     @POST
     @Consumes("application/xml")
     @Produces("application/xml")
-    @Path("/get/try")
+    @Path("/get")
     CondominiumStub getMatchingCondominium(CondominiumCriteria criteria) throws AdaptorException;
 
 }

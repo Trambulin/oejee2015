@@ -33,7 +33,7 @@ public class CondominiumRestClient {
         final ClientRequestFactory crf = new ClientRequestFactory(serviceUri);
 
         final CondominiumRestService api = crf.createProxy(CondominiumRestService.class);
-        final ClientResponse<CondominiumStub> response = api.getMarks(criteria);
+        final ClientResponse<CondominiumStub> response = api.getCondominiums(criteria);
 
         LOGGER.info("Response status: " + response.getStatus());
         final MultivaluedMap<String, Object> header = response.getMetadata();
