@@ -10,7 +10,8 @@ import org.apache.log4j.Logger;
 import javax.ejb.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.sql.Date;
+//import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Stateless(mappedName = "ejb/groupService")

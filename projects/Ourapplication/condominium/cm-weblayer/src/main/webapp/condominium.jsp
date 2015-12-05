@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1><% out.print(condominium.getLocation()); %>></h1>
-<div><label>Build year: </label><span><% out.print(condominium.getBuildYear()); %></span></div>
+<div><label>Build year: </label><span><% out.print(new java.sql.Date(condominium.getBuildYear().getTime())); %></span></div>
 <div><label>Floors: </label><span><% out.print(condominium.getFloors()); %></span></div>
 <div><label>Type</label>: </label><span><% out.print(condominium.getTypeName()); %></span></div>
 <br/><br/>
