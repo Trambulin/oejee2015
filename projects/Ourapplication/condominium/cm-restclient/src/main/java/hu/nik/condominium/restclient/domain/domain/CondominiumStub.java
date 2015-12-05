@@ -2,6 +2,7 @@ package hu.nik.condominium.restclient.domain.domain;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Date;
 
 
 /**
@@ -12,6 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class CondominiumStub {
 
     private Long id;
+    private Date buildYear;
     private Integer floors;
     private String typeName;
     private String location;
@@ -39,8 +41,9 @@ public class CondominiumStub {
         this.typeName = typeName;
     }
 
-    public CondominiumStub(Long id, Integer floors, String typeName, String location) {
+    public CondominiumStub(Long id, Date buildYear, Integer floors, String typeName, String location) {
         this.id = id;
+        this.buildYear = buildYear;
         this.floors = floors;
         this.typeName = typeName;
         this.location = location;
@@ -56,6 +59,15 @@ public class CondominiumStub {
         this.id = id;
     }
 
+    @XmlElement(name = "buildyear")
+    public Date getBuildYear() {
+        return this.buildYear;
+    }
+
+    public void setBuildYear(Date buildYear) {
+        this.buildYear = buildYear;
+    }
+
     @XmlElement(name = "floors")
     public Integer getFloors() {
         return this.floors;
@@ -68,7 +80,7 @@ public class CondominiumStub {
     @Override
     public String toString() {
         //return "ID: " + this.id + " floors: " + this.floors + " build year: " + this.buildYear;
-        return "CondominiumStub [type="+this.typeName+ ", id: " + this.id + ", floors: "+ this.floors + " location: " + this.location +"]";
+        return "CondominiumStub [type="+this.typeName+ ", id: " + this.id + ", floors: "+ this.floors +" build year: " + this.buildYear+ " location: " + this.location +"]";
 
     }
 }

@@ -77,12 +77,13 @@ public class CondominiumFacadeImpl implements CondominiumFacade {
 		return stubs;
 	}
 
+
 	@Override
-	public CondominiumStub getMatchingCondominium(String type, int minimumFloors, int maximumFloors) throws AdaptorException {
+	public CondominiumStub getMatchingCondominium(long id,String type, int minimumFloors, int maximumFloors) throws AdaptorException {
 		CondominiumStub stub = null;
 
 		try{
-			stub = this.converter.to(this.condominiumService.read(type,minimumFloors,maximumFloors));
+			stub = this.converter.to(this.condominiumService.read(id,type,minimumFloors,maximumFloors));
 		}catch (PersistenceServiceException e)
 		{
 			LOGGER.error(e, e);

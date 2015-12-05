@@ -11,7 +11,7 @@ public interface CondominiumService {
 
 	Condominium read(Integer floors) throws PersistenceServiceException;
 
-	Condominium read(String type, Integer minimumFloors, Integer maximumFloors) throws PersistenceServiceException;
+	Condominium read(long id,String type, Integer minimumFloors, Integer maximumFloors) throws PersistenceServiceException;
 
 	List<Condominium> readAll() throws PersistenceServiceException;
 
