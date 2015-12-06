@@ -18,7 +18,7 @@ public class TrainerQualificationConverterImpl implements TrainerQualificationCo
 
 	@Override
 	public List<TrainerQualificationStub> to(List<TrainerQualification> trainerQualifications) {
-		final List<TrainerQualificationStub> result = new ArrayList<>();
+		final List<TrainerQualificationStub> result = new ArrayList<TrainerQualificationStub>();
 		for (final TrainerQualification trainerQualification : trainerQualifications) {
 			result.add(this.to(trainerQualification));
 		}

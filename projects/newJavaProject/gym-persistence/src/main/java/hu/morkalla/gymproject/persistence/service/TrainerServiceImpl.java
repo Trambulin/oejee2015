@@ -9,10 +9,13 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
 
 import org.apache.log4j.Logger;
 
 import hu.morkalla.gymproject.persistence.entity.Trainer;
+import hu.morkalla.gymproject.persistence.entity.TrainerContact;
+import hu.morkalla.gymproject.persistence.entity.TrainerQualification;
 import hu.morkalla.gymproject.persistence.exception.PersistenceServiceException;
 import hu.morkalla.gymproject.persistence.parameter.TrainerParameter;
 import hu.morkalla.gymproject.persistence.query.TrainerQuery;
@@ -67,6 +70,43 @@ public class TrainerServiceImpl implements TrainerService {
 			throw new PersistenceServiceException("Unknown error when fetching Trainers! " + e.getLocalizedMessage(), e);
 		}
 		return result;
+	}
+
+	@Override
+	public Trainer create(String name, Integer height, Integer weight, TrainerContact trainerContact, TrainerQualification trainerQualification)
+			throws PersistenceServiceException {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Add trainer");
+		}
+
+		try {
+
+			Trainer trainer = new Trainer(name, height, weight);
+
+			trainer = this.entityManager.merge(trainer);
+
+			System.out.println("trololo: " + trainer.getId());
+
+			if (trainerContact != null) {
+				trainerContact.setTrainer(trainer);
+				trainerContact = this.entityManager.merge(trainerContact);
+			}
+
+			if (trainerQualification != null) {
+				trainerQualification.setTrainerq(trainer);
+				trainerQualification = this.entityManager.merge(trainerQualification);
+			}
+			this.entityManager.flush();
+
+			return trainer;
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			throw new PersistenceException(e.getMessage());
+			// throw new PersistenceException("Unknown error during adding Trainer");
+		}
 	}
 
 }

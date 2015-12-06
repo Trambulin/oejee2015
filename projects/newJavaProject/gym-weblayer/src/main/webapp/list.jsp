@@ -12,7 +12,7 @@
 <title>:: Trainers ::</title>
 </head>
 <body>
-	<h1>List of Books</h1>
+	<h1>List of Trainers</h1>
 	<table class="trainerstable">
 		<thead>
 			<tr>

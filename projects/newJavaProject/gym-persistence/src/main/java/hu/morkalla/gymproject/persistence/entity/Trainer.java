@@ -1,6 +1,7 @@
 package hu.morkalla.gymproject.persistence.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -109,6 +110,15 @@ public class Trainer implements Serializable {
 	public String toString() {
 		return "Trainer [id=" + id + ", trainerContacts=" + trainerContacts + ", trainerQualifications=" + trainerQualifications + ", name=" + name
 				+ ", height=" + height + ", weight=" + weight + "]";
+	}
+
+	public Trainer(String name, Integer height, Integer weight) {
+		super();
+		this.name = name;
+		this.height = height;
+		this.weight = weight;
+		this.trainerContacts = new ArrayList<TrainerContact>();
+		this.trainerQualifications = new ArrayList<TrainerQualification>();
 	}
 
 }

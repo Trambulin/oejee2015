@@ -33,7 +33,7 @@ CREATE TABLE Trainer_qualification(
 trainer_qualification_id SERIAL NOT NULL,
 trainer_qualification_trainer_id INTEGER NOT NULL,
 trainer_qualification_name CHARACTER VARYING(30) NOT NULL,
-trainer_qualification_level VARCHAR(5) NOT NULL,
+trainer_qualification_level VARCHAR(8) NOT NULL,
 trainer_qualification_year INTEGER,
 PRIMARY KEY(trainer_qualification_id),
 FOREIGN KEY(trainer_qualification_trainer_id) REFERENCES trainer(trainer_id));
