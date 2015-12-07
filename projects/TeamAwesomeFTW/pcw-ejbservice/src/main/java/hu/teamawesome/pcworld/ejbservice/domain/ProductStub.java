@@ -1,5 +1,9 @@
 package hu.teamawesome.pcworld.ejbservice.domain;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+
+@XmlRootElement(name = "product")
 public class ProductStub
 {
     private Long id;
@@ -12,13 +16,9 @@ public class ProductStub
 	private Integer shippingDays;
     
     
-
     public ProductStub() {
         this(0L, null, null, null, 0, 0, null, 0);
     }
-    
-    
-
     public ProductStub(Long id, TypeStub type, String name, String description, Integer warranty, Integer price, ManufacturerStub manufacturer, Integer shippingDays)
     {
         super();
@@ -33,7 +33,7 @@ public class ProductStub
     }
     
     
-    // ID
+    @XmlElement(name = "id")
     public Long getId() {
         return id;
     }
@@ -41,7 +41,7 @@ public class ProductStub
         this.id = id;
     }
     
-    // ProductType
+    @XmlElement(name = "type")
     public TypeStub getProductType() {
         return type;
     }
@@ -49,7 +49,7 @@ public class ProductStub
         this.type = type;
     }
     
-    // Name
+    @XmlElement(name = "name")
     public String getName() {
         return name;
     }
@@ -57,7 +57,7 @@ public class ProductStub
         this.name = name;
     }
     
-    // Description
+    @XmlElement(name = "description")
     public String getDescription() {
         return description;
     }
@@ -65,7 +65,7 @@ public class ProductStub
         this.description = description;
     }
     
-    // Warranty
+    @XmlElement(name = "warranty")
     public Integer getWarranty() {
         return warranty;
     }
@@ -73,7 +73,7 @@ public class ProductStub
         this.warranty = warranty;
     }
     
-    // Price
+    @XmlElement(name = "price")
     public Integer getPrice() {
         return price;
     }
@@ -81,7 +81,7 @@ public class ProductStub
         this.price = price;
     }
     
-    // Manufacturer
+    @XmlElement(name = "manufacturer")
     public ManufacturerStub getManufacturer() {
         return manufacturer;
     }
@@ -89,7 +89,7 @@ public class ProductStub
         this.manufacturer = manufacturer;
     }
     
-    // ShippingDays
+    @XmlElement(name = "shippingdays")
     public Integer getShippingDays() {
         return shippingDays;
     }

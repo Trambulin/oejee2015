@@ -86,8 +86,8 @@ INSERT INTO customer (ctm_email, ctm_password, ctm_joined, ctm_lastname, ctm_fir
 	
 -- Beszállító termékei
 -- Az ID ugyanaz, az árat átszámolja kisekerárba, a lokális példányszám pedig ötletszerűen.
-INSERT INTO storage (stg_id, stg_price, stg_quantity)
-SELECT sup_id as stg_id, (sup_price * 1.25) as stg_price, (random() * 4) as stg_quantity FROM supplier;
+INSERT INTO storage (stg_pid, stg_price, stg_quantity)
+SELECT sup_id as stg_pid, (sup_price * 1.25) as stg_price, (random() * 4) as stg_quantity FROM supplier;
 
 
 -- Vásárlások

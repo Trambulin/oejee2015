@@ -32,7 +32,7 @@ import hu.teamawesome.pcworld.persistence.query.ProductQuery;
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1525352421414297015L;
-
+	
 	@Id
 	@SequenceGenerator(name = "generatorSupplier", sequenceName = "supplier_sup_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorSupplier")

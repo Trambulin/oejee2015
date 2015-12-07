@@ -37,7 +37,8 @@ public class ProductView extends HttpServlet {
 		String id = request.getParameter(PARAM_ID);
 		LOGGER.info("Get Product by ID ("+id+")");
 		try {
-			ProductStub product = this.facade.getProduct(id);
+			long l_id = Long.parseLong(id);
+			ProductStub product = this.facade.getProduct(l_id);
 			request.setAttribute(ATTRIBUTE_PRODUCT, product);
 		} catch (FacadeException e) {
 			LOGGER.error(e, e);

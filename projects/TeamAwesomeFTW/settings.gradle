@@ -1,3 +1,4 @@
 include 'pcw-ejbservice'
 include 'pcw-weblayer'
 include 'pcw-persistence'
+include 'pcw-webservice'
