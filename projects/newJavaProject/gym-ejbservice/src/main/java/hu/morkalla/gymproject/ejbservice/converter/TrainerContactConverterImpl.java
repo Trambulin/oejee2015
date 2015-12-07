@@ -11,14 +11,12 @@ import hu.morkalla.gymproject.persistence.entity.TrainerContact;
 @Stateless
 public class TrainerContactConverterImpl implements TrainerContactConverter {
 
-	@Override
 	public TrainerContactStub to(TrainerContact trainerContact) {
 		return new TrainerContactStub(trainerContact.getType(), trainerContact.getValue());
 	}
 
-	@Override
 	public List<TrainerContactStub> to(List<TrainerContact> trainerContacts) {
-		final List<TrainerContactStub> result = new ArrayList<>();
+		final List<TrainerContactStub> result = new ArrayList<TrainerContactStub>();
 		for (final TrainerContact trainerContact : trainerContacts) {
 			result.add(this.to(trainerContact));
 		}
