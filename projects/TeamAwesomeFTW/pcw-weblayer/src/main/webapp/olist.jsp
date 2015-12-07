@@ -21,7 +21,7 @@
 	
 	<table class='list_table'>
 		<tr>
-			<th align="left">ID</th>
+			<th align="left" width="40px">ID</th>
 			<th align="left" width="150px">Felhasználó</th>
 			<th align="left">Rendelt termék</th>
 			<th align="right" width="90px">Ár</th>
@@ -43,14 +43,28 @@
 			String dateShippedOn = formatter.format(order.getShippedOn());
 			String dateShipmentDue = formatter.format(order.getShipmentDue());
 			
-			out.print("<tr>");
+			
+			boolean delivered = order.getDelivered();
+			if (delivered)
+			{
+				out.print("<tr class='order_archived'>");
+			} else {
+				out.print("<tr>");
+			}
+			
 			out.print("<td align=\"left\">" + order.getId() + "</td>");
 			out.print("<td align=\"left\"><a href='Customer?id=" + order.getCustomer().getId() + "'>" + order.getCustomer().getLastName() + " " + order.getCustomer().getFirstName() + "</a></td>");
 			out.print("<td align=\"left\"><a href='Product?id=" + order.getSupplier().getId() + "'>" + order.getSupplier().getName() + "</a></td>");
 			out.print("<td align=\"right\">" + sPrice + " Ft</td>");
 			out.print("<td align=\"center\">" + dateShippedOn + "</td>");
 			out.print("<td align=\"center\">" + dateShipmentDue + "</td>");
-			out.print("<td align=\"center\">" + (order.getDelivered()?"Igen":"Nem") + "</td>");
+			
+			if (delivered) {
+				out.print("<td align=\"center\">Igen</a></td>");
+			} else {
+				out.print("<td align=\"center\"><a href=\"/store/api/order/delivered-" + order.getId() + "\">[Nem]</a></td>");
+			}
+			
 			out.print("</tr>");
 		}
 	%>

@@ -42,10 +42,8 @@
 			
 			out.print("<tr>");
 			out.print("<th align=\"left\">Termék</th>");
-			out.print("<th align=\"center\" width=\"90px\">Garancia</th>");
 			out.print("<th align=\"right\" width=\"90px\">Ár</th>");
-			out.print("<th align=\"center\" width=\"80px\">Raktáron</th>");
-			out.print("<th align=\"center\" width=\"100px\">Beszállítás</th>");
+			out.print("<th align=\"center\" width=\"240px\">Készlet</th>");
 			out.print("<th align=\"left\" width=\"180px\">Gyártó</th>");
 			out.print("</tr>");
 		}
@@ -57,16 +55,37 @@
 		String sPrice = nf.format(product.getPrice());
 		
 		
+		long customerId = 1;
+		long supplierId = product.getSupplier().getId();
 		
-		// print entry
+		
+		int q_max = product.getQuantity();
+		int q_free = q_max - product.getQuantityReserved();
+		
+		
 		out.print("<tr>");
+		out.print("<td align=\"left\"><a href='Product?id=" + product.getSupplier().getId() + "'>" + product.getSupplier().getName() + "</a></td>");
+		out.print("<td align=\"right\">" + nf.format(product.getPrice()) + " Ft</td>");
+		
+		if (q_free > 0) {
+			out.print("<td align=\"center\">raktáron</td>");
+		} else {
+			out.print("<td align=\"center\">beszállítás " + product.getSupplier().getShippingDays() + " napon belül</td>");
+		}
+		
+		out.print("<td align=\"left\">" + product.getSupplier().getManufacturer().getName() + "</td>");
+		out.print("</tr>");
+		
+		
+		/*out.print("<tr>");
 		out.print("<td align=\"left\"><a href='Product?id=" + product.getSupplier().getId() + "'>" + product.getSupplier().getName() + "</a></td>");
 		out.print("<td align=\"center\">" + product.getSupplier().getWarranty() + " hónap</td>");
 		out.print("<td align=\"right\">" + nf.format(product.getPrice()) + " Ft</td>");
-		out.print("<td align=\"center\">" + nf.format(product.getQuantity()) + " db</td>");
+		out.print("<td align=\"center\">" + q_free + "/" + q_max + " db</td>");
 		out.print("<td align=\"center\">" + product.getSupplier().getShippingDays() + " nap</td>");
 		out.print("<td align=\"left\">" + product.getSupplier().getManufacturer().getName() + "</td>");
-		out.print("</tr>");
+		out.print("<td align=\"center\"><a href='/store/api/order/place-c" + customerId + "-p" + supplierId + "'>[megrendel]</a></td>");
+		out.print("</tr>");*/
 		
 		i++;
 	}

@@ -38,37 +38,38 @@ body {
 	color:#0000bb;
 }
 
+/* properties */
+.property_table {
+	width:400px;
+	margin:0;
+	border-collapse:collapse;
+	border:1px solid #d3d300;
+}
+.property_table th {
+	background-color:#808040;
+	color:white;
+}
+.property_table tr:nth-child(odd) {
+	background-color:#ffff80;
+}
+.property_table tr:nth-child(even) {
+	background-color:#ffffbf;
+}
+.property_table td, th {
+	padding:5px;
+}
+.property_table tr td:nth-child(odd) {
+	width:150px;
+}
+
+
+/* other */
 h2 {
 	margin:12px 0px 4px 0px;
 }
 
 
-
-
-/* old */
-.bookstable {
-	color: black;
-	font-weight: normal;
-	padding: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 20px;
-	margin-right: 20px;
-	border: 0px;
-	border-spacing: 0px;
-	width: 600px;
-}
-
-.bookstable thead {
-	text-align: center;
-	font-weight: bold;
-}
-
-.bookstable td, .bookstable th {
-	border: 1px solid;
-	padding: 2px;
-}
-
-label {
-	font-weight: bold;
+.order_archived td {
+	color:#888;
+	text-decoration:line-through;
 }

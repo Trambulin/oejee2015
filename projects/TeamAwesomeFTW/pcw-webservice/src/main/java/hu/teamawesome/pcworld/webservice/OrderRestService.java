@@ -35,8 +35,12 @@ public interface OrderRestService {
 	void removeFromStorage(@PathParam("id") Long id) throws AdaptorException;*/
 	
 	@GET
-	@Path("/place-u{uid}-p{pid}")
-	void placeOrder(@PathParam("uid") Long uid, @PathParam("pid") Long pid) throws AdaptorException;
+	@Path("/place-c{cid}-p{pid}")
+	void placeOrder(@PathParam("cid") Long cid, @PathParam("pid") Long pid) throws AdaptorException;
+	
+	@GET
+	@Path("/delivered-{id}")
+	void setDelivered(@PathParam("id") Long id) throws AdaptorException;
 	
 	@OPTIONS
 	@Path("{path:.*}")

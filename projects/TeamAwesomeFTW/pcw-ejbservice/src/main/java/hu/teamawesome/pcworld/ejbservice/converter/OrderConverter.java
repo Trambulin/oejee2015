@@ -10,8 +10,8 @@ import hu.teamawesome.pcworld.persistence.entity.Order;
 @Local
 public interface OrderConverter {
 
-	OrderStub to(Order book);
+	OrderStub to(Order order);
 
-	List<OrderStub> to(List<Order> books);
+	List<OrderStub> to(List<Order> orders);
 
 }

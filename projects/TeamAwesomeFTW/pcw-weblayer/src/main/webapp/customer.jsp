@@ -2,6 +2,7 @@
 <%@ page import="java.util.Set" %>  
 <%@ page import="hu.teamawesome.pcworld.ejbservice.domain.CustomerStub" %> 
 <%@ page import="java.text.NumberFormat" %>
+<%@page import="java.text.SimpleDateFormat"%>
 <% CustomerStub customer = (CustomerStub) request.getAttribute("customers"); %>
 <!DOCTYPE html>
 <html>
@@ -10,13 +11,16 @@
 <link rel="stylesheet" type="text/css" href="style/page.css" />
 <title><% out.print(customer.getLastName() + " " + customer.getFirstName()); %> | PC World webshop</title>
 </head>
-<body>
-
-		
+<body><%
+	
+	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	String dateJoined = formatter.format(customer.getJoined());
+	
+	%>	
 	<h1>PC World webshop</h1>
-	<h2><% out.print(customer.getLastName() + " " + customer.getFirstName()); %></h2>
+	<h2>Vásárló - <% out.print(customer.getLastName() + " " + customer.getFirstName()); %></h2>
 	<p>
-		<table>
+		<table class="property_table">
 			<tr>
 				<td>Email:</td>
 				<td><% out.print(customer.getEmail()); %></td>
@@ -31,7 +35,7 @@
 			</tr>
 			<tr>
 				<td>Csatlakozott:</td>
-				<td><% out.print(customer.getJoined()); %></td>
+				<td><% out.print(dateJoined); %></td>
 			</tr>
 		</table>
 	</p>

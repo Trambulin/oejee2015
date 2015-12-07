@@ -11,10 +11,11 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
+import hu.teamawesome.pcworld.ejbservice.domain.OrderStub;
 import hu.teamawesome.pcworld.ejbservice.domain.StorageStub;
 import hu.teamawesome.pcworld.ejbservice.exception.AdaptorException;
 import hu.teamawesome.pcworld.ejbservice.exception.FacadeException;
-import hu.teamawesome.pcworld.ejbservice.facade.StorageFacade;
+import hu.teamawesome.pcworld.ejbservice.facade.OrderFacade;
 
 @Stateless
 public class OrderRestServiceBean implements OrderRestService
@@ -22,15 +23,30 @@ public class OrderRestServiceBean implements OrderRestService
 	private static final Logger LOGGER = Logger.getLogger(StorageRestServiceBean.class);
 	
 	@EJB
-	private StorageFacade facade;
+	private OrderFacade facade;
 	
 	
 	
 	@Override
-	public void placeOrder(Long uid, Long pid) throws AdaptorException {
+	public void placeOrder(Long cid, Long pid) throws AdaptorException
+	{
+		LOGGER.info("#### PLACE ORDER #### (customer=" + cid + "; product=" + pid + ")");
 		
-		LOGGER.info("#### TEST TEST TEST TEST - PLACE ORDER #### (user=" + uid + "; prod=" + pid + ")");
+		OrderStub orderStub = this.facade.addOrder(cid, pid);
+		
+		LOGGER.info(orderStub.toString());
 	}
+	
+	@Override
+	public void setDelivered(Long id) throws AdaptorException
+	{
+		LOGGER.info("#### ORDER DELIVERED #### (order=" + id + ")");
+		
+		OrderStub orderStub = this.facade.setDelivered(id);
+		
+		LOGGER.info(orderStub.toString());
+	}
+	
 	
 	
 	@Override

@@ -26,7 +26,7 @@ import hu.teamawesome.pcworld.persistence.query.OrderQuery;
 @NamedQueries(value = {
 		//
 		@NamedQuery(name = OrderQuery.GET_BY_ID, query = "SELECT s FROM Order s WHERE id=:" + OrderParameter.ID),
-		@NamedQuery(name = OrderQuery.GET_ALL, query = "SELECT s FROM Order s ORDER BY shippedOn")
+		@NamedQuery(name = OrderQuery.GET_ALL, query = "SELECT s FROM Order s ORDER BY delivered, id DESC")
 		//
 })
 public class Order implements Serializable {
@@ -34,7 +34,7 @@ public class Order implements Serializable {
 	private static final long serialVersionUID = 1525352421414297015L;
 
 	@Id
-	@SequenceGenerator(name = "generatorOrder", sequenceName = "order_ord_id_seq", allocationSize = 1)
+	@SequenceGenerator(name = "generatorOrder", sequenceName = "orders_ord_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorOrder")
 	@Column(name = "ord_id", nullable = false, updatable = false, insertable = false)
 	private Long id;
@@ -61,6 +61,15 @@ public class Order implements Serializable {
 	
 	
 	public Order() {
+		this(null, null, 0, null, null);
+	}
+	public Order(Supplier supplier, Customer customer, Integer price, Date shippedOn, Date shipmentDue)
+	{
+		this.supplier = supplier;
+		this.customer = customer;
+		this.price = price;
+		this.shippedOn = shippedOn;
+		this.shipmentDue = shipmentDue;
 	}
 	
 	

@@ -11,7 +11,9 @@ import org.apache.log4j.Logger;
 import hu.teamawesome.pcworld.ejbservice.converter.OrderConverter;
 //import hu.teamawesome.pcworld.ejbservice.domain.OrderCriteria;
 import hu.teamawesome.pcworld.ejbservice.domain.OrderStub;
+import hu.teamawesome.pcworld.ejbservice.exception.AdaptorException;
 import hu.teamawesome.pcworld.ejbservice.exception.FacadeException;
+import hu.teamawesome.pcworld.ejbservice.util.ApplicationError;
 import hu.teamawesome.pcworld.persistence.exception.PersistenceServiceException;
 import hu.teamawesome.pcworld.persistence.service.OrderService;
 
@@ -56,6 +58,37 @@ public class OrderFacadeImpl implements OrderFacade {
 			throw new FacadeException(e.getLocalizedMessage());
 		}
 		return stubs;
+	}
+	
+	@Override
+	public OrderStub addOrder(Long cid, Long pid) throws AdaptorException {
+		try {
+			
+			final OrderStub order = this.converter.to(this.service.create(cid, pid));
+			
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Add a new Order (pid: " + pid + ", cid: " + cid + ") --> " + order);
+			}
+			return order;
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}
+	}
+	
+	@Override
+	public OrderStub setDelivered(Long id) throws AdaptorException {
+		try {
+			final OrderStub order = this.converter.to(this.service.setDelivered(id));
+			
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Set Order to delivered (id: " + id + ") --> " + order);
+			}
+			return order;
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}
 	}
 
 }
