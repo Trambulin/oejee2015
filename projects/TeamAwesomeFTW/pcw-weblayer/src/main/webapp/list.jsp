@@ -15,7 +15,12 @@
 <title>Kínálat | PC World webshop</title>
 </head>
 <body>
-	<h1>PC World webshop kínálata (v0.2)</h1>
+	<h1>PC World webshop kínálata (v0.3)</h1>
+	<p>
+		<a href="OrderList">Order list</a> |
+		<a href="Customer?id=1">Customer #1</a> |
+		<a href="Customer?id=2">Customer #2</a>
+	</p>
 	<%
 	long lastType = -1;
 	int i = 0;

@@ -8,11 +8,11 @@ import javax.ejb.Stateless;
 //import hu.teamawesome.pcworld.ejbservice.domain.ProductTypeStub;
 import hu.teamawesome.pcworld.ejbservice.domain.ManufacturerStub;
 import hu.teamawesome.pcworld.ejbservice.domain.TypeStub;
-import hu.teamawesome.pcworld.ejbservice.domain.ProductStub;
+import hu.teamawesome.pcworld.ejbservice.domain.SupplierStub;
 import hu.teamawesome.pcworld.ejbservice.domain.StorageStub;
 import hu.teamawesome.pcworld.persistence.entity.Manufacturer;
 import hu.teamawesome.pcworld.persistence.entity.Type;
-import hu.teamawesome.pcworld.persistence.entity.Product;
+import hu.teamawesome.pcworld.persistence.entity.Supplier;
 import hu.teamawesome.pcworld.persistence.entity.Storage;
 
 @Stateless
@@ -21,7 +21,7 @@ public class StorageConverterImpl implements StorageConverter {
 	@Override
 	public StorageStub to(Storage product)
 	{
-		final Product sup = product.getSupplier();
+		final Supplier sup = product.getSupplier();
 		
 		// Manufacturer
 		final Manufacturer mf = sup.getManufacturer();
@@ -32,7 +32,7 @@ public class StorageConverterImpl implements StorageConverter {
 		final TypeStub typeStub = new TypeStub(tp.getId(), tp.getName());
 		
 		// Supplier
-		final ProductStub supplierStub = new ProductStub(sup.getId(), typeStub, sup.getName(), sup.getDescription(),
+		final SupplierStub supplierStub = new SupplierStub(sup.getId(), typeStub, sup.getName(), sup.getDescription(),
 				sup.getWarranty(), sup.getPrice(), manufacturerStub, sup.getShippingDays());
 		
 		// Storage

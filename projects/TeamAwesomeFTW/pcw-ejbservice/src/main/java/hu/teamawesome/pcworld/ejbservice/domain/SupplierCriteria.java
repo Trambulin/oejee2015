@@ -1,14 +1,14 @@
 package hu.teamawesome.pcworld.ejbservice.domain;
 
-public class ProductCriteria {
+public class SupplierCriteria {
 	
 	private String name;
-    private ProductManufacturerStub manufacturer;
-    private ProductTypeStub type;
+    private SupplierManufacturerStub manufacturer;
+    private SupplierTypeStub type;
     private int minimumPrice;
     private int maximumPrice;
     
-    public ProductCriteria() {
+    public SupplierCriteria() {
     }
     
     
@@ -21,18 +21,18 @@ public class ProductCriteria {
     }
     
     // MANUFACTURER
-    public ProductManufacturerStub getManufacturer() {
+    public SupplierManufacturerStub getManufacturer() {
         return manufacturer;
     }
-    public void setManufacturer(ProductManufacturerStub manufacturer) {
+    public void setManufacturer(SupplierManufacturerStub manufacturer) {
         this.manufacturer = manufacturer;
     }
     
     // TYPE
-    public ProductTypeStub getCategory() {
+    public SupplierTypeStub getCategory() {
         return type;
     }
-    public void setCategory(ProductTypeStub type) {
+    public void setCategory(SupplierTypeStub type) {
         this.type = type;
     }
     

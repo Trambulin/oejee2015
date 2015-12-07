@@ -5,15 +5,15 @@ import java.util.List;
 import javax.ejb.Local;
 
 //import hu.teamawesome.pcworld.ejbservice.domain.ProductCriteria;
-import hu.teamawesome.pcworld.ejbservice.domain.ProductStub;
+import hu.teamawesome.pcworld.ejbservice.domain.SupplierStub;
 import hu.teamawesome.pcworld.ejbservice.exception.FacadeException;
 
 @Local
-public interface ProductFacade
+public interface SupplierFacade
 {
-	ProductStub getProduct(Long id) throws FacadeException;
+	SupplierStub getProduct(Long id) throws FacadeException;
 	
 	//List<ProductStub> getProducts(ProductCriteria criteria) throws FacadeException;
 	
-	List<ProductStub> getProducts() throws FacadeException;
+	List<SupplierStub> getProducts() throws FacadeException;
 }

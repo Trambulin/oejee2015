@@ -17,10 +17,10 @@ import hu.teamawesome.pcworld.ejbservice.domain.StorageStub;
 import hu.teamawesome.pcworld.ejbservice.exception.AdaptorException;
 
 
-@Path("/storage")
-public interface StorageRestService {
+@Path("/order")
+public interface OrderRestService {
 	
-	@GET
+	/*@GET
 	@Path("/{id}")
 	@Produces("application/json")
 	StorageStub getProduct(@PathParam("id") Long id) throws AdaptorException;
@@ -32,11 +32,11 @@ public interface StorageRestService {
 	
 	@DELETE
 	@Path("/{id}")
-	void removeFromStorage(@PathParam("id") Long id) throws AdaptorException;
+	void removeFromStorage(@PathParam("id") Long id) throws AdaptorException;*/
 	
 	@GET
-	@Path("/test-{id}-{asd}")
-	void getProductTest(@PathParam("id") Long id, @PathParam("asd") Long asd) throws AdaptorException;
+	@Path("/place-u{uid}-p{pid}")
+	void placeOrder(@PathParam("uid") Long uid, @PathParam("pid") Long pid) throws AdaptorException;
 	
 	@OPTIONS
 	@Path("{path:.*}")

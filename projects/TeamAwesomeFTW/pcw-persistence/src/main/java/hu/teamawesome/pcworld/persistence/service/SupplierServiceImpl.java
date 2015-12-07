@@ -12,29 +12,29 @@ import javax.persistence.PersistenceContext;
 
 import org.apache.log4j.Logger;
 
-import hu.teamawesome.pcworld.persistence.entity.Product;
+import hu.teamawesome.pcworld.persistence.entity.Supplier;
 import hu.teamawesome.pcworld.persistence.exception.PersistenceServiceException;
-import hu.teamawesome.pcworld.persistence.parameter.ProductParameter;
-import hu.teamawesome.pcworld.persistence.query.ProductQuery;
+import hu.teamawesome.pcworld.persistence.parameter.SupplierParameter;
+import hu.teamawesome.pcworld.persistence.query.SupplierQuery;
 
 @Stateless(mappedName = "ejb/groupService")
 @TransactionManagement(TransactionManagementType.CONTAINER)
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-public class ProductServiceImpl implements ProductService {
+public class SupplierServiceImpl implements SupplierService {
 
-	private static final Logger LOGGER = Logger.getLogger(ProductServiceImpl.class);
+	private static final Logger LOGGER = Logger.getLogger(SupplierServiceImpl.class);
 
 	@PersistenceContext(unitName = "pcw-persistence-unit")
 	private EntityManager entityManager;
 
 	@Override
-	public Product read(Long id) throws PersistenceServiceException {
+	public Supplier read(Long id) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Get Product by id (" + id + ")");
 		}
-		Product result = null;
+		Supplier result = null;
 		try {
-			result = this.entityManager.createNamedQuery(ProductQuery.GET_BY_ID, Product.class).setParameter(ProductParameter.ID, id).getSingleResult();
+			result = this.entityManager.createNamedQuery(SupplierQuery.GET_BY_ID, Supplier.class).setParameter(SupplierParameter.ID, id).getSingleResult();
 		} catch (final Exception e) {
 			throw new PersistenceServiceException("Unknown error when fetching Product by id (" + id + ")! " + e.getLocalizedMessage(), e);
 		}
@@ -42,13 +42,13 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product read(Integer type) throws PersistenceServiceException {
+	public Supplier read(Integer type) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Get Product by type (" + type + ")");
 		}
-		Product result = null;
+		Supplier result = null;
 		try {
-			result = this.entityManager.createNamedQuery(ProductQuery.GET_BY_TYPE, Product.class).setParameter(ProductParameter.Type, type).getSingleResult();
+			result = this.entityManager.createNamedQuery(SupplierQuery.GET_BY_TYPE, Supplier.class).setParameter(SupplierParameter.Type, type).getSingleResult();
 		} catch (final Exception e) {
 			throw new PersistenceServiceException("Unknown error when fetching Product by type (" + type + ")! " + e.getLocalizedMessage(), e);
 		}
@@ -56,13 +56,13 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> readAll() throws PersistenceServiceException {
+	public List<Supplier> readAll() throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Get Products");
 		}
-		List<Product> result = null;
+		List<Supplier> result = null;
 		try {
-			result = this.entityManager.createNamedQuery(ProductQuery.GET_ALL, Product.class).getResultList();
+			result = this.entityManager.createNamedQuery(SupplierQuery.GET_ALL, Supplier.class).getResultList();
 		} catch (final Exception e) {
 			throw new PersistenceServiceException("Unknown error when fetching Products! " + e.getLocalizedMessage(), e);
 		}

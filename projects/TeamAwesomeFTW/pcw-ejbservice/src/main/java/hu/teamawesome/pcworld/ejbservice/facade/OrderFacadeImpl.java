@@ -8,29 +8,29 @@ import javax.ejb.Stateless;
 
 import org.apache.log4j.Logger;
 
-import hu.teamawesome.pcworld.ejbservice.converter.ProductConverter;
-//import hu.teamawesome.pcworld.ejbservice.domain.ProductCriteria;
-import hu.teamawesome.pcworld.ejbservice.domain.ProductStub;
+import hu.teamawesome.pcworld.ejbservice.converter.OrderConverter;
+//import hu.teamawesome.pcworld.ejbservice.domain.OrderCriteria;
+import hu.teamawesome.pcworld.ejbservice.domain.OrderStub;
 import hu.teamawesome.pcworld.ejbservice.exception.FacadeException;
 import hu.teamawesome.pcworld.persistence.exception.PersistenceServiceException;
-import hu.teamawesome.pcworld.persistence.service.ProductService;
+import hu.teamawesome.pcworld.persistence.service.OrderService;
 
-@Stateless(mappedName = "ejb/productFacade")
-public class ProductFacadeImpl implements ProductFacade {
+@Stateless(mappedName = "ejb/orderFacade")
+public class OrderFacadeImpl implements OrderFacade {
 
-	private static final Logger LOGGER = Logger.getLogger(ProductFacadeImpl.class);
-
-	@EJB
-	private ProductService service;
+	private static final Logger LOGGER = Logger.getLogger(OrderFacadeImpl.class);
 
 	@EJB
-	private ProductConverter converter;
+	private OrderService service;
+
+	@EJB
+	private OrderConverter converter;
 
 	@Override
-	public ProductStub getProduct(Long id) throws FacadeException {
+	public OrderStub getOrder(String id) throws FacadeException {
 		try {
-			//long l_id = Long.parseLong(id);
-			final ProductStub stub = this.converter.to(this.service.read(id));
+			long l_id = Long.parseLong(id);
+			final OrderStub stub = this.converter.to(this.service.read(l_id));
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug("Get Product by id (" + id + ") --> " + stub);
 			}
@@ -42,9 +42,9 @@ public class ProductFacadeImpl implements ProductFacade {
 	}
 
 	@Override
-	public List<ProductStub> getProducts() throws FacadeException {
+	public List<OrderStub> getOrders() throws FacadeException {
 	//public List<ProductStub> getProducts(ProductCriteria criteria) throws FacadeException {
-		List<ProductStub> stubs = new ArrayList<>();
+		List<OrderStub> stubs = new ArrayList<>();
 		try {
 			stubs = this.converter.to(this.service.readAll());
 			if (LOGGER.isDebugEnabled()) {

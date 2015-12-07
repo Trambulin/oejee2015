@@ -1,6 +1,6 @@
 package hu.teamawesome.pcworld.ejbservice.domain;
 
-public enum ProductTypeStub
+public enum SupplierTypeStub
 {
 	KEYBOARD,
 	MOUSE,

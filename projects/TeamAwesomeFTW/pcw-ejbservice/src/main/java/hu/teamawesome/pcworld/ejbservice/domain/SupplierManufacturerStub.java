@@ -1,6 +1,6 @@
 package hu.teamawesome.pcworld.ejbservice.domain;
 
-public enum ProductManufacturerStub
+public enum SupplierManufacturerStub
 {
 	GIGABYTE,
 	MSI,

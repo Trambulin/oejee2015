@@ -8,16 +8,16 @@ import javax.ejb.Stateless;
 //import hu.teamawesome.pcworld.ejbservice.domain.ProductTypeStub;
 import hu.teamawesome.pcworld.ejbservice.domain.ManufacturerStub;
 import hu.teamawesome.pcworld.ejbservice.domain.TypeStub;
-import hu.teamawesome.pcworld.ejbservice.domain.ProductStub;
+import hu.teamawesome.pcworld.ejbservice.domain.SupplierStub;
 import hu.teamawesome.pcworld.persistence.entity.Manufacturer;
 import hu.teamawesome.pcworld.persistence.entity.Type;
-import hu.teamawesome.pcworld.persistence.entity.Product;
+import hu.teamawesome.pcworld.persistence.entity.Supplier;
 
 @Stateless
-public class ProductConverterImpl implements ProductConverter {
+public class SupplierConverterImpl implements SupplierConverter {
 
 	@Override
-	public ProductStub to(Product product)
+	public SupplierStub to(Supplier product)
 	{
 		//final ProductTypeStub type = ProductTypeStub.valueOf(product.getProductType().toString());
 		//final ProductManufacturerStub manufacturer = ProductManufacturerStub.valueOf(product.getManufacturer().toString());
@@ -29,16 +29,16 @@ public class ProductConverterImpl implements ProductConverter {
 		final TypeStub typeStub = new TypeStub(tp.getId(), tp.getName());
 		
 		
-		return new ProductStub(product.getId(), typeStub, product.getName(), product.getDescription(),
+		return new SupplierStub(product.getId(), typeStub, product.getName(), product.getDescription(),
 				product.getWarranty(), product.getPrice(), manufacturerStub, product.getShippingDays());
 	}
 	
 	@Override
-	public List<ProductStub> to(List<Product> products)
+	public List<SupplierStub> to(List<Supplier> products)
 	{
-		final List<ProductStub> result = new ArrayList<>();
+		final List<SupplierStub> result = new ArrayList<>();
 		
-		for (final Product product : products) {
+		for (final Supplier product : products) {
 			result.add(this.to(product));
 		}
 		return result;

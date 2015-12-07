@@ -17,7 +17,7 @@ import hu.teamawesome.pcworld.ejbservice.exception.FacadeException;
 import hu.teamawesome.pcworld.ejbservice.facade.StorageFacade;
 
 @Stateless
-public class StorageRestServiceBean implements StorageRestService
+public class OrderRestServiceBean implements OrderRestService
 {
 	private static final Logger LOGGER = Logger.getLogger(StorageRestServiceBean.class);
 	
@@ -25,41 +25,11 @@ public class StorageRestServiceBean implements StorageRestService
 	private StorageFacade facade;
 	
 	
-	@Override
-	public StorageStub getProduct(Long id) throws AdaptorException {
-		LOGGER.info("Get product from Storage (" + id + ")");
-		try {
-			return this.facade.getProduct(id); // <----------------------string-----!!!!!
-		} catch (AdaptorException e) {
-			LOGGER.error(e, e);
-		}
-		return null;
-	}
-	
 	
 	@Override
-	public List<StorageStub> getAllProduct() throws AdaptorException {
-		LOGGER.info("Get all products from Storage");
-		try {
-			return this.facade.getProducts();
-		} catch (AdaptorException e) {
-			LOGGER.error(e, e);
-		}
-		return new ArrayList<>(); // return empty
-	}
-	
-	
-	@Override
-	public void removeFromStorage(Long id) throws AdaptorException {
-		LOGGER.info("Remove product from Storage (" + id + ")");
-		this.facade.removeFromStorage(id);
-	}
-	
-	
-	@Override
-	public void getProductTest(Long id, Long asd) throws AdaptorException {
+	public void placeOrder(Long uid, Long pid) throws AdaptorException {
 		
-		LOGGER.info("#### TEST TEST TEST TEST #### (params. are: id=" + id + "; asd=" + asd + ")");
+		LOGGER.info("#### TEST TEST TEST TEST - PLACE ORDER #### (user=" + uid + "; prod=" + pid + ")");
 	}
 	
 	

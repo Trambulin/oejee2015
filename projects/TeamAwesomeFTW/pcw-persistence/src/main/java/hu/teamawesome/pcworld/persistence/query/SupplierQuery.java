@@ -1,6 +1,6 @@
 package hu.teamawesome.pcworld.persistence.query;
 
-public class ProductQuery {
+public class SupplierQuery {
 
 	public static final String GET_BY_ID = "Product.getById";
 	public static final String GET_BY_TYPE = "Product.getByType";

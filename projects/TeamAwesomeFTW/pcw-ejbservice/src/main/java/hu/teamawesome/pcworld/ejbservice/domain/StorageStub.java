@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class StorageStub
 {
 	private Long id;
-	private ProductStub supplier;
+	private SupplierStub supplier;
 	private Integer price;
 	private Integer quantity;
 	private Integer quantityReserved;
@@ -19,7 +19,7 @@ public class StorageStub
 		this(0L, null, 0, 0, 0);
 	}
 
-	public StorageStub(Long id, ProductStub supplier, Integer price, Integer quantity, Integer quantityReserved) {
+	public StorageStub(Long id, SupplierStub supplier, Integer price, Integer quantity, Integer quantityReserved) {
 		this.id = id;
 		this.supplier = supplier;
 		this.price = price;
@@ -34,7 +34,7 @@ public class StorageStub
 	}
 	
 	@XmlElement(name = "supplier")
-	public ProductStub getSupplier() {
+	public SupplierStub getSupplier() {
 		return this.supplier;
 	}
 	

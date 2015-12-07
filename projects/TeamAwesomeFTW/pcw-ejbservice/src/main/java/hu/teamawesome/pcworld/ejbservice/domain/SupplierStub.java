@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement(name = "product")
-public class ProductStub
+public class SupplierStub
 {
     private Long id;
 	private TypeStub type;
@@ -16,10 +16,10 @@ public class ProductStub
 	private Integer shippingDays;
     
     
-    public ProductStub() {
+    public SupplierStub() {
         this(0L, null, null, null, 0, 0, null, 0);
     }
-    public ProductStub(Long id, TypeStub type, String name, String description, Integer warranty, Integer price, ManufacturerStub manufacturer, Integer shippingDays)
+    public SupplierStub(Long id, TypeStub type, String name, String description, Integer warranty, Integer price, ManufacturerStub manufacturer, Integer shippingDays)
     {
         super();
         this.id = id;

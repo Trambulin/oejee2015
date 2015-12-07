@@ -25,7 +25,7 @@ import hu.teamawesome.pcworld.persistence.query.StorageQuery;
 		@NamedQuery(name = StorageQuery.GET_BY_ID, query = "SELECT s FROM Storage s WHERE supplier.id=:" + StorageParameter.ID),
 		@NamedQuery(name = StorageQuery.GET_BY_TYPE, query = "SELECT s FROM Storage s WHERE supplier.type.id=:" + StorageParameter.Type),
 		@NamedQuery(name = StorageQuery.GET_ALL, query = "SELECT s FROM Storage s ORDER BY supplier.type.id, supplier.name"),
-		@NamedQuery(name = StorageQuery.COUNT, query = "SELECT COUNT(s) FROM Storage s"),
+		@NamedQuery(name = StorageQuery.COUNT, query = "SELECT COUNT(s) FROM Storage s WHERE supplier.id=:" + StorageParameter.ID),
 		@NamedQuery(name = StorageQuery.REMOVE_BY_PID, query = "DELETE FROM Storage s WHERE supplier.id=:" + StorageParameter.ID)
 		//
 })
@@ -43,7 +43,7 @@ public class Storage implements Serializable
 	
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "stg_pid", referencedColumnName = "sup_id", nullable = false)
-	private Product supplier;
+	private Supplier supplier;
 	
 	
 	@Column(name = "stg_price", nullable = false)
@@ -69,11 +69,11 @@ public class Storage implements Serializable
 	}
 	
 	
-	public Product getSupplier()
+	public Supplier getSupplier()
 	{
 		return supplier;
 	}
-	public void setSupplier(Product supplier)
+	public void setSupplier(Supplier supplier)
 	{
 		this.supplier = supplier;
 	}

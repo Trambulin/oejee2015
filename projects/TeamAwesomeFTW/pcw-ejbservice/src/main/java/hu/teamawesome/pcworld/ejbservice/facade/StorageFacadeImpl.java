@@ -20,7 +20,7 @@ import hu.teamawesome.pcworld.persistence.service.StorageService;
 @Stateless(mappedName = "ejb/productFacade")
 public class StorageFacadeImpl implements StorageFacade {
 
-	private static final Logger LOGGER = Logger.getLogger(ProductFacadeImpl.class);
+	private static final Logger LOGGER = Logger.getLogger(SupplierFacadeImpl.class);
 
 	@EJB
 	private StorageService service;

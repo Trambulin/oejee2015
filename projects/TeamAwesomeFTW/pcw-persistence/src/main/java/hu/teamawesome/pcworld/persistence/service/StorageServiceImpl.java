@@ -22,7 +22,7 @@ import hu.teamawesome.pcworld.persistence.query.StorageQuery;
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class StorageServiceImpl implements StorageService {
 
-	private static final Logger LOGGER = Logger.getLogger(ProductServiceImpl.class);
+	private static final Logger LOGGER = Logger.getLogger(SupplierServiceImpl.class);
 
 	@PersistenceContext(unitName = "pcw-persistence-unit")
 	private EntityManager entityManager;

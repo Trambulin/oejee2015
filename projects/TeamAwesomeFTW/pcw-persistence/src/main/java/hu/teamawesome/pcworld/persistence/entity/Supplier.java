@@ -17,19 +17,19 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import hu.teamawesome.pcworld.persistence.parameter.ProductParameter;
-import hu.teamawesome.pcworld.persistence.query.ProductQuery;
+import hu.teamawesome.pcworld.persistence.parameter.SupplierParameter;
+import hu.teamawesome.pcworld.persistence.query.SupplierQuery;
 
 @Entity
 @Table(name = "supplier")
 @NamedQueries(value = {
 		//
-		@NamedQuery(name = ProductQuery.GET_BY_ID, query = "SELECT s FROM Product s WHERE id=:" + ProductParameter.ID),
-		@NamedQuery(name = ProductQuery.GET_BY_TYPE, query = "SELECT s FROM Product s WHERE type.id=:" + ProductParameter.Type),
-		@NamedQuery(name = ProductQuery.GET_ALL, query = "SELECT s FROM Product s ORDER BY type.id, name")
+		@NamedQuery(name = SupplierQuery.GET_BY_ID, query = "SELECT s FROM Supplier s WHERE id=:" + SupplierParameter.ID),
+		@NamedQuery(name = SupplierQuery.GET_BY_TYPE, query = "SELECT s FROM Supplier s WHERE type.id=:" + SupplierParameter.Type),
+		@NamedQuery(name = SupplierQuery.GET_ALL, query = "SELECT s FROM Supplier s ORDER BY type.id, name")
 		//
 })
-public class Product implements Serializable {
+public class Supplier implements Serializable {
 
 	private static final long serialVersionUID = 1525352421414297015L;
 	
@@ -71,7 +71,7 @@ public class Product implements Serializable {
 	private Integer shippingDays;
 	
 	
-	public Product() {
+	public Supplier() {
 
 	}
 	
