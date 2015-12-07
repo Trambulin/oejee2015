@@ -14,7 +14,7 @@ import hu.morkalla.gymproject.restclient.domain.TrainerStub;
 public class GYMRestClient {
 
 	private static final Logger LOGGER = Logger.getLogger(GYMRestClient.class.getSimpleName());
-	private static final String SERVICE_CONTEXT_PATH = "/gym/api";
+	private static final String SERVICE_CONTEXT_PATH = "/gym-webservices/api";
 
 	private final String host;
 	private final int port;

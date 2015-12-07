@@ -2,6 +2,10 @@ package hu.morkalla.gymproject.restclient.domain;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "trainer")
 public class TrainerStub {
 
 	private String name;
@@ -23,6 +27,7 @@ public class TrainerStub {
 		this.setTrainerQualifications(qualification);
 	}
 
+	@XmlElement(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -31,6 +36,7 @@ public class TrainerStub {
 		this.name = name;
 	}
 
+	@XmlElement(name = "height")
 	public Integer getHeight() {
 		return height;
 	}
@@ -39,6 +45,7 @@ public class TrainerStub {
 		this.height = height;
 	}
 
+	@XmlElement(name = "weight")
 	public Integer getWeight() {
 		return weight;
 	}
@@ -47,6 +54,7 @@ public class TrainerStub {
 		this.weight = weight;
 	}
 
+	@XmlElement(name = "contacts")
 	public List<TrainerContactStub> getTrainerContacts() {
 		return trainerContacts;
 	}
@@ -55,6 +63,7 @@ public class TrainerStub {
 		this.trainerContacts = trainerContacts;
 	}
 
+	@XmlElement(name = "qualifications")
 	public List<TrainerQualificationStub> getTrainerQualifications() {
 		return trainerQualifications;
 	}

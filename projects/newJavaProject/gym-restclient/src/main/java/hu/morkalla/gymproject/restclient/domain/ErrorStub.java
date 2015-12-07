@@ -1,5 +1,9 @@
 package hu.morkalla.gymproject.restclient.domain;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "error")
 public class ErrorStub {
 
 	private final int code;
@@ -18,14 +22,17 @@ public class ErrorStub {
 		this.fields = fields;
 	}
 
+	@XmlElement(name = "code")
 	public int getCode() {
 		return this.code;
 	}
 
+	@XmlElement(name = "message")
 	public String getMessage() {
 		return this.message;
 	}
 
+	@XmlElement(name = "fields")
 	public String getFields() {
 		return this.fields;
 	}

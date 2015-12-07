@@ -1,10 +1,18 @@
 package hu.morkalla.gymproject.restclient.domain;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "contacts")
 public class TrainerContactStub {
 
 	private String type;
 	private String value;
 
+	public TrainerContactStub() {
+	}
+
+	@XmlElement(name = "type")
 	public String getType() {
 		return type;
 	}
@@ -13,6 +21,7 @@ public class TrainerContactStub {
 		this.type = type;
 	}
 
+	@XmlElement(name = "value")
 	public String getValue() {
 		return value;
 	}

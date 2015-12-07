@@ -1,10 +1,17 @@
 package hu.morkalla.gymproject.restclient.domain;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "qualifications")
 public class TrainerQualificationStub {
 
 	private String name;
 	private String level;
 	private Integer Year;
+
+	public TrainerQualificationStub() {
+	}
 
 	public TrainerQualificationStub(String name, String level, Integer year) {
 		super();
@@ -13,6 +20,7 @@ public class TrainerQualificationStub {
 		Year = year;
 	}
 
+	@XmlElement(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -21,6 +29,7 @@ public class TrainerQualificationStub {
 		this.name = name;
 	}
 
+	@XmlElement(name = "level")
 	public String getLevel() {
 		return level;
 	}
@@ -29,6 +38,7 @@ public class TrainerQualificationStub {
 		this.level = level;
 	}
 
+	@XmlElement(name = "year")
 	public Integer getYear() {
 		return Year;
 	}
