@@ -11,7 +11,10 @@ import org.apache.log4j.Logger;
 import hu.teamawesome.pcworld.ejbservice.converter.CustomerConverter;
 //import hu.teamawesome.pcworld.ejbservice.domain.CustomerCriteria;
 import hu.teamawesome.pcworld.ejbservice.domain.CustomerStub;
+import hu.teamawesome.pcworld.ejbservice.domain.OrderStub;
+import hu.teamawesome.pcworld.ejbservice.exception.AdaptorException;
 import hu.teamawesome.pcworld.ejbservice.exception.FacadeException;
+import hu.teamawesome.pcworld.ejbservice.util.ApplicationError;
 import hu.teamawesome.pcworld.persistence.exception.PersistenceServiceException;
 import hu.teamawesome.pcworld.persistence.service.CustomerService;
 
@@ -56,6 +59,23 @@ public class CustomerFacadeImpl implements CustomerFacade {
 			throw new FacadeException(e.getLocalizedMessage());
 		}
 		return stubs;
+	}
+	
+	@Override
+	public CustomerStub addCustomer(String lastname, String firstname, String email, String password, String address, String telephone) throws AdaptorException
+	{
+		try {
+			final CustomerStub order = this.converter.to(this.service.create(lastname, firstname, email, password, address, telephone));
+			
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Add a new User () --> " + order);
+			}
+			return order;
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}
+		
 	}
 
 }

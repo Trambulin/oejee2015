@@ -35,6 +35,9 @@ public class Customer implements Serializable
 	@Column(name = "ctm_email", nullable = false)
 	private String email;
 	
+	@Column(name = "ctm_password", nullable = false)
+	private String password;
+	
 	@Column(name = "ctm_lastname", nullable = false)
 	private String lastName;
 	
@@ -51,7 +54,17 @@ public class Customer implements Serializable
 	private String telephone;
 	
 	public Customer() {
-
+		this(null, null, null, null, null);
+	}
+	public Customer(String email, String lastName, String firstName, String address, String telephone) {
+		this.email = email;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.address = address;
+		this.telephone = telephone;
+		
+		this.joined = new Date();
+		this.password = "";
 	}
 
 	public Long getId() {
@@ -73,6 +86,13 @@ public class Customer implements Serializable
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getPassword() {
+		return this.password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	public String getLastName() {

@@ -13,32 +13,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-//import hu.teamawesome.pcworld.ejbservice.domain.OrderCriteria;
-import hu.teamawesome.pcworld.ejbservice.domain.OrderStub;
+//import hu.teamawesome.pcworld.ejbservice.domain.ProductCriteria;
+import hu.teamawesome.pcworld.ejbservice.domain.CustomerStub;
 import hu.teamawesome.pcworld.ejbservice.exception.FacadeException;
-import hu.teamawesome.pcworld.ejbservice.facade.OrderFacade;
+import hu.teamawesome.pcworld.ejbservice.facade.CustomerFacade;
 
-@WebServlet("/OrderList")
-public class OrderListView extends HttpServlet {
+@WebServlet("/CustomerList")
+public class CustomerListView extends HttpServlet {
 
 	private static final long serialVersionUID = -1977646750178615187L;
 
-	private static final Logger LOGGER = Logger.getLogger(OrderListView.class);
+	private static final Logger LOGGER = Logger.getLogger(ProductListView.class);
 
-	private static final String ATTRIBUTE_ORDERS = "orders";
-	private static final String PAGE = "olist.jsp";
+	private static final String ATTRIBUTE_PRODUCTS = "customers";
+	private static final String PAGE = "customer_list.jsp";
 
 	@EJB
-	private OrderFacade facade;
+	private CustomerFacade facade;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LOGGER.info("Get All Orders");
+		LOGGER.info("Get All Customers");
 		try {
-			
-			final List<OrderStub> orders = this.facade.getOrders(); //new ProductCriteria());
-			request.setAttribute(ATTRIBUTE_ORDERS, orders);
-			
+			final List<CustomerStub> customers = this.facade.getCustomers(); //new ProductCriteria());
+			request.setAttribute(ATTRIBUTE_PRODUCTS, customers);
 		} catch (final FacadeException e) {
 			LOGGER.error(e, e);
 		}

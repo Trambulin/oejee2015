@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import org.apache.log4j.Logger;
 
 import hu.teamawesome.pcworld.ejbservice.converter.OrderConverter;
+import hu.teamawesome.pcworld.ejbservice.domain.OrderCriteria;
 //import hu.teamawesome.pcworld.ejbservice.domain.OrderCriteria;
 import hu.teamawesome.pcworld.ejbservice.domain.OrderStub;
 import hu.teamawesome.pcworld.ejbservice.exception.AdaptorException;
@@ -42,16 +43,29 @@ public class OrderFacadeImpl implements OrderFacade {
 			throw new FacadeException(e.getLocalizedMessage());
 		}
 	}
-
+	
+	@Override
+	public List<OrderStub> getOrders(OrderCriteria criteria) throws FacadeException {
+		List<OrderStub> stubs = new ArrayList<>();
+		try {
+			stubs = this.converter.to(this.service.readSpecific(criteria.getCustomerId(), criteria.getShowArchived()));
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Get Orders by criteria (" + criteria + ") --> " + stubs.size());
+			}
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new FacadeException(e.getLocalizedMessage());
+		}
+		return stubs;
+	}
+	
 	@Override
 	public List<OrderStub> getOrders() throws FacadeException {
-	//public List<ProductStub> getProducts(ProductCriteria criteria) throws FacadeException {
 		List<OrderStub> stubs = new ArrayList<>();
 		try {
 			stubs = this.converter.to(this.service.readAll());
 			if (LOGGER.isDebugEnabled()) {
-				//LOGGER.debug("Get Products by criteria (" + criteria + ") --> " + stubs.size() + " products(s)");
-				LOGGER.debug("Get Product all  --> " + stubs.size() + " product(s)");
+				LOGGER.debug("Get Orders all  --> " + stubs.size());
 			}
 		} catch (final PersistenceServiceException e) {
 			LOGGER.error(e, e);

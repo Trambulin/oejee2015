@@ -17,9 +17,8 @@
 <body>
 	<h1>PC World webshop kínálata (v0.3)</h1>
 	<p>
-		<a href="OrderList">Order list</a> |
-		<a href="Customer?id=1">Customer #1</a> |
-		<a href="Customer?id=2">Customer #2</a>
+		<a href="OrderList">Rendelések</a> |
+		<a href="CustomerList">Vásárlók</a>
 	</p>
 	<%
 	long lastType = -1;
@@ -38,7 +37,7 @@
 			out.print("<h2>" + type.getName() + "</h2>");
 			lastType = type.getId();
 			
-			out.print("<table class='list_table'></tbody>");
+			out.print("<table class='list_table'><tbody>");
 			
 			out.print("<tr>");
 			out.print("<th align=\"left\">Termék</th>");

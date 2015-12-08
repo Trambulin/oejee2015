@@ -1,5 +1,7 @@
 package hu.teamawesome.pcworld.persistence.service;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -13,6 +15,8 @@ import javax.persistence.PersistenceContext;
 import org.apache.log4j.Logger;
 
 import hu.teamawesome.pcworld.persistence.entity.Customer;
+import hu.teamawesome.pcworld.persistence.entity.Order;
+import hu.teamawesome.pcworld.persistence.entity.Storage;
 import hu.teamawesome.pcworld.persistence.exception.PersistenceServiceException;
 import hu.teamawesome.pcworld.persistence.parameter.CustomerParameter;
 import hu.teamawesome.pcworld.persistence.query.CustomerQuery;
@@ -41,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return result;
 	}
 
-		@Override
+	@Override
 	public List<Customer> readAll() throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Get Books");
@@ -53,5 +57,22 @@ public class CustomerServiceImpl implements CustomerService {
 			throw new PersistenceServiceException("Unknown error when fetching Books! " + e.getLocalizedMessage(), e);
 		}
 		return result;
+	}
+	
+	@Override
+	public Customer create(String lastname, String firstname, String email, String password, String address, String telephone) throws PersistenceServiceException
+	{
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Add Order ()");
+		}
+		try {
+			Customer customer = new Customer(email, lastname, firstname, address, telephone);
+			customer = this.entityManager.merge(customer);
+			this.entityManager.flush();
+			return customer;
+			
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error during merging SubscriberGroup ()! " + e.getLocalizedMessage(), e);
+		}
 	}
 }

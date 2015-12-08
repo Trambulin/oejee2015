@@ -5,8 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+//import javax.persistence.EnumType;
+//import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +26,8 @@ import hu.teamawesome.pcworld.persistence.query.OrderQuery;
 @NamedQueries(value = {
 		//
 		@NamedQuery(name = OrderQuery.GET_BY_ID, query = "SELECT s FROM Order s WHERE id=:" + OrderParameter.ID),
-		@NamedQuery(name = OrderQuery.GET_ALL, query = "SELECT s FROM Order s ORDER BY delivered, id DESC")
+		@NamedQuery(name = OrderQuery.GET_ALL, query = "SELECT s FROM Order s ORDER BY delivered, id DESC"),
+		@NamedQuery(name = OrderQuery.GET_FILTERED, query = "SELECT s FROM Order s WHERE customer.id=:" + OrderParameter.CID + " ORDER BY delivered, id DESC")
 		//
 })
 public class Order implements Serializable {

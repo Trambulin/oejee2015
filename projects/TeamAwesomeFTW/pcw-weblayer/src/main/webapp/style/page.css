@@ -62,6 +62,27 @@ body {
 	width:150px;
 }
 
+/* forms */
+form {
+	width:410px;
+	margin:0;
+	padding:0;
+	border:1px solid #d3d300;
+	background-color:#ffffbf;
+}
+label {
+	display:block;
+	position:relative;
+	width:400px;
+	padding:5px;
+}
+label input {
+	display:block;
+	position:relative;
+	width:250px;
+	float:right;
+}
+
 
 /* other */
 h2 {

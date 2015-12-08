@@ -55,7 +55,7 @@ public class OrderServiceImpl implements OrderService {
 		try {
 			result = this.entityManager.createNamedQuery(OrderQuery.GET_BY_ID, Order.class).setParameter(OrderParameter.ID, id).getSingleResult();
 		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching Product by id (" + id + ")! " + e.getLocalizedMessage(), e);
+			throw new PersistenceServiceException("Unknown error when fetching Orders by id (" + id + ")! " + e.getLocalizedMessage(), e);
 		}
 		return result;
 	}
@@ -63,13 +63,28 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Order> readAll() throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Books");
+			LOGGER.debug("Get Products");
 		}
 		List<Order> result = null;
 		try {
 			result = this.entityManager.createNamedQuery(OrderQuery.GET_ALL, Order.class).getResultList();
 		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching Books! " + e.getLocalizedMessage(), e);
+			throw new PersistenceServiceException("Unknown error when fetching Orders! " + e.getLocalizedMessage(), e);
+		}
+		return result;
+	}
+	
+	@Override
+	public List<Order> readSpecific(long cid, boolean showArchive) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Get Products");
+		}
+		List<Order> result = null;
+		try {
+			result = this.entityManager.createNamedQuery(OrderQuery.GET_FILTERED, Order.class).setParameter(OrderParameter.CID, cid).getResultList();
+			//result = this.entityManager.createNamedQuery(OrderQuery.GET_ALL, Order.class).getResultList();
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error when fetching Orders! " + e.getLocalizedMessage(), e);
 		}
 		return result;
 	}
