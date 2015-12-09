@@ -28,15 +28,15 @@ public class AccountServiceImpl implements AccountService {
 	private EntityManager entityManager;
 
 	@Override
-	public boolean exists(String email) throws PersistenceServiceException {
+	public boolean exists(Long accountId) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Check Account by email (" + email + ")");
+			LOGGER.debug("Check Account by accountId (" + accountId + ")");
 		}
 		try {
-			return this.entityManager.createNamedQuery(AccountQuery.COUNT_BY_EMAIL, Long.class).setParameter(AccountParameter.EMAIL, email)
+			return this.entityManager.createNamedQuery(AccountQuery.COUNT_BY_ACCOUNT_ID, Long.class).setParameter(AccountParameter.ACCOUNT_ID, accountId)
 					.getSingleResult() == 1;
 		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error during counting Accounts by email (" + email + ")! " + e.getLocalizedMessage(), e);
+			throw new PersistenceServiceException("Unknown error during counting Accounts by accountId (" + accountId + ")! " + e.getLocalizedMessage(), e);
 		}
 	}
 
@@ -55,17 +55,17 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public Account read(String email) throws PersistenceServiceException {
+	public Account read(String name) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Account by email (" + email + ")");
+			LOGGER.debug("Get Account by name (" + name + ")");
 		}
 		Account result = null;
 		try {
-			result = this.entityManager.createNamedQuery(AccountQuery.GET_BY_EMAIL, Account.class).setParameter(AccountParameter.EMAIL, email)
+			result = this.entityManager.createNamedQuery(AccountQuery.GET_BY_NAME, Account.class).setParameter(AccountParameter.NAME, name)
 					.getSingleResult();
-			//.getMarks().size();
+			//.getAccounts().size();
 		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching Account by emial (" + email + ")! " + e.getLocalizedMessage(), e);
+			throw new PersistenceServiceException("Unknown error when fetching Account by name (" + name + ")! " + e.getLocalizedMessage(), e);
 		}
 		return result;
 	}
@@ -79,7 +79,7 @@ public class AccountServiceImpl implements AccountService {
 		try {
 			result = this.entityManager.createNamedQuery(AccountQuery.GET_ALL, Account.class).getResultList();
 			//for (final Account account : result) {
-				//Account.getMarks().size();
+				//Account.getAccounts().size();
 			//}
 		} catch (final Exception e) {
 			throw new PersistenceServiceException("Unknown error when fetching Accounts! " + e.getLocalizedMessage(), e);
@@ -88,14 +88,30 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public void delete(String name) throws PersistenceServiceException {
+	public void delete(Long accountId) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Remove Account by name (" + name + ")");
+			LOGGER.debug("Remove Account by accountId (" + accountId + ")");
 		}
 		try {
-			this.entityManager.createNamedQuery(AccountQuery.REMOVE_BY_NAME).setParameter(AccountParameter.NAME, name).executeUpdate();
+			this.entityManager.createNamedQuery(AccountQuery.REMOVE_BY_ACCOUNT_ID).setParameter(AccountParameter.ACCOUNT_ID, accountId).executeUpdate();
 		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when removing Account by name (" + name + ")! " + e.getLocalizedMessage(), e);
+			throw new PersistenceServiceException("Unknown error when removing Account by accountId (" + accountId + ")! " + e.getLocalizedMessage(), e);
+		}
+	}
+	
+	@Override
+	public Account create(String name, String firstName, String lastName, String email, String password) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Add Account (studentId: " );
+		}
+		try {
+			Account account = new Account(name, firstName, lastName, email, password);
+			account = this.entityManager.merge(account);
+			this.entityManager.flush();
+			return account;
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error during merging SubscriberGroup (studentId: " + ", subjectId: " 
+					+ ", grade: "  + ", note: "  + ")! " + e.getLocalizedMessage(), e);
 		}
 	}
 

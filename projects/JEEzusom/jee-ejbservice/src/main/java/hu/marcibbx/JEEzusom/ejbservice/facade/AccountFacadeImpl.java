@@ -58,18 +58,33 @@ public class AccountFacadeImpl implements AccountFacade {
 		}
 		return stubs;
 	}
+	
+	@Override
+	public AccountStub addAccount(AccountStub account) throws AdaptorException {
+		try {
+			final AccountStub accountRet = this.converter.to(this.accountService.create(account.getName(), account.getFirstName(), account.getLastName(), account.getEmail(), account.getPassword()));
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Add a new Account (subject: "  + ", neptun: " +  ", grade: "  + ", note: "  + ") --> " );
+			}
+			return accountRet;
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}
+	}
 
 	@Override
-	public void removeAccount(String name) throws AdaptorException {
+	public void removeAccount(Long accountId) throws AdaptorException {
 		try {
-			if (this.accountService.exists(name)) {
-				if (this.characterBaseService.count(name) == 0) {
-					this.accountService.delete(name);
+			if (this.accountService.exists(accountId)) {
+				this.accountService.delete(accountId);
+				if (this.characterBaseService.count(accountId) == 0) {
+					this.accountService.delete(accountId);
 				} else {
-					throw new AdaptorException(ApplicationError.HAS_DEPENDENCY, "Account has undeleted characterBase(s)", name);
+					throw new AdaptorException(ApplicationError.HAS_DEPENDENCY, "Account has undeleted characterBase(s)", accountId.toString());
 				}
 			} else {
-				throw new AdaptorException(ApplicationError.NOT_EXISTS, "Account doesn't exist", name);
+				throw new AdaptorException(ApplicationError.NOT_EXISTS, "Account doesn't exist", accountId.toString());
 			}
 		} catch (final PersistenceServiceException e) {
 			LOGGER.error(e, e);
