@@ -1,10 +1,10 @@
 {
   "1.0": {
     "project_path": ":jcs-webservice",
-    "project_dir": "C:\\Users\\Szabi\\szs\\oejee2015\\projects\\Javacsinta\\jcs-webservice",
-    "connection_project_dir": "C:\\Users\\Szabi\\szs\\oejee2015\\projects\\Javacsinta",
+    "project_dir": "D:\\Documents\\Suli\\OE\\09.felev\\JavaEEo\\szs\\oejee2015\\projects\\Javacsinta\\jcs-webservice",
+    "connection_project_dir": "D:\\Documents\\Suli\\OE\\09.felev\\JavaEEo\\szs\\oejee2015\\projects\\Javacsinta",
     "connection_gradle_user_home": null,
-    "connection_gradle_distribution": "GRADLE_DISTRIBUTION(WRAPPER)",
+    "connection_gradle_distribution": "GRADLE_DISTRIBUTION(LOCAL_INSTALLATION(C:\\qapps\\gradle-2.6))",
     "connection_java_home": null,
     "connection_jvm_arguments": "",
     "connection_arguments": ""

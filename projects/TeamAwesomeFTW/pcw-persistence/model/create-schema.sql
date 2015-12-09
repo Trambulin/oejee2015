@@ -43,13 +43,14 @@ ALTER TABLE supplier OWNER TO postgres;
 
 -- Helyi raktárkészlet
 CREATE TABLE storage (
-	stg_id INTEGER NOT NULL, --ugyanaz az id mint a beszállítónál, mivel úgyis egyedi
+	stg_id SERIAL NOT NULL, --saját id-je van, némi Java-béli limitáció miatt
+	stg_pid INTEGER NOT NULL, --termék id (sup_id)
 	stg_price INTEGER NOT NULL, --kisker ár
 	stg_quantity SMALLINT NOT NULL, --teljes készlet
 	stg_quantity_reserved SMALLINT NOT NULL DEFAULT 0, --rendelésre lefoglalt készlet
 	
 	CONSTRAINT PK_STG_ID PRIMARY KEY (stg_id),
-	CONSTRAINT FK_STG_ID FOREIGN KEY (stg_id)
+	CONSTRAINT FK_STG_ID FOREIGN KEY (stg_pid)
 		REFERENCES supplier (sup_id) MATCH SIMPLE ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 ALTER TABLE storage OWNER TO postgres;
@@ -75,7 +76,7 @@ CREATE UNIQUE INDEX UI_CTM_EMAIL ON customer USING btree (ctm_email);
 -- Vásárlók rendelései. Ha átvette, utána is bentmarad a rendszerben.
 CREATE TABLE orders (
 	ord_id SERIAL NOT NULL,
-	ord_pid INTEGER NOT NULL, --termék id
+	ord_pid INTEGER NOT NULL, --termék id (sup_id)
 	ord_cid INTEGER NOT NULL, --vevő id
 	ord_price INTEGER NOT NULL, --a megrendeléskor aktuális ár
 	ord_shipped_on DATE NOT NULL, --ekkor lett elküldve

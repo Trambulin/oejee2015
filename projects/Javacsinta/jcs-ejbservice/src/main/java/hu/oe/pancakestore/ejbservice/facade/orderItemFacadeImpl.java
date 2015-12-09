@@ -46,5 +46,18 @@ public class orderItemFacadeImpl implements orderItemFacade {
 		}
 		return stubs;
 	}
+//	@Override
+//	public int count(Long pancake_id) throws PersistenceServiceException {
+//		if (LOGGER.isDebugEnabled()) {
+//			LOGGER.debug("Count Student's marks by student's neptun (" + pancake_id + ")");
+//		}
+//		try {
+//			return this.entityManager.createNamedQuery(orderItemQuery.GET_COUNT_PANCAKES_BY_ID, Long.class).setParameter(orderItemParameter.PANCAKE_ID, pancake_id)
+//					.getSingleResult().intValue();
+//		} catch (final Exception e) {
+//			throw new PersistenceServiceException(
+//					"Unknown error during counting Pancake in orders (" + pancake_id + ")! " + e.getLocalizedMessage(), e);
+//		}
+//	}
 
 }

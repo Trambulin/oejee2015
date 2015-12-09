@@ -25,6 +25,12 @@ public class PancakeRestServiceBean implements PancakeRestService {
 		LOGGER.info("Get all Pancakes");
 		return this.facade.getPancakes();
 	}
+	
+	@Override
+	public void removePancake(Long pancake_id) throws FacadeException {
+		LOGGER.info("Remove pancake (" + pancake_id + ")");
+		this.facade.removePancake(pancake_id);
+	}
 
 	@Override
 	public Response optionsAll(String path) {

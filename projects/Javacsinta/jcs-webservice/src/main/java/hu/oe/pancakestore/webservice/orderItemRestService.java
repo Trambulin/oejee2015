@@ -21,7 +21,7 @@ public interface orderItemRestService {
 	@Path("/stat")
 	@Produces("application/json")
 	List<orderDetailStub> getorderDetails(String customer) throws FacadeException;
-
+	
 	@OPTIONS
 	@Path("{path:.*}")
 	Response optionsAll(@PathParam("path") String path);
