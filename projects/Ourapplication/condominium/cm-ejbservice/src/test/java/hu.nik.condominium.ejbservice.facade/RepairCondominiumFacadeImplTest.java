@@ -57,4 +57,10 @@ public class RepairCondominiumFacadeImplTest {
 
         assertThat(res, is(Matchers.contains(stubList.toArray())));
     }
+
+    @Test(expectedExceptions = FacadeException.class,expectedExceptionsMessageRegExp = "Test exc")
+    public void shouldThrowFacadeExceptionWhenPersistenceExceptionThrown() throws PersistenceServiceException, FacadeException {
+        Mockito.when(reparService.getAvgGbyCondominium()).thenThrow(new PersistenceServiceException("Test exc"));
+        repairCondominiumFacade.getAvgOfRepairsGroupByCondominium();
+    }
 }

@@ -14,6 +14,7 @@ import hu.tram.persistence.exception.PersistenceServiceException;
 import hu.tram.persistence.service.CarService;
 import hu.tram.persistence.service.CartypeService;
 import hu.tram.persistence.service.RentService;
+import hu.tram.ejbservice.converter.CarConverter;
 import hu.tram.ejbservice.domain.BrandStub;
 import hu.tram.ejbservice.domain.CarStub;
 import hu.tram.ejbservice.domain.CartypeStub;
@@ -29,6 +30,9 @@ public class CarFacadeImpl implements CarFacade {
 	private CarService service;
 	
 	@EJB
+	private CarConverter converter;
+	
+	@EJB
 	private CartypeService typeService;
 	
 	@EJB
@@ -40,8 +44,9 @@ public class CarFacadeImpl implements CarFacade {
 			LOGGER.debug("Get Car (id: " + id + ")");
 		}
 		try {
-			Car tmp=service.read(id);
-			return new CarStub(id, BrandStub.valueOf(tmp.getBrand().toString()), tmp.getModel(),tmp.getFuel(),tmp.getColor(),tmp.getPrice(),tmp.getDate());
+			return this.converter.to(this.service.read(id));
+			//Car tmp=service.read(id);
+			//return new CarStub(id, BrandStub.valueOf(tmp.getBrand().toString()), tmp.getModel(),tmp.getFuel(),tmp.getColor(),tmp.getPrice(),tmp.getDate());
 		} catch (PersistenceServiceException e) {
 			LOGGER.error(e, e);
 			throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());

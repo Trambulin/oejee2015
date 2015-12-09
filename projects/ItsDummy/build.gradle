@@ -19,7 +19,7 @@ ext {
 	webserviceArchiveName = 'cr-webservice.war'
 	webserviceContextPath = 'carrent'
 
-	deployLocation = 'c:/qapps/jboss-eap-6.4/standalone/deployments/'
+	deployLocation = 'c:/jboss-eap-6.4/standalone/deployments/'
 }
 
 subprojects {

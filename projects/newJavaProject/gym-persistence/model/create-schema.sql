@@ -33,7 +33,7 @@ CREATE TABLE Trainer_qualification(
 trainer_qualification_id SERIAL NOT NULL,
 trainer_qualification_trainer_id INTEGER NOT NULL,
 trainer_qualification_name CHARACTER VARYING(30) NOT NULL,
-trainer_qualification_level VARCHAR(5) NOT NULL,
+trainer_qualification_level VARCHAR(8) NOT NULL,
 trainer_qualification_year INTEGER,
 PRIMARY KEY(trainer_qualification_id),
 FOREIGN KEY(trainer_qualification_trainer_id) REFERENCES trainer(trainer_id));
@@ -56,9 +56,9 @@ timetable_id SERIAL NOT NULL,
 timetable_room CHARACTER VARYING(15) NOT NULL,
 timetable_day CHARACTER VARYING(15) NOT NULL,
 timetable_time CHARACTER VARYING(5) NOT NULL,
-workout_id INTEGER NOT NULL,
+timetable_workout_id INTEGER NOT NULL,
 PRIMARY KEY (timetable_id),
-FOREIGN KEY (workout_id) REFERENCES workout(workout_id));
+FOREIGN KEY (timetable_workout_id) REFERENCES workout(workout_id));
 
 ALTER TABLE Timetable OWNER TO postgres;
 

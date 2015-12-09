@@ -13,5 +13,6 @@ import hu.oe.pancakestore.ejbservice.exception.FacadeException;
 public interface orderItemFacade {
 
 	List<orderDetailStub> getorderDetails(String customer) throws FacadeException;
+	//public int count(Long pancake_id) throws PersistenceServiceException;
 	
 }

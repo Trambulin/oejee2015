@@ -27,12 +27,13 @@ public class CondominiumRestClient {
         this.port = port;
     }
 
-    public CondominiumStub process(String condominiumLocation, CondominiumCriteria criteria) {
-        final URI serviceUri = UriBuilder.fromUri("http://localhost:8080/condominium/api").build();
+    public CondominiumStub process(long id,CondominiumCriteria criteria) {
+        //final URI serviceUri = UriBuilder.fromUri("http://localhost:8080/condominium/api").build();
+        final URI serviceUri = UriBuilder.fromUri(this.getServicePath()).build();
         final ClientRequestFactory crf = new ClientRequestFactory(serviceUri);
 
         final CondominiumRestService api = crf.createProxy(CondominiumRestService.class);
-        final ClientResponse<CondominiumStub> response = api.getMarks(condominiumLocation, criteria);
+        final ClientResponse<CondominiumStub> response = api.getCondominiums(id,criteria);
 
         LOGGER.info("Response status: " + response.getStatus());
         final MultivaluedMap<String, Object> header = response.getMetadata();

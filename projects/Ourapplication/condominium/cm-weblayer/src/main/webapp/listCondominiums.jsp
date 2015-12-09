@@ -32,7 +32,7 @@
             <td><% out.print(stub.getLocation()); %></td>
             <td><% out.print(stub.getTypeName()); %></td>
             <td><% out.print(stub.getFloors()); %></td>
-            <td><% out.print(stub.getBuildYear().toString()); %></td>
+            <td><% out.print(new java.sql.Date(stub.getBuildYear().getTime())); %></td>
 
         </tr>
         <% } %>

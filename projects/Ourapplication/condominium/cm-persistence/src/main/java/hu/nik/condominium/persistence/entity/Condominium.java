@@ -6,13 +6,14 @@ import hu.nik.condominium.persistence.query.CondominiumQuery;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+//import java.util.Date;
 
 @Entity
 @Table(name = "condominium")
 @NamedQueries(value = { //
 		@NamedQuery(name = CondominiumQuery.GET_BY_FLOORS, query = "SELECT c FROM Condominium c WHERE c.floors=:" + CondominiumParameter.FLOOR),
 		@NamedQuery(name = CondominiumQuery.READ_BY_FILTER, query = "SELECT c FROM Condominium c WHERE c.type.name=:" + CondominiumParameter.TYPE_NAME
-				+ " AND c.floors BETWEEN :" + CondominiumParameter.MIN_FLOOR + " AND :" + CondominiumParameter.MAX_FLOOR),
+				+ " AND c.floors BETWEEN :" + CondominiumParameter.MIN_FLOOR + " AND :" + CondominiumParameter.MAX_FLOOR +" AND c.type.id=:"+CondominiumParameter.ID),
 		@NamedQuery(name = CondominiumQuery.GET_BY_ID, query = "SELECT c FROM Condominium c WHERE c.id=:" + CondominiumParameter.ID),
 		@NamedQuery(name = CondominiumQuery.GET_ALL, query = "SELECT c FROM Condominium c ORDER BY c.id") })
 //
@@ -32,7 +33,7 @@ public class Condominium implements Serializable {
 	@Id
 	@SequenceGenerator(name = "generatorCondominium", sequenceName = "condominium_condominium_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorCondominium")
-	@Column(name = "condominium_id", nullable = false, updatable = false, insertable = false)
+	@Column(name = "condominium_id", nullable = false,updatable = false, insertable = false)
 	private Long id;
 
 	@Column(name = "condominium_loc", nullable = false)
@@ -48,25 +49,17 @@ public class Condominium implements Serializable {
 	@JoinColumn(referencedColumnName = "c_type_id", name = "condominium_type", nullable = false)
 	private CondominiumType type;
 
+	@Override
+	public String toString() {
+		//return "Id: " + this.id + ", location: " + this.location + ", floors: " + this.floors + ",year of build: " + this.buildYear;
+		return  "Condominium [id=" + this.id + ", type=" + this.type + ", location=" + this.location + ", floors=" + this.floors + ", year of build=" + this.buildYear + "]";
+	}
 	public CondominiumType getType() {
 		return this.type;
 	}
 
 	public void setType(CondominiumType type) {
 		this.type = type;
-	}
-
-	public String getLoc() {
-		return this.location;
-	}
-
-	public void setLoc(String loc) {
-		this.location = loc;
-	}
-
-	@Override
-	public String toString() {
-		return "Id: " + this.id + ", location: " + this.location + ", floors: " + this.floors + ",year of build: " + this.buildYear;
 	}
 
 	public Long getId() {

@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
+
 /**
  * Created by Hidvégi Péter on 2015.11.29..
  */
@@ -12,10 +13,13 @@ import java.util.Date;
 public class CondominiumStub {
 
     private Long id;
-    private java.sql.Date buildYear;
+    private Date buildYear;
     private Integer floors;
     private String typeName;
     private String location;
+
+    public CondominiumStub() {
+    }
 
 
     @XmlElement(name = "location")
@@ -37,7 +41,7 @@ public class CondominiumStub {
         this.typeName = typeName;
     }
 
-    public CondominiumStub(Long id, java.sql.Date buildYear, Integer floors, String typeName, String location) {
+    public CondominiumStub(Long id, Date buildYear, Integer floors, String typeName, String location) {
         this.id = id;
         this.buildYear = buildYear;
         this.floors = floors;
@@ -56,11 +60,11 @@ public class CondominiumStub {
     }
 
     @XmlElement(name = "buildyear")
-    public java.sql.Date getBuildYear() {
+    public Date getBuildYear() {
         return this.buildYear;
     }
 
-    public void setBuildYear(java.sql.Date buildYear) {
+    public void setBuildYear(Date buildYear) {
         this.buildYear = buildYear;
     }
 

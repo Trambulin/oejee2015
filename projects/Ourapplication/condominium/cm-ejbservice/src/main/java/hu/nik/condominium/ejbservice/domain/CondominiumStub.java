@@ -2,7 +2,8 @@ package hu.nik.condominium.ejbservice.domain;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.sql.Date;
+//import java.sql.Date;
+import java.util.Date;
 
 @XmlRootElement(name = "condominium")
 public class CondominiumStub {
@@ -20,6 +21,9 @@ public class CondominiumStub {
 		this.floors = floors;
 		this.typeName = typeName;
 		this.location = location;
+	}
+
+	public CondominiumStub() {
 	}
 
 	// alt+shift+s,r

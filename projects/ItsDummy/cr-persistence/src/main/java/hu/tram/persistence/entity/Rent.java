@@ -36,7 +36,7 @@ public class Rent implements Serializable {
 	@Id
 	@SequenceGenerator(name = "generatorRent", sequenceName = "rent_rent_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorRent")
-	@Column(name = "rent_id", nullable = false, updatable = false, insertable = false)
+	@Column(name = "rent_id", nullable = false, updatable = true, insertable = true)
 	private Long id;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)

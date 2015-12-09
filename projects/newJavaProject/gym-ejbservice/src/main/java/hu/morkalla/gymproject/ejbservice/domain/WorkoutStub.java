@@ -6,20 +6,20 @@ public class WorkoutStub {
 	private String hardness;
 	private Integer people;
 	private String requipment;
-	private String trainerName;
+	private TrainerStub trainer;
 	private String typeName;
 
 	public WorkoutStub() {
 
 	}
 
-	public WorkoutStub(String name, String hardness, Integer people, String requipment, String trainerName, String typeName) {
+	public WorkoutStub(String name, String hardness, Integer people, String requipment, TrainerStub trainer, String typeName) {
 		super();
 		this.name = name;
 		this.hardness = hardness;
 		this.people = people;
 		this.requipment = requipment;
-		this.trainerName = trainerName;
+		this.trainer = trainer;
 		this.typeName = typeName;
 
 	}
@@ -56,12 +56,12 @@ public class WorkoutStub {
 		this.requipment = requipment;
 	}
 
-	public String getTrainerName() {
-		return trainerName;
+	public TrainerStub getTrainer() {
+		return trainer;
 	}
 
-	public void setTrainerName(String trainerName) {
-		this.trainerName = trainerName;
+	public void setTrainer(TrainerStub trainer) {
+		this.trainer = trainer;
 	}
 
 	public String getTypeName() {
@@ -74,7 +74,7 @@ public class WorkoutStub {
 
 	@Override
 	public String toString() {
-		return "WorkoutStub [name=" + name + ", hardness=" + hardness + ", people=" + people + ", requipment=" + requipment + ", trainerName=" + trainerName
+		return "WorkoutStub [name=" + name + ", hardness=" + hardness + ", people=" + people + ", requipment=" + requipment + ", trainer=" + trainer
 				+ ", typeName=" + typeName + "]";
 	}
 

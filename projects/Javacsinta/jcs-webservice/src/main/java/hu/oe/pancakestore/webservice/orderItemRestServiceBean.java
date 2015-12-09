@@ -25,7 +25,7 @@ public class orderItemRestServiceBean implements orderItemRestService {
 		LOGGER.info("Get orderDetails (" + customer + ")");
 		return this.facade.getorderDetails(customer);
 	}
-
+	
 	@Override
 	public Response optionsAll(String path) {
 		return Response.status(Response.Status.NO_CONTENT).build();

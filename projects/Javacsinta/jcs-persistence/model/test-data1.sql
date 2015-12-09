@@ -1,0 +1,1 @@
+INSERT INTO pancake (pancake_id, pancake_name,pancake_price,pancake_description) VALUES (5, 'CITROMOS PALACSINTA',600,'');

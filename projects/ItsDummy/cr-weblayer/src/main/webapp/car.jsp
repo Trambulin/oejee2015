@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.Set" %>  
-<%@page import="hu.ejbservice.domain.CarStub" %> 
+<%@page import="hu.tram.ejbservice.domain.CarStub" %> 
 <% CarStub car = (CarStub) request.getAttribute("car"); %>
 <!DOCTYPE html>
 <html>

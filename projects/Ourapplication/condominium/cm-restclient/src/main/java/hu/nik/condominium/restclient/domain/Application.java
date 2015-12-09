@@ -13,7 +13,7 @@ public class Application {
 
     public static void main(String[] args) {
         final CondominiumRestClient client = new CondominiumRestClient(HOST, PORT);
-        final CondominiumStub condominium = client.process("Budapest", new CondominiumCriteria("flat", 1, 4));
+        final CondominiumStub condominium = client.process(1,new CondominiumCriteria("flat", 1, 4));
         System.out.println(condominium);
     }
 }

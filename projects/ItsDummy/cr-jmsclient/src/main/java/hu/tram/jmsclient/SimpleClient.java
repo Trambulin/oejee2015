@@ -30,7 +30,7 @@ public class SimpleClient {
 		final MessageProducer producer = session.createProducer(destination);
 		connection.start();
 
-		final TextMessage textMessage = session.createTextMessage("1, 2, 3, 4, 5");
+		final TextMessage textMessage = session.createTextMessage("1;Laceee;2015.05.05;2016.05.05");
 		producer.send(textMessage);
 
 		connection.close();

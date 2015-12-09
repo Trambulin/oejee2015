@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import hu.teamawesome.pcworld.ejbservice.domain.ProductStub;
-import hu.teamawesome.pcworld.ejbservice.exception.FacadeException;
-import hu.teamawesome.pcworld.ejbservice.facade.ProductFacade;
+import hu.teamawesome.pcworld.ejbservice.domain.StorageStub;
+import hu.teamawesome.pcworld.ejbservice.exception.AdaptorException;
+import hu.teamawesome.pcworld.ejbservice.facade.StorageFacade;
 
 @WebServlet("/Product")
 public class ProductView extends HttpServlet {
@@ -27,19 +27,19 @@ public class ProductView extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger(ProductView.class);
 
 	@EJB
-	private ProductFacade facade;
+	private StorageFacade facade;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		// Comment
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		String id = request.getParameter(PARAM_ID);
-		LOGGER.info("Get Product by ID ("+id+")");
+		LOGGER.info("Get Product by ID (" + id + ")");
+		
 		try {
-			ProductStub product = this.facade.getProduct(id);
+			long l_id = Long.parseLong(id);
+			StorageStub product = this.facade.getProduct(l_id);
 			request.setAttribute(ATTRIBUTE_PRODUCT, product);
-		} catch (FacadeException e) {
+		} catch (AdaptorException e) {
 			LOGGER.error(e, e);
 		}
 	    RequestDispatcher view = request.getRequestDispatcher(PAGE);

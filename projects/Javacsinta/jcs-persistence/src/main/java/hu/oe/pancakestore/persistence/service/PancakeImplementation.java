@@ -73,4 +73,31 @@ public class PancakeImplementation implements PancakeService{
 		return result;
 	}
 
+	@Override
+	public boolean exists(Long pancake_id) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Check pancake by pancake_id (" + pancake_id + ")");
+		}
+		try {
+			return this.entityManager.createNamedQuery(PancakeQuery.COUNT_BY_ID, Long.class)
+					.setParameter(PancakeParameter.ID, pancake_id)
+					.getSingleResult() == 1;
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error during counting pancakes by pancake_id (" 
+		+ pancake_id + ")! " + e.getLocalizedMessage(), e);
+		}
+	}
+
+	@Override
+	public void delete(Long pancake_id) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Remove Pancake by id (" + pancake_id + ")");
+		}
+		try {
+			this.entityManager.createNamedQuery(PancakeQuery.REMOVE_BY_ID).setParameter(PancakeParameter.ID, pancake_id).executeUpdate();
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error when removing Pancake by id (" + pancake_id + ")! " + e.getLocalizedMessage(), e);
+		}
+	}
+
 }

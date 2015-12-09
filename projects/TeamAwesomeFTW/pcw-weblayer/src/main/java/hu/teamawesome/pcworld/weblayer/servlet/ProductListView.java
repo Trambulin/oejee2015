@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 //import hu.teamawesome.pcworld.ejbservice.domain.ProductCriteria;
-import hu.teamawesome.pcworld.ejbservice.domain.ProductStub;
-import hu.teamawesome.pcworld.ejbservice.exception.FacadeException;
-import hu.teamawesome.pcworld.ejbservice.facade.ProductFacade;
+import hu.teamawesome.pcworld.ejbservice.domain.StorageStub;
+import hu.teamawesome.pcworld.ejbservice.exception.AdaptorException;
+import hu.teamawesome.pcworld.ejbservice.facade.StorageFacade;
 
 @WebServlet("/ProductList")
 public class ProductListView extends HttpServlet {
@@ -29,15 +29,15 @@ public class ProductListView extends HttpServlet {
 	private static final String PAGE = "list.jsp";
 
 	@EJB
-	private ProductFacade facade;
+	private StorageFacade facade;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LOGGER.info("Get All Products");
 		try {
-			final List<ProductStub> products = this.facade.getProducts(); //new ProductCriteria());
+			final List<StorageStub> products = this.facade.getProducts(); //new ProductCriteria());
 			request.setAttribute(ATTRIBUTE_PRODUCTS, products);
-		} catch (final FacadeException e) {
+		} catch (final AdaptorException e) {
 			LOGGER.error(e, e);
 		}
 		final RequestDispatcher view = request.getRequestDispatcher(PAGE);

@@ -1,0 +1,4 @@
+include 'snp-ejbservice'
+include 'snp-weblayer'
+include 'snp-webservice'
+include 'snp-persistence'
