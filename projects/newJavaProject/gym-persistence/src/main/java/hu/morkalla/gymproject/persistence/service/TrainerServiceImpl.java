@@ -61,7 +61,7 @@ public class TrainerServiceImpl implements TrainerService {
 	@Override
 	public List<Trainer> meetAll() throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get Books");
+			LOGGER.debug("Get Trainers");
 		}
 		List<Trainer> result = null;
 		try {
