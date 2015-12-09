@@ -1,2 +1,5 @@
 Linkek:
 http://localhost:8080/pcw-weblayer/ProductList
+
+DELETE
+http://localhost:8080/store/api/storage/4

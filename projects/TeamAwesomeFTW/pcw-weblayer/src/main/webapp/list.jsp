@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.Set" %>  
 <%@ page import="java.util.List" %>
-<%@ page import="hu.teamawesome.pcworld.ejbservice.domain.ProductStub" %>
+<%@ page import="hu.teamawesome.pcworld.ejbservice.domain.StorageStub" %>
 <%@ page import="hu.teamawesome.pcworld.ejbservice.domain.TypeStub" %>
 <%@ page import="java.text.NumberFormat" %>
 <%
-	List<ProductStub> products = (List<ProductStub>)request.getAttribute("products");
+	List<StorageStub> products = (List<StorageStub>)request.getAttribute("products");
 
 %><!DOCTYPE html>
 <html>
@@ -15,13 +15,17 @@
 <title>Kínálat | PC World webshop</title>
 </head>
 <body>
-	<h1>PC World webshop kínálata</h1>
+	<h1>PC World webshop kínálata (v0.3)</h1>
+	<p>
+		<a href="OrderList">Rendelések</a> |
+		<a href="CustomerList">Vásárlók</a>
+	</p>
 	<%
 	long lastType = -1;
 	int i = 0;
 	
-	for ( ProductStub product : products) {
-		TypeStub type = product.getProductType();
+	for ( StorageStub product : products) {
+		TypeStub type = product.getSupplier().getProductType();
 		
 		// put header
 		if (type.getId() != lastType)
@@ -33,13 +37,12 @@
 			out.print("<h2>" + type.getName() + "</h2>");
 			lastType = type.getId();
 			
-			out.print("<table class='list_table'></tbody>");
+			out.print("<table class='list_table'><tbody>");
 			
 			out.print("<tr>");
 			out.print("<th align=\"left\">Termék</th>");
-			out.print("<th align=\"center\" width=\"90px\">Garancia</th>");
 			out.print("<th align=\"right\" width=\"90px\">Ár</th>");
-			out.print("<th align=\"center\" width=\"100px\">Beszállítás</th>");
+			out.print("<th align=\"center\" width=\"240px\">Készlet</th>");
 			out.print("<th align=\"left\" width=\"180px\">Gyártó</th>");
 			out.print("</tr>");
 		}
@@ -51,14 +54,37 @@
 		String sPrice = nf.format(product.getPrice());
 		
 		
-		// print entry
+		long customerId = 1;
+		long supplierId = product.getSupplier().getId();
+		
+		
+		int q_max = product.getQuantity();
+		int q_free = q_max - product.getQuantityReserved();
+		
+		
 		out.print("<tr>");
-		out.print("<td align=\"left\"><a href='Product?id=" + product.getId() + "'>" + product.getName() + "</a></td>");
-		out.print("<td align=\"center\">" + product.getWarranty() + " hónap</td>");
+		out.print("<td align=\"left\"><a href='Product?id=" + product.getSupplier().getId() + "'>" + product.getSupplier().getName() + "</a></td>");
 		out.print("<td align=\"right\">" + nf.format(product.getPrice()) + " Ft</td>");
-		out.print("<td align=\"center\">" + product.getShippingDays() + " nap</td>");
-		out.print("<td align=\"left\">" + product.getManufacturer().getName() + "</td>");
+		
+		if (q_free > 0) {
+			out.print("<td align=\"center\">raktáron</td>");
+		} else {
+			out.print("<td align=\"center\">beszállítás " + product.getSupplier().getShippingDays() + " napon belül</td>");
+		}
+		
+		out.print("<td align=\"left\">" + product.getSupplier().getManufacturer().getName() + "</td>");
 		out.print("</tr>");
+		
+		
+		/*out.print("<tr>");
+		out.print("<td align=\"left\"><a href='Product?id=" + product.getSupplier().getId() + "'>" + product.getSupplier().getName() + "</a></td>");
+		out.print("<td align=\"center\">" + product.getSupplier().getWarranty() + " hónap</td>");
+		out.print("<td align=\"right\">" + nf.format(product.getPrice()) + " Ft</td>");
+		out.print("<td align=\"center\">" + q_free + "/" + q_max + " db</td>");
+		out.print("<td align=\"center\">" + product.getSupplier().getShippingDays() + " nap</td>");
+		out.print("<td align=\"left\">" + product.getSupplier().getManufacturer().getName() + "</td>");
+		out.print("<td align=\"center\"><a href='/store/api/order/place-c" + customerId + "-p" + supplierId + "'>[megrendel]</a></td>");
+		out.print("</tr>");*/
 		
 		i++;
 	}
