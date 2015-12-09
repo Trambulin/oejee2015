@@ -15,6 +15,7 @@ import org.apache.log4j.Logger;
 import hu.oe.pancakestore.persistence.entity.orderItem;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
 import hu.oe.pancakestore.persistence.parameter.orderDetailParameter;
+import hu.oe.pancakestore.persistence.parameter.orderItemParameter;
 import hu.oe.pancakestore.persistence.query.orderItemQuery;
 import hu.oe.pancakestore.persistence.query.orderDetailQuery;
 import hu.oe.pancakestore.persistence.result.orderDetailResult;
@@ -66,6 +67,20 @@ public class orderItemServiceImpl implements orderItemService{
 			throw new PersistenceServiceException("Unknown error when fetching Order Details! " + e.getLocalizedMessage(), e);
 		}
 		return result;
+	}
+
+	@Override
+	public int count(Long pancakeId) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Count  pancakes in orders by pancake's id (" + pancakeId + ")");
+		}
+		try {
+			return this.entityManager.createNamedQuery(orderItemQuery.GET_COUNT_PANCAKES_BY_ID, Long.class).setParameter(orderItemParameter.PANCAKE_ID, pancakeId)
+					.getSingleResult().intValue();
+		} catch (final Exception e) {
+			throw new PersistenceServiceException(
+					"Unknown error during counting pancakes in orders (" + pancakeId + ")! " + e.getLocalizedMessage(), e);
+		}
 	}
 
 }

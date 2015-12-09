@@ -14,4 +14,5 @@ public interface orderItemService {
 	//orderItem read (Long id) throws PersistenceServiceException;
 	List<orderItem> readAll() throws PersistenceServiceException;
 	List<orderDetailResult> read(Long customerId) throws PersistenceServiceException;
+	int count(Long pancakeId) throws PersistenceServiceException;
 }
