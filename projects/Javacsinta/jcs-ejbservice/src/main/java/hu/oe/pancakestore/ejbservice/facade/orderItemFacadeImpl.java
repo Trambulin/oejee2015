@@ -9,9 +9,9 @@ import javax.ejb.Stateless;
 import org.apache.log4j.Logger;
 
 import hu.oe.pancakestore.ejbservice.converter.orderItemConverter;
-import hu.oe.pancakestore.ejbservice.domain.orderDetailStub;
-import hu.oe.pancakestore.ejbservice.exception.FacadeException;
-import hu.oe.pancakestore.ejbservice.util.ApplicationError;
+import hu.oe.pancakestore.serviceclient.domain.orderDetailStub;
+import hu.oe.pancakestore.serviceclient.exception.FacadeException;
+import hu.oe.pancakestore.serviceclient.util.ApplicationError;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
 import hu.oe.pancakestore.persistence.service.CustomerService;
 import hu.oe.pancakestore.persistence.service.orderItemService;

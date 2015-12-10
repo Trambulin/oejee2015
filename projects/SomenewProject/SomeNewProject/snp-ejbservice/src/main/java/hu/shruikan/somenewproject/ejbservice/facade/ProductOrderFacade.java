@@ -16,5 +16,5 @@ public interface ProductOrderFacade {
 
 	ProductOrderStub create(Long customerId, Long productId, String number, Integer quantity) throws AdaptorException;
 	
-	
+	ProductOrderStub setDelivered(Long id, Boolean delivered) throws AdaptorException;
 }

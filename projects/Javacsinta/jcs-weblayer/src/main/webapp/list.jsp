@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.Set" %>  
 <%@ page import="java.util.List" %>
-<%@ page import="hu.qwaevisz.bookstore.ejbservice.domain.CustomerStub" %> 
+<%@ page import="hu.qwaevisz.bookstore.serviceclient.domain.CustomerStub" %> 
 <% List<CustomerStub> customers = (List<CustomerStub>) request.getAttribute("customers"); %>
 <!DOCTYPE html>
 <html>

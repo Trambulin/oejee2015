@@ -6,9 +6,9 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import hu.oe.pancakestore.ejbservice.domain.DeliveryStatusStub;
-import hu.oe.pancakestore.ejbservice.domain.OrderHeaderStub;
-import hu.oe.pancakestore.ejbservice.domain.PaymentMethodStub;
+import hu.oe.pancakestore.serviceclient.domain.DeliveryStatusStub;
+import hu.oe.pancakestore.serviceclient.domain.OrderHeaderStub;
+import hu.oe.pancakestore.serviceclient.domain.PaymentMethodStub;
 import hu.oe.pancakestore.persistence.entity.orderItem;
 import hu.oe.pancakestore.persistence.entity.OrderHeader;
 

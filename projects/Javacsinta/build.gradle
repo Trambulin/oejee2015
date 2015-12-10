@@ -13,7 +13,7 @@ ext {
 
 	webserviceArchiveName = 'jcs-webservice.war'
 	webserviceContextPath = 'Javacsinta'
-
+	jbossjee6Version = '3.0.3.Final'
 }
 
 subprojects {
@@ -43,4 +43,5 @@ dependencies {
 	deploy project('jcs-persistence')
 	deploy project(path: 'jcs-weblayer', configuration: 'archives')
 	deploy project(path: 'jcs-webservice', configuration: 'archives')
+	deploy project('jcs-serviceclient')
 }

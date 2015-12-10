@@ -79,5 +79,19 @@ public class CustomerFacadeImpl implements CustomerFacade {
 			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 		}		
 	}
+	
+	@Override
+	public CustomerStub setPassword(Long id, String password) throws AdaptorException {
+		try {	
+			final CustomerStub customer = this.converter.to(this.customerService.setPassword(id, password));
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Set password Customer (id: " + id + ", password: " + password + ")");
+			}
+			return customer;
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}		
+	}
 
 }

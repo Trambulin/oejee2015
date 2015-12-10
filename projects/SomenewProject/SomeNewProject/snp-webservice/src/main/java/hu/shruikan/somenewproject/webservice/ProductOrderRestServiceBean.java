@@ -41,6 +41,12 @@ public class ProductOrderRestServiceBean implements ProductOrderRestService {
 		return this.productOrderFacade.getAllProductOrders();
 	}
 	
+	@Override
+	public ProductOrderStub setDelivered(Long id, Boolean delivered) throws AdaptorException {
+		LOGGER.info("Set ProductOrder delivered");
+		return this.productOrderFacade.setDelivered(id, delivered);
+	}
+	
 	/*
 	@Override
 	public void removeProductOrder(Long id) throws AdaptorException {

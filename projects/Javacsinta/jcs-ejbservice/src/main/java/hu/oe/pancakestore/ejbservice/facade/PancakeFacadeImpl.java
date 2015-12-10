@@ -10,9 +10,9 @@ import org.apache.log4j.Logger;
 
 import hu.oe.pancakestore.ejbservice.converter.PancakeConverter;
 
-import hu.oe.pancakestore.ejbservice.domain.PancakeStub;
-import hu.oe.pancakestore.ejbservice.exception.FacadeException;
-import hu.oe.pancakestore.ejbservice.util.ApplicationError;
+import hu.oe.pancakestore.serviceclient.domain.PancakeStub;
+import hu.oe.pancakestore.serviceclient.exception.FacadeException;
+import hu.oe.pancakestore.serviceclient.util.ApplicationError;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
 import hu.oe.pancakestore.persistence.service.PancakeService;
 import hu.oe.pancakestore.persistence.service.orderItemService;
@@ -73,6 +73,22 @@ public class PancakeFacadeImpl implements PancakeFacade {
 			} else {
 				throw new FacadeException(ApplicationError.NOT_EXISTS, "Pancake doesn't exist", pancake_id.toString());
 			}
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}
+	}
+
+	@Override
+	public PancakeStub addPancake(String name, int price, String description) throws FacadeException {
+		try {
+			
+			//final Long pancakeId = this.pancakeService.read(name).getId();
+			final PancakeStub pancake = this.converter.to(this.pancakeService.create(/*pancakeId, */name, price, description));
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Add a new Pancake (name: " + name + ", price: " + price + ", description: " + description + ") --> " + pancake);
+			}
+			return pancake;
 		} catch (final PersistenceServiceException e) {
 			LOGGER.error(e, e);
 			throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());

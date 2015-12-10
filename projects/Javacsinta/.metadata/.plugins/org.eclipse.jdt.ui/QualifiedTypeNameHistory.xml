@@ -6,4 +6,11 @@
 <fullyQualifiedTypeName name="hu.oe.pancakestore.persistence.parameter.orderItemParameter"/>
 <fullyQualifiedTypeName name="hu.oe.pancakestore.persistence.query.PancakeQuery"/>
 <fullyQualifiedTypeName name="hu.oe.pancakestore.persistence.parameter.PancakeParameter"/>
+<fullyQualifiedTypeName name="javax.ws.rs.PUT"/>
+<fullyQualifiedTypeName name="javax.ws.rs.Consumes"/>
+<fullyQualifiedTypeName name="hu.oe.pancakestore.ejbservice.domain.PancakeInputStub"/>
+<fullyQualifiedTypeName name="hu.oe.pancakestore.ejbservice.exception.FacadeException"/>
+<fullyQualifiedTypeName name="hu.oe.pancakestore.persistence.entity.Pancake"/>
+<fullyQualifiedTypeName name="hu.oe.pancakestore.persistence.service.PancakeService"/>
+<fullyQualifiedTypeName name="javax.ejb.EJB"/>
 </qualifiedTypeNameHistroy>

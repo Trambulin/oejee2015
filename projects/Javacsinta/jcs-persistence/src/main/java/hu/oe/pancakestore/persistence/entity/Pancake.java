@@ -38,6 +38,22 @@ public class Pancake implements Serializable {
 	 */
 	private static final long serialVersionUID = -2550410032106161290L;
 
+	public Pancake(){super();}
+	
+	public Pancake(String name, int price, String description) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.price = price;
+	}
+	public Pancake(Long pancakeId, String name, int price, String description) {
+		super();
+		this.id = pancakeId;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+	}
+
 	@Id
 	@SequenceGenerator(name = "generatorPancake", sequenceName = "pancake_pancake_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorPancake")

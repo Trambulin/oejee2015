@@ -43,6 +43,18 @@ public class CustomerRestServiceBean implements CustomerRestService {
 		LOGGER.info("Remove Customer (" + id + ")");
 		this.facade.removeCustomer(id);
 	}
+	
+	@Override
+	public CustomerStub createCustomer(CustomerStub stub) throws AdaptorException {
+		LOGGER.info("Create Customer REST");
+		return this.facade.create(stub.getName(), stub.getPassword(), stub.getRole().toString());
+	}
+	
+	@Override
+	public CustomerStub setPassword(Long id, String password) throws AdaptorException {
+		LOGGER.info("Set Customer Password");
+		return this.facade.setPassword(id, password);
+	}
 
 	@Override
 	public Response optionsAll(String path) {
