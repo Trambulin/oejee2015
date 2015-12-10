@@ -8,8 +8,8 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
-import hu.oe.pancakestore.ejbservice.domain.PancakeStub;
-import hu.oe.pancakestore.ejbservice.exception.FacadeException;
+import hu.oe.pancakestore.serviceclient.domain.PancakeStub;
+import hu.oe.pancakestore.serviceclient.exception.FacadeException;
 import hu.oe.pancakestore.ejbservice.facade.PancakeFacade;
 
 @Stateless
@@ -24,6 +24,12 @@ public class PancakeRestServiceBean implements PancakeRestService {
 	public List<PancakeStub> getAllPancakes() throws FacadeException {
 		LOGGER.info("Get all Pancakes");
 		return this.facade.getPancakes();
+	}
+	
+	@Override
+	public void removePancake(Long pancake_id) throws FacadeException {
+		LOGGER.info("Remove pancake (" + pancake_id + ")");
+		this.facade.removePancake(pancake_id);
 	}
 
 	@Override

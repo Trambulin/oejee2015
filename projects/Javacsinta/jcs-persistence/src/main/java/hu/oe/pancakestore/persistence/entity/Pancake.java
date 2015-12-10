@@ -22,7 +22,13 @@ import hu.oe.pancakestore.persistence.query.PancakeQuery;
 		@NamedQuery(name = PancakeQuery.GET_BY_NAME, query = "SELECT b FROM Pancake b WHERE b.name=:" + PancakeParameter.NAME),
 		@NamedQuery(name = PancakeQuery.GET_BY_ID, query = "SELECT b FROM Pancake b WHERE b.id=:" + PancakeParameter.ID),
 		@NamedQuery(name = PancakeQuery.GET_BY_PRICE, query = "SELECT b FROM Pancake b WHERE b.price=:" + PancakeParameter.PRICE),
-		@NamedQuery(name = PancakeQuery.GET_ALL, query = "SELECT b FROM Pancake b ORDER BY b.name")
+		@NamedQuery(name = PancakeQuery.GET_ALL, query = "SELECT b FROM Pancake b ORDER BY b.name"),
+		@NamedQuery(name = PancakeQuery.COUNT_BY_ID, query = 
+				"SELECT COUNT(p) FROM Pancake p WHERE p.id=:" + PancakeParameter.ID),
+//		@NamedQuery(name = PancakeQuery.COUNT_BY_NAME, query = 
+//		"SELECT COUNT(p) FROM Pancake p WHERE i.name=:" + PancakeParameter.NAME),
+		@NamedQuery(name = PancakeQuery.REMOVE_BY_ID, query = "DELETE FROM Pancake p WHERE p.id=:" + PancakeParameter.ID)
+		 
 		//
 })
 public class Pancake implements Serializable {
@@ -31,6 +37,22 @@ public class Pancake implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -2550410032106161290L;
+
+	public Pancake(){super();}
+	
+	public Pancake(String name, int price, String description) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.price = price;
+	}
+	public Pancake(Long pancakeId, String name, int price, String description) {
+		super();
+		this.id = pancakeId;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+	}
 
 	@Id
 	@SequenceGenerator(name = "generatorPancake", sequenceName = "pancake_pancake_id_seq", allocationSize = 1)

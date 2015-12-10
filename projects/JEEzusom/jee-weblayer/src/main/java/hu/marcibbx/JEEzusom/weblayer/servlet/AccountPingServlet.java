@@ -23,16 +23,19 @@ public class AccountPingServlet extends HttpServlet {
 
 	private static final Logger LOGGER = Logger.getLogger(AccountPingServlet.class);
 
+	private static final String PARAM_NAME = "name";
+	
 	@EJB
 	private AccountFacade facade;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LOGGER.info("Get Account by user");
+		LOGGER.info("Get Account by name");
+		String name = request.getParameter(PARAM_NAME);
 		response.setCharacterEncoding("UTF-8");
 		final PrintWriter out = response.getWriter();
 		try {
-			final AccountStub account = this.facade.getAccount("WI53085");
+			final AccountStub account = this.facade.getAccount(name);
 			out.println(account.toString());
 		} catch (final AdaptorException e) {
 			LOGGER.error(e, e);

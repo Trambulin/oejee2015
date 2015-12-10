@@ -1,0 +1,12 @@
+.table-property {
+	border: 1px solid black;
+}
+
+.table-property tr:nth-child(even) {
+	background: #CCC
+}
+
+.table-property tr:nth-child(odd) {
+	background: #FFF
+}
+

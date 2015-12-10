@@ -27,12 +27,13 @@ import hu.marcibbx.JEEzusom.persistence.query.AccountQuery;
 @Entity
 @Table(name = "account")
 @NamedQueries(value = { //
-		@NamedQuery(name = AccountQuery.COUNT_BY_EMAIL, query = "SELECT COUNT(s) FROM Account s WHERE s.email=:" + AccountParameter.EMAIL),
+		@NamedQuery(name = AccountQuery.COUNT_BY_ACCOUNT_ID, query = "SELECT COUNT(s) FROM Account s WHERE s.account_id=:" + AccountParameter.ACCOUNT_ID),
 		@NamedQuery(name = AccountQuery.GET_BY_EMAIL, query = "SELECT s FROM Account s WHERE s.email=:" + AccountParameter.EMAIL),
-		@NamedQuery(name = AccountQuery.GET_BY_ID, query = "SELECT s FROM Account s WHERE s.accountId=:" + AccountParameter.ACCOUNT_ID),
+		@NamedQuery(name = AccountQuery.GET_BY_NAME, query = "SELECT s FROM Account s WHERE s.name=:" + AccountParameter.NAME),
+		@NamedQuery(name = AccountQuery.GET_BY_ID, query = "SELECT s FROM Account s WHERE s.account_id=:" + AccountParameter.ACCOUNT_ID),
 		@NamedQuery(name = AccountQuery.GET_ALL, query = "SELECT s FROM Account s ORDER BY s.name"),
-		@NamedQuery(name = AccountQuery.REMOVE_BY_ID, query = "DELETE FROM Account s WHERE s.accountId=:" + AccountParameter.ACCOUNT_ID),
-		@NamedQuery(name = AccountQuery.REMOVE_BY_NAME, query = "DELETE FROM Account s WHERE s.name=:" + AccountParameter.NAME)
+		@NamedQuery(name = AccountQuery.REMOVE_BY_ID, query = "DELETE FROM Account s WHERE s.id=:" + AccountParameter.ACCOUNT_ID),
+		@NamedQuery(name = AccountQuery.REMOVE_BY_ACCOUNT_ID, query = "DELETE FROM Account s WHERE s.account_id=:" + AccountParameter.ACCOUNT_ID)
 		//
 })
 public class Account implements Serializable {
@@ -42,8 +43,8 @@ public class Account implements Serializable {
 	@Id
 	@SequenceGenerator(name = "generatorAccount", sequenceName = "account_account_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorAccount")
-	@Column(name = "account_id", nullable = false, updatable = false, insertable = false)
-	private Long id;
+	@Column(name = "account_id", nullable = false)
+	private Long account_id;
 
 	@Column(name = "name", nullable = false)
 	private String name;
@@ -73,22 +74,46 @@ public class Account implements Serializable {
 	//@OneToMany(fetch = FetchType.LAZY, targetEntity = Mark.class, mappedBy = "student")
 	//private final Set<Mark> marks;
 
-	public Account() {
+	public Account()
+	{
+		this(null,null,null,null,null);
 		
+	}
+	
+	
+	
+	public Account(String name, String firstName, String lastName, String email, String password) {
+		this.name = name;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.isActivated = true;
+		this.warnCount = 0;
+		this.banExpire = null;
 	}
 
 	public Long getId() {
-		return this.id;
+		return this.account_id;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.account_id = id;
+	}
+
+	public String getFirstName() {
+		return this.firstName;
+	}
+	
+	public String getLastName() {
+		return this.lastName;
 	}
 
 	public String getName() {
 		return this.name;
 	}
 
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -97,6 +122,10 @@ public class Account implements Serializable {
 		return this.email;
 	}
 
+	public String getPassword() {
+		return this.password;
+	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -115,7 +144,7 @@ public class Account implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Account [accountId=" + this.id + ", name=" + this.name + ", email=" + this.email + "]";
+		return "Account [accountId=" + this.account_id + ", name=" + this.name + ", email=" + this.email  + ", firstName=" + this.firstName + ", lastName=" + this.lastName + ", isActivated=" + this.isActivated + ", warnCount=" + this.warnCount + ", banExpire=" + this.banExpire +"]";
 	}
 
 }

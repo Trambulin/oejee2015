@@ -1,0 +1,5 @@
+package hu.oe.pancakestore.ejbservice.domain;
+
+public class PancakeInputStub {
+
+}

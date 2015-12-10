@@ -8,8 +8,8 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
-import hu.oe.pancakestore.ejbservice.domain.orderDetailStub;
-import hu.oe.pancakestore.ejbservice.exception.FacadeException;
+import hu.oe.pancakestore.serviceclient.domain.orderDetailStub;
+import hu.oe.pancakestore.serviceclient.exception.FacadeException;
 import hu.oe.pancakestore.ejbservice.facade.orderItemFacade;
 
 @Stateless
@@ -25,7 +25,7 @@ public class orderItemRestServiceBean implements orderItemRestService {
 		LOGGER.info("Get orderDetails (" + customer + ")");
 		return this.facade.getorderDetails(customer);
 	}
-
+	
 	@Override
 	public Response optionsAll(String path) {
 		return Response.status(Response.Status.NO_CONTENT).build();

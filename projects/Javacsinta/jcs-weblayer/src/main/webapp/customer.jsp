@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.Set" %>  
-<%@ page import="hu.qwaevisz.bookstore.ejbservice.domain.CustomerStub" %> 
+<%@ page import="hu.qwaevisz.bookstore.serviceclient.domain.CustomerStub" %> 
 <% CustomerStub customer = (CustomerStub) request.getAttribute("customer"); %>
 <!DOCTYPE html>
 <html>

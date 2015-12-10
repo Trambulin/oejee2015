@@ -15,8 +15,12 @@ public interface CharacterBaseService {
 
 	CharacterBase create(String name, Long accountId, Long raceId, Boolean isMale) throws PersistenceServiceException;
 
-	//List<MarkDetailResult> read(Long subjectId) throws PersistenceServiceException;
+	List<CharacterBase> read(Long accountId) throws PersistenceServiceException;
 
 	CharacterBase read(String name) throws PersistenceServiceException;
+	
+	CharacterBase readId(Long accountId) throws PersistenceServiceException;
+	
+	int count(Long accountId) throws PersistenceServiceException;
 
 }

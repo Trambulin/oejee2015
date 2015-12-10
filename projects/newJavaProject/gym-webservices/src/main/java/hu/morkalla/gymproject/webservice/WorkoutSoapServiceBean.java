@@ -15,7 +15,7 @@ import hu.morkalla.gymproject.persistence.entity.Workout;
 import hu.morkalla.gymproject.persistence.exception.PersistenceServiceException;
 import hu.morkalla.gymproject.persistence.service.WorkoutService;
 
-@WebService(name = "gym", serviceName = "WorkoutSoapService", targetNamespace = "http://localhost:8081/gym-webservices")
+@WebService(name = "gym-webservices", serviceName = "WorkoutSoapService", targetNamespace = "http://localhost:8081/gym-webservices")
 @SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 public class WorkoutSoapServiceBean {
 

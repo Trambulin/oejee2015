@@ -2,4 +2,5 @@ jar { archiveName 'jcs-ejbservice.jar' }
 
 dependencies {
 	compile project(':jcs-persistence')
+	compile project(':jcs-serviceclient')
 }
