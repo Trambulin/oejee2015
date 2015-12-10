@@ -6,7 +6,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
-import hu.oe.pancakestore.ejbservice.exception.FacadeException;
+import hu.oe.pancakestore.serviceclient.exception.FacadeException;
 import hu.oe.pancakestore.webservice.filter.PancakeCrossOriginRequestFilter;
 
 @Provider

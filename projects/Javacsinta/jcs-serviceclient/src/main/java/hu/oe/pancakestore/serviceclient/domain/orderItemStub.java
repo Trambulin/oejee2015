@@ -1,9 +1,13 @@
-package hu.oe.pancakestore.ejbservice.domain;
+package hu.oe.pancakestore.serviceclient.domain;
 
+import java.io.Serializable;
 
+public class orderItemStub implements Serializable{
 
-public class orderItemStub {
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2654358200979273633L;
 	private PancakeStub pancake;
 	private int amount;
 	private Float totalPrice;

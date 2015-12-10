@@ -9,8 +9,8 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 
-import hu.oe.pancakestore.ejbservice.domain.orderItemStub;
-import hu.oe.pancakestore.ejbservice.domain.orderDetailStub;
+import hu.oe.pancakestore.serviceclient.domain.orderItemStub;
+import hu.oe.pancakestore.serviceclient.domain.orderDetailStub;
 import hu.oe.pancakestore.persistence.entity.orderItem;
 import hu.oe.pancakestore.persistence.result.orderDetailResult;
 

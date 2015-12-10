@@ -1,7 +1,7 @@
-package hu.oe.pancakestore.ejbservice.exception;
+package hu.oe.pancakestore.serviceclient.exception;
 
-import hu.oe.pancakestore.ejbservice.domain.ErrorStub;
-import hu.oe.pancakestore.ejbservice.util.ApplicationError;
+import hu.oe.pancakestore.serviceclient.domain.ErrorStub;
+import hu.oe.pancakestore.serviceclient.util.ApplicationError;
 
 public class FacadeException extends Exception {
 
