@@ -25,15 +25,14 @@ public class CharacterBaseFacadeImpl implements CharacterBaseFacade {
 
 	@EJB
 	private CharacterBaseConverter converter;
-/*
+
 	@Override
-	public List<CharacterBaseDetailStub> getCharacterBaseDetails(String subject) throws AdaptorException {
-		List<CharacterBaseDetailStub> stubs = new ArrayList<>();
+	public List<CharacterBaseStub> getCharacterBases(Long accountId) throws AdaptorException {
+		List<CharacterBaseStub> stubs = new ArrayList<>();
 		try {
-			final Long subjectId = this.subjectService.read(subject).getId();
-			stubs = this.converter.to(this.characterBaseService.read(subjectId));
+			stubs = this.converter.to(this.characterBaseService.read(accountId));
 			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug("Get all CharacterBaseDetails --> " + stubs.size() + " item(s)");
+				LOGGER.debug("Get all CharacterBases --> " + stubs.size() + " item(s)");
 			}
 		} catch (final PersistenceServiceException e) {
 			LOGGER.error(e, e);
@@ -41,7 +40,37 @@ public class CharacterBaseFacadeImpl implements CharacterBaseFacade {
 		}
 		return stubs;
 	}
-*/
+
+	@Override
+	public CharacterBaseStub getCharacterBase(Long accountId) throws AdaptorException {
+		try {
+			CharacterBaseStub stub = this.converter.to(this.characterBaseService.readId(accountId));
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Get CharacterBases --> " + accountId + " item(s)");
+			}
+			return stub;
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}
+		
+	}
+	
+	@Override
+	public CharacterBaseStub getCharacterBaseName(String name) throws AdaptorException {
+		try {
+			CharacterBaseStub stub = this.converter.to(this.characterBaseService.read(name));
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Get CharacterBases --> " + name + " item(s)");
+			}
+			return stub;
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}
+		
+	}
+	
 	@Override
 	public CharacterBaseStub addCharacterBase(String name, Long raceId, Boolean isMale, Long accountId) throws AdaptorException {
 		try {

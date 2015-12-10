@@ -18,13 +18,12 @@ REQ: POST
 http://localhost:8080/condominium/api/condominium/get/1
 Content-Type application/xml
 PAYLOAD:
-{
 <condominiumcriteria>
 <type>flat</type>
 <minimumfloors>1</minimumfloors>
 <maximumfloors>4</maximumfloors>
 </condominiumcriteria>
-}
+
 
 REQ: PUT
 http://localhost:8080/condominium/api/condominium/add

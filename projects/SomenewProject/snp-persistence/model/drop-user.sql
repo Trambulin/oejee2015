@@ -1,1 +1,0 @@
-DROP USER somenewproject_user;

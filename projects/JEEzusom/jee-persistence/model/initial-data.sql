@@ -5,6 +5,8 @@ INSERT INTO account (first_name, last_name, name, email, password, is_activated,
 	VALUES ('Márton', 'Bognár', 'BMarci', 'marciemail@jeezusom.com', 'ezisnagyontitkos', TRUE, 3, NULL);
 INSERT INTO account (first_name, last_name, name, email, password, is_activated, warn_count, ban_expire) 
 	VALUES ('Dániel', 'Takács', 'TDani', 'daniemail@jeezusom.com', 'szintennagyontitkos', TRUE, 1, '2015/12/24');
+INSERT INTO account (first_name, last_name, name, email, password, is_activated, warn_count, ban_expire)  
+	VALUES ('Test', 'testfirstname', 'testlastname', 'test@jeezusom.com', 'testpassword', TRUE, 0, NULL);
 
 
 --INSTERT INTO attribute
