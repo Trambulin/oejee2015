@@ -9,7 +9,7 @@ import javax.ejb.Stateless;
 import org.apache.log4j.Logger;
 
 import hu.oe.pancakestore.ejbservice.converter.PancakeConverter;
-
+import hu.oe.pancakestore.serviceclient.PancakeFacadeRemote;
 import hu.oe.pancakestore.serviceclient.domain.PancakeStub;
 import hu.oe.pancakestore.serviceclient.exception.FacadeException;
 import hu.oe.pancakestore.serviceclient.util.ApplicationError;
@@ -18,7 +18,7 @@ import hu.oe.pancakestore.persistence.service.PancakeService;
 import hu.oe.pancakestore.persistence.service.orderItemService;
 
 @Stateless(mappedName = "ejb/pancakeFacade")
-public class PancakeFacadeImpl implements PancakeFacade {
+public class PancakeFacadeImpl implements PancakeFacade, PancakeFacadeRemote {
 
 	private static final Logger LOGGER = Logger.getLogger(PancakeFacadeImpl.class);
 
