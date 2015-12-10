@@ -1,4 +1,4 @@
-package hu.oe.pancakestore.ejbservice.domain;
+package hu.oe.pancakestore.serviceclient.domain;
 
 public enum PaymentMethodStub {
 

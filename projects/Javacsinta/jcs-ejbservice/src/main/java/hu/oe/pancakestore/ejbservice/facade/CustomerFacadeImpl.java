@@ -10,16 +10,16 @@ import org.apache.log4j.Logger;
 
 
 import hu.oe.pancakestore.ejbservice.converter.CustomerConverter;
-
-import hu.oe.pancakestore.ejbservice.domain.CustomerStub;
-import hu.oe.pancakestore.ejbservice.exception.FacadeException;
-import hu.oe.pancakestore.ejbservice.util.ApplicationError;
+import hu.oe.pancakestore.serviceclient.CustomerFacadeRemote;
+import hu.oe.pancakestore.serviceclient.domain.CustomerStub;
+import hu.oe.pancakestore.serviceclient.exception.FacadeException;
+import hu.oe.pancakestore.serviceclient.util.ApplicationError;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
 
 import hu.oe.pancakestore.persistence.service.CustomerService;
 
 @Stateless(mappedName = "ejb/customerFacade")
-public class CustomerFacadeImpl implements CustomerFacade {
+public class CustomerFacadeImpl implements CustomerFacade, CustomerFacadeRemote {
 
 	private static final Logger LOGGER = Logger.getLogger(CustomerFacadeImpl.class);
 

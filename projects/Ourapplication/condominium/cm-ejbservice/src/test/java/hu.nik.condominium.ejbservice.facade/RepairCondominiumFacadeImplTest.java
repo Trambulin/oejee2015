@@ -81,9 +81,10 @@ public class RepairCondominiumFacadeImplTest {
         stubResult.add(new CondominiumStub((long)1,new Date(1971,7,13),3,"flat","Budapest XIII. Váci út 121."));
 
         CondominiumCriteria condominiumCriteria = Mockito.mock(CondominiumCriteria.class);
+
         Mockito.when(condominiumFacade.getCondominiums(condominiumCriteria)).thenReturn(stubResult);
 
-        assertThat(stubResult,Matchers.notNullValue());
+        assertThat(condominiumFacade.getCondominiums(condominiumCriteria),Matchers.is(stubResult));
 
     }
 

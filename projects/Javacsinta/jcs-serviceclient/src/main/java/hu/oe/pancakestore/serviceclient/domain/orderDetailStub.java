@@ -1,6 +1,13 @@
-package hu.oe.pancakestore.ejbservice.domain;
+package hu.oe.pancakestore.serviceclient.domain;
 
-public class orderDetailStub {
+import java.io.Serializable;
+
+public class orderDetailStub implements Serializable{
+
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3486241228475972326L;
 
 		private PancakeStub pancake;
 

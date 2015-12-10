@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import hu.oe.pancakestore.ejbservice.domain.orderItemStub;
-import hu.oe.pancakestore.ejbservice.domain.orderDetailStub;
+import hu.oe.pancakestore.serviceclient.domain.orderItemStub;
+import hu.oe.pancakestore.serviceclient.domain.orderDetailStub;
 import hu.oe.pancakestore.persistence.entity.orderItem;
 import hu.oe.pancakestore.persistence.result.orderDetailResult;
 

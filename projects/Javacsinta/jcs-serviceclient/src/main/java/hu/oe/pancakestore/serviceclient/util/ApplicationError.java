@@ -1,6 +1,6 @@
-package hu.oe.pancakestore.ejbservice.util;
+package hu.oe.pancakestore.serviceclient.util;
 
-import hu.oe.pancakestore.ejbservice.domain.ErrorStub;
+import hu.oe.pancakestore.serviceclient.domain.ErrorStub;
 
 public enum ApplicationError {
 

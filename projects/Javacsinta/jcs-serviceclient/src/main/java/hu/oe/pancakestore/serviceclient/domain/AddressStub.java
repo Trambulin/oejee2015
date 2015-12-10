@@ -1,7 +1,13 @@
-package hu.oe.pancakestore.ejbservice.domain;
+package hu.oe.pancakestore.serviceclient.domain;
 
-public class AddressStub {
+import java.io.Serializable;
 
+public class AddressStub implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4092992608182680584L;
 	private int postCode;
 	private String street;
 	private String door;

@@ -6,7 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 
 
-import hu.oe.pancakestore.ejbservice.domain.PancakeStub;
+import hu.oe.pancakestore.serviceclient.domain.PancakeStub;
 
 import hu.oe.pancakestore.persistence.entity.Pancake;
 
