@@ -15,4 +15,6 @@ public interface PancakeFacade {
 	List<PancakeStub> getPancakes() throws FacadeException;
 
 	void removePancake(Long pancake_id) throws FacadeException;
+
+	PancakeStub addPancake(String name, int price, String description) throws FacadeException;
 }

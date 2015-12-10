@@ -8,6 +8,7 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
+import hu.oe.pancakestore.ejbservice.domain.PancakeInputStub;
 import hu.oe.pancakestore.ejbservice.domain.PancakeStub;
 import hu.oe.pancakestore.ejbservice.exception.FacadeException;
 import hu.oe.pancakestore.ejbservice.facade.PancakeFacade;
@@ -36,6 +37,12 @@ public class PancakeRestServiceBean implements PancakeRestService {
 	public Response optionsAll(String path) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public PancakeStub addPancake(PancakeInputStub stub) throws FacadeException {
+		LOGGER.info("Add pancake (" + stub + ")");
+		return this.facade.addPancake(stub.getName(), stub.getPrice(), stub.getDescription());
 	}
 
 
