@@ -79,4 +79,20 @@ public class PancakeFacadeImpl implements PancakeFacade {
 		}
 	}
 
+	@Override
+	public PancakeStub addPancake(String name, int price, String description) throws FacadeException {
+		try {
+			
+			//final Long pancakeId = this.pancakeService.read(name).getId();
+			final PancakeStub pancake = this.converter.to(this.pancakeService.create(/*pancakeId, */name, price, description));
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Add a new Pancake (name: " + name + ", price: " + price + ", description: " + description + ") --> " + pancake);
+			}
+			return pancake;
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}
+	}
+
 }

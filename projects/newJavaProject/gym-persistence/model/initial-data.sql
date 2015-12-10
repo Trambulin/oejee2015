@@ -103,7 +103,7 @@ INSERT INTO timetable (timetable_room,timetable_day,timetable_time,timetable_wor
 INSERT INTO timetable (timetable_room,timetable_day,timetable_time,timetable_workout_id) VALUES('kis terem','kedd','12:15',1);
 INSERT INTO timetable (timetable_room,timetable_day,timetable_time,timetable_workout_id) VALUES('fitness terem','szerda','17:30',5);
 INSERT INTO timetable (timetable_room,timetable_day,timetable_time,timetable_workout_id) VALUES('fitness terem','szerda','19:30',5);
-INSERT INTO timetable (timetable_room,timetable_day,timetable_time,timetable_workout_id) VALUES('kiss terem','szerda','13:30',9);
+INSERT INTO timetable (timetable_room,timetable_day,timetable_time,timetable_workout_id) VALUES('kis terem','szerda','13:30',9);
 INSERT INTO timetable (timetable_room,timetable_day,timetable_time,timetable_workout_id) VALUES('nagy terem','szerda','15:30',4);
 INSERT INTO timetable (timetable_room,timetable_day,timetable_time,timetable_workout_id) VALUES('kis terem','csutortok','15:00',2);
 INSERT INTO timetable (timetable_room,timetable_day,timetable_time,timetable_workout_id) VALUES('nagy terem','csutortok','19:00',10);

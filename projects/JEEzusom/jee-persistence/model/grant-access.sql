@@ -1,1 +1,2 @@
 GRANT SELECT, INSERT, UPDATE, DELETE ON account, activity, attribute, character_attribute, character_base, character_race TO jeezusom_role;
+GRANT USAGE, SELECT, UPDATE ON account_account_id_seq to jeezusom_role
