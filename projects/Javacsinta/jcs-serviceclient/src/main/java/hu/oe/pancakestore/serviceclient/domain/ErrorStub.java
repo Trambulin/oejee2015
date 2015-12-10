@@ -1,6 +1,13 @@
-package hu.oe.pancakestore.ejbservice.domain;
+package hu.oe.pancakestore.serviceclient.domain;
 
-public class ErrorStub {
+import java.io.Serializable;
+
+public class ErrorStub implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3271916385095689114L;
 
 	private final int code;
 

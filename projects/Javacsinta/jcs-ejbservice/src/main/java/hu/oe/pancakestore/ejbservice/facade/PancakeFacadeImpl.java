@@ -10,9 +10,9 @@ import org.apache.log4j.Logger;
 
 import hu.oe.pancakestore.ejbservice.converter.PancakeConverter;
 
-import hu.oe.pancakestore.ejbservice.domain.PancakeStub;
-import hu.oe.pancakestore.ejbservice.exception.FacadeException;
-import hu.oe.pancakestore.ejbservice.util.ApplicationError;
+import hu.oe.pancakestore.serviceclient.domain.PancakeStub;
+import hu.oe.pancakestore.serviceclient.exception.FacadeException;
+import hu.oe.pancakestore.serviceclient.util.ApplicationError;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
 import hu.oe.pancakestore.persistence.service.PancakeService;
 import hu.oe.pancakestore.persistence.service.orderItemService;

@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 
-import hu.oe.pancakestore.ejbservice.domain.AddressStub;
+import hu.oe.pancakestore.serviceclient.domain.AddressStub;
 
 import hu.oe.pancakestore.persistence.entity.Address;
 

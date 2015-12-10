@@ -30,7 +30,7 @@ import hu.oe.pancakestore.persistence.query.orderDetailQuery;
 })
 public class orderDetail implements Serializable {
 
-	private static long serialVersionUID = 4836583743719198725L;
+	private static final long serialVersionUID = 4836583743719198725L;
 
 	@Id
 	@Column(name = "order_detail_id", nullable = false)
@@ -54,13 +54,7 @@ public class orderDetail implements Serializable {
 
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public static void setSerialversionuid(long serialversionuid) {
-		serialVersionUID = serialversionuid;
-	}
+	
 
 	public Long getId() {
 		return id;

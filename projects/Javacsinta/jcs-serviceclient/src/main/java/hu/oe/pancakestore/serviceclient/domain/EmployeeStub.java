@@ -1,24 +1,28 @@
-package hu.oe.pancakestore.ejbservice.domain;
+package hu.oe.pancakestore.serviceclient.domain;
 
-public class CustomerStub {
+import java.io.Serializable;
 
-    private AddressStub address;
+public class EmployeeStub implements Serializable{
+
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 5763346314089412158L;
+	private AddressStub address;
     private String name;
     private String phone;
-    private String email;
     private String details;
 
-    public CustomerStub() {
-        this(null, null, null, null, null);
+    public EmployeeStub() {
+        this(null, null, null, null);
     }
 
-	public CustomerStub(AddressStub address, String name, String phone, String email,
+	public EmployeeStub(AddressStub address, String name, String phone,
 			String details) {
 		super();
 		this.address = address;
 		this.name = name;
 		this.phone = phone;
-		this.email = email;
 		this.details = details;
 	}
 
@@ -47,14 +51,6 @@ public class CustomerStub {
 	}
 
 	
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getDetails() {
 		return details;
 	}
@@ -65,7 +61,7 @@ public class CustomerStub {
 
 	@Override
 	public String toString() {
-		return "CustomerStub [address=" + address + ", name=" + name + ", phone=" + phone + ", email=" + email + ", details=" + details + "]";
+		return "EmployeeStub [address=" + address + ", name=" + name + ", phone=" + phone + ",details=" + details + "]";
 	}
 	
 		

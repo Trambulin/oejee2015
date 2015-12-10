@@ -1,11 +1,16 @@
-package hu.oe.pancakestore.ejbservice.domain;
+package hu.oe.pancakestore.serviceclient.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OrderHeaderStub {
+public class OrderHeaderStub implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2868678812349980579L;
 	private CustomerStub customer;
 	private EmployeeStub employee;
 	private List<orderItemStub> orderItems;

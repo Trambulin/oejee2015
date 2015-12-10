@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import hu.oe.pancakestore.ejbservice.domain.OrderHeaderStub;
+import hu.oe.pancakestore.serviceclient.domain.OrderHeaderStub;
 import hu.oe.pancakestore.persistence.entity.OrderHeader;
 
 
