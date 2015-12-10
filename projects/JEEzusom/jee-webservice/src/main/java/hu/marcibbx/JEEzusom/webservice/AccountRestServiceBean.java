@@ -28,9 +28,16 @@ public class AccountRestServiceBean implements AccountRestService {
 	private CharacterBaseFacade characterBaseFacade;
 
 	@Override
-	public AccountStub addAccount(AccountStub stub) throws AdaptorException {
+	public AccountStub createAccount(AccountStub stub) throws AdaptorException {
 		LOGGER.info("Add Account (" + stub + ")");
 		return this.accountFacade.addAccount(stub);
+	}
+	
+	@Override
+	public void addAccount(String firstName, String lastName, String name, String email, String password) throws AdaptorException {
+		LOGGER.info("Add Account");
+		AccountStub account = new AccountStub(firstName, lastName, name, email, password);
+		this.accountFacade.addAccount(account);
 	}
 	
 	@Override
