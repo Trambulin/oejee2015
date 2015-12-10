@@ -43,6 +43,12 @@ public interface CustomerRestService {
 	@Consumes("application/json")
 	@Produces("application/json")
 	CustomerStub createCustomer(CustomerStub stub) throws AdaptorException;
+	
+	@PUT
+	@Path("/set-password/{id}")
+	@Consumes("application/json")
+	@Produces("application/json")
+	CustomerStub setPassword(@PathParam("id") Long id, String password) throws AdaptorException;
 
 	@OPTIONS
 	@Path("{path:.*}")

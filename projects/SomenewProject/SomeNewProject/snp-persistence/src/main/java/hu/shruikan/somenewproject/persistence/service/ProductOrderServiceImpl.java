@@ -82,4 +82,21 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 		}
 	}
 
+	@Override
+	public ProductOrder setDelivered(Long id, Boolean delivered) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Set ProductOrder Delivered");
+		}	
+
+		try {
+			ProductOrder productOrder = this.read(id);
+			productOrder.setDelivered(delivered);
+			productOrder = this.entityManager.merge(productOrder);
+			this.entityManager.flush();
+			return productOrder;				
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error when setting ProductOrder delivered! " + e.getLocalizedMessage(), e);
+		}		
+	}
+	
 }

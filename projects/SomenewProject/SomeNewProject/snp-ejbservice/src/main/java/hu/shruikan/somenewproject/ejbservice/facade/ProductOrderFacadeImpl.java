@@ -68,4 +68,18 @@ public class ProductOrderFacadeImpl implements ProductOrderFacade {
 			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 		}		
 	}
+	
+	@Override
+	public ProductOrderStub setDelivered(Long id, Boolean delivered) throws AdaptorException {
+		try {	
+			final ProductOrderStub productOrder = this.converter.to(this.productOrderService.setDelivered(id, delivered));
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Set delivered ProductOrder (id: " + id + ", delivered: " + delivered + ")");
+			}
+			return productOrder;
+		} catch (final PersistenceServiceException e) {
+			LOGGER.error(e, e);
+			throw new AdaptorException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
+		}		
+	}
 }

@@ -16,4 +16,5 @@ public interface ProductOrderService {
 	
 	ProductOrder create(Long customerId, Long productId, String number, Integer quantity) throws PersistenceServiceException;
 	
+	ProductOrder setDelivered(Long id, Boolean delivered) throws PersistenceServiceException;
 }
