@@ -14,6 +14,7 @@ ext {
 	webserviceArchiveName = 'jcs-webservice.war'
 	webserviceContextPath = 'Javacsinta'
 	jbossjee6Version = '3.0.3.Final'
+	jbossjmsclientVersion = '7.2.0.Final'
 }
 
 subprojects {
