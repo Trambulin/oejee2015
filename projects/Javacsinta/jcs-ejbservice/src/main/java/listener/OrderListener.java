@@ -1,7 +1,5 @@
 package listener;
 
-import java.util.Arrays;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJB;
@@ -11,13 +9,11 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
 import javax.jms.Queue;
-import javax.jms.TextMessage;
 
 import org.apache.log4j.Logger;
 
 import hu.oe.pancakestore.ejbservice.facade.OrderHeaderFacade;
 import hu.oe.pancakestore.serviceclient.domain.CustomerStub;
-import hu.oe.pancakestore.serviceclient.exception.FacadeException;
 
 
 
@@ -33,7 +29,7 @@ public class OrderListener implements MessageListener {
 
 	@PostConstruct
 	public void initialize() {
-		LOGGER.info("Lottery Listener created...");
+		LOGGER.info("Listener created...");
 	}
 
 	@Override
@@ -52,18 +48,6 @@ public class OrderListener implements MessageListener {
 				if (LOGGER.isDebugEnabled()) {
 					LOGGER.debug("Received message: " + customer);
 				}
-//				content = content.replace("[", "");
-//				content = content.replace("]", "");
-//				final String[] numbersStr = content.split(",");
-//				final int[] numbers = new int[numbersStr.length];
-//				int i = 0;
-//				for (final String numberStr : numbersStr) {
-//					numbers[i++] = Integer.valueOf(numberStr.trim());
-//				}
-//				if (LOGGER.isDebugEnabled()) {
-//					LOGGER.debug("Parsed content: " + Arrays.toString(numbers));
-//				}
-				//this.facade.createNewEvent(numbers);
 			} else {
 				LOGGER.error("Received message is not a TextMessage (" + message + ")");
 			}

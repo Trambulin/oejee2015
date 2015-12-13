@@ -36,7 +36,7 @@ public class CustomerFacadeImpl implements CustomerFacade, CustomerFacadeRemote 
 		try {
 			final CustomerStub stub = this.converter.to(this.service.read(name));
 			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug("Get Customer by name (" + name + ") --> " + stub);
+				LOGGER.debug("Get customer by name (" + name + ") --> " + stub);
 			}
 			return stub;
 		} catch (final PersistenceServiceException e) {
@@ -44,21 +44,6 @@ public class CustomerFacadeImpl implements CustomerFacade, CustomerFacadeRemote 
 			throw new FacadeException(ApplicationError.UNEXPECTED, e.getLocalizedMessage());
 		}
 	}
-
-//	@Override
-//	public List<CustomerStub> getCustomers(CustomerCriteria criteria) throws FacadeException {
-//		List<BookStub> stubs = new ArrayList<>();
-//		try {
-//			stubs = this.converter.to(this.service.readAll());
-//			if (LOGGER.isDebugEnabled()) {
-//				LOGGER.debug("Get Books by criteria (" + criteria + ") --> " + stubs.size() + " book(s)");
-//			}
-//		} catch (final PersistenceServiceException e) {
-//			LOGGER.error(e, e);
-//			throw new FacadeException(e.getLocalizedMessage());
-//		}
-//		return stubs;
-//	}
 	
 	@Override
 	public List<CustomerStub> getCustomers() throws FacadeException {
