@@ -22,15 +22,15 @@ import hu.oe.pancakestore.persistence.query.orderItemQuery;
 @Entity
 @Table(name = "order_item")
 @NamedQueries(value = { //
-		@NamedQuery(name = orderItemQuery.GET_BY_ID, query = "SELECT b FROM orderItem b WHERE b.id=:" + orderItemParameter.ID),
-		@NamedQuery(name = orderItemQuery.GET_BY_AMOUNT, query = "SELECT b FROM orderItem b WHERE b.amount=:" + orderItemParameter.AMOUNT),
-		@NamedQuery(name = orderItemQuery.GET_BY_TOTAL_PRICE, query = "SELECT b FROM orderItem b WHERE b.total_price=:" + orderItemParameter.TOTAL_PRICE),
-		@NamedQuery(name = orderItemQuery.GET_ALL, query = "SELECT b FROM orderItem b ORDER BY b.id"),
+		@NamedQuery(name = orderItemQuery.GET_BY_ID, query = "SELECT b FROM OrderItem b WHERE b.id=:" + orderItemParameter.ID),
+		@NamedQuery(name = orderItemQuery.GET_BY_AMOUNT, query = "SELECT b FROM OrderItem b WHERE b.amount=:" + orderItemParameter.AMOUNT),
+		@NamedQuery(name = orderItemQuery.GET_BY_TOTAL_PRICE, query = "SELECT b FROM OrderItem b WHERE b.total_price=:" + orderItemParameter.TOTAL_PRICE),
+		@NamedQuery(name = orderItemQuery.GET_ALL, query = "SELECT b FROM OrderItem b ORDER BY b.id"),
 		@NamedQuery(name = orderItemQuery.GET_COUNT_PANCAKES_BY_ID, query = 
-		"SELECT COUNT(i) FROM orderItem i WHERE i.pancake.id=:" + orderItemParameter.PANCAKE_ID) 
+		"SELECT COUNT(i) FROM OrderItem i WHERE i.pancake.id=:" + orderItemParameter.PANCAKE_ID) 
 		//?
 })
-public class orderItem implements Serializable {
+public class OrderItem implements Serializable {
 
 	private static final long serialVersionUID = 1525352421414297015L;
 
@@ -101,7 +101,7 @@ public class orderItem implements Serializable {
 
 	@Override
 	public String toString() {
-		return "orderItem [id=" + id + ", pancake=" + pancake +  ", amount=" + amount
+		return "OrderItem [id=" + id + ", pancake=" + pancake +  ", amount=" + amount
 				+ ", total_price=" + total_price + "]";
 	}
 

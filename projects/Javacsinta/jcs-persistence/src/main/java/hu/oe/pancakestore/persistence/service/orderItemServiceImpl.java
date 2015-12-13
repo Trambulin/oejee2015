@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 import org.apache.log4j.Logger;
 
-import hu.oe.pancakestore.persistence.entity.orderItem;
+import hu.oe.pancakestore.persistence.entity.OrderItem;
 import hu.oe.pancakestore.persistence.exception.PersistenceServiceException;
 import hu.oe.pancakestore.persistence.parameter.orderDetailParameter;
 import hu.oe.pancakestore.persistence.parameter.orderItemParameter;
@@ -56,13 +56,13 @@ public class orderItemServiceImpl implements orderItemService{
 	}
 
 	@Override
-	public List<orderItem> readAll() throws PersistenceServiceException {
+	public List<OrderItem> readAll() throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Get Order Details");
 		}
-		List<orderItem> result = null;
+		List<OrderItem> result = null;
 		try {
-			result = this.entityManager.createNamedQuery(orderItemQuery.GET_ALL, orderItem.class).getResultList();
+			result = this.entityManager.createNamedQuery(orderItemQuery.GET_ALL, OrderItem.class).getResultList();
 		} catch (final Exception e) {
 			throw new PersistenceServiceException("Unknown error when fetching Order Details! " + e.getLocalizedMessage(), e);
 		}

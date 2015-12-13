@@ -58,7 +58,7 @@ public class OrderHeader implements Serializable {
 	//Unidirectional OneToMany, No inverse ManyToOne, No Join Table
 	@JoinColumn(name="order_item_order_header_id", referencedColumnName="order_header_id")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Set<orderItem> orderItems;
+	private Set<OrderItem> OrderItems;
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "order_header_delivery_status_id", nullable = false)
@@ -100,12 +100,12 @@ public class OrderHeader implements Serializable {
 		this.employee = employee;
 	}
 
-	public Set<orderItem> getorderItems() {
-		return orderItems;
+	public Set<OrderItem> getorderItems() {
+		return OrderItems;
 	}
 
-	public void setorderItem(Set<orderItem> orderItems) {
-		this.orderItems = orderItems;
+	public void setorderItem(Set<OrderItem> OrderItems) {
+		this.OrderItems = OrderItems;
 	}
 
 	public DeliveryStatus getDeliverytStatus() {
@@ -146,8 +146,8 @@ public class OrderHeader implements Serializable {
 
 	@Override
 	public String toString() {
-		return "OrderHeader [id=" + id + ", customer=" + customer + ", employee=" + employee + ", orderItems="
-				+ orderItems + ", deliverytStatus=" + deliverytStatus + ", total_price=" + total_price + ", date="
+		return "OrderHeader [id=" + id + ", customer=" + customer + ", employee=" + employee + ", OrderItems="
+				+ OrderItems + ", deliverytStatus=" + deliverytStatus + ", total_price=" + total_price + ", date="
 				+ date + ", paymentMethod=" + paymentMethod + "]";
 	}
 	

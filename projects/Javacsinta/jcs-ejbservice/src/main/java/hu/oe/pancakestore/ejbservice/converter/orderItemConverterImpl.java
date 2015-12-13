@@ -11,7 +11,7 @@ import javax.ejb.Stateless;
 
 import hu.oe.pancakestore.serviceclient.domain.orderItemStub;
 import hu.oe.pancakestore.serviceclient.domain.orderDetailStub;
-import hu.oe.pancakestore.persistence.entity.orderItem;
+import hu.oe.pancakestore.persistence.entity.OrderItem;
 import hu.oe.pancakestore.persistence.result.orderDetailResult;
 
 @Stateless
@@ -23,8 +23,8 @@ public class orderItemConverterImpl implements orderItemConverter {
 private PancakeConverter pancakeconverter;
 	
 	@Override
-	public orderItemStub to(orderItem orderItems) {
-		return new orderItemStub(this.pancakeconverter.to(orderItems.getPancake()),orderItems.getAmount(),orderItems.getTotal_price());
+	public orderItemStub to(OrderItem OrderItems) {
+		return new orderItemStub(this.pancakeconverter.to(OrderItems.getPancake()),OrderItems.getAmount(),OrderItems.getTotal_price());
 	}
 
 	@Override
