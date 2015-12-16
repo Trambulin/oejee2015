@@ -61,15 +61,15 @@ public class CharacterBase implements Serializable {
 	@Column(name = "is_male", nullable = false)
 	private Boolean isMale;
 	
-	/*@OneToMany(fetch = FetchType.LAZY, targetEntity = Mark.class, mappedBy = "student")
-	private final Set<Mark> marks;*/
+	
+	
 	public CharacterBase()
 	{
 		
 		
 	}
 	public CharacterBase(String name, Long accountId, Long raceId, Boolean isMale) {
-		//this.marks = new HashSet<>();
+
 	}
 
 	public Long getId() {
@@ -111,18 +111,7 @@ public class CharacterBase implements Serializable {
 	public void setExperience(Long experience) {
 		this.experience = experience;
 	}
-	/*public Institute getInstitute() {
-		return this.institute;
-	}
 
-	public void setInstitute(Institute institute) {
-		this.institute = institute;
-	}
-
-	public Set<Mark> getMarks() {
-		return this.marks;
-	}
-*/
 	@Override
 	public String toString() {
 		return "CharacterBase [id=" + this.character_id + ", name=" + this.name + ", experience=" + this.experience + "]";

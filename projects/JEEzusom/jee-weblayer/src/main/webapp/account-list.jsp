@@ -13,7 +13,8 @@
 <body>
 	<h2>accounts</h2>
 	<table class="table-property">
-		<tr>			
+		<tr>
+			<th>Id</th>		
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Name</th>
@@ -21,8 +22,9 @@
 			<th>Password</th>
 		</tr>
 		<% for ( AccountStub account : accounts ) { %>
-		<tr>			
-			<td><% out.print(account.getFirstName()); %></td>
+		<tr>	
+			<td><% out.print(account.getId()); %></td>		
+			<td><a href="http://localhost:8080/jee-weblayer/listcharacters?accountId=<%out.print(account.getId());%>"><% out.print(account.getFirstName()); %></a></td>
 			<td><% out.print(account.getLastName()); %></td>
 			<td><% out.print(account.getName()); %></td>
 			<td><% out.print(account.getEmail()); %></td>

@@ -51,12 +51,6 @@ public interface AccountRestService {
 	@Path("/{accountId}")
 	void removeAccount(@PathParam("accountId") Long accountId) throws AdaptorException;
 
-	/*@POST
-	@Consumes("application/xml")
-	@Produces("application/xml")
-	@Path("/get/{studentneptun}")
-	AccountStub getMatchingAccount(@PathParam("studentneptun") String studentNeptun, AccountCriteria criteria) throws AdaptorException;
-*/
 	@OPTIONS
 	@Path("{path:.*}")
 	Response optionsAll(@PathParam("path") String path);

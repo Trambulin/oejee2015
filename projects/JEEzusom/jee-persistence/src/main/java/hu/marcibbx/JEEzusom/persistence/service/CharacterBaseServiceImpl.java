@@ -88,7 +88,7 @@ public class CharacterBaseServiceImpl implements CharacterBaseService {
 	@Override
 	public List<CharacterBase> read(Long accountId) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get all CharacterBase by subject id (" + accountId + ")");
+			LOGGER.debug("Get all CharacterBase by account id (" + accountId + ")");
 		}
 		List<CharacterBase> result = null;
 		try {

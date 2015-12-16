@@ -18,6 +18,6 @@ public interface CharacterBaseFacade {
 	
 	CharacterBaseStub addCharacterBase(String name, Long raceId, Boolean isMale, Long accountId) throws AdaptorException;
 
-	//CharacterBaseStub getMatchingCharacterBase(String studentNeptun, String subjectNameTerm, int minimumGrade, int maximumGrade) throws AdaptorException;
+	
 
 }

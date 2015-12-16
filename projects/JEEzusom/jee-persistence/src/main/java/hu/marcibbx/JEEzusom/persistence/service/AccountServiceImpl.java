@@ -102,7 +102,7 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public Account create(String name, String firstName, String lastName, String email, String password) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Add Account (studentId: " );
+			LOGGER.debug("Add Account (accountId: " );
 		}
 		try {
 			Account account = new Account(name, firstName, lastName, email, password);

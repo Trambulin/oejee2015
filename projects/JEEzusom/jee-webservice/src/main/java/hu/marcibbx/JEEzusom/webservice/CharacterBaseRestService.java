@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 import hu.marcibbx.JEEzusom.ejbservice.domain.CharacterBaseStub;
 import hu.marcibbx.JEEzusom.ejbservice.exception.AdaptorException;
 
-@Path("/student")
+@Path("/character")
 public interface CharacterBaseRestService {
 
 	@GET
