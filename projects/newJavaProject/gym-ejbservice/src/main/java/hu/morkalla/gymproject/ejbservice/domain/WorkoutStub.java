@@ -1,5 +1,9 @@
 package hu.morkalla.gymproject.ejbservice.domain;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "workout")
 public class WorkoutStub {
 
 	private String name;
@@ -24,6 +28,7 @@ public class WorkoutStub {
 
 	}
 
+	@XmlElement(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -32,6 +37,7 @@ public class WorkoutStub {
 		this.name = name;
 	}
 
+	@XmlElement(name = "hardness")
 	public String getHardness() {
 		return hardness;
 	}
@@ -40,6 +46,7 @@ public class WorkoutStub {
 		this.hardness = hardness;
 	}
 
+	@XmlElement(name = "people")
 	public Integer getPeople() {
 		return people;
 	}
@@ -48,6 +55,7 @@ public class WorkoutStub {
 		this.people = people;
 	}
 
+	@XmlElement(name = "requipment")
 	public String getRequipment() {
 		return requipment;
 	}
@@ -56,6 +64,7 @@ public class WorkoutStub {
 		this.requipment = requipment;
 	}
 
+	@XmlElement(name = "trainer")
 	public TrainerStub getTrainer() {
 		return trainer;
 	}
@@ -64,6 +73,7 @@ public class WorkoutStub {
 		this.trainer = trainer;
 	}
 
+	@XmlElement(name = "type")
 	public String getTypeName() {
 		return typeName;
 	}

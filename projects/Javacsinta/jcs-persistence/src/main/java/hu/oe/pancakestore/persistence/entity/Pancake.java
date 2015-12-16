@@ -38,7 +38,9 @@ public class Pancake implements Serializable {
 	 */
 	private static final long serialVersionUID = -2550410032106161290L;
 
-	public Pancake(){super();}
+	public Pancake(){
+		this(null,null,0,null);
+	}
 	
 	public Pancake(String name, int price, String description) {
 		super();

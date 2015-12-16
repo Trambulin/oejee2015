@@ -1,0 +1,4 @@
+include 'jee-ejbservice'
+include 'jee-weblayer'
+include 'jee-webservice'
+include 'jee-persistence'

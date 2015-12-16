@@ -1,1 +1,0 @@
-GRANT SELECT, INSERT, UPDATE, DELETE ON account, activity, attribute, character_attribute, character_base, character_race TO jeezusom_role;

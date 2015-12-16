@@ -28,9 +28,16 @@ public class AccountRestServiceBean implements AccountRestService {
 	private CharacterBaseFacade characterBaseFacade;
 
 	@Override
-	public AccountStub addAccount(AccountStub stub) throws AdaptorException {
+	public AccountStub createAccount(AccountStub stub) throws AdaptorException {
 		LOGGER.info("Add Account (" + stub + ")");
 		return this.accountFacade.addAccount(stub);
+	}
+	
+	@Override
+	public void addAccount(String firstName, String lastName, String name, String email, String password) throws AdaptorException {
+		LOGGER.info("Add Account");
+		AccountStub account = new AccountStub(firstName, lastName, name, email, password);
+		this.accountFacade.addAccount(account);
 	}
 	
 	@Override
@@ -58,22 +65,7 @@ public class AccountRestServiceBean implements AccountRestService {
 		LOGGER.info("Remove Account (" + accountId + ")");
 		this.accountFacade.removeAccount(accountId);
 	}
-/*
-	@Override
-	public MarkStub addMark(MarkInputStub stub) throws AdaptorException {
-		LOGGER.info("Add Mark (" + stub + ")");
-		return this.facade.addMark(stub.getSubject(), stub.getNeptun(), stub.getGrade().getValue(), stub.getNote());
-	}
 
-	@Override
-	public MarkStub getMatchingMark(String studentNeptun, MarkCriteria criteria) throws AdaptorException {
-		LOGGER.info("Get first matching Mark (studentNeptun: " + studentNeptun + ", criteria: " + criteria + ")");
-		final MarkStub stub = new MarkStub(new SubjectStub("subject1", new TeacherStub("teacher1", "teacher1name"), "subject1description"), 2, "note1",
-				new Date());
-		LOGGER.info("MarkStub: " + stub);
-		return this.facade.getMatchingMark(studentNeptun, criteria.getSubjectNameTerm(), criteria.getMinimumGrade(), criteria.getMaximumGrade());
-	}
-*/
 	@Override
 	public Response optionsAll(String path) {
 		return Response.status(Response.Status.NO_CONTENT).build();

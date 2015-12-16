@@ -13,7 +13,7 @@ public class OrderHeaderStub implements Serializable {
 	private static final long serialVersionUID = 2868678812349980579L;
 	private CustomerStub customer;
 	private EmployeeStub employee;
-	private List<orderItemStub> orderItems;
+	private List<OrderItemStub> orderItems;
 	private DeliveryStatusStub deliveryStatus;
 	private Float totalPrice;
 	private Date date;
@@ -53,11 +53,11 @@ public class OrderHeaderStub implements Serializable {
 		this.employee = employee;
 	}
 
-	public List<orderItemStub> getorderItems() {
+	public List<OrderItemStub> getorderItems() {
 		return orderItems;
 	}
 
-	public void addorderItems(orderItemStub orderItems) {
+	public void addorderItems(OrderItemStub orderItems) {
 		this.orderItems.add(orderItems);
 	}
 
@@ -86,8 +86,16 @@ public class OrderHeaderStub implements Serializable {
 		this.paymentMethod = paymentMethod;
 	}
 
-	public void setorderItems(List<orderItemStub> orderItems) {
+	public void setorderItems(List<OrderItemStub> orderItems) {
 		this.orderItems = orderItems;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	@Override

@@ -11,6 +11,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.core.Response;
 
 
@@ -22,13 +23,17 @@ import hu.marcibbx.JEEzusom.ejbservice.exception.AdaptorException;
 public interface AccountRestService {
 
 	@PUT
-	@Path("/addaccount")
+	@Path("/createaccount")
 	@Consumes("application/json")
 	@Produces("application/json")
-	AccountStub addAccount(AccountStub stub) throws AdaptorException;
+	AccountStub createAccount(AccountStub stub) throws AdaptorException;
 
+	@POST
+	@Path("/addaccount")
+	void addAccount(@FormParam("firstName") String firstName, @FormParam("lastName") String lastName, @FormParam("name") String name, @FormParam("email") String email, @FormParam("password") String password) throws AdaptorException;
+	
 	@GET
-	@Path("/characters")
+	@Path("/{accountId}")
 	@Produces("application/json")
 	List<CharacterBaseStub> getCharacterBases(@PathParam("accountId") Long accountId) throws AdaptorException;
 	
@@ -42,16 +47,10 @@ public interface AccountRestService {
 	@Produces("application/json")
 	AccountStub getAccount(@PathParam("name") String name) throws AdaptorException;
 	
-		@DELETE
+	@DELETE
 	@Path("/{accountId}")
 	void removeAccount(@PathParam("accountId") Long accountId) throws AdaptorException;
 
-	/*@POST
-	@Consumes("application/xml")
-	@Produces("application/xml")
-	@Path("/get/{studentneptun}")
-	AccountStub getMatchingAccount(@PathParam("studentneptun") String studentNeptun, AccountCriteria criteria) throws AdaptorException;
-*/
 	@OPTIONS
 	@Path("{path:.*}")
 	Response optionsAll(@PathParam("path") String path);

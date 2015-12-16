@@ -13,7 +13,5 @@ public interface CustomerFacade {
 
 	CustomerStub getCustomer(String name) throws FacadeException;
 
-	//List<CustomerStub> getBooks(CustomerCriteria criteria) throws FacadeException;
-	
 	List<CustomerStub> getCustomers () throws FacadeException;
 }

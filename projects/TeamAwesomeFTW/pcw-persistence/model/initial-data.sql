@@ -93,21 +93,21 @@ SELECT sup_id as stg_pid, (sup_price * 1.25) as stg_price, (random() * 4) as stg
 -- Vásárlások
 -- Kezdeti adatok tesztelésre. A vásárló és termék ID hardcode-olva, de magát az árat meg a megérkezést automatikusan húzza be.
 INSERT INTO orders (ord_pid, ord_cid, ord_price, ord_shipped_on, ord_shipment_due)
-SELECT g.stg_id as ord_pid, 1 as ord_cid, g.stg_price as ord_price, CURRENT_DATE as ord_shipped_on, CURRENT_DATE + s.sup_shipping_days as ord_shipment_due
+SELECT g.stg_id as ord_pid, 2 as ord_cid, g.stg_price as ord_price, CURRENT_DATE as ord_shipped_on, CURRENT_DATE + s.sup_shipping_days as ord_shipment_due
 FROM storage g LEFT JOIN supplier s ON g.stg_id=s.sup_id WHERE g.stg_id = 1;
 
 INSERT INTO orders (ord_pid, ord_cid, ord_price, ord_shipped_on, ord_shipment_due)
-SELECT g.stg_id as ord_pid, 1 as ord_cid, g.stg_price as ord_price, CURRENT_DATE as ord_shipped_on, CURRENT_DATE + s.sup_shipping_days as ord_shipment_due
+SELECT g.stg_id as ord_pid, 2 as ord_cid, g.stg_price as ord_price, CURRENT_DATE as ord_shipped_on, CURRENT_DATE + s.sup_shipping_days as ord_shipment_due
 FROM storage g LEFT JOIN supplier s ON g.stg_id=s.sup_id WHERE g.stg_id = 6;
 
 INSERT INTO orders (ord_pid, ord_cid, ord_price, ord_shipped_on, ord_shipment_due)
-SELECT g.stg_id as ord_pid, 2 as ord_cid, g.stg_price as ord_price, CURRENT_DATE as ord_shipped_on, CURRENT_DATE + s.sup_shipping_days as ord_shipment_due
+SELECT g.stg_id as ord_pid, 3 as ord_cid, g.stg_price as ord_price, CURRENT_DATE as ord_shipped_on, CURRENT_DATE + s.sup_shipping_days as ord_shipment_due
 FROM storage g LEFT JOIN supplier s ON g.stg_id=s.sup_id WHERE g.stg_id = 10;
 
 INSERT INTO orders (ord_pid, ord_cid, ord_price, ord_shipped_on, ord_shipment_due)
-SELECT g.stg_id as ord_pid, 2 as ord_cid, g.stg_price as ord_price, CURRENT_DATE as ord_shipped_on, CURRENT_DATE + s.sup_shipping_days as ord_shipment_due
+SELECT g.stg_id as ord_pid, 3 as ord_cid, g.stg_price as ord_price, CURRENT_DATE as ord_shipped_on, CURRENT_DATE + s.sup_shipping_days as ord_shipment_due
 FROM storage g LEFT JOIN supplier s ON g.stg_id=s.sup_id WHERE g.stg_id = 13;
 
 INSERT INTO orders (ord_pid, ord_cid, ord_price, ord_shipped_on, ord_shipment_due)
-SELECT g.stg_id as ord_pid, 3 as ord_cid, g.stg_price as ord_price, CURRENT_DATE as ord_shipped_on, CURRENT_DATE + s.sup_shipping_days as ord_shipment_due
+SELECT g.stg_id as ord_pid, 4 as ord_cid, g.stg_price as ord_price, CURRENT_DATE as ord_shipped_on, CURRENT_DATE + s.sup_shipping_days as ord_shipment_due
 FROM storage g LEFT JOIN supplier s ON g.stg_id=s.sup_id WHERE g.stg_id = 18;

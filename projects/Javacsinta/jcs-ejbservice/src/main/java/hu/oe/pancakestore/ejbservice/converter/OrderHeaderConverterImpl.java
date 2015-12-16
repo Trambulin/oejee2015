@@ -9,7 +9,7 @@ import javax.ejb.Stateless;
 import hu.oe.pancakestore.serviceclient.domain.DeliveryStatusStub;
 import hu.oe.pancakestore.serviceclient.domain.OrderHeaderStub;
 import hu.oe.pancakestore.serviceclient.domain.PaymentMethodStub;
-import hu.oe.pancakestore.persistence.entity.orderItem;
+import hu.oe.pancakestore.persistence.entity.OrderItem;
 import hu.oe.pancakestore.persistence.entity.OrderHeader;
 
 
@@ -23,7 +23,7 @@ private CustomerConverter customerconverter;
 private EmployeeConverter employeeconverter;
 
 @EJB
-private orderItemConverter orderItemconverter;
+private OrderItemConverter orderItemconverter;
 
 	
 	@Override
@@ -32,8 +32,8 @@ private orderItemConverter orderItemconverter;
 		final PaymentMethodStub paymentmethod = PaymentMethodStub.valueOf(OrderHeader.getPaymentMethod().toString());
 		final OrderHeaderStub OrderHeaderstub= new OrderHeaderStub(this.customerconverter.to(OrderHeader.getCustomer()),this.employeeconverter.to(OrderHeader.getEmployee()),deliverystatus,OrderHeader.getTotal_price(),OrderHeader.getDate(),paymentmethod);
 		
-		for (final orderItem orderItem : OrderHeader.getorderItems()) {
-			OrderHeaderstub.addorderItems(this.orderItemconverter.to(orderItem));
+		for (final OrderItem OrderItem : OrderHeader.getorderItems()) {
+			OrderHeaderstub.addorderItems(this.orderItemconverter.to(OrderItem));
 		}
 		
 		return OrderHeaderstub;

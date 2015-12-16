@@ -1,5 +1,9 @@
-Linkek:
+Kezdő link:
 http://localhost:8080/pcw-weblayer/ProductList
 
 DELETE
-http://localhost:8080/store/api/storage/4
+http://localhost:8080/store/api/storage/#
+
+GET
+http://localhost:8080/store/api/storage/#
+http://localhost:8080/store/api/storage/list
