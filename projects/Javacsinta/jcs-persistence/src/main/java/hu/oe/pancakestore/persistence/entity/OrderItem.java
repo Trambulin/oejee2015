@@ -55,6 +55,19 @@ public class OrderItem implements Serializable {
 	@Column(name = "order_item_total_price", nullable = false, updatable = true, insertable = true)
 	private Float total_price;
 
+	
+	public OrderItem(){
+		this(null,0,null);
+	}
+	
+	
+	public OrderItem(Pancake pancake, int amount, Float total_price) {
+		
+		this.pancake = pancake;
+		this.amount = amount;
+		this.total_price = total_price;
+	}
+
 	public Long getId() {
 		return id;
 	}

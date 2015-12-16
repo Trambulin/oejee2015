@@ -23,6 +23,7 @@ import hu.oe.pancakestore.persistence.query.EmployeeQuery;
 @Table(name = "employee")
 @NamedQueries(value = { //
 		@NamedQuery(name = EmployeeQuery.GET_BY_NAME, query = "SELECT b FROM Employee b WHERE b.name=:" + EmployeeParameter.NAME),
+		@NamedQuery(name = EmployeeQuery.GET_BY_PHONE, query = "SELECT b FROM Employee b WHERE b.phone=:" + EmployeeParameter.PHONE),
 		@NamedQuery(name = EmployeeQuery.GET_BY_ID, query = "SELECT b FROM Employee b WHERE b.id=:" + EmployeeParameter.ID),
 		@NamedQuery(name = EmployeeQuery.GET_ALL, query = "SELECT b FROM Employee b ORDER BY b.name")
 		//

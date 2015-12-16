@@ -1,4 +1,4 @@
-package listener;
+package hu.oe.pancakestore.ejbservice.listener;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.ActivationConfigProperty;
@@ -13,7 +13,8 @@ import javax.jms.Queue;
 import org.apache.log4j.Logger;
 
 import hu.oe.pancakestore.ejbservice.facade.OrderHeaderFacade;
-import hu.oe.pancakestore.serviceclient.domain.CustomerStub;
+import hu.oe.pancakestore.serviceclient.domain.OrderHeaderStub;
+import hu.oe.pancakestore.serviceclient.exception.FacadeException;
 
 
 
@@ -44,14 +45,15 @@ public class OrderListener implements MessageListener {
 			if (message instanceof ObjectMessage) {
 				final ObjectMessage objectMessage = (ObjectMessage) message;
 				Object content = objectMessage.getObject();
-				CustomerStub customer= (CustomerStub)content;
+				OrderHeaderStub orderHeaderStub= (OrderHeaderStub)content;
 				if (LOGGER.isDebugEnabled()) {
-					LOGGER.debug("Received message: " + customer);
+					LOGGER.debug("Received message: " + orderHeaderStub);
 				}
+				this.facade.CreateNewOrder(orderHeaderStub);
 			} else {
-				LOGGER.error("Received message is not a TextMessage (" + message + ")");
+				LOGGER.error("Received message is not an ObjectMessage (" + message + ")");
 			}
-		} catch (final JMSException | /*FacadeException |*/ NumberFormatException e) {
+		} catch (final JMSException | FacadeException e) {
 			LOGGER.error(e, e);
 		}
 	}

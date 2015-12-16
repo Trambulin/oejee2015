@@ -1,5 +1,6 @@
 package hu.oe.pancakestore.jmsclient;
 
+import java.util.Date;
 import java.util.Properties;
 
 import javax.jms.Connection;
@@ -15,6 +16,12 @@ import javax.naming.NamingException;
 
 import hu.oe.pancakestore.serviceclient.domain.AddressStub;
 import hu.oe.pancakestore.serviceclient.domain.CustomerStub;
+import hu.oe.pancakestore.serviceclient.domain.DeliveryStatusStub;
+import hu.oe.pancakestore.serviceclient.domain.EmployeeStub;
+import hu.oe.pancakestore.serviceclient.domain.OrderHeaderStub;
+import hu.oe.pancakestore.serviceclient.domain.PancakeStub;
+import hu.oe.pancakestore.serviceclient.domain.PaymentMethodStub;
+import hu.oe.pancakestore.serviceclient.domain.OrderItemStub;
 
 public class SimpleClient {
 
@@ -34,7 +41,9 @@ public class SimpleClient {
 		final MessageProducer producer = session.createProducer(destination);
 		connection.start();
 
-		final ObjectMessage objectMessage=session.createObjectMessage(new CustomerStub(new AddressStub(1111,"Utca","Házszám"),"Bunyós Pityú","0672 23 23 233","pityu.bunyos@gmail.com","Agresszív vásárló"));
+		OrderHeaderStub orderHeaderStub= new OrderHeaderStub(new CustomerStub(new AddressStub(1037,"KUNIGUNDA UTJA 35.","2B"),"KOVACS JANOS","0630-5650257","kovacs.janos@gmail.com",""),new EmployeeStub(new AddressStub(1117,"IRINYI JOZSEF UTCA 42.","808"),"NAGY JOZSEF","0670-43-53-187",""),DeliveryStatusStub.InProgress,2000.0F,new Date(),PaymentMethodStub.CARD);
+		orderHeaderStub.addorderItems(new OrderItemStub(new PancakeStub("CSOKIS PALACSINTA",1000,""),2,2000.0F));
+		final ObjectMessage objectMessage=session.createObjectMessage(orderHeaderStub);
 		
 		producer.send(objectMessage);
 		

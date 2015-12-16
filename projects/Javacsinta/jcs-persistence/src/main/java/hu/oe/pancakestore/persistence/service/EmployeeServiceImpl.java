@@ -58,6 +58,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
+	public Employee readbyPhone(String phone) throws PersistenceServiceException {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Get Employee by PHONE (" + phone + ")");
+		}
+		Employee result = null;
+		try {
+			result = this.entityManager.createNamedQuery(EmployeeQuery.GET_BY_PHONE, Employee.class).setParameter(EmployeeParameter.PHONE, phone).getSingleResult();
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error when fetching Employee by PHONE (" + phone + ")! " + e.getLocalizedMessage(), e);
+		}
+		return result;
+	}
+	
+	
+	@Override
 	public List<Employee> readAll() throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Get Employess");

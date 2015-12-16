@@ -9,22 +9,22 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 
-import hu.oe.pancakestore.serviceclient.domain.orderItemStub;
+import hu.oe.pancakestore.serviceclient.domain.OrderItemStub;
 import hu.oe.pancakestore.serviceclient.domain.orderDetailStub;
 import hu.oe.pancakestore.persistence.entity.OrderItem;
 import hu.oe.pancakestore.persistence.result.orderDetailResult;
 
 @Stateless
 
-public class orderItemConverterImpl implements orderItemConverter {
+public class OrderItemConverterImpl implements OrderItemConverter {
 
 
 @EJB
 private PancakeConverter pancakeconverter;
 	
 	@Override
-	public orderItemStub to(OrderItem OrderItems) {
-		return new orderItemStub(this.pancakeconverter.to(OrderItems.getPancake()),OrderItems.getAmount(),OrderItems.getTotal_price());
+	public OrderItemStub to(OrderItem OrderItems) {
+		return new OrderItemStub(this.pancakeconverter.to(OrderItems.getPancake()),OrderItems.getAmount(),OrderItems.getTotal_price());
 	}
 
 	@Override

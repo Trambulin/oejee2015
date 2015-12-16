@@ -12,6 +12,7 @@ public interface OrderHeaderFacade {
 
 	OrderHeaderStub getOrderHeader(Long id) throws FacadeException;
 
-
 	List<OrderHeaderStub> getOrderHeaders () throws FacadeException;
+	
+	void CreateNewOrder(OrderHeaderStub orderheaderstub) throws FacadeException;
 }

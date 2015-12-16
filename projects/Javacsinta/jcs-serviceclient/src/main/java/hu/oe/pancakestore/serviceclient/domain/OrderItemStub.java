@@ -2,7 +2,7 @@ package hu.oe.pancakestore.serviceclient.domain;
 
 import java.io.Serializable;
 
-public class orderItemStub implements Serializable{
+public class OrderItemStub implements Serializable{
 
 	/**
 	 * 
@@ -13,14 +13,14 @@ public class orderItemStub implements Serializable{
 	private Float totalPrice;
 	
 	
-	public orderItemStub(PancakeStub pancake, int amount, Float totalPrice) {
+	public OrderItemStub(PancakeStub pancake, int amount, Float totalPrice) {
 		super();
 		this.pancake = pancake;
 		this.amount = amount;
 		this.totalPrice = totalPrice;
 	}
 	
-	public orderItemStub() {
+	public OrderItemStub() {
 		
 		this(null,0,null);
 	}

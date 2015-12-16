@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import hu.oe.pancakestore.serviceclient.domain.orderItemStub;
+import hu.oe.pancakestore.serviceclient.domain.OrderItemStub;
 import hu.oe.pancakestore.serviceclient.domain.orderDetailStub;
 import hu.oe.pancakestore.persistence.entity.OrderItem;
 import hu.oe.pancakestore.persistence.result.orderDetailResult;
@@ -13,9 +13,9 @@ import hu.oe.pancakestore.persistence.result.orderDetailResult;
 
 
 @Local
-public interface orderItemConverter {
+public interface OrderItemConverter {
 
-	orderItemStub to(OrderItem OrderItems);
+	OrderItemStub to(OrderItem OrderItems);
 
 	//List<orderItemStub> to(List<OrderItem> orderItems);
 

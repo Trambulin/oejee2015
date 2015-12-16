@@ -58,6 +58,22 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
+	public Customer readbyEmail(String email) throws PersistenceServiceException {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Get Customer by Email (" + email + ")");
+		}
+		Customer result = null;
+		try {
+			result = this.entityManager.createNamedQuery(CustomerQuery.GET_BY_EMAIL, Customer.class).setParameter(CustomerParameter.EMAIL, email).getSingleResult();
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error when fetching Customer by Email (" + email + ")! " + e.getLocalizedMessage(), e);
+		}
+		return result;
+	
+	}
+	
+	@Override
 	public List<Customer> readAll() throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Get Customers");

@@ -10,7 +10,7 @@ import hu.oe.pancakestore.serviceclient.exception.FacadeException;
 
 
 @Local
-public interface orderItemFacade {
+public interface OrderItemFacade {
 
 	List<orderDetailStub> getorderDetails(String customer) throws FacadeException;
 	//public int count(Long pancake_id) throws PersistenceServiceException;

@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
 
 import org.apache.log4j.Logger;
 
-import hu.oe.pancakestore.ejbservice.converter.orderItemConverter;
+import hu.oe.pancakestore.ejbservice.converter.OrderItemConverter;
 import hu.oe.pancakestore.serviceclient.domain.orderDetailStub;
 import hu.oe.pancakestore.serviceclient.exception.FacadeException;
 import hu.oe.pancakestore.serviceclient.util.ApplicationError;
@@ -18,9 +18,9 @@ import hu.oe.pancakestore.persistence.service.orderItemService;
 
 
 @Stateless(mappedName = "ejb/orderItemFacade")
-public class orderItemFacadeImpl implements orderItemFacade {
+public class OrderItemFacadeImpl implements OrderItemFacade {
 
-	private static final Logger LOGGER = Logger.getLogger(orderItemFacadeImpl.class);
+	private static final Logger LOGGER = Logger.getLogger(OrderItemFacadeImpl.class);
 
 	@EJB
 	CustomerService customerService;
@@ -29,7 +29,7 @@ public class orderItemFacadeImpl implements orderItemFacade {
 	orderItemService orderItemService;
 	
 	@EJB
-	private orderItemConverter converter;
+	private OrderItemConverter converter;
 	
 	@Override
 	public List<orderDetailStub> getorderDetails(String customer) throws FacadeException {
