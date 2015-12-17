@@ -28,7 +28,7 @@ public class PancakeClient {
 		System.out.println(new PancakeClient().invoke());
 	}
 
-	private List<PancakeStub> invoke() {
+	public List<PancakeStub> invoke() {
 		List<PancakeStub> customers = null;
 		try {
 			final PancakeFacadeRemote facade = this.lookup();

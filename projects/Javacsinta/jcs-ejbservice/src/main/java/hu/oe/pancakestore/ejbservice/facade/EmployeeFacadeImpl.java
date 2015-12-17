@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import org.apache.log4j.Logger;
 
 import hu.oe.pancakestore.ejbservice.converter.EmployeeConverter;
+import hu.oe.pancakestore.serviceclient.EmployeeFacadeRemote;
 import hu.oe.pancakestore.serviceclient.domain.EmployeeStub;
 import hu.oe.pancakestore.serviceclient.exception.FacadeException;
 import hu.oe.pancakestore.serviceclient.util.ApplicationError;
@@ -18,7 +19,7 @@ import hu.oe.pancakestore.persistence.service.EmployeeService;
 
 
 @Stateless(mappedName = "ejb/employeeFacade")
-public class EmployeeFacadeImpl implements EmployeeFacade {
+public class EmployeeFacadeImpl implements EmployeeFacade, EmployeeFacadeRemote {
 
 	private static final Logger LOGGER = Logger.getLogger(EmployeeFacadeImpl.class);
 
