@@ -26,7 +26,7 @@
 				- management links</a>
 		</div>
 		<div class="article">
-			<table class="pancakesstable">
+			<table class="listtable">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -43,9 +43,10 @@
 									out.print(pancake.getName());
 								%>
 						</a></td>
-						<td>"> <%
-							out.print(pancake.getPrice());
-						%>Ft
+						<td>
+							<%
+								out.print(pancake.getPrice());
+							%> Ft
 						</td>
 					</tr>
 					<%

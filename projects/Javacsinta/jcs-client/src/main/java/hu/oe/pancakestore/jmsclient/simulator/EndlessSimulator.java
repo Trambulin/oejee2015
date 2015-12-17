@@ -5,7 +5,6 @@ import javax.naming.NamingException;
 
 import org.apache.log4j.Logger;
 
-import hu.oe.pancakestore.jmsclient.PancakeProducer;
 import hu.oe.pancakestore.jmsclient.QueueMessageProducer;
 import hu.oe.pancakestore.serviceclient.domain.OrderHeaderStub;
 

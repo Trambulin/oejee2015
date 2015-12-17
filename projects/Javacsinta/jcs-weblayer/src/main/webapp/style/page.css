@@ -22,7 +22,7 @@ body {
 	padding-top:2%;
 }
 
-.pancakesstable {
+.listtable {
 	color: black;
 	font-weight: normal;
 	padding: 0px;
@@ -35,12 +35,12 @@ body {
 	width: 60%;
 }
 
-.pancakesstable thead {
+.listtable thead {
 	text-align: center;
 	font-weight: bold;
 }
 
-.pancakesstable td {
+.listtable td {
 	border: 1px solid;
 	padding: 2px;
 }

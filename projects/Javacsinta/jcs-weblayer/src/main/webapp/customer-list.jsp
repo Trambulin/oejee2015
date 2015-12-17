@@ -20,7 +20,7 @@
 		</div>
 		<div class="nav"></div>
 		<div class="article">
-			<table class="customerstable">
+			<table class="listtable">
 				<thead>
 					<tr>
 						<th>Name</th>
