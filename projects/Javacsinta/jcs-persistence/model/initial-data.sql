@@ -4,13 +4,18 @@ INSERT INTO pancake (pancake_id, pancake_name,pancake_price,pancake_description)
 
 INSERT INTO address (address_id, address_postcode,address_street,address_door) VALUES (1, 1037,'KUNIGUNDA UTJA 35.','2B');
 INSERT INTO address (address_id, address_postcode,address_street,address_door) VALUES (2, 1117,'IRINYI JOZSEF UTCA 42.','808');
+INSERT INTO address (address_id, address_postcode,address_street,address_door) VALUES (3, 1900,'LO UTCA 1.','6');
+INSERT INTO address (address_id, address_postcode,address_street,address_door) VALUES (4, 1035,'TEGLA UTCA 3.','1');
+INSERT INTO address (address_id, address_postcode,address_street,address_door) VALUES (5, 1098,'GALAMB UTCA 24.','1C');
 
 INSERT INTO payment_method (payment_method_id,payment_method_description) VALUES (0, 'CASH');
 INSERT INTO payment_method (payment_method_id,payment_method_description) VALUES (1, 'CARD');
 
 INSERT INTO customer (customer_id,customer_address_id,customer_name,customer_phone,customer_email,customer_other_details) VALUES (1, 1,'KOVACS JANOS','0630-5650257','kovacs.janos@gmail.com','');
-
+INSERT INTO customer (customer_id,customer_address_id,customer_name,customer_phone,customer_email,customer_other_details) VALUES (2, 3,'VARGA VIKTOR','0670-1320277','varga.viktor@yahoo.com','');
+INSERT INTO customer (customer_id,customer_address_id,customer_name,customer_phone,customer_email,customer_other_details) VALUES (3, 5,'DOBOSI ERIKA','0620-6874512','dobosi.erika@hotmail.com','');
 INSERT INTO employee (employee_id,employee_address_id,employee_name,employee_phone,employee_other_details) VALUES (1, 2,'NAGY JOZSEF','0670-43-53-187','');
+INSERT INTO employee (employee_id,employee_address_id,employee_name,employee_phone,employee_other_details) VALUES (2, 4,'FABO BRIGITTA','0620-12-23-345','');
 
 INSERT INTO delivery_status (delivery_status_id,delivery_status_description) VALUES (0, 'InProgress');
 INSERT INTO delivery_status (delivery_status_id,delivery_status_description) VALUES (1, 'Delivered');
