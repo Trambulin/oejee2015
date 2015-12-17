@@ -26,14 +26,14 @@ public class CustomerListView extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger(CustomerListView.class);
 
 	private static final String ATTRIBUTE_CUSTOMERS = "customers";
-	private static final String PAGE = "customer-list.jsp";
+	private static final String PAGE = "list.jsp";
 
 	@EJB
 	private CustomerFacade facade;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LOGGER.info("Get all customers");
+		LOGGER.info("Get All Books");
 		try {
 			final List<CustomerStub> customers = this.facade.getCustomers();
 			request.setAttribute(ATTRIBUTE_CUSTOMERS, customers);

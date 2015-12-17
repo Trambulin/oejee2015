@@ -1,28 +1,10 @@
 body {
 	font-size: 100%;
 	font-family: Arial, Verdana, sans-serif;
-	background-color: #fff18a;
-	margin: 5%;
-	padding: 5%;
+	background-color: #ffffff;
 }
 
-.header {
-	padding-left: 10%;
-	padding-right: 10%;
-}
-
-.nav {
-	padding-left: 10%;
-	padding-right: 10%;
-}
-
-.article {
-	padding-left: 10%;
-	padding-right: 10%;
-	padding-top:2%;
-}
-
-.pancakesstable {
+.bookstable {
 	color: black;
 	font-weight: normal;
 	padding: 0px;
@@ -32,15 +14,15 @@ body {
 	margin-right: 20px;
 	border: 0px;
 	border-spacing: 0px;
-	width: 60%;
+	width: 600px;
 }
 
-.pancakesstable thead {
+.bookstable thead {
 	text-align: center;
 	font-weight: bold;
 }
 
-.pancakesstable td {
+.bookstable td, .bookstable th {
 	border: 1px solid;
 	padding: 2px;
 }
