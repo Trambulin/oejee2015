@@ -34,15 +34,7 @@ public class Activity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorActivity")
 	@Column(name = "activity_id", nullable = false)
 	private Long id;
-/*
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "activity_student_id", referencedColumnName = "student_id", nullable = false)
-	private Student student;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "activity_subject_id", referencedColumnName = "subject_id", nullable = false)
-	private Subject subject;
-*/
 	@Column(name = "character_id", nullable = false)
 	private Long characterId;
 	

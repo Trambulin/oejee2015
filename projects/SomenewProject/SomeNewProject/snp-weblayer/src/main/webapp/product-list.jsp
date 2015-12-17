@@ -7,13 +7,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="style/page.css" />
-<title>SomeNewProject</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- <link rel="stylesheet" type="text/css" href="style/page.css" />	 -->
+	<title>SomeNewProject</title>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" />	
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 </head>
 <body>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.table-property').DataTable();
+		});
+	</script>	
+	
 	<h2>Products</h2>
-	<table class="table-property">
+	<table class="table-property table-striped">
 		<tr>
 			<th>Serial</th>
 			<th>Name</th>

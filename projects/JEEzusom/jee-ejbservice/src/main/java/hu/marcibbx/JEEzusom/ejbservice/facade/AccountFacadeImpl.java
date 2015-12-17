@@ -64,7 +64,7 @@ public class AccountFacadeImpl implements AccountFacade {
 		try {
 			final AccountStub accountRet = this.converter.to(this.accountService.create(account.getName(), account.getFirstName(), account.getLastName(), account.getEmail(), account.getPassword()));
 			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug("Add a new Account (subject: "  + ", neptun: " +  ", grade: "  + ", note: "  + ") --> " );
+				LOGGER.debug("Add a new Account" );
 			}
 			return accountRet;
 		} catch (final PersistenceServiceException e) {

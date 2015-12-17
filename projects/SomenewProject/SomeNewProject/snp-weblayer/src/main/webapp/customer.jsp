@@ -5,9 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="style/page.css" />
-<title><% out.print(customer.getName() + " " + customer.getPassword()); %> | SomeNewProject</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="style/page.css" />
+	<title>SomeNewProject</title>
 </head>
 <body>
 	<h2>Customer - <% out.print(customer.getName()); %></h2>

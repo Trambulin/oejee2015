@@ -9,6 +9,7 @@ import java.util.Date;
 @XmlRootElement(name = "account")
 public class AccountStub {
 
+	private Long id;
 	private final String firstName;
 	private final String lastName;
 	private final String name;
@@ -37,6 +38,15 @@ public class AccountStub {
 		this.banExpire = null;
 		this.characters = null;
 	}
+	@XmlElement(name = "accountId")
+	public Long getId(){
+		return this.id;
+	}
+	public void setId(Long id)
+	{
+		this.id = id;
+	}
+	
 	@XmlElement(name = "name")
 	public String getName() {
 		return this.name;
