@@ -23,7 +23,7 @@ private CustomerConverter customerconverter;
 private EmployeeConverter employeeconverter;
 
 @EJB
-private orderItemConverter orderItemconverter;
+private OrderItemConverter orderItemconverter;
 
 	
 	@Override

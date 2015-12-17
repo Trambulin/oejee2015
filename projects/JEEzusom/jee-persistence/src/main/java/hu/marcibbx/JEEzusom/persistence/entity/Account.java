@@ -31,7 +31,7 @@ import hu.marcibbx.JEEzusom.persistence.query.AccountQuery;
 		@NamedQuery(name = AccountQuery.GET_BY_EMAIL, query = "SELECT s FROM Account s WHERE s.email=:" + AccountParameter.EMAIL),
 		@NamedQuery(name = AccountQuery.GET_BY_NAME, query = "SELECT s FROM Account s WHERE s.name=:" + AccountParameter.NAME),
 		@NamedQuery(name = AccountQuery.GET_BY_ID, query = "SELECT s FROM Account s WHERE s.account_id=:" + AccountParameter.ACCOUNT_ID),
-		@NamedQuery(name = AccountQuery.GET_ALL, query = "SELECT s FROM Account s ORDER BY s.name"),
+		@NamedQuery(name = AccountQuery.GET_ALL, query = "SELECT s FROM Account s ORDER BY s.account_id"),
 		@NamedQuery(name = AccountQuery.REMOVE_BY_ID, query = "DELETE FROM Account s WHERE s.id=:" + AccountParameter.ACCOUNT_ID),
 		@NamedQuery(name = AccountQuery.REMOVE_BY_ACCOUNT_ID, query = "DELETE FROM Account s WHERE s.account_id=:" + AccountParameter.ACCOUNT_ID)
 		//
@@ -70,9 +70,6 @@ public class Account implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "ban_expire", nullable = false)
 	private Date banExpire;
-
-	//@OneToMany(fetch = FetchType.LAZY, targetEntity = Mark.class, mappedBy = "student")
-	//private final Set<Mark> marks;
 
 	public Account()
 	{
@@ -130,17 +127,6 @@ public class Account implements Serializable {
 		this.email = email;
 	}
 
-	/*public Institute getInstitute() {
-		return this.institute;
-	}
-
-	public void setInstitute(Institute institute) {
-		this.institute = institute;
-	}
-
-	public Set<Mark> getMarks() {
-		return this.marks;
-	}*/
 
 	@Override
 	public String toString() {

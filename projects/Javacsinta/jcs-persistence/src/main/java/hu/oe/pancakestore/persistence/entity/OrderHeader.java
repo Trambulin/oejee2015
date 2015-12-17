@@ -43,7 +43,7 @@ public class OrderHeader implements Serializable {
 	@Id
 	@SequenceGenerator(name = "generatorOrderHeader", sequenceName = "order_header_order_header_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorOrderHeader")
-	@Column(name = "order_header_id", nullable = false, updatable = false, insertable = true)
+	@Column(name = "order_header_id", nullable = false)
 	private Long id;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
@@ -56,9 +56,9 @@ public class OrderHeader implements Serializable {
 	private Employee employee ;
 
 	//Unidirectional OneToMany, No inverse ManyToOne, No Join Table
-	@JoinColumn(name="order_item_order_header_id", referencedColumnName="order_header_id")
+	@JoinColumn(name="order_item_order_header_id", referencedColumnName="order_header_id", nullable=false)
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Set<OrderItem> OrderItems;
+	private Set<OrderItem> orderItems;
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "order_header_delivery_status_id", nullable = false)
@@ -76,6 +76,26 @@ public class OrderHeader implements Serializable {
 	@Column(name = "order_header_payment_method_id", nullable = false)
 	private PaymentMethod paymentMethod;
 	
+	
+	
+	
+	public OrderHeader () {
+		
+		this(null,null,null,null,null,null,null);
+	}
+	
+	public OrderHeader(Customer customer, Employee employee, Set<OrderItem> orderItems,
+			DeliveryStatus deliverytStatus, Float total_price, Date date, PaymentMethod paymentMethod) {
+		
+		this.customer = customer;
+		this.employee = employee;
+		this.orderItems = orderItems;
+		this.deliverytStatus = deliverytStatus;
+		this.total_price = total_price;
+		this.date = date;
+		this.paymentMethod = paymentMethod;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -101,11 +121,11 @@ public class OrderHeader implements Serializable {
 	}
 
 	public Set<OrderItem> getorderItems() {
-		return OrderItems;
+		return orderItems;
 	}
 
 	public void setorderItem(Set<OrderItem> OrderItems) {
-		this.OrderItems = OrderItems;
+		this.orderItems = OrderItems;
 	}
 
 	public DeliveryStatus getDeliverytStatus() {
@@ -146,8 +166,8 @@ public class OrderHeader implements Serializable {
 
 	@Override
 	public String toString() {
-		return "OrderHeader [id=" + id + ", customer=" + customer + ", employee=" + employee + ", OrderItems="
-				+ OrderItems + ", deliverytStatus=" + deliverytStatus + ", total_price=" + total_price + ", date="
+		return "OrderHeader [id=" + id + ", customer=" + customer + ", employee=" + employee + ", orderItems="
+				+ orderItems + ", deliverytStatus=" + deliverytStatus + ", total_price=" + total_price + ", date="
 				+ date + ", paymentMethod=" + paymentMethod + "]";
 	}
 	

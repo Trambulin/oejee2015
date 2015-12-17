@@ -11,9 +11,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="style/page.css" />
-<title>SomeNewProject</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="style/page.css" />
+	<title>SomeNewProject</title>	
 </head>
 <body>
 	<h2>ProductOrder - <% out.print(productOrder.getNumber()); %></h2>
