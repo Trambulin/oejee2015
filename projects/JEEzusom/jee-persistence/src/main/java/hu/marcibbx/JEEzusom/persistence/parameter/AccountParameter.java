@@ -2,7 +2,7 @@ package hu.marcibbx.JEEzusom.persistence.parameter;
 
 public class AccountParameter {
 
-	public static final String ACCOUNT_ID = "accountId";
+	public static final String ACCOUNT_ID = "account_id";
 	public static final String FIRST_NAME = "firstName";
 	public static final String LAST_NAME = "lastName";
 	public static final String NAME = "name";

@@ -14,6 +14,8 @@ public interface AccountFacade {
 
 	List<AccountStub> getAllAccounts() throws AdaptorException;
 
-	void removeAccount(String name) throws AdaptorException;
+	void removeAccount(Long accountId) throws AdaptorException;
+	
+	AccountStub addAccount(AccountStub account) throws AdaptorException;
 
 }

@@ -17,4 +17,6 @@ public interface CustomerService {
 	void delete(Long id) throws PersistenceServiceException;
 	
 	Customer create(String name, String password, String role) throws PersistenceServiceException;
+	
+	Customer setPassword(Long id, String password) throws PersistenceServiceException;
 }

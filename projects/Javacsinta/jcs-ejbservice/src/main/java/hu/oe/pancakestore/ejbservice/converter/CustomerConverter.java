@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.Local;
 
 
-import hu.oe.pancakestore.ejbservice.domain.CustomerStub;
+import hu.oe.pancakestore.serviceclient.domain.CustomerStub;
 
 import hu.oe.pancakestore.persistence.entity.Customer;
 

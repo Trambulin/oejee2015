@@ -13,9 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 
-import hu.oe.pancakestore.ejbservice.domain.CustomerStub;
-import hu.oe.pancakestore.ejbservice.exception.FacadeException;
-
+import hu.oe.pancakestore.serviceclient.domain.CustomerStub;
+import hu.oe.pancakestore.serviceclient.exception.FacadeException;
 import hu.oe.pancakestore.ejbservice.facade.CustomerFacade;
 
 @WebServlet("/CustomerPing")

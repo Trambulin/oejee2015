@@ -14,6 +14,8 @@ public interface CustomerService {
 	Customer read(Long id) throws PersistenceServiceException;
 
 	Customer read(String name) throws PersistenceServiceException;
+	
+	Customer readbyEmail(String email) throws PersistenceServiceException;
 
 	List<Customer> readAll() throws PersistenceServiceException;
 

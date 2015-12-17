@@ -13,5 +13,7 @@ public interface EmployeeService {
 
 	Employee read(String name) throws PersistenceServiceException;
 
+	Employee readbyPhone(String phone) throws PersistenceServiceException;
+	
 	List<Employee> readAll() throws PersistenceServiceException;
 }

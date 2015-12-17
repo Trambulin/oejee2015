@@ -13,7 +13,7 @@ public class AttributeStub {
 		this.name = name;
 	}
 
-	@XmlElement(name = "subject")
+	@XmlElement(name = "name")
 	public String getName() {
 		return this.name;
 	}

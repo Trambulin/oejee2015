@@ -54,7 +54,7 @@ public class TrainerStub {
 		this.weight = weight;
 	}
 
-	@XmlElement(name = "contacts")
+	@XmlElement(name = "contact")
 	public List<TrainerContactStub> getTrainerContacts() {
 		return trainerContacts;
 	}
@@ -63,7 +63,7 @@ public class TrainerStub {
 		this.trainerContacts = trainerContacts;
 	}
 
-	@XmlElement(name = "qualifications")
+	@XmlElement(name = "qualification")
 	public List<TrainerQualificationStub> getTrainerQualifications() {
 		return trainerQualifications;
 	}

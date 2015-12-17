@@ -23,6 +23,7 @@ import hu.oe.pancakestore.persistence.query.CustomerQuery;
 @Table(name = "customer")
 @NamedQueries(value = { //
 		@NamedQuery(name = CustomerQuery.GET_BY_NAME, query = "SELECT b FROM Customer b WHERE b.name=:" + CustomerParameter.NAME),
+		@NamedQuery(name = CustomerQuery.GET_BY_EMAIL, query = "SELECT b FROM Customer b WHERE b.email=:" + CustomerParameter.EMAIL),
 		@NamedQuery(name = CustomerQuery.GET_BY_ID, query = "SELECT b FROM Customer b WHERE b.id=:" + CustomerParameter.ID),
 		@NamedQuery(name = CustomerQuery.GET_ALL, query = "SELECT b FROM Customer b ORDER BY b.name")
 		//

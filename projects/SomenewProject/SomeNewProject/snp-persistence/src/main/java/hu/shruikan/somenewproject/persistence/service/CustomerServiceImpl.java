@@ -2,6 +2,7 @@ package hu.shruikan.somenewproject.persistence.service;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
@@ -27,6 +28,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@PersistenceContext(unitName = "snp-persistence-unit")
 	private EntityManager entityManager;
+	
+	@EJB
+	private CustomerService customerService;
 
 	@Override
 	public Customer read(Long id) throws PersistenceServiceException {
@@ -82,6 +86,22 @@ public class CustomerServiceImpl implements CustomerService {
 		} catch (final Exception e) {
 			throw new PersistenceServiceException("Unknown error when creating Customer! " + e.getLocalizedMessage(), e);
 		}
+	}
+	
+	public Customer setPassword(Long id, String password) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Set Customer Password");
+		}		
+		
+		try {
+			Customer customer = this.customerService.read(id);
+			customer.setPassword(password);
+			customer = this.entityManager.merge(customer);
+			this.entityManager.flush();
+			return customer;				
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error when setting Customer password! " + e.getLocalizedMessage(), e);
+		}		
 	}
 	
 }

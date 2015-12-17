@@ -20,6 +20,7 @@ public class AccountConverterImpl implements AccountConverter {
 		AccountStub stub = null;
 		if (account != null) {
 			stub = new AccountStub(account.getName(), account.getFirstName(), account.getLastName(), account.getEmail(), account.getPassword());
+			stub.setId(account.getId());
 		}
 		return stub;
 	}

@@ -10,7 +10,7 @@ import hu.marcibbx.JEEzusom.persistence.exception.PersistenceServiceException;
 @Local
 public interface AccountService {
 
-	boolean exists(String name) throws PersistenceServiceException;
+	boolean exists(Long accountId) throws PersistenceServiceException;
 
 	Account read(Long id) throws PersistenceServiceException;
 
@@ -18,5 +18,7 @@ public interface AccountService {
 
 	List<Account> readAll() throws PersistenceServiceException;
 
-	void delete(String name) throws PersistenceServiceException;
+	void delete(Long accountId) throws PersistenceServiceException;
+	
+	Account create(String name, String firstName, String lastName, String email, String password) throws PersistenceServiceException;
 }

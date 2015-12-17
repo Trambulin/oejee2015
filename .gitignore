@@ -41,4 +41,16 @@ projects/Javacsinta/jcs-ejbservice/.classpath
 projects/Javacsinta/jcs-persistence/.classpath
 projects/Javacsinta/jcs-weblayer/.classpath
 projects/Javacsinta/jcs-webservice/.classpath
+projects/Javacsinta/.project
+projects/Javacsinta/.settings/gradle.prefs
+projects/Javacsinta/jcs-ejbservice/.classpath
+projects/Javacsinta/jcs-ejbservice/.settings/gradle.prefs
+projects/Javacsinta/jcs-ejbservice/.settings/org.eclipse.jdt.core.prefs
+projects/Javacsinta/jcs-weblayer/.classpath
+projects/Javacsinta/jcs-weblayer/.settings/gradle.prefs
+projects/Javacsinta/jcs-weblayer/.settings/org.eclipse.jdt.core.prefs
+projects/Javacsinta/jcs-persistence/.classpath
+projects/Javacsinta/jcs-persistence/.project
+projects/Javacsinta/jcs-persistence/.settings/gradle.prefs
+projects/Javacsinta/jcs-persistence/.settings/org.eclipse.jdt.core.prefs
 projects/Ourapplication/condominium/bugshot.bmp

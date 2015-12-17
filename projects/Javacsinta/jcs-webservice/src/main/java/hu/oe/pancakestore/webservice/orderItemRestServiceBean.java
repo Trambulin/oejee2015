@@ -8,9 +8,9 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
-import hu.oe.pancakestore.ejbservice.domain.orderDetailStub;
-import hu.oe.pancakestore.ejbservice.exception.FacadeException;
-import hu.oe.pancakestore.ejbservice.facade.orderItemFacade;
+import hu.oe.pancakestore.serviceclient.domain.orderDetailStub;
+import hu.oe.pancakestore.serviceclient.exception.FacadeException;
+import hu.oe.pancakestore.ejbservice.facade.OrderItemFacade;
 
 @Stateless
 public class orderItemRestServiceBean implements orderItemRestService {
@@ -18,7 +18,7 @@ public class orderItemRestServiceBean implements orderItemRestService {
 	private static final Logger LOGGER = Logger.getLogger(orderItemRestServiceBean.class);
 
 	@EJB
-	private orderItemFacade facade;
+	private OrderItemFacade facade;
 
 	@Override
 	public List<orderDetailStub> getorderDetails(String customer) throws FacadeException {

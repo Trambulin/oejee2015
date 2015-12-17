@@ -5,6 +5,8 @@ INSERT INTO account (first_name, last_name, name, email, password, is_activated,
 	VALUES ('Márton', 'Bognár', 'BMarci', 'marciemail@jeezusom.com', 'ezisnagyontitkos', TRUE, 3, NULL);
 INSERT INTO account (first_name, last_name, name, email, password, is_activated, warn_count, ban_expire) 
 	VALUES ('Dániel', 'Takács', 'TDani', 'daniemail@jeezusom.com', 'szintennagyontitkos', TRUE, 1, '2015/12/24');
+INSERT INTO account (first_name, last_name, name, email, password, is_activated, warn_count, ban_expire)  
+	VALUES ('Test', 'testfirstname', 'testlastname', 'test@jeezusom.com', 'testpassword', TRUE, 0, NULL);
 
 
 --INSTERT INTO attribute
@@ -32,9 +34,13 @@ INSERT INTO character_race (name, bonus_attribute, bonus_amount)
 	
 --INSTERT INTO character_base
 INSERT INTO character_base (name, experience, race_id, is_male, money_amount, account_id) 
-	VALUES ('Beno', 100000, 1, TRUE, 5000, 1);
+	VALUES ('Marci', 500000, 1, TRUE, 5000, 2);
 INSERT INTO character_base (name, experience, race_id, is_male, money_amount, account_id) 
 	VALUES ('Namaron', 100000, 2, TRUE, 5000, 2);
+	INSERT INTO character_base (name, experience, race_id, is_male, money_amount, account_id) 
+	VALUES ('Bognar', 1000, 2, TRUE, 5000, 2);
+INSERT INTO character_base (name, experience, race_id, is_male, money_amount, account_id) 
+	VALUES ('Beno', 100000, 1, TRUE, 5000, 1);
 INSERT INTO character_base (name, experience, race_id, is_male, money_amount, account_id) 
 	VALUES ('Wainwright', 40000, 4, TRUE, 5000, 3);
 

@@ -25,9 +25,10 @@ import hu.marcibbx.JEEzusom.persistence.query.CharacterBaseQuery;
 @Entity
 @Table(name = "character_base")
 @NamedQueries(value = { //
-		@NamedQuery(name = CharacterBaseQuery.COUNT_BY_ACCOUNT_ID, query = "SELECT COUNT(s) FROM CharacterBase s WHERE s.accountId=:" + CharacterBaseParameter.ACCOUNT_ID),
-		@NamedQuery(name = CharacterBaseQuery.GET_BY_NAME, query = "SELECT s FROM CharacterBase WHERE s.name=:" + CharacterBaseParameter.NAME),
-		@NamedQuery(name = CharacterBaseQuery.GET_BY_ID, query = "SELECT s FROM CharacterBase WHERE s.characterId=:" + CharacterBaseParameter.CHARACTER_ID),
+		@NamedQuery(name = CharacterBaseQuery.COUNT_BY_ACCOUNT_ID, query = "SELECT COUNT(s) FROM CharacterBase s WHERE s.account_id=:" + CharacterBaseParameter.ACCOUNT_ID),
+		@NamedQuery(name = CharacterBaseQuery.GET_BY_ACCOUNT_ID, query = "SELECT s FROM CharacterBase s WHERE s.account_id=:" + CharacterBaseParameter.ACCOUNT_ID),
+		@NamedQuery(name = CharacterBaseQuery.GET_BY_NAME, query = "SELECT s FROM CharacterBase s WHERE s.name=:" + CharacterBaseParameter.NAME),
+		@NamedQuery(name = CharacterBaseQuery.GET_BY_ID, query = "SELECT s FROM CharacterBase s WHERE s.character_id=:" + CharacterBaseParameter.CHARACTER_ID),
 		@NamedQuery(name = CharacterBaseQuery.GET_ALL, query = "SELECT s FROM CharacterBase s ORDER BY s.name"),
 		@NamedQuery(name = CharacterBaseQuery.REMOVE_BY_NAME, query = "DELETE FROM CharacterBase s WHERE s.name=:" + CharacterBaseParameter.NAME)
 		//
@@ -40,13 +41,13 @@ public class CharacterBase implements Serializable {
 	@SequenceGenerator(name = "generatorCharacterBase", sequenceName = "character_base_character_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorCharacterBase")
 	@Column(name = "character_id", nullable = false, updatable = false, insertable = false)
-	private Long id;
+	private Long character_id;
 
 	@Column(name = "name", nullable = false)
 	private String name;
 
 	@Column(name = "account_id", nullable = false)
-	private Long  accountId;
+	private Long  account_id;
 
 	@Column(name = "money_amount", nullable = false)
 	private Integer moneyAmount;
@@ -55,28 +56,28 @@ public class CharacterBase implements Serializable {
 	private Long experience;
 	
 	@Column(name = "race_id", nullable = false)
-	private Integer raceId;
+	private Long raceId;
 	
 	@Column(name = "is_male", nullable = false)
 	private Boolean isMale;
 	
-	/*@OneToMany(fetch = FetchType.LAZY, targetEntity = Mark.class, mappedBy = "student")
-	private final Set<Mark> marks;*/
+	
+	
 	public CharacterBase()
 	{
 		
 		
 	}
 	public CharacterBase(String name, Long accountId, Long raceId, Boolean isMale) {
-		//this.marks = new HashSet<>();
+
 	}
 
 	public Long getId() {
-		return this.id;
+		return this.character_id;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.account_id = id;
 	}
 
 	public String getName() {
@@ -88,11 +89,19 @@ public class CharacterBase implements Serializable {
 	}
 
 	public Long getAccountId() {
-		return this.accountId;
+		return this.account_id;
 	}
 
-	public void setAccountId(Long accountId) {
-		this.accountId = accountId;
+	public Long getRaceId() {
+		return this.raceId;
+	}
+
+	public Boolean getIsMale() {
+		return this.isMale;
+	}
+
+	public void setAccountId(Long account_id) {
+		this.account_id = account_id;
 	}
 	
 	public Long getExperience() {
@@ -102,21 +111,10 @@ public class CharacterBase implements Serializable {
 	public void setExperience(Long experience) {
 		this.experience = experience;
 	}
-	/*public Institute getInstitute() {
-		return this.institute;
-	}
 
-	public void setInstitute(Institute institute) {
-		this.institute = institute;
-	}
-
-	public Set<Mark> getMarks() {
-		return this.marks;
-	}
-*/
 	@Override
 	public String toString() {
-		return "CharacterBase [id=" + this.id + ", name=" + this.name + ", experience=" + this.experience + "]";
+		return "CharacterBase [id=" + this.character_id + ", name=" + this.name + ", experience=" + this.experience + "]";
 	}
 
 }

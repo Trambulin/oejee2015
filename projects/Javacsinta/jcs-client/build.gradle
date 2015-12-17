@@ -1,0 +1,12 @@
+jar { archiveName 'jcs-client.jar' }
+
+repositories { 
+	flatDir { dirs 'lib' }
+}
+
+dependencies {
+	compile group: 'org.jboss.spec', name: 'jboss-javaee-6.0', version: jbossjee6Version
+	compile group: 'org.jboss.as', name: 'jboss-as-jms-client-bom', version: jbossjmsclientVersion
+	compile project(':jcs-serviceclient')
+	compile name: 'jboss-client', ext: 'jar'
+}

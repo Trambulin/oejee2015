@@ -16,4 +16,5 @@ public interface PancakeService {
 	List<Pancake> readAll() throws PersistenceServiceException;
 	boolean exists(Long pancake_id) throws PersistenceServiceException;
 	void delete(Long pancake_id) throws PersistenceServiceException;
+	Pancake create(/*Long pancakeId,*/ String name, int price, String description) throws PersistenceServiceException;
 }

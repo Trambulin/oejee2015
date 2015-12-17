@@ -18,4 +18,6 @@ public interface CustomerFacade {
 	void removeCustomer(Long id) throws AdaptorException;
 
 	CustomerStub create(String name, String password, String role) throws AdaptorException;
+	
+	CustomerStub setPassword(Long id, String password) throws AdaptorException;
 }

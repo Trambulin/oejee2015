@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.ws.rs.DELETE"/>
-<fullyQualifiedTypeName name="hu.oe.pancakestore.persistence.service.orderItemService"/>
-<fullyQualifiedTypeName name="hu.oe.pancakestore.persistence.query.orderItemQuery"/>
-<fullyQualifiedTypeName name="hu.oe.pancakestore.persistence.parameter.orderItemParameter"/>
-<fullyQualifiedTypeName name="hu.oe.pancakestore.persistence.query.PancakeQuery"/>
-<fullyQualifiedTypeName name="hu.oe.pancakestore.persistence.parameter.PancakeParameter"/>
-</qualifiedTypeNameHistroy>

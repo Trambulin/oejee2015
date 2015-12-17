@@ -40,6 +40,20 @@ public class CharacterBaseServiceImpl implements CharacterBaseService {
 	private CharacterRaceService characterRaceService;
 
 	@Override
+	public int count(Long accountId) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Count Account's characters by account's accountId (" + accountId + ")");
+		}
+		try {
+			return this.entityManager.createNamedQuery(CharacterBaseQuery.COUNT_BY_ACCOUNT_ID, Long.class).setParameter(CharacterBaseParameter.ACCOUNT_ID, accountId)
+					.getSingleResult().intValue();
+		} catch (final Exception e) {
+			throw new PersistenceServiceException(
+					"Unknown error during counting Account's character by account's accountId (" + accountId + ")! " + e.getLocalizedMessage(), e);
+		}
+	}
+	
+	@Override
 	public int count(String accountId) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Count Account owner's characters by account owner's account id (" + accountId + ")");
@@ -71,21 +85,21 @@ public class CharacterBaseServiceImpl implements CharacterBaseService {
 		}
 	}
 
-	/*@Override
-	public List<MarkDetailResult> read(Long subjectId) throws PersistenceServiceException {
+	@Override
+	public List<CharacterBase> read(Long accountId) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Get all MarkDetailResult by subject id (" + subjectId + ")");
+			LOGGER.debug("Get all CharacterBase by account id (" + accountId + ")");
 		}
-		List<MarkDetailResult> result = null;
+		List<CharacterBase> result = null;
 		try {
-			result = this.entityManager.createNamedQuery(MarkDetailQuery.GET_AVG_MARKDETAILS, MarkDetailResult.class)
-					.setParameter(MarkDetailParameter.SUBJECT_ID, subjectId).getResultList();
+			result = this.entityManager.createNamedQuery(CharacterBaseQuery.GET_BY_ACCOUNT_ID, CharacterBase.class)
+					.setParameter(CharacterBaseParameter.ACCOUNT_ID, accountId).getResultList();
 		} catch (final Exception e) {
-			throw new PersistenceServiceException("Unknown error when fetching Students! " + e.getLocalizedMessage(), e);
+			throw new PersistenceServiceException("Unknown error when fetching CharacterBases! " + e.getLocalizedMessage(), e);
 		}
 		return result;
 	}
-	*/
+	
 	@Override
 	public CharacterBase read(String name) throws PersistenceServiceException {
 		if (LOGGER.isDebugEnabled()) {
@@ -100,6 +114,24 @@ public class CharacterBaseServiceImpl implements CharacterBaseService {
 			}
 		} catch (final Exception e) {
 			throw new PersistenceServiceException("Unknown error when fetching matching Character (name: " + name + ")! " + e.getLocalizedMessage(), e);
+		}
+		return result;
+	}
+	
+	@Override
+	public CharacterBase readId(Long accountId) throws PersistenceServiceException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Get first matching Character by criteria (account: " + accountId + ")");
+		}
+		CharacterBase result = null;
+		try {
+			List<CharacterBase> results = this.entityManager.createNamedQuery(CharacterBaseQuery.GET_BY_ACCOUNT_ID, CharacterBase.class)
+					.setParameter(CharacterBaseParameter.ACCOUNT_ID, accountId).getResultList();
+			if (results.size() > 0) {
+				result = results.get(0);
+			}
+		} catch (final Exception e) {
+			throw new PersistenceServiceException("Unknown error when fetching matching Character (accountId: " + accountId + ")! " + e.getLocalizedMessage(), e);
 		}
 		return result;
 	}
